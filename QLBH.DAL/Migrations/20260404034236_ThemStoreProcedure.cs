@@ -389,6 +389,46 @@ namespace QLBH.DAL.Migrations
                 name: "IX_Territory_RegionId",
                 table: "Territory",
                 column: "RegionId");
+
+            migrationBuilder.Sql(@"
+                CREATE OR ALTER PROC [dbo].[XemDanhSachSanPham]
+                AS BEGIN
+                    SELECT pr.ProductID, pr.ProductName, pr.UnitPrice, pr.QuantityPerUnit, cata.CategoryName, sup.CompanyName
+                    FROM Products pr
+                    LEFT JOIN Suppliers sup ON pr.SupplierID = sup.SupplierID
+                    LEFT JOIN Categories cata ON pr.CategoryID = cata.CategoryID
+                END
+            ");
+
+            migrationBuilder.Sql(@"
+                CREATE OR ALTER PROCEDURE [dbo].[LaySanPhamTheoId] (@ProductID INT)
+                AS BEGIN
+                    SELECT ProductID, ProductName, UnitPrice, QuantityPerUnit, CategoryID, SupplierID FROM Products WHERE ProductID = @ProductID
+                END
+            ");
+
+            migrationBuilder.Sql(@"
+                CREATE OR ALTER PROC [dbo].[ThemSanPham] (@ProductName nvarchar(40), @UnitPrice money, @QuantityPerUnit nvarchar(20), @CategoryID int, @SupplierID int)
+                AS BEGIN
+                    INSERT INTO Products(ProductName, UnitPrice, QuantityPerUnit, CategoryID, SupplierID)
+                    VALUES(@ProductName, @UnitPrice, @QuantityPerUnit, @CategoryID, @SupplierID)
+                END
+            ");
+
+            migrationBuilder.Sql(@"
+                CREATE OR ALTER PROC [dbo].[SuaSanPham] (@ProductID int, @ProductName nvarchar(40), @UnitPrice money, @QuantityPerUnit nvarchar(20), @CategoryID int, @SupplierID int)
+                AS BEGIN
+                    UPDATE Products SET ProductName = @ProductName, UnitPrice = @UnitPrice, QuantityPerUnit = @QuantityPerUnit, CategoryID = @CategoryID, SupplierID = @SupplierID
+                    WHERE ProductID = @ProductID
+                END
+            ");
+
+            migrationBuilder.Sql(@"
+                CREATE OR ALTER PROC [dbo].[XoaSanPham] (@ProductID int)
+                AS BEGIN
+                    DELETE FROM Products WHERE ProductID = @ProductID
+                END
+            ");
         }
 
         /// <inheritdoc />
@@ -438,6 +478,13 @@ namespace QLBH.DAL.Migrations
 
             migrationBuilder.DropTable(
                 name: "Suppliers");
+
+            migrationBuilder.Sql("DROP PROCEDURE IF EXISTS [dbo].[XemDanhSachSanPham]");
+            migrationBuilder.Sql("DROP PROCEDURE IF EXISTS [dbo].[LaySanPhamTheoId]");
+            migrationBuilder.Sql("DROP PROCEDURE IF EXISTS [dbo].[ThemSanPham]");
+            migrationBuilder.Sql("DROP PROCEDURE IF EXISTS [dbo].[SuaSanPham]");
+            migrationBuilder.Sql("DROP PROCEDURE IF EXISTS [dbo].[XoaSanPham]");
         }
+
     }
 }
