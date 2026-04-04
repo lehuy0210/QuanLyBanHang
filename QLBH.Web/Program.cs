@@ -3,8 +3,6 @@ using QLBH.DAL;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<QLBH_DBContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("cnstr")));
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient();
 

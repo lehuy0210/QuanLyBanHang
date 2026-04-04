@@ -15,3 +15,4 @@ C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.BLL\obj\Debug\net8.0\QLBH.BLL.dll
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.BLL\obj\Debug\net8.0\refint\QLBH.BLL.dll
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.BLL\obj\Debug\net8.0\QLBH.BLL.pdb
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.BLL\obj\Debug\net8.0\ref\QLBH.BLL.dll
+C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.BLL\obj\Debug\net8.0\QLBH.BLL.sourcelink.json

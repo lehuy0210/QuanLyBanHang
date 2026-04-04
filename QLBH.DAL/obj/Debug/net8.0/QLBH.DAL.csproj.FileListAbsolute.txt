@@ -15,3 +15,4 @@ C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.DAL\obj\Debug\net8.0\ref\QLBH.DAL.
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.DAL\bin\Debug\net8.0\QLBH.Common.dll
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.DAL\bin\Debug\net8.0\QLBH.Common.pdb
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.DAL\obj\Debug\net8.0\QLBH.DAL.csproj.Up2Date
+C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.DAL\obj\Debug\net8.0\QLBH.DAL.sourcelink.json

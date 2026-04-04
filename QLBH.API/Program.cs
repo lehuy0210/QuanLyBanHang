@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using QLBH.DAL;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -8,6 +11,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers().AddNewtonsoftJson();
 
+builder.Services.AddDbContext<QLBH_DBContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("cnstr")));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

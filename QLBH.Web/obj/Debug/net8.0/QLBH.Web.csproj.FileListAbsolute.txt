@@ -258,3 +258,4 @@ C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.Web\obj\Debug\net8.0\QLBH.Web.Razo
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.Web\obj\Debug\net8.0\QLBH.Web.RazorAssemblyInfo.cs
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.Web\bin\Debug\net8.0\libman.json
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.Web\bin\Debug\net8.0\QLBH.Web.staticwebassets.runtime.json
+C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.Web\obj\Debug\net8.0\QLBH.Web.sourcelink.json
