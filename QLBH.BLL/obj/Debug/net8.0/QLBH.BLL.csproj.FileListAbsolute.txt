@@ -1,0 +1,17 @@
+C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.BLL\bin\Debug\net8.0\QLBH.BLL.deps.json
+C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.BLL\bin\Debug\net8.0\QLBH.BLL.dll
+C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.BLL\bin\Debug\net8.0\QLBH.BLL.pdb
+C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.BLL\bin\Debug\net8.0\QLBH.Common.dll
+C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.BLL\bin\Debug\net8.0\QLBH.DAL.dll
+C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.BLL\bin\Debug\net8.0\QLBH.DAL.pdb
+C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.BLL\bin\Debug\net8.0\QLBH.Common.pdb
+C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.BLL\obj\Debug\net8.0\QLBH.BLL.csproj.AssemblyReference.cache
+C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.BLL\obj\Debug\net8.0\QLBH.BLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.BLL\obj\Debug\net8.0\QLBH.BLL.AssemblyInfoInputs.cache
+C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.BLL\obj\Debug\net8.0\QLBH.BLL.AssemblyInfo.cs
+C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.BLL\obj\Debug\net8.0\QLBH.BLL.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.BLL\obj\Debug\net8.0\QLBH.BLL.csproj.Up2Date
+C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.BLL\obj\Debug\net8.0\QLBH.BLL.dll
+C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.BLL\obj\Debug\net8.0\refint\QLBH.BLL.dll
+C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.BLL\obj\Debug\net8.0\QLBH.BLL.pdb
+C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.BLL\obj\Debug\net8.0\ref\QLBH.BLL.dll

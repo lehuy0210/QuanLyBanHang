@@ -1,0 +1,9 @@
+@QLBH.API_HostAddress = http://localhost:5003
+
+GET {{QLBH.API_HostAddress}}/products/
+Accept: application/json
+
+GET {{QLBH.API_HostAddress}}/admin/
+Accept: application/json
+
+###

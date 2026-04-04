@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "QLBH.Web\\QLBH.Web.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "QLBH.API\\QLBH.API.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

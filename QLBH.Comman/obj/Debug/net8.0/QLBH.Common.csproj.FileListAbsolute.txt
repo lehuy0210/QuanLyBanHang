@@ -1,0 +1,11 @@
+C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.Comman\bin\Debug\net8.0\QLBH.Common.deps.json
+C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.Comman\bin\Debug\net8.0\QLBH.Common.dll
+C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.Comman\bin\Debug\net8.0\QLBH.Common.pdb
+C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.Comman\obj\Debug\net8.0\QLBH.Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.Comman\obj\Debug\net8.0\QLBH.Common.AssemblyInfoInputs.cache
+C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.Comman\obj\Debug\net8.0\QLBH.Common.AssemblyInfo.cs
+C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.Comman\obj\Debug\net8.0\QLBH.Common.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.Comman\obj\Debug\net8.0\QLBH.Common.dll
+C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.Comman\obj\Debug\net8.0\refint\QLBH.Common.dll
+C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.Comman\obj\Debug\net8.0\QLBH.Common.pdb
+C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.Comman\obj\Debug\net8.0\ref\QLBH.Common.dll
