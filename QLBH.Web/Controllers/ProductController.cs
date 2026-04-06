@@ -1,15 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using QLBH.Common;
 using QLBH.DAL;
-using QLBH.DAL.Models;
 using System.Data;
-using System.Linq;
-using System.Net.Http;
 using System.Net.Http.Json;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
-using static System.Net.WebRequestMethods;
 
 namespace QLBH.Web.Controllers
 {
@@ -29,10 +23,7 @@ namespace QLBH.Web.Controllers
             _logger = logger;
         }
 
-        private HttpClient CreateApiClient()
-        {
-            return _httpClientFactory.CreateClient("QLBH.API");
-        }
+        private HttpClient CreateApiClient() => _httpClientFactory.CreateClient("QLBH.API");
 
         private void SetApiUnavailableMessage()
         {
@@ -42,17 +33,29 @@ namespace QLBH.Web.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            var model = new ProductReq();
-
-            model.Categories = _context.Categories.Select(c => new CategoryReq { Id = c.CategoryId, Name = c.CategoryName }).ToList();
-            model.Suppliers = _context.Suppliers.Select(s => new SupplierReq { Id = s.SupplierId, Name = s.CompanyName }).ToList();
-
+            var model = new ProductReq
+            {
+                Categories = _context.Categories
+                    .Select(c => new CategoryReq { Id = c.CategoryId, Name = c.CategoryName }).ToList(),
+                Suppliers = _context.Suppliers
+                    .Select(s => new SupplierReq { Id = s.SupplierId, Name = s.CompanyName }).ToList()
+            };
             return View(model);
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(ProductReq sp)
         {
+            if (!ModelState.IsValid)
+            {
+                sp.Categories = _context.Categories
+                    .Select(c => new CategoryReq { Id = c.CategoryId, Name = c.CategoryName }).ToList();
+                sp.Suppliers = _context.Suppliers
+                    .Select(s => new SupplierReq { Id = s.SupplierId, Name = s.CompanyName }).ToList();
+                return View(sp);
+            }
+
             try
             {
                 var client = CreateApiClient();
@@ -60,7 +63,7 @@ namespace QLBH.Web.Controllers
 
                 if (response.IsSuccessStatusCode)
                 {
-                    TempData["Success"] = "Them san pham thanh cong.";
+                    TempData["Success"] = "Thêm sản phẩm thành công!";
                     return RedirectToAction("Create");
                 }
 
@@ -69,13 +72,14 @@ namespace QLBH.Web.Controllers
             }
             catch (HttpRequestException ex)
             {
-                _logger.LogError(ex, "Khong the goi API tao san pham.");
+                _logger.LogError(ex, "Không thể gọi API tạo sản phẩm.");
                 SetApiUnavailableMessage();
             }
 
-            sp.Categories = _context.Categories.Select(c => new CategoryReq { Id = c.CategoryId, Name = c.CategoryName }).ToList();
-            sp.Suppliers = _context.Suppliers.Select(s => new SupplierReq { Id = s.SupplierId, Name = s.CompanyName }).ToList();
-
+            sp.Categories = _context.Categories
+                .Select(c => new CategoryReq { Id = c.CategoryId, Name = c.CategoryName }).ToList();
+            sp.Suppliers = _context.Suppliers
+                .Select(s => new SupplierReq { Id = s.SupplierId, Name = s.CompanyName }).ToList();
             return View(sp);
         }
 
@@ -93,12 +97,12 @@ namespace QLBH.Web.Controllers
                     return View(dt);
                 }
 
-                TempData["Error"] = "Khong lay duoc danh sach san pham tu API.";
+                TempData["Error"] = "Không lấy được danh sách sản phẩm từ API.";
                 return View(new DataTable());
             }
             catch (HttpRequestException ex)
             {
-                _logger.LogError(ex, "Khong the goi API danh sach san pham.");
+                _logger.LogError(ex, "Không thể gọi API danh sách sản phẩm.");
                 SetApiUnavailableMessage();
                 return View(new DataTable());
             }
@@ -121,18 +125,20 @@ namespace QLBH.Web.Controllers
 
                 if (model == null)
                 {
-                    TempData["Error"] = "Khong tim thay san pham can sua.";
+                    TempData["Error"] = "Không tìm thấy sản phẩm cần sửa.";
                     return RedirectToAction("List");
                 }
 
-                model.Categories = _context.Categories.Select(c => new CategoryReq { Id = c.CategoryId, Name = c.CategoryName }).ToList();
-                model.Suppliers = _context.Suppliers.Select(s => new SupplierReq { Id = s.SupplierId, Name = s.CompanyName }).ToList();
+                model.Categories = _context.Categories
+                    .Select(c => new CategoryReq { Id = c.CategoryId, Name = c.CategoryName }).ToList();
+                model.Suppliers = _context.Suppliers
+                    .Select(s => new SupplierReq { Id = s.SupplierId, Name = s.CompanyName }).ToList();
 
                 return View(model);
             }
             catch (HttpRequestException ex)
             {
-                _logger.LogError(ex, "Khong the goi API lay chi tiet san pham {ProductId}.", id);
+                _logger.LogError(ex, "Không thể gọi API lấy chi tiết sản phẩm {ProductId}.", id);
                 SetApiUnavailableMessage();
                 return RedirectToAction("List");
             }
@@ -141,32 +147,44 @@ namespace QLBH.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(ProductReq sp)
         {
+            if (!ModelState.IsValid)
+            {
+                sp.Categories = _context.Categories
+                    .Select(c => new CategoryReq { Id = c.CategoryId, Name = c.CategoryName }).ToList();
+                sp.Suppliers = _context.Suppliers
+                    .Select(s => new SupplierReq { Id = s.SupplierId, Name = s.CompanyName }).ToList();
+                return View(sp);
+            }
+
             try
             {
                 var client = CreateApiClient();
-                var response = await client.PostAsJsonAsync("api/Product/Edit", sp);
+                var response = await client.PutAsJsonAsync("api/Product/Edit", sp);
 
                 if (response.IsSuccessStatusCode)
                 {
-                    TempData["Success"] = "Cap nhat san pham thanh cong.";
+                    TempData["Success"] = "Cập nhật sản phẩm thành công!";
                     return RedirectToAction("List");
                 }
 
                 var errorDetail = await response.Content.ReadAsStringAsync();
-                TempData["Error"] = "Cap nhat that bai. Chi tiet: " + errorDetail;
+                TempData["Error"] = "Cập nhật thất bại. Chi tiết: " + errorDetail;
             }
             catch (HttpRequestException ex)
             {
-                _logger.LogError(ex, "Khong the goi API cap nhat san pham {ProductId}.", sp.Id);
+                _logger.LogError(ex, "Không thể gọi API cập nhật sản phẩm {ProductId}.", sp.Id);
                 SetApiUnavailableMessage();
             }
 
-            sp.Categories = _context.Categories.Select(c => new CategoryReq { Id = c.CategoryId, Name = c.CategoryName }).ToList();
-            sp.Suppliers = _context.Suppliers.Select(s => new SupplierReq { Id = s.SupplierId, Name = s.CompanyName }).ToList();
-
+            sp.Categories = _context.Categories
+                .Select(c => new CategoryReq { Id = c.CategoryId, Name = c.CategoryName }).ToList();
+            sp.Suppliers = _context.Suppliers
+                .Select(s => new SupplierReq { Id = s.SupplierId, Name = s.CompanyName }).ToList();
             return View(sp);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int id)
         {
             try
@@ -176,17 +194,17 @@ namespace QLBH.Web.Controllers
 
                 if (response.IsSuccessStatusCode)
                 {
-                    TempData["Success"] = "Xoa san pham thanh cong!";
+                    TempData["Success"] = "Xóa sản phẩm thành công!";
                 }
                 else
                 {
                     var error = await response.Content.ReadAsStringAsync();
-                    TempData["Error"] = "Xoa that bai! Chi tiet: " + error;
+                    TempData["Error"] = "Xóa thất bại! Chi tiết: " + error;
                 }
             }
             catch (HttpRequestException ex)
             {
-                _logger.LogError(ex, "Khong the goi API xoa san pham {ProductId}.", id);
+                _logger.LogError(ex, "Không thể gọi API xóa sản phẩm {ProductId}.", id);
                 SetApiUnavailableMessage();
             }
 

@@ -518,4 +518,4 @@ C:\Users\Rokisaki\Desktop\QuanLyBanHang\QLBH.Web\obj\Debug\net8.0\refint\QLBH.We
 C:\Users\Rokisaki\Desktop\QuanLyBanHang\QLBH.Web\obj\Debug\net8.0\QLBH.Web.pdb
 C:\Users\Rokisaki\Desktop\QuanLyBanHang\QLBH.Web\obj\Debug\net8.0\QLBH.Web.genruntimeconfig.cache
 C:\Users\Rokisaki\Desktop\QuanLyBanHang\QLBH.Web\obj\Debug\net8.0\ref\QLBH.Web.dll
-C:\Users\Rokisaki\Desktop\QuanLyBanHang\QLBH.Web\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\Rokisaki\Desktop\QuanLyBanHang\QLBH.Web\obj\Debug\net8.0\QLBH.Web.MvcApplicationPartsAssemblyInfo.cache

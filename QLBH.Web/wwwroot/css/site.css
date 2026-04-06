@@ -1,0 +1,33 @@
+/* site.css - Quản Lý Bán Hàng */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+.footer {
+    background-color: #f8f9fa;
+}
+
+.table th {
+    white-space: nowrap;
+}
+
+.btn-sm {
+    margin: 0 2px;
+}
+
+.card {
+    border-radius: 8px;
+}
+
+h2 {
+    color: #333;
+    font-weight: 600;
+}

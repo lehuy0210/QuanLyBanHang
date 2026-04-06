@@ -313,4 +313,3 @@ C:\Users\Rokisaki\Desktop\QuanLyBanHang\QLBH.API\obj\Debug\net8.0\QLBH.API.pdb
 C:\Users\Rokisaki\Desktop\QuanLyBanHang\QLBH.API\obj\Debug\net8.0\QLBH.API.genruntimeconfig.cache
 C:\Users\Rokisaki\Desktop\QuanLyBanHang\QLBH.API\obj\Debug\net8.0\ref\QLBH.API.dll
 C:\Users\Rokisaki\Desktop\QuanLyBanHang\QLBH.API\bin\Debug\net8.0\QLBH.API.exe
-C:\Users\Rokisaki\Desktop\QuanLyBanHang\QLBH.API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

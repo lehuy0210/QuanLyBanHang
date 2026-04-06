@@ -1,5 +1,5 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="vi">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,23 +7,29 @@
 
     <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    @await RenderSectionAsync("Styles", required: false)
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" href="/">QLBH</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand fw-bold" href="/">
+                    <i class="bi bi-shop"></i> QLBH
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="/Product/List">Danh sách sản phẩm</a>
+                            <a class="nav-link text-white" href="/Product/List">Sản phẩm</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="/Customer/List">Danh sách khách hàng</a>
+                            <a class="nav-link text-white" href="/Customer/List">Khách hàng</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="/Order/List">Đơn hàng</a>
                         </li>
                     </ul>
                 </div>
@@ -33,9 +39,16 @@
 
     <div class="container">
         <main role="main" class="pb-3">
+            <partial name="_Alerts" />
             @RenderBody()
         </main>
     </div>
+
+    <footer class="border-top footer text-muted text-center py-3 mt-4">
+        <div class="container">
+            &copy; @DateTime.Now.Year - Quản Lý Bán Hàng (Northwind)
+        </div>
+    </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>

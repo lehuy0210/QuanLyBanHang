@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("QLBH.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+81ed0ea28e99192c32939cf6526990ceee2f2cd7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+633f7d34e9697c18c9f367060fb852be4104b5d2")]
 [assembly: System.Reflection.AssemblyProductAttribute("QLBH.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("QLBH.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\QLBH.BLL\QLBH.BLL.csproj" />
+    <ProjectReference Include="..\QLBH.Common\QLBH.Common.csproj" />
     <ProjectReference Include="..\QLBH.DAL\QLBH.DAL.csproj" />
   </ItemGroup>
 

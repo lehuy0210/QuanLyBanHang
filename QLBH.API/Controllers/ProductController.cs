@@ -1,6 +1,4 @@
-using System;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using QLBH.BLL;
 using QLBH.Common;
 using QLBH.DAL;
@@ -14,27 +12,27 @@ namespace QLBH.API.Controllers
         private readonly ProductBLL _bllSanPham;
         private readonly QLBH_DBContext _context;
 
-        public ProductController(ProductBLL bllSanPham)
+        public ProductController(ProductBLL bllSanPham, QLBH_DBContext context)
         {
-            _bllSanPham = bllSanPham;
-        }
-        
-        public ProductController(QLBH_DBContext context)
-        {
-            _context = context;
+            _bllSanPham = bllSanPham ?? throw new ArgumentNullException(nameof(bllSanPham));
+            _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
         [HttpGet("GetCategories")]
         public IActionResult GetCategories()
         {
-            var data = _context.Categories.Select(c => new CategoryReq { Id = c.CategoryId, Name = c.CategoryName }).ToList();
+            var data = _context.Categories
+                .Select(c => new CategoryReq { Id = c.CategoryId, Name = c.CategoryName })
+                .ToList();
             return Ok(data);
         }
 
         [HttpGet("GetSuppliers")]
         public IActionResult GetSuppliers()
         {
-            var data = _context.Suppliers.Select(s => new SupplierReq { Id = s.SupplierId, Name = s.CompanyName }).ToList();
+            var data = _context.Suppliers
+                .Select(s => new SupplierReq { Id = s.SupplierId, Name = s.CompanyName })
+                .ToList();
             return Ok(data);
         }
 
@@ -42,71 +40,96 @@ namespace QLBH.API.Controllers
         public IActionResult Create([FromBody] ProductReq? sp)
         {
             if (sp == null)
+                return BadRequest(ApiResponse.Fail("Dữ liệu sản phẩm không hợp lệ."));
+
+            if (!ModelState.IsValid)
             {
-                return BadRequest(new { success = false, message = "Dữ liệu sản phẩm không hợp lệ." });
+                var errors = string.Join("; ", ModelState.Values
+                    .SelectMany(v => v.Errors)
+                    .Select(e => e.ErrorMessage));
+                return BadRequest(ApiResponse.Fail(errors));
             }
 
             try
             {
                 if (_bllSanPham.themSanPham(sp))
-                {
-                    return Ok(new { success = true, message = "Thêm sản phẩm thành công!" });
-                }
+                    return Ok(ApiResponse.Ok("Thêm sản phẩm thành công!"));
 
-                return BadRequest(new { success = false, message = "Thêm sản phẩm thất bại." });
+                return BadRequest(ApiResponse.Fail("Thêm sản phẩm thất bại."));
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ApiResponse.Fail(ex.Message));
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { success = false, message = "Lỗi server: " + ex.Message });
+                return StatusCode(500, ApiResponse.Fail("Lỗi server: " + ex.Message));
             }
         }
 
         [HttpGet("List")]
         public IActionResult List()
         {
-            return Ok(_bllSanPham.getSanPham());
+            try
+            {
+                var data = _bllSanPham.getSanPhamDataTable();
+                return Ok(data);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ApiResponse.Fail("Lỗi server: " + ex.Message));
+            }
         }
 
-        [HttpGet("GetByID")]
+        [HttpGet("GetById")]
         public IActionResult GetById(int id)
         {
             try
             {
                 var sp = _bllSanPham.laySanPhamTheoId(id);
-
                 if (sp == null)
-                {
-                    return NotFound(new { success = false, message = "Không tìm thấy sản phẩm." });
-                }
+                    return NotFound(ApiResponse.Fail("Không tìm thấy sản phẩm."));
 
                 return Ok(sp);
             }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ApiResponse.Fail(ex.Message));
+            }
             catch (Exception ex)
             {
-                return StatusCode(500, new { success = false, message = "Lỗi server: " + ex.Message });
+                return StatusCode(500, ApiResponse.Fail("Lỗi server: " + ex.Message));
             }
         }
 
-        [HttpPost("Edit")]
+        [HttpPut("Edit")]
         public IActionResult Edit([FromBody] ProductReq? sp)
         {
             if (sp == null)
+                return BadRequest(ApiResponse.Fail("Dữ liệu sản phẩm không hợp lệ."));
+
+            if (!ModelState.IsValid)
             {
-                return BadRequest(new { success = false, message = "Dữ liệu sản phẩm không hợp lệ." });
+                var errors = string.Join("; ", ModelState.Values
+                    .SelectMany(v => v.Errors)
+                    .Select(e => e.ErrorMessage));
+                return BadRequest(ApiResponse.Fail(errors));
             }
 
             try
             {
                 if (_bllSanPham.suaSanPham(sp))
-                {
-                    return Ok(new { success = true, message = "Cập nhật sản phẩm thành công!" });
-                }
+                    return Ok(ApiResponse.Ok("Cập nhật sản phẩm thành công!"));
 
-                return BadRequest(new { success = false, message = "Cập nhật sản phẩm thất bại." });
+                return BadRequest(ApiResponse.Fail("Cập nhật sản phẩm thất bại."));
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ApiResponse.Fail(ex.Message));
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { success = false, message = "Lỗi server: " + ex.Message });
+                return StatusCode(500, ApiResponse.Fail("Lỗi server: " + ex.Message));
             }
         }
 
@@ -116,15 +139,17 @@ namespace QLBH.API.Controllers
             try
             {
                 if (_bllSanPham.xoaSanPham(id))
-                {
-                    return Ok(true);
-                }
+                    return Ok(ApiResponse.Ok("Xóa sản phẩm thành công!"));
 
-                return BadRequest("Sản phẩm không tồn tại hoặc không thể xóa.");
+                return BadRequest(ApiResponse.Fail("Sản phẩm không tồn tại hoặc không thể xóa."));
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ApiResponse.Fail(ex.Message));
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { success = false, message = "Lỗi server: " + ex.Message });
+                return StatusCode(500, ApiResponse.Fail("Lỗi server: " + ex.Message));
             }
         }
     }

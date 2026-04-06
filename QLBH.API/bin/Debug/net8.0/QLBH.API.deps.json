@@ -877,6 +877,7 @@
       },
       "QLBH.BLL/1.0.0": {
         "dependencies": {
+          "QLBH.Common": "1.0.0",
           "QLBH.DAL": "1.0.0"
         },
         "runtime": {

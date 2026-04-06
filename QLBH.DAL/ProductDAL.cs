@@ -1,11 +1,6 @@
-﻿using Microsoft.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 using QLBH.Common;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace QLBH.DAL
 {
@@ -15,12 +10,40 @@ namespace QLBH.DAL
         {
         }
 
-        public DataTable getSanPham()
+        public List<ProductReq> getSanPham()
         {
             using var conn = CreateConnection();
-            using var cmd = new SqlCommand("XemDanhSachSanPham", conn)
+            using var cmd = new SqlCommand(
+                "SELECT p.ProductID, p.ProductName, p.UnitPrice, p.QuantityPerUnit, c.CategoryName, s.CompanyName FROM Products p LEFT JOIN Categories c ON p.CategoryID = c.CategoryID LEFT JOIN Suppliers s ON p.SupplierID = s.SupplierID", conn)
             {
-                CommandType = CommandType.StoredProcedure
+                CommandType = CommandType.Text
+            };
+            using var da = new SqlDataAdapter(cmd);
+
+            var dt = new DataTable();
+            da.Fill(dt);
+
+            var list = new List<ProductReq>();
+            foreach (DataRow row in dt.Rows)
+            {
+                list.Add(new ProductReq
+                {
+                    Id = Convert.ToInt32(row["ProductID"]),
+                    Name = row["ProductName"]?.ToString() ?? string.Empty,
+                    Price = row["UnitPrice"] != DBNull.Value ? Convert.ToDecimal(row["UnitPrice"]) : 0,
+                    Quantity = row["QuantityPerUnit"]?.ToString() ?? string.Empty,
+                });
+            }
+            return list;
+        }
+
+        public DataTable getSanPhamDataTable()
+        {
+            using var conn = CreateConnection();
+            using var cmd = new SqlCommand(
+                "SELECT p.ProductID, p.ProductName, p.UnitPrice, p.QuantityPerUnit, c.CategoryName, s.CompanyName FROM Products p LEFT JOIN Categories c ON p.CategoryID = c.CategoryID LEFT JOIN Suppliers s ON p.SupplierID = s.SupplierID", conn)
+            {
+                CommandType = CommandType.Text
             };
             using var da = new SqlDataAdapter(cmd);
 
@@ -34,9 +57,10 @@ namespace QLBH.DAL
             using var conn = CreateConnection();
             conn.Open();
 
-            using var cmd = new SqlCommand("ThemSanPham", conn)
+            using var cmd = new SqlCommand(@"INSERT INTO Products (ProductName, UnitPrice, QuantityPerUnit, CategoryID, SupplierID) 
+                                             VALUES (@ProductName, @UnitPrice, @QuantityPerUnit, @CategoryID, @SupplierID)", conn)
             {
-                CommandType = CommandType.StoredProcedure
+                CommandType = CommandType.Text
             };
 
             cmd.Parameters.Add("@ProductName", SqlDbType.NVarChar, 40).Value = sp.Name;
@@ -53,9 +77,9 @@ namespace QLBH.DAL
             using var conn = CreateConnection();
             conn.Open();
 
-            using var cmd = new SqlCommand("SuaSanPham", conn)
+            using var cmd = new SqlCommand(@"UPDATE Products SET ProductName = @ProductName, UnitPrice = @UnitPrice, QuantityPerUnit = @QuantityPerUnit, CategoryID = @CategoryID, SupplierID = @SupplierID WHERE ProductID = @ProductID", conn)
             {
-                CommandType = CommandType.StoredProcedure
+                CommandType = CommandType.Text
             };
 
             cmd.Parameters.Add("@ProductID", SqlDbType.Int).Value = sp.Id;
@@ -73,9 +97,9 @@ namespace QLBH.DAL
             using var conn = CreateConnection();
             conn.Open();
 
-            using var cmd = new SqlCommand("LaySanPhamTheoId", conn)
+            using var cmd = new SqlCommand("SELECT ProductID, ProductName, UnitPrice, QuantityPerUnit, CategoryID, SupplierID FROM Products WHERE ProductID = @ProductID", conn)
             {
-                CommandType = CommandType.StoredProcedure
+                CommandType = CommandType.Text
             };
 
             cmd.Parameters.Add("@ProductID", SqlDbType.Int).Value = idSP;
@@ -102,9 +126,9 @@ namespace QLBH.DAL
             using var conn = CreateConnection();
             conn.Open();
 
-            using var cmd = new SqlCommand("XoaSanPham", conn)
+            using var cmd = new SqlCommand("DELETE FROM Products WHERE ProductID = @ProductID", conn)
             {
-                CommandType = CommandType.StoredProcedure
+                CommandType = CommandType.Text
             };
 
             cmd.Parameters.Add("@ProductID", SqlDbType.Int).Value = idSP;

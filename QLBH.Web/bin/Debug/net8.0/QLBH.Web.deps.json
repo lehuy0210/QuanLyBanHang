@@ -12,6 +12,7 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "8.0.23",
           "Newtonsoft.Json": "13.0.4",
           "QLBH.BLL": "1.0.0",
+          "QLBH.Common": "1.0.0",
           "QLBH.DAL": "1.0.0"
         },
         "runtime": {
@@ -1705,6 +1706,7 @@
       },
       "QLBH.BLL/1.0.0": {
         "dependencies": {
+          "QLBH.Common": "1.0.0",
           "QLBH.DAL": "1.0.0"
         },
         "runtime": {

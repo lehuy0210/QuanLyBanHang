@@ -1,0 +1,66 @@
+@model List<OrderReq>
+
+@{
+    ViewData["Title"] = "Danh sách đơn hàng";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Danh sách đơn hàng</h2>
+    <a href="/Order/Create" class="btn btn-success">+ Tạo đơn hàng mới</a>
+</div>
+
+<table class="table table-striped table-hover align-middle">
+    <thead class="table-dark">
+        <tr>
+            <th>Mã ĐH</th>
+            <th>Khách hàng</th>
+            <th>Nhân viên</th>
+            <th>Ngày đặt</th>
+            <th>Ngày giao</th>
+            <th class="text-end">Phí ship</th>
+            <th>Nơi giao</th>
+            <th class="text-center">Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Count > 0)
+        {
+            foreach (var order in Model)
+            {
+                <tr>
+                    <td><strong>@order.Id</strong></td>
+                    <td>@order.CustomerName</td>
+                    <td>@order.EmployeeName</td>
+                    <td>@(order.OrderDate?.ToString("dd/MM/yyyy") ?? "-")</td>
+                    <td>
+                        @if (order.ShippedDate.HasValue)
+                        {
+                            <span class="badge bg-success">@order.ShippedDate.Value.ToString("dd/MM/yyyy")</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-warning text-dark">Chưa giao</span>
+                        }
+                    </td>
+                    <td class="text-end">@string.Format("{0:N2}", order.Freight ?? 0)</td>
+                    <td>@order.ShipCity, @order.ShipCountry</td>
+                    <td class="text-center">
+                        <a href="/Order/Details/@order.Id" class="btn btn-info btn-sm">Chi tiết</a>
+                        <form asp-action="Delete" asp-controller="Order" method="post" style="display:inline"
+                              onsubmit="return confirm('Bạn có chắc chắn muốn xóa đơn hàng #@order.Id không?');">
+                            <input type="hidden" name="id" value="@order.Id" />
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="btn btn-danger btn-sm">Xóa</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="8" class="text-center text-muted py-4">Không có dữ liệu đơn hàng.</td>
+            </tr>
+        }
+    </tbody>
+</table>

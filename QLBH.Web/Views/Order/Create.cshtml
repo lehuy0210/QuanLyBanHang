@@ -1,0 +1,132 @@
+@model OrderReq
+
+@{
+    ViewData["Title"] = "Tạo đơn hàng mới";
+    var products = (ViewBag.Products as IEnumerable<dynamic>) ?? new List<dynamic>();
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Tạo đơn hàng mới</h2>
+    <a href="/Order/List" class="btn btn-secondary">Quay lại danh sách</a>
+</div>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <form asp-controller="Order" asp-action="Create" method="post" id="orderForm">
+            @Html.AntiForgeryToken()
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label fw-bold">Khách hàng</label>
+                    @Html.DropDownListFor(m => m.CustomerId,
+                        new SelectList(Model.Customers, "Id", "Name"),
+                        "-- Chọn khách hàng --",
+                        new { @class = "form-select", required = "required" })
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <label class="form-label fw-bold">Ngày đặt</label>
+                    <input type="date" class="form-control" name="OrderDate"
+                           value="@(Model.OrderDate?.ToString("yyyy-MM-dd") ?? DateTime.Now.ToString("yyyy-MM-dd"))" />
+                </div>
+
+                <div class="col-md-3 mb-3">
+                    <label class="form-label fw-bold">Ngày yêu cầu giao</label>
+                    <input type="date" class="form-control" name="RequiredDate"
+                           value="@(Model.RequiredDate?.ToString("yyyy-MM-dd"))" />
+                </div>
+            </div>
+
+            <hr />
+            <h5 class="mb-3">Thông tin giao hàng</h5>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Tên người nhận</label>
+                    <input type="text" class="form-control" name="ShipName" value="@Model.ShipName" />
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Địa chỉ giao</label>
+                    <input type="text" class="form-control" name="ShipAddress" value="@Model.ShipAddress" />
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Thành phố</label>
+                    <input type="text" class="form-control" name="ShipCity" value="@Model.ShipCity" />
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Quốc gia</label>
+                    <input type="text" class="form-control" name="ShipCountry" value="@Model.ShipCountry" />
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Phí vận chuyển</label>
+                    <input type="number" step="0.01" class="form-control" name="Freight" value="@(Model.Freight ?? 0)" />
+                </div>
+            </div>
+
+            <hr />
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h5 class="mb-0">Chi tiết sản phẩm</h5>
+                <button type="button" class="btn btn-outline-primary btn-sm" onclick="addOrderLine()">+ Thêm dòng</button>
+            </div>
+
+            <table class="table" id="orderDetailsTable">
+                <thead>
+                    <tr>
+                        <th>Sản phẩm</th>
+                        <th style="width:120px">Đơn giá</th>
+                        <th style="width:100px">Số lượng</th>
+                        <th style="width:100px">Giảm giá</th>
+                        <th style="width:50px"></th>
+                    </tr>
+                </thead>
+                <tbody id="orderLines">
+                </tbody>
+            </table>
+
+            <div class="mt-3">
+                <button type="submit" class="btn btn-primary px-4">Tạo đơn hàng</button>
+                <button type="reset" class="btn btn-warning px-4">Nhập lại</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="productsData" data-products='@Newtonsoft.Json.JsonConvert.SerializeObject(products)' hidden></div>
+
+@section Scripts {
+    <script>
+        var products = JSON.parse(document.getElementById('productsData').getAttribute('data-products'));
+        var lineIndex = 0;
+
+        function addOrderLine() {
+            var options = '<option value="">-- Chọn sản phẩm --</option>';
+            products.forEach(function (p) {
+                options += '<option value="' + p.ProductId + '" data-price="' + p.UnitPrice + '">' + p.ProductName + '</option>';
+            });
+
+            var row = '<tr id="line_' + lineIndex + '">' +
+                '<td><select name="OrderDetails[' + lineIndex + '].ProductId" class="form-select" required onchange="setPrice(this, ' + lineIndex + ')">' + options + '</select></td>' +
+                '<td><input type="number" step="0.01" name="OrderDetails[' + lineIndex + '].UnitPrice" class="form-control" id="price_' + lineIndex + '" required /></td>' +
+                '<td><input type="number" name="OrderDetails[' + lineIndex + '].Quantity" class="form-control" value="1" min="1" required /></td>' +
+                '<td><input type="number" step="0.01" name="OrderDetails[' + lineIndex + '].Discount" class="form-control" value="0" min="0" max="1" /></td>' +
+                '<td><button type="button" class="btn btn-outline-danger btn-sm" onclick="removeLine(' + lineIndex + ')">✕</button></td>' +
+                '</tr>';
+
+            document.getElementById('orderLines').insertAdjacentHTML('beforeend', row);
+            lineIndex++;
+        }
+
+        function removeLine(idx) {
+            var row = document.getElementById('line_' + idx);
+            if (row) row.remove();
+        }
+
+        function setPrice(select, idx) {
+            var option = select.options[select.selectedIndex];
+            var price = option.getAttribute('data-price') || '0';
+            document.getElementById('price_' + idx).value = parseFloat(price).toFixed(2);
+        }
+
+        // Add first line by default
+        addOrderLine();
+    </script>
+}

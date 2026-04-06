@@ -1,0 +1,112 @@
+@model OrderReq
+
+@{
+    ViewData["Title"] = "Chi tiết đơn hàng #" + Model?.Id;
+}
+
+@if (Model != null)
+{
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Chi tiết đơn hàng #@Model.Id</h2>
+        <a href="/Order/List" class="btn btn-secondary">Quay lại danh sách</a>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-dark text-white">
+                    <strong>Thông tin đơn hàng</strong>
+                </div>
+                <div class="card-body">
+                    <table class="table table-borderless mb-0">
+                        <tr><td class="fw-bold" style="width:40%">Khách hàng:</td><td>@Model.CustomerName (@Model.CustomerId)</td></tr>
+                        <tr><td class="fw-bold">Nhân viên:</td><td>@(Model.EmployeeName ?? "-")</td></tr>
+                        <tr><td class="fw-bold">Ngày đặt:</td><td>@(Model.OrderDate?.ToString("dd/MM/yyyy") ?? "-")</td></tr>
+                        <tr><td class="fw-bold">Ngày yêu cầu:</td><td>@(Model.RequiredDate?.ToString("dd/MM/yyyy") ?? "-")</td></tr>
+                        <tr>
+                            <td class="fw-bold">Ngày giao:</td>
+                            <td>
+                                @if (Model.ShippedDate.HasValue)
+                                {
+                                    <span class="badge bg-success">@Model.ShippedDate.Value.ToString("dd/MM/yyyy")</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-warning text-dark">Chưa giao</span>
+                                }
+                            </td>
+                        </tr>
+                        <tr><td class="fw-bold">Phí vận chuyển:</td><td>@string.Format("{0:N2} USD", Model.Freight ?? 0)</td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-dark text-white">
+                    <strong>Địa chỉ giao hàng</strong>
+                </div>
+                <div class="card-body">
+                    <table class="table table-borderless mb-0">
+                        <tr><td class="fw-bold" style="width:40%">Tên người nhận:</td><td>@(Model.ShipName ?? "-")</td></tr>
+                        <tr><td class="fw-bold">Địa chỉ:</td><td>@(Model.ShipAddress ?? "-")</td></tr>
+                        <tr><td class="fw-bold">Thành phố:</td><td>@(Model.ShipCity ?? "-")</td></tr>
+                        <tr><td class="fw-bold">Vùng:</td><td>@(Model.ShipRegion ?? "-")</td></tr>
+                        <tr><td class="fw-bold">Mã bưu điện:</td><td>@(Model.ShipPostalCode ?? "-")</td></tr>
+                        <tr><td class="fw-bold">Quốc gia:</td><td>@(Model.ShipCountry ?? "-")</td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-header bg-dark text-white">
+            <strong>Chi tiết sản phẩm</strong>
+        </div>
+        <div class="card-body p-0">
+            <table class="table table-striped mb-0">
+                <thead>
+                    <tr>
+                        <th>Mã SP</th>
+                        <th>Tên sản phẩm</th>
+                        <th class="text-end">Đơn giá</th>
+                        <th class="text-center">Số lượng</th>
+                        <th class="text-center">Giảm giá</th>
+                        <th class="text-end">Thành tiền</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        decimal grandTotal = 0;
+                    }
+                    @foreach (var detail in Model.OrderDetails)
+                    {
+                        grandTotal += detail.ExtendedPrice;
+                        <tr>
+                            <td>@detail.ProductId</td>
+                            <td>@detail.ProductName</td>
+                            <td class="text-end">@string.Format("{0:N2}", detail.UnitPrice)</td>
+                            <td class="text-center">@detail.Quantity</td>
+                            <td class="text-center">@string.Format("{0:P0}", detail.Discount)</td>
+                            <td class="text-end fw-bold">@string.Format("{0:N2}", detail.ExtendedPrice)</td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot class="table-dark">
+                    <tr>
+                        <td colspan="5" class="text-end fw-bold">Tổng cộng:</td>
+                        <td class="text-end fw-bold">@string.Format("{0:N2} USD", grandTotal)</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+}
+else
+{
+    <div class="alert alert-danger text-center">
+        Không tìm thấy thông tin đơn hàng!
+    </div>
+}

@@ -136,6 +136,9 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
+              "C:\\Users\\Rokisaki\\Desktop\\QuanLyBanHang\\QLBH.Common\\QLBH.Common.csproj": {
+                "projectPath": "C:\\Users\\Rokisaki\\Desktop\\QuanLyBanHang\\QLBH.Common\\QLBH.Common.csproj"
+              },
               "C:\\Users\\Rokisaki\\Desktop\\QuanLyBanHang\\QLBH.DAL\\QLBH.DAL.csproj": {
                 "projectPath": "C:\\Users\\Rokisaki\\Desktop\\QuanLyBanHang\\QLBH.DAL\\QLBH.DAL.csproj"
               }
