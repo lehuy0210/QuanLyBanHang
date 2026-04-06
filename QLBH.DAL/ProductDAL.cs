@@ -13,9 +13,9 @@ namespace QLBH.DAL
     {
         public DataTable getSanPham()
         {
-            string tenProc = "XemDanhSachSanPham";
-            SqlCommand cmd = new SqlCommand(tenProc, _conn);
-            cmd.CommandType = CommandType.StoredProcedure;
+            string query = "SELECT * FROM DanhSachSanPham";
+
+            SqlCommand cmd = new SqlCommand(query, _conn);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dtSanPham = new DataTable();
             da.Fill(dtSanPham);

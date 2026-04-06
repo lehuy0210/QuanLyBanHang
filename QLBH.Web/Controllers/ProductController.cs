@@ -11,21 +11,37 @@ namespace QLBH.Web.Controllers
 {
     public class ProductController : Controller
     {
-        private readonly QLBH_DBContext _context;
         private readonly IHttpClientFactory _httpClientFactory;
 
-        public ProductController(QLBH_DBContext context, IHttpClientFactory httpClientFactory)
+        public ProductController(IHttpClientFactory httpClientFactory)
         {
-            _context = context;
             _httpClientFactory = httpClientFactory;
         }
+
+        private async Task LoadDropdownData(ProductReq model)
+        {
+            var client = _httpClientFactory.CreateClient();
+
+            var resCat = await client.GetAsync("http://localhost:5003/api/Product/GetCategories");
+            if (resCat.IsSuccessStatusCode)
+            {
+                var jsonCat = await resCat.Content.ReadAsStringAsync();
+                model.Categories = JsonConvert.DeserializeObject<List<CategoryReq>>(jsonCat);
+            }
+
+            var resSup = await client.GetAsync("http://localhost:5003/api/Product/GetSuppliers");
+            if (resSup.IsSuccessStatusCode)
+            {
+                var jsonSup = await resSup.Content.ReadAsStringAsync();
+                model.Suppliers = JsonConvert.DeserializeObject<List<SupplierReq>>(jsonSup);
+            }
+        }
         [HttpGet]
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
             var model = new ProductReq();
 
-            model.Categories = _context.Categories.Select(c => new CategoryReq { Id = c.CategoryId, Name = c.CategoryName }).ToList();
-            model.Suppliers = _context.Suppliers.Select(s => new SupplierReq { Id = s.SupplierId, Name = s.CompanyName }).ToList();
+            await LoadDropdownData(model);
 
             return View(model);
         }
@@ -48,8 +64,7 @@ namespace QLBH.Web.Controllers
                 var errorDetail = await response.Content.ReadAsStringAsync();
                 TempData["Error"] = "Thêm thất bại. Chi tiết: " + errorDetail;
             }
-            sp.Categories = _context.Categories.Select(c => new CategoryReq { Id = c.CategoryId, Name = c.CategoryName }).ToList();
-            sp.Suppliers = _context.Suppliers.Select(s => new SupplierReq { Id = s.SupplierId, Name = s.CompanyName }).ToList();
+            await LoadDropdownData(sp);
 
             return View(sp);
         }
@@ -96,8 +111,7 @@ namespace QLBH.Web.Controllers
                 return RedirectToAction("List");
             }
 
-            model.Categories = _context.Categories.Select(c => new CategoryReq { Id = c.CategoryId, Name = c.CategoryName }).ToList();
-            model.Suppliers = _context.Suppliers.Select(s => new SupplierReq { Id = s.SupplierId, Name = s.CompanyName }).ToList();
+            await LoadDropdownData(model);
 
             return View(model);
         }
@@ -122,8 +136,7 @@ namespace QLBH.Web.Controllers
                 TempData["Error"] = "Cập nhật thất bại. Chi tiết: " + errorDetail;
             }
 
-            sp.Categories = _context.Categories.Select(c => new CategoryReq { Id = c.CategoryId, Name = c.CategoryName }).ToList();
-            sp.Suppliers = _context.Suppliers.Select(s => new SupplierReq { Id = s.SupplierId, Name = s.CompanyName }).ToList();
+            await LoadDropdownData(sp);
 
             return View(sp);
         }

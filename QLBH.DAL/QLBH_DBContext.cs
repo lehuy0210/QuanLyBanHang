@@ -26,6 +26,8 @@ namespace QLBH.DAL
 
         public DbSet<Supplier> Suppliers { get; set; }
 
+        public DbSet<Customer> Customers { get; set; }
+
         public DbSet<CategoryReq> CategoryReqs { get; set; }
         public DbSet<SupplierReq> SupplierReqs { get; set; }
     }

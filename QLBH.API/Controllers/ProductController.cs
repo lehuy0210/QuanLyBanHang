@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using QLBH.BLL;
 using QLBH.Common;
 using QLBH.DAL;
@@ -10,6 +11,25 @@ namespace QLBH.API.Controllers
     public class ProductController : ControllerBase
     {
         private readonly ProductBLL bllSanPham = new ProductBLL();
+        private readonly QLBH_DBContext _context;
+        public ProductController(QLBH_DBContext context)
+        {
+            _context = context;
+        }
+
+        [HttpGet("GetCategories")]
+        public IActionResult GetCategories()
+        {
+            var data = _context.Categories.Select(c => new CategoryReq { Id = c.CategoryId, Name = c.CategoryName }).ToList();
+            return Ok(data);
+        }
+
+        [HttpGet("GetSuppliers")]
+        public IActionResult GetSuppliers()
+        {
+            var data = _context.Suppliers.Select(s => new SupplierReq { Id = s.SupplierId, Name = s.CompanyName }).ToList();
+            return Ok(data);
+        }
 
         [HttpPost("Create")]
         public IActionResult Create([FromBody] ProductReq sp)
@@ -28,16 +48,14 @@ namespace QLBH.API.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(404, new { success = false, message = "Lỗi server: " + ex.Message });
+                return StatusCode(400, new { success = false, message = "Lỗi server: " + ex.Message });
             }
 
         }
         [HttpPost("List")]
         public IActionResult List()
         {
-            ProductDAL dalSanPham = new ProductDAL();
-
-            return Ok(dalSanPham.getSanPham());
+            return Ok(bllSanPham.getSanPham());
         }
         [HttpGet("GetByID")]
 
@@ -58,7 +76,7 @@ namespace QLBH.API.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(404, new { success = false, message = "Lỗi server: " + ex.Message });
+                return StatusCode(400, new { success = false, message = "Lỗi server: " + ex.Message });
             }
         }
         [HttpPost("Edit")]
@@ -77,7 +95,7 @@ namespace QLBH.API.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(404, new { success = false, message = "Lỗi server: " + ex.Message });
+                return StatusCode(400, new { success = false, message = "Lỗi server: " + ex.Message });
             }
         }
 
@@ -97,7 +115,7 @@ namespace QLBH.API.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(404, ex.Message);
+                return StatusCode(400, ex.Message);
             }
         }
     }

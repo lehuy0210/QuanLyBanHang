@@ -1,5 +1,15 @@
 [
   {
+    "ContainingType": "QLBH.API.Controllers.CustomerController",
+    "Method": "List",
+    "RelativePath": "api/Customer/List",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "QLBH.API.Controllers.ProductController",
     "Method": "Create",
     "RelativePath": "api/Product/Create",
@@ -61,6 +71,26 @@
         "IsRequired": false
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QLBH.API.Controllers.ProductController",
+    "Method": "GetCategories",
+    "RelativePath": "api/Product/GetCategories",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QLBH.API.Controllers.ProductController",
+    "Method": "GetSuppliers",
+    "RelativePath": "api/Product/GetSuppliers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
