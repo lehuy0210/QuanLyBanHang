@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace QLBH.Common
 {
-    public  class ProductReq
+    public class ProductReq
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
         public decimal Price { get; set; }
-        public string Quantity { get; set; }
+        public string Quantity { get; set; } = string.Empty;
 
         public int CateId { get; set; }
         public int SupId { get; set; }
@@ -21,18 +21,16 @@ namespace QLBH.Common
 
         public ProductReq()
         {
-
         }
 
         public ProductReq(int id, string name, decimal price, string quantity, int cateid, int supid)
         {
-            this.Id = id;
-            this.Name = name;
-            this.Price = price;
-            this.Quantity = quantity;
-            this.CateId = cateid;
-            this.SupId = supid;
+            Id = id;
+            Name = name;
+            Price = price;
+            Quantity = quantity;
+            CateId = cateid;
+            SupId = supid;
         }
-
     }
 }

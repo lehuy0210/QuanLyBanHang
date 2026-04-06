@@ -9,11 +9,10 @@ using System.Threading.Tasks;
 
 namespace QLBH.DAL
 {
-    public class QLBH_DBContext: DbContext
+    public class QLBH_DBContext : DbContext
     {
         public QLBH_DBContext(DbContextOptions<QLBH_DBContext> options) : base(options)
         {
-
         }
 
         public QLBH_DBContext()

@@ -9,6 +9,21 @@ namespace QLBH.DAL
 {
     public class DbConnect
     {
-        protected SqlConnection _conn = new SqlConnection("Server=LAPTOP-5RU50CLF\\HUY;database=Northwind;user id=sa;password=123456;TrustServerCertificate=True;");
+        private readonly string _connectionString;
+
+        public DbConnect(string connectionString)
+        {
+            if (string.IsNullOrWhiteSpace(connectionString))
+            {
+                throw new ArgumentException("Connection string is missing.", nameof(connectionString));
+            }
+
+            _connectionString = connectionString;
+        }
+
+        protected SqlConnection CreateConnection()
+        {
+            return new SqlConnection(_connectionString);
+        }
     }
 }

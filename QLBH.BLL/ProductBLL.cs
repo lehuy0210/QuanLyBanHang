@@ -11,30 +11,36 @@ namespace QLBH.BLL
 {
     public class ProductBLL
     {
-        ProductDAL dalSanPham = new ProductDAL();
+        private readonly ProductDAL _dalSanPham;
+
+        public ProductBLL(ProductDAL dalSanPham)
+        {
+            _dalSanPham = dalSanPham;
+        }
 
         public DataTable getSanPham()
         {
-            return dalSanPham.getSanPham();
+            return _dalSanPham.getSanPham();
         }
+
         public bool themSanPham(ProductReq sp)
         {
-            return dalSanPham.themSanPham(sp);
+            return _dalSanPham.themSanPham(sp);
         }
 
         public bool suaSanPham(ProductReq sp)
         {
-            return dalSanPham.suaSanPham(sp);
+            return _dalSanPham.suaSanPham(sp);
         }
 
-        public ProductReq laySanPhamTheoId(int idSP)
+        public ProductReq? laySanPhamTheoId(int idSP)
         {
-            return dalSanPham.laySanPhamTheoId(idSP);
+            return _dalSanPham.laySanPhamTheoId(idSP);
         }
 
         public bool xoaSanPham(int idSP)
         {
-            return dalSanPham.xoaSanPham(idSP);
+            return _dalSanPham.xoaSanPham(idSP);
         }
     }
 }

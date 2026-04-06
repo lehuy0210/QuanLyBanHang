@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using Microsoft.AspNetCore.Mvc;
 using QLBH.BLL;
 using QLBH.Common;
 using QLBH.DAL;
@@ -9,75 +10,82 @@ namespace QLBH.API.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        private readonly ProductBLL bllSanPham = new ProductBLL();
+        private readonly ProductBLL _bllSanPham;
+
+        public ProductController(ProductBLL bllSanPham)
+        {
+            _bllSanPham = bllSanPham;
+        }
 
         [HttpPost("Create")]
-        public IActionResult Create([FromBody] ProductReq sp)
+        public IActionResult Create([FromBody] ProductReq? sp)
         {
+            if (sp == null)
+            {
+                return BadRequest(new { success = false, message = "Dữ liệu sản phẩm không hợp lệ." });
+            }
+
             try
             {
-                if (bllSanPham.themSanPham(sp))
+                if (_bllSanPham.themSanPham(sp))
                 {
                     return Ok(new { success = true, message = "Thêm sản phẩm thành công!" });
                 }
-                else
-                {
-                    return BadRequest(new { success = false, message = "Thêm sản phẩm thất bại." });
-                }
 
+                return BadRequest(new { success = false, message = "Thêm sản phẩm thất bại." });
             }
             catch (Exception ex)
             {
-                return StatusCode(404, new { success = false, message = "Lỗi server: " + ex.Message });
+                return StatusCode(500, new { success = false, message = "Lỗi server: " + ex.Message });
             }
-
         }
+
         [HttpPost("List")]
         public IActionResult List()
         {
-            ProductDAL dalSanPham = new ProductDAL();
-
-            return Ok(dalSanPham.getSanPham());
+            return Ok(_bllSanPham.getSanPham());
         }
-        [HttpGet("GetByID")]
 
+        [HttpGet("GetByID")]
         public IActionResult GetById(int id)
         {
             try
             {
-                var sp = bllSanPham.laySanPhamTheoId(id);
+                var sp = _bllSanPham.laySanPhamTheoId(id);
 
-                if (sp != null)
-                {
-                    return Ok(sp);
-                }
-                else
+                if (sp == null)
                 {
                     return NotFound(new { success = false, message = "Không tìm thấy sản phẩm." });
                 }
+
+                return Ok(sp);
             }
             catch (Exception ex)
             {
-                return StatusCode(404, new { success = false, message = "Lỗi server: " + ex.Message });
+                return StatusCode(500, new { success = false, message = "Lỗi server: " + ex.Message });
             }
         }
+
         [HttpPost("Edit")]
-        public IActionResult Edit([FromBody] ProductReq sp)
+        public IActionResult Edit([FromBody] ProductReq? sp)
         {
+            if (sp == null)
+            {
+                return BadRequest(new { success = false, message = "Dữ liệu sản phẩm không hợp lệ." });
+            }
+
             try
             {
-                if (bllSanPham.suaSanPham(sp))
+                if (_bllSanPham.suaSanPham(sp))
                 {
                     return Ok(new { success = true, message = "Cập nhật sản phẩm thành công!" });
                 }
-                else
-                {
-                    return BadRequest(new { success = false, message = "Cập nhật sản phẩm thất bại." });
-                }
+
+                return BadRequest(new { success = false, message = "Cập nhật sản phẩm thất bại." });
             }
             catch (Exception ex)
             {
-                return StatusCode(404, new { success = false, message = "Lỗi server: " + ex.Message });
+                return StatusCode(500, new { success = false, message = "Lỗi server: " + ex.Message });
             }
         }
 
@@ -86,18 +94,16 @@ namespace QLBH.API.Controllers
         {
             try
             {
-                if (bllSanPham.xoaSanPham(id))
+                if (_bllSanPham.xoaSanPham(id))
                 {
                     return Ok(true);
                 }
-                else
-                {
-                    return BadRequest("Sản phẩm không tồn tại hoặc không thể xóa.");
-                }
+
+                return BadRequest("Sản phẩm không tồn tại hoặc không thể xóa.");
             }
             catch (Exception ex)
             {
-                return StatusCode(404, ex.Message);
+                return StatusCode(500, new { success = false, message = "Lỗi server: " + ex.Message });
             }
         }
     }
