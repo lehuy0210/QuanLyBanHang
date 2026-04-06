@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\QLBH.Comman\QLBH.Common.csproj" />
+    <ProjectReference Include="..\QLBH.Common\QLBH.Common.csproj" />
   </ItemGroup>
 
 </Project>

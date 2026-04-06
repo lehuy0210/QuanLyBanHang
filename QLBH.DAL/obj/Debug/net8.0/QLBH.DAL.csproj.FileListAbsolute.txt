@@ -16,3 +16,21 @@ C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.DAL\bin\Debug\net8.0\QLBH.Common.d
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.DAL\bin\Debug\net8.0\QLBH.Common.pdb
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.DAL\obj\Debug\net8.0\QLBH.DAL.csproj.Up2Date
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.DAL\obj\Debug\net8.0\QLBH.DAL.sourcelink.json
+C:\Users\Rokisaki\Desktop\QuanLyBanHang\QLBH.DAL\bin\Debug\net8.0\QLBH.DAL.deps.json
+C:\Users\Rokisaki\Desktop\QuanLyBanHang\QLBH.DAL\bin\Debug\net8.0\QLBH.DAL.runtimeconfig.json
+C:\Users\Rokisaki\Desktop\QuanLyBanHang\QLBH.DAL\bin\Debug\net8.0\QLBH.DAL.dll
+C:\Users\Rokisaki\Desktop\QuanLyBanHang\QLBH.DAL\bin\Debug\net8.0\QLBH.DAL.pdb
+C:\Users\Rokisaki\Desktop\QuanLyBanHang\QLBH.DAL\bin\Debug\net8.0\QLBH.Common.dll
+C:\Users\Rokisaki\Desktop\QuanLyBanHang\QLBH.DAL\bin\Debug\net8.0\QLBH.Common.pdb
+C:\Users\Rokisaki\Desktop\QuanLyBanHang\QLBH.DAL\obj\Debug\net8.0\QLBH.DAL.csproj.AssemblyReference.cache
+C:\Users\Rokisaki\Desktop\QuanLyBanHang\QLBH.DAL\obj\Debug\net8.0\QLBH.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Rokisaki\Desktop\QuanLyBanHang\QLBH.DAL\obj\Debug\net8.0\QLBH.DAL.AssemblyInfoInputs.cache
+C:\Users\Rokisaki\Desktop\QuanLyBanHang\QLBH.DAL\obj\Debug\net8.0\QLBH.DAL.AssemblyInfo.cs
+C:\Users\Rokisaki\Desktop\QuanLyBanHang\QLBH.DAL\obj\Debug\net8.0\QLBH.DAL.csproj.CoreCompileInputs.cache
+C:\Users\Rokisaki\Desktop\QuanLyBanHang\QLBH.DAL\obj\Debug\net8.0\QLBH.DAL.sourcelink.json
+C:\Users\Rokisaki\Desktop\QuanLyBanHang\QLBH.DAL\obj\Debug\net8.0\QLBH.DAL.csproj.Up2Date
+C:\Users\Rokisaki\Desktop\QuanLyBanHang\QLBH.DAL\obj\Debug\net8.0\QLBH.DAL.dll
+C:\Users\Rokisaki\Desktop\QuanLyBanHang\QLBH.DAL\obj\Debug\net8.0\refint\QLBH.DAL.dll
+C:\Users\Rokisaki\Desktop\QuanLyBanHang\QLBH.DAL\obj\Debug\net8.0\QLBH.DAL.pdb
+C:\Users\Rokisaki\Desktop\QuanLyBanHang\QLBH.DAL\obj\Debug\net8.0\QLBH.DAL.genruntimeconfig.cache
+C:\Users\Rokisaki\Desktop\QuanLyBanHang\QLBH.DAL\obj\Debug\net8.0\ref\QLBH.DAL.dll

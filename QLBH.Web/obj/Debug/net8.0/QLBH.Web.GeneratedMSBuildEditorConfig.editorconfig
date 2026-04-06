@@ -19,33 +19,33 @@ build_property.TargetFrameworkIdentifier = .NETCoreApp
 build_property.TargetFrameworkVersion = v8.0
 build_property.RootNamespace = QLBH.Web
 build_property.RootNamespace = QLBH.Web
-build_property.ProjectDir = C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.Web\
+build_property.ProjectDir = C:\Users\Rokisaki\Desktop\QuanLyBanHang\QLBH.Web\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.Web
+build_property.MSBuildProjectDirectory = C:\Users\Rokisaki\Desktop\QuanLyBanHang\QLBH.Web
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/ASUS/Desktop/Ôn tập/QLBH.Web/QLBH.Web/Views/Product/Create.cshtml]
+[C:/Users/Rokisaki/Desktop/QuanLyBanHang/QLBH.Web/Views/Product/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/Desktop/Ôn tập/QLBH.Web/QLBH.Web/Views/Product/Edit.cshtml]
+[C:/Users/Rokisaki/Desktop/QuanLyBanHang/QLBH.Web/Views/Product/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/Desktop/Ôn tập/QLBH.Web/QLBH.Web/Views/Product/List.cshtml]
+[C:/Users/Rokisaki/Desktop/QuanLyBanHang/QLBH.Web/Views/Product/List.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/Desktop/Ôn tập/QLBH.Web/QLBH.Web/Views/Shared/_Layout.cshtml]
+[C:/Users/Rokisaki/Desktop/QuanLyBanHang/QLBH.Web/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/Desktop/Ôn tập/QLBH.Web/QLBH.Web/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Rokisaki/Desktop/QuanLyBanHang/QLBH.Web/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

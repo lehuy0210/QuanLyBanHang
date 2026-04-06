@@ -84,7 +84,7 @@ namespace QLBH.Web.Controllers
             try
             {
                 var client = CreateApiClient();
-                var response = await client.PostAsync("api/Product/List", null);
+                var response = await client.GetAsync("api/Product/List");
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -172,7 +172,7 @@ namespace QLBH.Web.Controllers
             try
             {
                 var client = CreateApiClient();
-                var response = await client.PostAsync($"api/Product/Delete?id={id}", null);
+                var response = await client.DeleteAsync($"api/Product/Delete?id={id}");
 
                 if (response.IsSuccessStatusCode)
                 {

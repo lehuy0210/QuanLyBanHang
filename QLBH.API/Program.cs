@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -16,7 +17,7 @@ builder.Services.AddSwaggerGen();
 var connectionString = builder.Configuration.GetConnectionString("cnstr");
 if (string.IsNullOrWhiteSpace(connectionString))
 {
-    throw new InvalidOperationException("Connection string 'cnstr' in QLBH.API/appsettings is not configured.");
+    throw new InvalidOperationException("Connection string 'cnstr' in QLBH.API/appsettings.json is not configured.");
 }
 
 builder.Services.AddDbContext<QLBH_DBContext>(options =>
@@ -26,6 +27,11 @@ builder.Services.AddScoped<ProductDAL>(_ => new ProductDAL(connectionString));
 builder.Services.AddScoped<ProductBLL>();
 
 var app = builder.Build();
+var configuredUrls = builder.Configuration["ASPNETCORE_URLS"] ?? builder.Configuration["urls"];
+var hasHttpsBinding = !string.IsNullOrWhiteSpace(configuredUrls)
+                      && configuredUrls
+                          .Split(';', StringSplitOptions.RemoveEmptyEntries)
+                          .Any(url => url.TrimStart().StartsWith("https://", StringComparison.OrdinalIgnoreCase));
 
 if (app.Environment.IsDevelopment())
 {
@@ -33,7 +39,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+if (hasHttpsBinding)
+{
+    app.UseHttpsRedirection();
+}
+
 app.UseAuthorization();
 app.MapControllers();
 

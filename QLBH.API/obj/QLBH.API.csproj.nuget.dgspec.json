@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.API\\QLBH.API.csproj": {}
+    "C:\\Users\\Rokisaki\\Desktop\\QuanLyBanHang\\QLBH.API\\QLBH.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.API\\QLBH.API.csproj": {
+    "C:\\Users\\Rokisaki\\Desktop\\QuanLyBanHang\\QLBH.API\\QLBH.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.API\\QLBH.API.csproj",
+        "projectUniqueName": "C:\\Users\\Rokisaki\\Desktop\\QuanLyBanHang\\QLBH.API\\QLBH.API.csproj",
         "projectName": "QLBH.API",
-        "projectPath": "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.API\\QLBH.API.csproj",
-        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.API\\obj\\",
+        "projectPath": "C:\\Users\\Rokisaki\\Desktop\\QuanLyBanHang\\QLBH.API\\QLBH.API.csproj",
+        "packagesPath": "C:\\Users\\Rokisaki\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Rokisaki\\Desktop\\QuanLyBanHang\\QLBH.API\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Rokisaki\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -32,14 +28,14 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.BLL\\QLBH.BLL.csproj": {
-                "projectPath": "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.BLL\\QLBH.BLL.csproj"
+              "C:\\Users\\Rokisaki\\Desktop\\QuanLyBanHang\\QLBH.BLL\\QLBH.BLL.csproj": {
+                "projectPath": "C:\\Users\\Rokisaki\\Desktop\\QuanLyBanHang\\QLBH.BLL\\QLBH.BLL.csproj"
               },
-              "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.Comman\\QLBH.Common.csproj": {
-                "projectPath": "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.Comman\\QLBH.Common.csproj"
+              "C:\\Users\\Rokisaki\\Desktop\\QuanLyBanHang\\QLBH.Common\\QLBH.Common.csproj": {
+                "projectPath": "C:\\Users\\Rokisaki\\Desktop\\QuanLyBanHang\\QLBH.Common\\QLBH.Common.csproj"
               },
-              "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.DAL\\QLBH.DAL.csproj": {
-                "projectPath": "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.DAL\\QLBH.DAL.csproj"
+              "C:\\Users\\Rokisaki\\Desktop\\QuanLyBanHang\\QLBH.DAL\\QLBH.DAL.csproj": {
+                "projectPath": "C:\\Users\\Rokisaki\\Desktop\\QuanLyBanHang\\QLBH.DAL\\QLBH.DAL.csproj"
               }
             }
           }
@@ -54,7 +50,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "10.0.100"
+        "SdkAnalysisLevel": "10.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -89,19 +85,19 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.22, 8.0.22]"
+              "version": "[8.0.25, 8.0.25]"
             },
             {
               "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[8.0.22, 8.0.22]"
+              "version": "[8.0.25, 8.0.25]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.22, 8.0.22]"
+              "version": "[8.0.25, 8.0.25]"
             },
             {
               "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.22, 8.0.22]"
+              "version": "[8.0.25, 8.0.25]"
             }
           ],
           "frameworkReferences": {
@@ -112,25 +108,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.BLL\\QLBH.BLL.csproj": {
+    "C:\\Users\\Rokisaki\\Desktop\\QuanLyBanHang\\QLBH.BLL\\QLBH.BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.BLL\\QLBH.BLL.csproj",
+        "projectUniqueName": "C:\\Users\\Rokisaki\\Desktop\\QuanLyBanHang\\QLBH.BLL\\QLBH.BLL.csproj",
         "projectName": "QLBH.BLL",
-        "projectPath": "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.BLL\\QLBH.BLL.csproj",
-        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.BLL\\obj\\",
+        "projectPath": "C:\\Users\\Rokisaki\\Desktop\\QuanLyBanHang\\QLBH.BLL\\QLBH.BLL.csproj",
+        "packagesPath": "C:\\Users\\Rokisaki\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Rokisaki\\Desktop\\QuanLyBanHang\\QLBH.BLL\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Rokisaki\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -144,8 +136,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.DAL\\QLBH.DAL.csproj": {
-                "projectPath": "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.DAL\\QLBH.DAL.csproj"
+              "C:\\Users\\Rokisaki\\Desktop\\QuanLyBanHang\\QLBH.DAL\\QLBH.DAL.csproj": {
+                "projectPath": "C:\\Users\\Rokisaki\\Desktop\\QuanLyBanHang\\QLBH.DAL\\QLBH.DAL.csproj"
               }
             }
           }
@@ -160,7 +152,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "10.0.100"
+        "SdkAnalysisLevel": "10.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -179,15 +171,15 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.22, 8.0.22]"
+              "version": "[8.0.25, 8.0.25]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.22, 8.0.22]"
+              "version": "[8.0.25, 8.0.25]"
             },
             {
               "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.22, 8.0.22]"
+              "version": "[8.0.25, 8.0.25]"
             }
           ],
           "frameworkReferences": {
@@ -195,25 +187,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.Comman\\QLBH.Common.csproj": {
+    "C:\\Users\\Rokisaki\\Desktop\\QuanLyBanHang\\QLBH.Common\\QLBH.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.Comman\\QLBH.Common.csproj",
+        "projectUniqueName": "C:\\Users\\Rokisaki\\Desktop\\QuanLyBanHang\\QLBH.Common\\QLBH.Common.csproj",
         "projectName": "QLBH.Common",
-        "projectPath": "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.Comman\\QLBH.Common.csproj",
-        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.Comman\\obj\\",
+        "projectPath": "C:\\Users\\Rokisaki\\Desktop\\QuanLyBanHang\\QLBH.Common\\QLBH.Common.csproj",
+        "packagesPath": "C:\\Users\\Rokisaki\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Rokisaki\\Desktop\\QuanLyBanHang\\QLBH.Common\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Rokisaki\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -239,7 +227,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "10.0.100"
+        "SdkAnalysisLevel": "10.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -258,15 +246,15 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.22, 8.0.22]"
+              "version": "[8.0.25, 8.0.25]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.22, 8.0.22]"
+              "version": "[8.0.25, 8.0.25]"
             },
             {
               "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.22, 8.0.22]"
+              "version": "[8.0.25, 8.0.25]"
             }
           ],
           "frameworkReferences": {
@@ -274,25 +262,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.DAL\\QLBH.DAL.csproj": {
+    "C:\\Users\\Rokisaki\\Desktop\\QuanLyBanHang\\QLBH.DAL\\QLBH.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.DAL\\QLBH.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\Rokisaki\\Desktop\\QuanLyBanHang\\QLBH.DAL\\QLBH.DAL.csproj",
         "projectName": "QLBH.DAL",
-        "projectPath": "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.DAL\\QLBH.DAL.csproj",
-        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.DAL\\obj\\",
+        "projectPath": "C:\\Users\\Rokisaki\\Desktop\\QuanLyBanHang\\QLBH.DAL\\QLBH.DAL.csproj",
+        "packagesPath": "C:\\Users\\Rokisaki\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Rokisaki\\Desktop\\QuanLyBanHang\\QLBH.DAL\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Rokisaki\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -306,8 +290,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.Comman\\QLBH.Common.csproj": {
-                "projectPath": "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.Comman\\QLBH.Common.csproj"
+              "C:\\Users\\Rokisaki\\Desktop\\QuanLyBanHang\\QLBH.Common\\QLBH.Common.csproj": {
+                "projectPath": "C:\\Users\\Rokisaki\\Desktop\\QuanLyBanHang\\QLBH.Common\\QLBH.Common.csproj"
               }
             }
           }
@@ -322,7 +306,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "10.0.100"
+        "SdkAnalysisLevel": "10.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -359,15 +343,15 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.22, 8.0.22]"
+              "version": "[8.0.25, 8.0.25]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.22, 8.0.22]"
+              "version": "[8.0.25, 8.0.25]"
             },
             {
               "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.22, 8.0.22]"
+              "version": "[8.0.25, 8.0.25]"
             }
           ],
           "frameworkReferences": {
@@ -375,7 +359,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

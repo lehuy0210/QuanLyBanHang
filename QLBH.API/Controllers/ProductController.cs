@@ -40,7 +40,7 @@ namespace QLBH.API.Controllers
             }
         }
 
-        [HttpPost("List")]
+        [HttpGet("List")]
         public IActionResult List()
         {
             return Ok(_bllSanPham.getSanPham());
@@ -89,7 +89,7 @@ namespace QLBH.API.Controllers
             }
         }
 
-        [HttpPost("Delete")]
+        [HttpDelete("Delete")]
         public IActionResult Delete(int id)
         {
             try
