@@ -1,18 +1,26 @@
 @API_HostAddress = http://localhost:5003
 
-### 1. Lấy danh sách (Lưu ý: Bạn đang để HttpPost cho List)
+### 1. Lấy danh sách 
 GET {{API_HostAddress}}/api/Product/List
 Accept: application/json
 
-###
-
-### 2. Lấy chi tiết theo ID (Query string)
-GET {{API_HostAddress}}/api/Product/GetByID?id=1
+### 2. Lấy category 
+GET {{API_HostAddress}}/api/Product/GetCategories
 Accept: application/json
 
-###
+### 3. Lấy chi tiết theo ID (Query string)
+GET {{API_HostAddress}}/api/Product/GetByID?id=1
+Accept: application/json
+### 4. lấy supplier 
+GET {{QLBH.API_HostAddress}}/api/Product/GetSuppliers
+Accept: application/json
 
-### 3. Tạo mới sản phẩm
+### 5. Lấy list customers
+GET {{QLBH.API_HostAddress}}/api/Customer/List
+Accept: application/json
+
+
+### 6. Tạo mới sản phẩm
 POST {{API_HostAddress}}/api/Product/Create
 Content-Type: application/json
 
@@ -27,5 +35,5 @@ Content-Type: application/json
 
 ###
 
-### 4. Xóa sản phẩm
+### 7. Xóa sản phẩm
 DELETE {{API_HostAddress}}/api/Product/Delete?Id=97

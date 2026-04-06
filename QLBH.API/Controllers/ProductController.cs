@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using QLBH.BLL;
 using QLBH.Common;
 using QLBH.DAL;
@@ -11,10 +12,30 @@ namespace QLBH.API.Controllers
     public class ProductController : ControllerBase
     {
         private readonly ProductBLL _bllSanPham;
+        private readonly QLBH_DBContext _context;
 
         public ProductController(ProductBLL bllSanPham)
         {
             _bllSanPham = bllSanPham;
+        }
+        
+        public ProductController(QLBH_DBContext context)
+        {
+            _context = context;
+        }
+
+        [HttpGet("GetCategories")]
+        public IActionResult GetCategories()
+        {
+            var data = _context.Categories.Select(c => new CategoryReq { Id = c.CategoryId, Name = c.CategoryName }).ToList();
+            return Ok(data);
+        }
+
+        [HttpGet("GetSuppliers")]
+        public IActionResult GetSuppliers()
+        {
+            var data = _context.Suppliers.Select(s => new SupplierReq { Id = s.SupplierId, Name = s.CompanyName }).ToList();
+            return Ok(data);
         }
 
         [HttpPost("Create")]

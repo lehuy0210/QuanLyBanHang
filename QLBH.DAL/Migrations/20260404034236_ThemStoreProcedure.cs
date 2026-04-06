@@ -391,13 +391,12 @@ namespace QLBH.DAL.Migrations
                 column: "RegionId");
 
             migrationBuilder.Sql(@"
-                CREATE OR ALTER PROC [dbo].[XemDanhSachSanPham]
-                AS BEGIN
+                CREATE OR ALTER VIEW [dbo].[DanhSachSanPham]
+                AS
                     SELECT pr.ProductID, pr.ProductName, pr.UnitPrice, pr.QuantityPerUnit, cata.CategoryName, sup.CompanyName
                     FROM Products pr
                     LEFT JOIN Suppliers sup ON pr.SupplierID = sup.SupplierID
                     LEFT JOIN Categories cata ON pr.CategoryID = cata.CategoryID
-                END
             ");
 
             migrationBuilder.Sql(@"
@@ -429,6 +428,41 @@ namespace QLBH.DAL.Migrations
                     DELETE FROM Products WHERE ProductID = @ProductID
                 END
             ");
+
+            migrationBuilder.Sql(@"
+                CREATE OR ALTER VIEW [dbo].[DanhSachKhachHang]
+                AS
+                SELECT CustomerID, ContactName, Address, City, Country, Phone
+                FROM Customer
+            ");
+
+            migrationBuilder.Sql(@"
+                CREATE OR ALTER PROC [dbo].[ThemKhachHang] 
+                (@ContactName nvarchar(40), @Address nvarchar(60), @City nvarchar(15), @Country nvarchar(15), @Phone nvarchar(24))      
+                AS BEGIN
+                    INSERT INTO Customer(ContactName, Address, City, Country, Phone)
+                    VALUES (@ContactName, @Address, @City, @Country, @Phone)
+                END
+            ");
+
+            migrationBuilder.Sql(@"
+                CREATE OR ALTER PROC [dbo].[SuaKhachHang]
+                (@CustomerID nvarchar(450), @ContactName nvarchar(40), @Address nvarchar(60), @City nvarchar(15), @Country nvarchar(15), @Phone nvarchar(24))
+                AS BEGIN
+                    UPDATE Customer
+                    SET ContactName = @ContactName, Address = @Address, City = @City, Country = @Country, Phone = @Phone
+                    WHERE CustomerId = @CustomerID
+                END
+            ");
+
+            migrationBuilder.Sql(@"
+                CREATE OR ALTER PROC [dbo].[XoaKhachHang] (@CustomerID nvarchar(450))
+                AS BEGIN
+                    DELETE FROM Customer WHERE CustomerId = @CustomerID
+                END
+            ");
+
+
         }
 
         /// <inheritdoc />
@@ -479,11 +513,15 @@ namespace QLBH.DAL.Migrations
             migrationBuilder.DropTable(
                 name: "Suppliers");
 
-            migrationBuilder.Sql("DROP PROCEDURE IF EXISTS [dbo].[XemDanhSachSanPham]");
+            migrationBuilder.Sql(@"DROP VIEW IF EXISTS [dbo].[DanhSachSanPham]");
             migrationBuilder.Sql("DROP PROCEDURE IF EXISTS [dbo].[LaySanPhamTheoId]");
             migrationBuilder.Sql("DROP PROCEDURE IF EXISTS [dbo].[ThemSanPham]");
             migrationBuilder.Sql("DROP PROCEDURE IF EXISTS [dbo].[SuaSanPham]");
             migrationBuilder.Sql("DROP PROCEDURE IF EXISTS [dbo].[XoaSanPham]");
+            migrationBuilder.Sql("DROP VIEW IF EXISTS [dbo].[DanhSachKhachHang]");
+            migrationBuilder.Sql("DROP PROCEDURE IF EXISTS [dbo].[ThemKhachHang]");
+            migrationBuilder.Sql("DROP PROCEDURE IF EXISTS [dbo].[SuaKhachHang]");
+            migrationBuilder.Sql("DROP PROCEDURE IF EXISTS [dbo].[XoaKhachHang]");
         }
 
     }

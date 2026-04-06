@@ -65,7 +65,7 @@ namespace QLBH.Web.Controllers
                 }
 
                 var errorDetail = await response.Content.ReadAsStringAsync();
-                TempData["Error"] = "Them that bai. Chi tiet: " + errorDetail;
+                TempData["Error"] = "Thêm thất bại. Chi tiết: " + errorDetail;
             }
             catch (HttpRequestException ex)
             {
