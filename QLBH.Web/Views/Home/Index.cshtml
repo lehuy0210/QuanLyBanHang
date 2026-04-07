@@ -1,0 +1,63 @@
+﻿@using System.Data
+@model DataTable
+
+@{
+    Layout = "_LayoutHome";
+    ViewData["Title"] = "Trang chủ";
+}
+
+<div class="container mt-4">
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Tuyệt vời!</strong> @TempData["Success"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <div class="text-center mb-5">
+        <h1 class="display-5 fw-bold">Sản phẩm nổi bật</h1>
+        <p class="text-muted">Lựa chọn những sản phẩm chất lượng nhất từ cửa hàng của chúng tôi</p>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
+        @if (Model != null && Model.Rows.Count > 0)
+        {
+            foreach (DataRow row in Model.Rows)
+            {
+                <div class="col">
+                    <div class="card h-100 shadow-sm border-0">
+                        <img src="https://via.placeholder.com/300x200?text=Chua+co+anh" class="card-img-top" alt="@row["ProductName"]">
+
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold">@row["ProductName"]</h5>
+                            <div class="mb-2">
+                                <span class="badge bg-info text-dark">@row["CategoryName"]</span>
+                                <small class="text-muted ms-1">Hãng: @row["CompanyName"]</small>
+                            </div>
+                            <p class="card-text text-muted small">Quy cách: @row["QuantityPerUnit"]</p>
+
+                            <h5 class="card-text text-danger fw-bold mt-auto mb-3">
+                                @string.Format("{0:N0} đ", row["UnitPrice"])
+                            </h5>
+
+                            <form action="/Cart/AddToCart" method="post" class="d-grid">
+                                <input type="hidden" name="productId" value="@row["ProductID"]" />
+                                <input type="hidden" name="quantity" value="1" />
+                                <button type="submit" class="btn btn-primary">
+                                    🛒 Thêm vào giỏ hàng
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-12 text-center py-5">
+                <h4 class="text-muted">Hiện tại cửa hàng chưa có sản phẩm nào.</h4>
+            </div>
+        }
+    </div>
+</div>
