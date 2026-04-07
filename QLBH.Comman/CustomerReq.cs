@@ -8,7 +8,7 @@ namespace QLBH.Common
 {
     public class CustomerReq
     {
-        public int Id { get; set; }
+        public string? Id { get; set; }
         public string Name { get; set; }
 
         public string Address { get; set; }
@@ -23,7 +23,7 @@ namespace QLBH.Common
 
         }
 
-        public CustomerReq(int id, string name, string address, string city, string country, string phone)
+        public CustomerReq(string? id, string name, string address, string city, string country, string phone)
         {
             this.Id = id;
             this.Name = name;

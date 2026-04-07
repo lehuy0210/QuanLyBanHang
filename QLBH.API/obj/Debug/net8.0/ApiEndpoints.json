@@ -1,6 +1,70 @@
 [
   {
     "ContainingType": "QLBH.API.Controllers.CustomerController",
+    "Method": "Create",
+    "RelativePath": "api/Customer/Create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "kh",
+        "Type": "QLBH.Common.CustomerReq",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QLBH.API.Controllers.CustomerController",
+    "Method": "Delete",
+    "RelativePath": "api/Customer/Delete",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QLBH.API.Controllers.CustomerController",
+    "Method": "Edit",
+    "RelativePath": "api/Customer/Edit",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "kh",
+        "Type": "QLBH.Common.CustomerReq",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QLBH.API.Controllers.CustomerController",
+    "Method": "GetById",
+    "RelativePath": "api/Customer/GetByID",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QLBH.API.Controllers.CustomerController",
     "Method": "List",
     "RelativePath": "api/Customer/List",
     "HttpMethod": "POST",

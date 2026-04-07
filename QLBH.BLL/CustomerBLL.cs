@@ -1,4 +1,5 @@
-﻿using QLBH.DAL;
+﻿using QLBH.Common;
+using QLBH.DAL;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -15,6 +16,26 @@ namespace QLBH.BLL
         public DataTable getKhachHang()
         {
             return dalKhachHang.getKhachHang();
+        }
+
+        public bool themKhachHang(CustomerReq kh)
+        {
+            return dalKhachHang.themKhachHang(kh);
+        }
+
+        public CustomerReq layKHTheoID(string idKH)
+        {
+            return dalKhachHang.layKHTheoID(idKH);
+        }
+
+        public bool xoaKhachHang(string idKH)
+        {
+            return dalKhachHang.xoaKhachHang(idKH);
+        }
+
+        public bool suaKhachHang(CustomerReq kh)
+        {
+            return dalKhachHang.suaKhachHang(kh);
         }
     }
 }

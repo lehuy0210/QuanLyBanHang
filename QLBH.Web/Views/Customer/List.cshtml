@@ -6,6 +6,15 @@
     ViewBag.Title = "Danh sách khách hàng";
 }
 
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Thành công!</strong> @TempData["Success"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h2>Danh sách khách hàng</h2>
     <a href="/Customer/Create" class="btn btn-success">Thêm khách hàng mới</a>
