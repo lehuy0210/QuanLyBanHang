@@ -19,7 +19,7 @@
     "ContainingType": "QLBH.API.Controllers.CustomerController",
     "Method": "Delete",
     "RelativePath": "api/Customer/Delete",
-    "HttpMethod": "POST",
+    "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -35,7 +35,7 @@
     "ContainingType": "QLBH.API.Controllers.CustomerController",
     "Method": "Edit",
     "RelativePath": "api/Customer/Edit",
-    "HttpMethod": "POST",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -67,7 +67,7 @@
     "ContainingType": "QLBH.API.Controllers.CustomerController",
     "Method": "List",
     "RelativePath": "api/Customer/List",
-    "HttpMethod": "POST",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
@@ -93,7 +93,7 @@
     "ContainingType": "QLBH.API.Controllers.ProductController",
     "Method": "Delete",
     "RelativePath": "api/Product/Delete",
-    "HttpMethod": "POST",
+    "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -109,7 +109,7 @@
     "ContainingType": "QLBH.API.Controllers.ProductController",
     "Method": "Edit",
     "RelativePath": "api/Product/Edit",
-    "HttpMethod": "POST",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -161,7 +161,7 @@
     "ContainingType": "QLBH.API.Controllers.ProductController",
     "Method": "List",
     "RelativePath": "api/Product/List",
-    "HttpMethod": "POST",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],

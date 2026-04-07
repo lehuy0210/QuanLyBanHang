@@ -6,7 +6,7 @@
   },
   "paths": {
     "/api/Customer/List": {
-      "post": {
+      "get": {
         "tags": [
           "Customer"
         ],
@@ -75,7 +75,7 @@
       }
     },
     "/api/Customer/Delete": {
-      "post": {
+      "delete": {
         "tags": [
           "Customer"
         ],
@@ -96,7 +96,7 @@
       }
     },
     "/api/Customer/Edit": {
-      "post": {
+      "put": {
         "tags": [
           "Customer"
         ],
@@ -192,7 +192,7 @@
       }
     },
     "/api/Product/List": {
-      "post": {
+      "get": {
         "tags": [
           "Product"
         ],
@@ -226,7 +226,7 @@
       }
     },
     "/api/Product/Edit": {
-      "post": {
+      "put": {
         "tags": [
           "Product"
         ],
@@ -262,7 +262,7 @@
       }
     },
     "/api/Product/Delete": {
-      "post": {
+      "delete": {
         "tags": [
           "Product"
         ],

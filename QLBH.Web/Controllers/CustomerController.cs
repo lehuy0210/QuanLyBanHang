@@ -21,7 +21,7 @@ namespace QLBH.Web.Controllers
 
             string apiCustomer = "http://localhost:5003/api/Customer/List";
 
-            var response = await client.PostAsync(apiCustomer, null);
+            var response = await client.GetAsync(apiCustomer);
 
             if (response.IsSuccessStatusCode)
             {
@@ -71,7 +71,7 @@ namespace QLBH.Web.Controllers
 
             string apiXoaKhachHang = $"http://localhost:5003/api/Customer/Delete?id={id}";
 
-            var response = await client.PostAsync(apiXoaKhachHang, null);
+            var response = await client.DeleteAsync(apiXoaKhachHang);
 
             if (response.IsSuccessStatusCode)
             {
@@ -117,7 +117,7 @@ namespace QLBH.Web.Controllers
 
             string apiSuaKhachHang = "http://localhost:5003/api/Customer/Edit";
 
-            var response = await client.PostAsJsonAsync(apiSuaKhachHang,kh);
+            var response = await client.PutAsJsonAsync(apiSuaKhachHang, kh);
 
             if (response.IsSuccessStatusCode)
             {
