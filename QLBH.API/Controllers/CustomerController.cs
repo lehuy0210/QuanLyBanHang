@@ -11,7 +11,7 @@ namespace QLBH.API.Controllers
     {
         private readonly CustomerBLL bllKhachHang = new CustomerBLL();
 
-        [HttpPost("List")]
+        [HttpGet("List")]
         public IActionResult List()
         {
             return Ok(bllKhachHang.getKhachHang());
@@ -61,7 +61,7 @@ namespace QLBH.API.Controllers
             }
         }
 
-        [HttpPost("Delete")]
+        [HttpDelete("Delete")]
         public IActionResult Delete([FromQuery] string id)
         {
             try
@@ -81,7 +81,7 @@ namespace QLBH.API.Controllers
             }
         }
 
-        [HttpPost("Edit")]
+        [HttpPut("Edit")]
         public IActionResult Edit([FromBody] CustomerReq kh)
         {
             try

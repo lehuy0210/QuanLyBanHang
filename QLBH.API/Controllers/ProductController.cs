@@ -52,7 +52,7 @@ namespace QLBH.API.Controllers
             }
 
         }
-        [HttpPost("List")]
+        [HttpGet("List")]
         public IActionResult List()
         {
             return Ok(bllSanPham.getSanPham());
@@ -79,7 +79,7 @@ namespace QLBH.API.Controllers
                 return StatusCode(400, new { success = false, message = "Lỗi server: " + ex.Message });
             }
         }
-        [HttpPost("Edit")]
+        [HttpPut("Edit")]
         public IActionResult Edit([FromBody] ProductReq sp)
         {
             try
@@ -99,7 +99,7 @@ namespace QLBH.API.Controllers
             }
         }
 
-        [HttpPost("Delete")]
+        [HttpDelete("Delete")]
         public IActionResult Delete(int id)
         {
             try
