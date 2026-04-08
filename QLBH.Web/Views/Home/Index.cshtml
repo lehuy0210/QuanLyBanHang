@@ -6,6 +6,13 @@
     ViewData["Title"] = "Trang chủ";
 }
 
+@if (TempData["ThongBao"] != null)
+{
+    <script>
+        alert('@TempData["ThongBao"]');
+    </script>
+}
+
 <div class="container mt-4">
     @if (TempData["Success"] != null)
     {

@@ -17,13 +17,17 @@ namespace QLBH.Common
 
         public string Phone { get; set; }
 
+        public string Username { get; set; }
+
+        public string Password { get; set; }
+
 
         public CustomerReq()
         {
 
         }
 
-        public CustomerReq(string? id, string name, string address, string city, string country, string phone)
+        public CustomerReq(string? id, string name, string address, string city, string country, string phone, string username, string password)
         {
             this.Id = id;
             this.Name = name;
@@ -31,6 +35,8 @@ namespace QLBH.Common
             this.City = city;
             this.Country = country;
             this.Phone = phone;
+            this.Username = username;
+            this.Password = password;
         }
     }
 }

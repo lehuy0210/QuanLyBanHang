@@ -65,6 +65,7 @@ namespace QLBH.Web.Controllers
             return View(kh);
         }
 
+        [HttpGet("Customer/Delete/{id}")]
         public async Task<IActionResult> Delete(string id)
         {
             var client = _httpClientFactory.CreateClient();
@@ -86,7 +87,7 @@ namespace QLBH.Web.Controllers
             return RedirectToAction("List");
         }
 
-        [HttpGet]
+        [HttpGet("Customer/Edit/{id}")]
         public async Task<IActionResult> Edit(string id)
         {
             var client = _httpClientFactory.CreateClient();
@@ -110,7 +111,7 @@ namespace QLBH.Web.Controllers
         }
 
 
-        [HttpPost]
+        [HttpPost("Edit/{id?}")]
         public async Task<IActionResult> Edit(CustomerReq kh)
         {
             var client = _httpClientFactory.CreateClient();

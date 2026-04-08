@@ -55,6 +55,20 @@
                     </div>
                 </div>
 
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-bold">Tên đăng nhập</label>
+                        <input type="text" class="form-control" name="Username" value="@Model.Username" readonly style="background-color: #e9ecef;" />
+                        <small class="text-muted">Tên đăng nhập không thể thay đổi</small>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-bold">Mật khẩu</label>
+                        <input type="text" class="form-control" name="Password" value="@Model.Password" required />
+                    </div>
+
+                </div>
+
                 <div class="mt-3">
                     <button type="submit" class="btn btn-primary px-4">Lưu thay đổi</button>
                     <button type="reset" class="btn btn-warning px-4">Nhập lại</button>

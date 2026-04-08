@@ -432,16 +432,16 @@ namespace QLBH.DAL.Migrations
             migrationBuilder.Sql(@"
                 CREATE OR ALTER VIEW [dbo].[DanhSachKhachHang]
                 AS
-                SELECT CustomerID, ContactName, Address, City, Country, Phone
+                SELECT CustomerID, ContactName, Address, City, Country, Phone,Username,Password
                 FROM Customers
             ");
 
             migrationBuilder.Sql(@"
                 CREATE OR ALTER PROC [dbo].[ThemKhachHang] 
-                (@CustomerID nchar(5), @CompanyName nvarchar(40), @ContactName nvarchar(40), @Address nvarchar(60), @City nvarchar(15), @Country nvarchar(15), @Phone nvarchar(24))      
+                (@CustomerID nchar(5), @CompanyName nvarchar(40), @ContactName nvarchar(40), @Address nvarchar(60), @City nvarchar(15), @Country nvarchar(15), @Phone nvarchar(24), @Username nvarchar(50),@Password nvarchar(50))      
                 AS BEGIN
-                    INSERT INTO Customers(CustomerID,CompanyName,ContactName, Address, City, Country, Phone)
-                    VALUES (@CustomerID,@CompanyName,@ContactName, @Address, @City, @Country, @Phone)
+                    INSERT INTO Customers(CustomerID,CompanyName,ContactName, Address, City, Country, Phone,Username,Password)
+                    VALUES (@CustomerID,@CompanyName,@ContactName, @Address, @City, @Country, @Phone,@Username,@Password)
                 END
             ");
 
@@ -465,7 +465,7 @@ namespace QLBH.DAL.Migrations
                 CREATE OR ALTER PROC [dbo].[LayKhachHangTheoId]
                 (@CustomerID nchar(5))
                 AS BEGIN
-                    SELECT CustomerID, ContactName, Address, City, Country, Phone
+                    SELECT CustomerID, ContactName, Address, City, Country, Phone,UserName,Password
                     FROM Customers
                     WHERE CustomerID = @CustomerID
                 END

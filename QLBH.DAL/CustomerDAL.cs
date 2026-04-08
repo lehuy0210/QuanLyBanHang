@@ -41,15 +41,17 @@ namespace QLBH.DAL
                 cmd.Parameters.Add("@City", SqlDbType.NVarChar, 15).Value = kh.City;
                 cmd.Parameters.Add("@Country", SqlDbType.NVarChar, 15).Value = kh.Country;
                 cmd.Parameters.Add("@Phone", SqlDbType.NVarChar, 24).Value = kh.Phone;
+                cmd.Parameters.Add("@Username", SqlDbType.NVarChar, 50).Value = kh.Username;
+                cmd.Parameters.Add("@Password", SqlDbType.NVarChar, 50).Value = kh.Password;
 
-                if(cmd.ExecuteNonQuery() > 0)
+                if (cmd.ExecuteNonQuery() > 0)
                 {
                     return  true;
                 }
             }
             catch(Exception ex)
             {
-                
+
             }
             finally
             {
@@ -82,6 +84,8 @@ namespace QLBH.DAL
                     kh.City = dr["City"].ToString();
                     kh.Country = dr["Country"].ToString();
                     kh.Phone = dr["Phone"].ToString();
+                    kh.Username = dr["Username"].ToString();
+                    kh.Password = dr["Password"].ToString();
                 }
                 dr.Close();
             }
@@ -141,6 +145,8 @@ namespace QLBH.DAL
                 cmd.Parameters.Add("@City", SqlDbType.NVarChar, 15).Value = kh.City;
                 cmd.Parameters.Add("@Country", SqlDbType.NVarChar, 15).Value = kh.Country;
                 cmd.Parameters.Add("@Phone", SqlDbType.NVarChar, 24).Value = kh.Phone;
+                cmd.Parameters.Add("@Username", SqlDbType.NVarChar, 50).Value = kh.Username;
+                cmd.Parameters.Add("@Password", SqlDbType.NVarChar, 50).Value = kh.Password;
 
                 if(cmd.ExecuteNonQuery() > 0)
                 {

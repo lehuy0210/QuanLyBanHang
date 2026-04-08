@@ -1,0 +1,81 @@
+﻿<table align="center">
+    <h2 style="text-align:center">ĐĂNG KÝ THÀNH VIÊN</h2>
+
+    @if (ViewBag.ThongBaoLoi != null)
+    {
+        <div style="color: red; text-align: center; margin-bottom: 10px;">
+            @ViewBag.ThongBaoLoi
+        </div>
+    }
+
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <tr style="height:40px">
+            <td>Họ tên khách hàng:</td>
+            <td>
+                @Html.TextBox("Name")
+                <span style="color:red;">@ViewData["Loi1"]</span>
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td>Tên đăng nhập:</td>
+            <td>
+                @Html.TextBox("Username")
+                <span style="color:red;">@ViewData["Loi2"]</span>
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td>Mật khẩu:</td>
+            <td>
+                @Html.Password("Password")
+                <span style="color:red;">@ViewData["Loi3"]</span>
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td>Mật khẩu nhập lại:</td>
+            <td>
+                @Html.Password("Matkhaunhaplai")
+                <span style="color:red;">@ViewData["Loi4"]</span>
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td>Điện thoại:</td>
+            <td>
+                @Html.TextBox("Phone")
+                <span style="color:red;">@ViewData["Loi6"]</span>
+            </td>
+        </tr>
+
+        <tr style="height:40px">
+            <td>Địa chỉ:</td>
+            <td>
+                @Html.TextBox("Address")
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td>Thành phố:</td>
+            <td>
+                @Html.TextBox("City")
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td>Quốc gia:</td>
+            <td>
+                @Html.TextBox("Country")
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td>Ngày sinh:</td>
+            <td>
+                <input type="date" name="Ngaysinh" />
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td></td>
+            <td>
+                <input type="Submit" value="Đăng ký" />
+            </td>
+        </tr>
+    }
+</table>
