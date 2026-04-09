@@ -1,5 +1,36 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿<h3 style="text-align:center">ĐĂNG NHẬP</h3>
+
+@using (Html.BeginForm("Login", "Account", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+
+    @if (ViewBag.ThongBaoLoi != null)
+    {
+        <div style="color: red; text-align: center; margin-bottom: 10px;">
+            @ViewBag.ThongBaoLoi
+        </div>
+    }
+
+    <table align="center">
+        <tr style="height:40px">
+            <td> Tên đăng nhập:</td>
+            <td>
+                @Html.TextBox("Username")
+                <span style="color:red">@ViewData["Loi1"]</span>
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td align="right"> Mật khẩu:</td>
+            <td>
+                @Html.Password("Password")
+                <span style="color:red">@ViewData["Loi2"]</span>
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td></td>
+            <td>
+                <input type="Submit" value="Đăng nhập" />
+            </td>
+        </tr>
+    </table>
 }

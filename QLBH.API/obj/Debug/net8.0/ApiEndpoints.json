@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "QLBH.API.Controllers.AccountController",
+    "Method": "Login",
+    "RelativePath": "api/Account/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "QLBH.Common.LoginReq",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "QLBH.API.Controllers.CustomerController",
     "Method": "Create",
     "RelativePath": "api/Customer/Create",

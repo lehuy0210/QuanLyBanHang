@@ -1,12 +1,39 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+@using System.Text.Json
+
+@{
+    // 1. Kiểm tra xem trong Session có dữ liệu đăng nhập chưa
+    var userSessionData = Context.Session.GetString("UserSession");
+    string tenKhachHang = null;
+
+    // 2. Nếu có dữ liệu, tiến hành dịch cục JSON để lấy tên khách hàng
+    if (!string.IsNullOrEmpty(userSessionData))
+    {
+        try
+        {
+            using (JsonDocument doc = JsonDocument.Parse(userSessionData))
+            {
+                var userInfo = doc.RootElement.GetProperty("userInfo");
+                // API mặc định hay trả về chữ cái đầu viết thường (name) hoặc viết hoa (Name)
+                if (userInfo.TryGetProperty("name", out var nameProp)) { tenKhachHang = nameProp.GetString(); }
+                else if (userInfo.TryGetProperty("Name", out var NameProp)) { tenKhachHang = NameProp.GetString(); }
+            }
+        }
+        catch
+        {
+            tenKhachHang = "Bạn"; // Phòng hờ lỗi parse JSON
+        }
+    }
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Quản Lý Bán Hàng</title>
-
-    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/site.css" />
 </head>
 <body>
     <header>
@@ -29,12 +56,24 @@
                             </a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="/Account/Login">Đăng nhập</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="/Account/Register">Đăng ký</a>
-                        </li>
+                        @if (tenKhachHang != null)
+                        {
+                            <li class="nav-item me-3">
+                                <span class="nav-link text-warning fw-bold">Xin chào, @tenKhachHang!</span>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="/Account/Logout">Đăng xuất</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="/Account/Login">Đăng nhập</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="/Account/Register">Đăng ký</a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>
@@ -47,9 +86,19 @@
         </main>
     </div>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/site.js"></script>
+
+    @{
+        var thongBao = TempData["ThongBao"] as string;
+    }
+    @if (!string.IsNullOrEmpty(thongBao))
+    {
+        <script>
+            alert(@Html.Raw(System.Text.Json.JsonSerializer.Serialize(thongBao)));
+        </script>
+    }
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
