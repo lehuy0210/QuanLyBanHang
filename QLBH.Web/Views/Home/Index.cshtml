@@ -41,12 +41,20 @@
                                 @string.Format("{0:N0} đ", row["UnitPrice"])
                             </h5>
 
-                            <form action="/Cart/AddToCart" method="post" class="d-grid">
-                                <input type="hidden" name="productId" value="@row["ProductID"]" />
-                                <input type="hidden" name="quantity" value="1" />
-                                <button type="submit" class="btn btn-primary">
-                                    🛒 Thêm vào giỏ hàng
-                                </button>
+                            <form action="/Order/AddToCart" method="post">
+                                <input type="hidden" name="productId" value="@row[0]" />
+                                <input type="hidden" name="productName" value="@row[1]" />
+                                <input type="hidden" name="unitPrice" value="@row[2]" />
+
+                                <div class="d-flex align-items-center mt-3">
+                                    <div class="input-group input-group-sm me-2" style="width: 100px;">
+                                        <span class="input-group-text">SL</span>
+                                        <input type="number" name="quantity" value="1" min="1" class="form-control" />
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-sm flex-grow-1 shadow-sm">
+                                        <i class="bi bi-cart-plus"></i> Mua ngay
+                                    </button>
+                                </div>
                             </form>
                         </div>
                     </div>

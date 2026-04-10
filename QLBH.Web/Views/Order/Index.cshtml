@@ -1,0 +1,72 @@
+﻿@model List<QLBH.Common.OrderReq>
+@{
+    Layout = "_LayoutHome";
+    ViewData["Title"] = "Giỏ hàng"; 
+    decimal tongTien = 0;
+}
+
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h2 class="fw-bold">HÓA ĐƠN CỦA BẠN</h2>
+        <p class="text-muted">Vui lòng kiểm tra lại danh sách sản phẩm trước khi thanh toán</p>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-0">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead class="bg-light">
+                            <tr class="text-secondary">
+                                <th class="ps-4 py-3" style="width: 40%">Sản phẩm</th>
+                                <th class="text-center" style="width: 20%">Số lượng</th>
+                                <th class="text-end" style="width: 20%">Đơn giá</th>
+                                <th class="text-end pe-4" style="width: 20%">Thành tiền</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                var thanhTien = item.Quantity * item.UnitPrice;
+                                tongTien += thanhTien;
+                                <tr>
+                                    <td class="ps-4 py-3">
+                                        <div class="fw-bold text-dark">@item.ProductName</div>
+                                        <small class="text-muted">ID: @item.ProductId</small>
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="badge bg-light text-dark border px-3 py-2">@item.Quantity</span>
+                                    </td>
+                                    <td class="text-end">@item.UnitPrice.ToString("N0")đ</td>
+                                    <td class="text-end pe-4 fw-bold text-primary">@thanhTien.ToString("N0")đ</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer bg-white p-4 border-top-0">
+                    <div class="row align-items-center">
+                        <div class="col-sm-6">
+                            <h5 class="mb-0 fw-bold">Tổng thanh toán:</h5>
+                        </div>
+                        <div class="col-sm-6 text-end">
+                            <h3 class="text-danger fw-bolder mb-0">@tongTien.ToString("N0") VNĐ</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-between mt-4">
+                <a href="/" class="btn btn-outline-secondary">
+                    <i class="bi bi-arrow-left"></i> Quay lại cửa hàng
+                </a>
+
+                <form asp-controller="Order" asp-action="Checkout" method="post">
+                    <button type="submit" class="btn btn-success btn-lg px-5 shadow-sm">
+                        Xác nhận đặt hàng ✅
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

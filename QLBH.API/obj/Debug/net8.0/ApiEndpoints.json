@@ -90,6 +90,27 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "QLBH.API.Controllers.OrderController",
+    "Method": "CreateOrder",
+    "RelativePath": "api/Order/Create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "customerId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "cart",
+        "Type": "System.Collections.Generic.List\u00601[[QLBH.Common.OrderReq, QLBH.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "QLBH.API.Controllers.ProductController",
     "Method": "Create",
     "RelativePath": "api/Product/Create",

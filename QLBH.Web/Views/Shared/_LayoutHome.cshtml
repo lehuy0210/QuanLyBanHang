@@ -1,6 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Http
 @using System.Text.Json
-
+@using QLBH.Common
 @{
     // 1. Kiểm tra xem trong Session có dữ liệu đăng nhập chưa
     var userSessionData = Context.Session.GetString("UserSession");
@@ -24,7 +24,30 @@
             tenKhachHang = "Bạn"; // Phòng hờ lỗi parse JSON
         }
     }
+
+    int countCart = 0; // Dòng này cực kỳ quan trọng, thiếu nó là báo lỗi ngay!
+    List<OrderReq> currentCart = new List<OrderReq>();
+    var sessionCart = Context.Session.GetString("CartSession");
+
+    if (!string.IsNullOrEmpty(sessionCart))
+    {
+        try
+        {
+            var items = JsonSerializer.Deserialize<List<OrderReq>>(sessionCart);
+            if (items != null)
+            {
+                currentCart = items;
+                countCart = items.Sum(x => x.Quantity);
+            }
+        }
+        catch
+        {
+            countCart = 0;
+        }
+    }
+
 }
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -49,12 +72,47 @@
                     </ul>
 
                     <ul class="navbar-nav ms-auto align-items-center">
-                        <li class="nav-item me-3">
-                            <a class="nav-link text-white d-flex align-items-center" href="/Cart/Index">
-                                <span class="fs-5 me-1">🛒</span> Giỏ hàng
-                                <span class="badge bg-danger rounded-pill ms-2">0</span>
+                        <li class="nav-item dropdown me-3">
+
+                            <a class="nav-link text-white d-flex align-items-center dropdown-toggle" href="#" id="cartDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <div class="position-relative d-inline-block">
+                                    <span class="fs-4">🛒</span>
+                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                                          style="font-size: 0.65rem; padding: 0.25em 0.45em; transform: translate(-30%, -20%) !important;">
+                                        @countCart  <span class="visually-hidden">sản phẩm</span>
+                                    </span>
+                                </div>
+                                <span class="ms-2">Giỏ hàng</span>
                             </a>
-                        </li>
+
+                            <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="cartDropdown" style="width: 320px;">
+                                <li><h6 class="dropdown-header text-center py-2">Giỏ hàng của bạn</h6></li>
+                                <li><hr class="dropdown-divider"></li>
+
+                                @if (currentCart == null || !currentCart.Any())
+                                {
+                                    <li><span class="dropdown-item text-center text-muted py-3">Giỏ hàng đang trống</span></li>
+                                }
+                                else
+                                {
+                                    @foreach (var item in currentCart)
+                                    {
+                                        <li>
+                                            <div class="dropdown-item d-flex justify-content-between align-items-center py-2">
+                                                <div style="flex: 1;">
+                                                    <span class="fw-bold d-block text-truncate" style="max-width: 150px;">@item.ProductName</span>
+                                                    <small class="text-muted">SL: @item.Quantity x @item.UnitPrice.ToString("N0")đ</small>
+                                                </div>
+                                                <span class="text-danger fw-bold ms-2">@((item.Quantity * item.UnitPrice).ToString("N0"))đ</span>
+                                            </div>
+                                        </li>
+                                    }
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li class="p-2">
+                                        <a class="btn btn-primary btn-sm w-100 p-2 shadow-sm" href="/Order/Index">Xem chi tiết hóa đơn</a>
+                                    </li>
+                                }
+                            </ul>
 
                         @if (tenKhachHang != null)
                         {
