@@ -27,7 +27,7 @@ namespace QLBH.API.Controllers
                     ShipName = "Khách hàng " + customerId // Ví dụ lấy tạm thông tin
                 };
 
-                _context.Orders.Add(newOrder);
+                _context.Order.Add(newOrder);
                 _context.SaveChanges(); // Để lấy được newOrder.OrderId tự tăng
 
                 // 2. LINQ: Map từ List<CartItem> sang List<OrderDetail>
@@ -42,7 +42,7 @@ namespace QLBH.API.Controllers
                 }).ToList();
 
                 // 3. Lưu vào database
-                _context.OrderDetails.AddRange(orderDetails);
+                _context.OrderDetail.AddRange(orderDetails);
                 _context.SaveChanges();
 
                 transaction.Commit();
@@ -51,7 +51,10 @@ namespace QLBH.API.Controllers
             catch (Exception ex)
             {
                 transaction.Rollback();
-                return BadRequest(ex.Message);
+
+                string loiThatSu = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
+
+                return BadRequest(loiThatSu);
             }
         }
     }

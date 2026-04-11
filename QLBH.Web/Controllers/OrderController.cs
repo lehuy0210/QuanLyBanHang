@@ -85,12 +85,20 @@ namespace QLBH.Web.Controllers
             var cart = GetCartFromSession();
             if (!cart.Any()) return BadRequest("Giỏ hàng trống");
 
-            // Lấy CustomerId từ Session (giả sử đã lưu khi đăng nhập)
-            string customerId = HttpContext.Session.GetString("CustomerId") ?? "GUEST";
+            string customerId = HttpContext.Session.GetString("CustomerId");
+
+
+            // 2. Chặn dự phòng: Nhỡ Session hết hạn (do treo máy lâu) thì bắt đăng nhập lại
+            if (string.IsNullOrEmpty(customerId))
+            {
+                TempData["ThongBao"] = "Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại để thanh toán!";
+                // Sửa đường dẫn này về trang Login thực tế của bạn nếu cần
+                return RedirectToAction("Index", "Home");
+            }
 
             // Dùng HttpClient để gửi dữ liệu sang API
             using var client = new HttpClient();
-            var response = await client.PostAsJsonAsync($"https://localhost:7001/api/Order/Create?customerId={customerId}", cart);
+            var response = await client.PostAsJsonAsync($"http://localhost:5003/api/Order/Create?customerId={customerId}", cart);
 
             if (response.IsSuccessStatusCode)
             {
@@ -98,7 +106,7 @@ namespace QLBH.Web.Controllers
                 using var doc = JsonDocument.Parse(jsonString);
 
                 int newId = 0;
-                if (doc.RootElement.TryGetProperty("OrderId", out var idProp))
+                if (doc.RootElement.TryGetProperty("orderId", out var idProp))
                 {
                     newId = idProp.GetInt32();
                 }
@@ -108,8 +116,13 @@ namespace QLBH.Web.Controllers
 
                 return RedirectToAction("Success", new { id = newId });
             }
+            else
+            {
+                string errorMsg = await response.Content.ReadAsStringAsync();
+                TempData["ThongBao"] = "Lỗi đặt hàng: " + errorMsg;
 
-            return View("Error");
+                return RedirectToAction("Index");
+            }
         }
 
         private List<OrderReq> GetCartFromSession()

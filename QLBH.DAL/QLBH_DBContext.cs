@@ -37,10 +37,19 @@ namespace QLBH.DAL
 
         public DbSet<Customer> Customers { get; set; }
 
-        public DbSet<Order> Orders { get; set; }
-        public DbSet<OrderDetail> OrderDetails { get; set; }
+        public DbSet<Order> Order { get; set; }
+        public DbSet<OrderDetail> OrderDetail { get; set; }
 
         public DbSet<CategoryReq> CategoryReqs { get; set; }
         public DbSet<SupplierReq> SupplierReqs { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            // Trỏ đúng vào tên bảng gốc của Northwind
+            modelBuilder.Entity<Order>().ToTable("Orders");
+            modelBuilder.Entity<OrderDetail>().ToTable("Order Details"); 
+        }
     }
 }

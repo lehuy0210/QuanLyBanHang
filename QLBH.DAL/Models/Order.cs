@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace QLBH.DAL.Models;
 
@@ -39,5 +40,6 @@ public partial class Order
 
     public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
 
+    [ForeignKey("ShipVia")]
     public virtual Shipper? ShipViaNavigation { get; set; }
 }
