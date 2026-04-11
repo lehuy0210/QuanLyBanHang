@@ -11,6 +11,33 @@ namespace QLBH.DAL.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            {
+                migrationBuilder.AddColumn<string>(
+                    name: "Username",
+                    table: "Customer",
+                    type: "nvarchar(max)",
+                    nullable: true);
+
+                migrationBuilder.AddColumn<string>(
+                    name: "Password",
+                    table: "Customer",
+                    type: "nvarchar(max)",
+                    nullable: true);
+
+                // Thêm cột cho bảng Employee
+                migrationBuilder.AddColumn<string>(
+                    name: "Username",
+                    table: "Employee",
+                    type: "nvarchar(max)",
+                    nullable: true);
+
+                migrationBuilder.AddColumn<string>(
+                    name: "Password",
+                    table: "Employee",
+                    type: "nvarchar(max)",
+                    nullable: true);
+            }
+
             //migrationBuilder.CreateTable(
             //    name: "Categories",
             //    columns: table => new
@@ -521,6 +548,23 @@ namespace QLBH.DAL.Migrations
 
             //migrationBuilder.DropTable(
             //    name: "Suppliers");
+
+
+            migrationBuilder.DropColumn(
+        name: "Username",
+        table: "Customer");
+
+            migrationBuilder.DropColumn(
+                name: "Password",
+                table: "Customer");
+
+            migrationBuilder.DropColumn(
+                name: "Username",
+                table: "Employee");
+
+            migrationBuilder.DropColumn(
+                name: "Password",
+                table: "Employee");
 
             migrationBuilder.Sql(@"DROP VIEW IF EXISTS [dbo].[DanhSachSanPham]");
             migrationBuilder.Sql("DROP PROCEDURE IF EXISTS [dbo].[LaySanPhamTheoId]");
