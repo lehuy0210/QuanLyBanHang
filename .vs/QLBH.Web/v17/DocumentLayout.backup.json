@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DC2089CC-8BE0-4840-A1EC-138FEFDBE051}|QLBH.DAL\\QLBH.DAL.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.dal\\qlbh_dbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DC2089CC-8BE0-4840-A1EC-138FEFDBE051}|QLBH.DAL\\QLBH.DAL.csproj|solutionrelative:qlbh.dal\\qlbh_dbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DC2089CC-8BE0-4840-A1EC-138FEFDBE051}|QLBH.DAL\\QLBH.DAL.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.dal\\migrations\\20260404034236_themstoreprocedure.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DC2089CC-8BE0-4840-A1EC-138FEFDBE051}|QLBH.DAL\\QLBH.DAL.csproj|solutionrelative:qlbh.dal\\migrations\\20260404034236_themstoreprocedure.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC2089CC-8BE0-4840-A1EC-138FEFDBE051}|QLBH.DAL\\QLBH.DAL.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.dal\\qlbh_dbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC2089CC-8BE0-4840-A1EC-138FEFDBE051}|QLBH.DAL\\QLBH.DAL.csproj|solutionrelative:qlbh.dal\\qlbh_dbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BE3ACB28-F0E9-4575-B820-EA2D42AAE65C}|QLBH.API\\QLBH.API.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -202,7 +202,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 779,
-          "SelectedChildIndex": 14,
+          "SelectedChildIndex": 34,
           "Children": [
             {
               "$type": "Bookmark",
@@ -368,13 +368,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "QLBH_DBContext.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.DAL\\QLBH_DBContext.cs",
               "RelativeDocumentMoniker": "QLBH.DAL\\QLBH_DBContext.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.DAL\\QLBH_DBContext.cs*",
-              "RelativeToolTip": "QLBH.DAL\\QLBH_DBContext.cs*",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAwBUAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.DAL\\QLBH_DBContext.cs",
+              "RelativeToolTip": "QLBH.DAL\\QLBH_DBContext.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAuwBoAAABMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-07T02:25:31.474Z",
               "EditorCaption": ""
@@ -610,13 +610,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "20260404034236_ThemStoreProcedure.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.DAL\\Migrations\\20260404034236_ThemStoreProcedure.cs",
               "RelativeDocumentMoniker": "QLBH.DAL\\Migrations\\20260404034236_ThemStoreProcedure.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.DAL\\Migrations\\20260404034236_ThemStoreProcedure.cs*",
-              "RelativeToolTip": "QLBH.DAL\\Migrations\\20260404034236_ThemStoreProcedure.cs*",
-              "ViewState": "AgIAAJ8AAAAAAAAAAAAAAAoCAAAlAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.DAL\\Migrations\\20260404034236_ThemStoreProcedure.cs",
+              "RelativeToolTip": "QLBH.DAL\\Migrations\\20260404034236_ThemStoreProcedure.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAQwFIAAABeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-06T07:38:46.256Z",
               "EditorCaption": ""
