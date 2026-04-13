@@ -224,6 +224,18 @@
         }
       }
     },
+    "/api/Order/List": {
+      "get": {
+        "tags": [
+          "Order"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Product/GetCategories": {
       "get": {
         "tags": [

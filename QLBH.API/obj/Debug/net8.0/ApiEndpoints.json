@@ -111,6 +111,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "QLBH.API.Controllers.OrderController",
+    "Method": "List",
+    "RelativePath": "api/Order/List",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "QLBH.API.Controllers.ProductController",
     "Method": "Create",
     "RelativePath": "api/Product/Create",

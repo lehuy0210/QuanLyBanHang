@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using QLBH.BLL;
 using QLBH.Common;
 using QLBH.DAL;
 using QLBH.DAL.Models;
+using System.Data;
 
 namespace QLBH.API.Controllers
 {
@@ -10,6 +12,8 @@ namespace QLBH.API.Controllers
     [ApiController]
     public class OrderController : ControllerBase
     {
+        OrderBLL bllDonHang = new OrderBLL();
+
         private readonly QLBH_DBContext _context;
         public OrderController(QLBH_DBContext context) { _context = context; }
 
@@ -55,6 +59,31 @@ namespace QLBH.API.Controllers
                 string loiThatSu = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
 
                 return BadRequest(loiThatSu);
+            }
+        }
+
+        [HttpGet("List")]
+        public IActionResult List()
+        {
+            try
+            {
+                DataTable dt = bllDonHang.getDonHang();
+
+                // Dùng LINQ để chuyển DataTable thành danh sách đối tượng nặc danh (Anonymous Object)
+                var result = dt.AsEnumerable().Select(row => new {
+                    OrderID = row["OrderID"],
+                    ContactName = row["ContactName"],
+                    UnitPrice = row["UnitPrice"],
+                    Quantity = row["Quantity"],
+                    TotalPrice = row["TotalPrice"]
+                }).ToList();
+
+                return Ok(result);
+                // Trả về dạng: [{ "orderID": 1, "contactName": "A"... }, { ... }]
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
             }
         }
     }

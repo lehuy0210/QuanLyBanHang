@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using QLBH.Common;               
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;            
 using System.Net.Http;
 using System.Net.Http.Json;    
@@ -162,6 +163,62 @@ namespace QLBH.Web.Controllers
             }
 
             return View(cart); // Lệnh này sẽ mở file Views/Order/Index.cshtml
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> List()
+        {
+            // 1. Tạo sẵn một DataTable với các cột tương ứng
+            DataTable dtOrder = new DataTable();
+            dtOrder.Columns.Add("OrderID");
+            dtOrder.Columns.Add("ContactName");
+            dtOrder.Columns.Add("ProductName");
+            dtOrder.Columns.Add("UnitPrice");
+            dtOrder.Columns.Add("Quantity");
+            dtOrder.Columns.Add("TotalPrice");
+
+            try
+            {
+                // 2. Dùng HttpClient để gọi API
+                using var client = new HttpClient();
+
+                // LƯU Ý: Sửa lại port 5003 thành port thực tế API của bạn đang chạy
+                var response = await client.GetAsync("http://localhost:5003/api/Order/List");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    // Đọc kết quả JSON từ API trả về
+                    var jsonString = await response.Content.ReadAsStringAsync();
+                    using var doc = JsonDocument.Parse(jsonString);
+
+                    // 3. Lặp qua từng object trong mảng JSON và nhét vào DataTable
+                    foreach (var item in doc.RootElement.EnumerateArray())
+                    {
+                        DataRow row = dtOrder.NewRow();
+
+                        // Chú ý: .NET tự động đổi chữ cái đầu thành viết thường (camelCase) khi trả về JSON
+                        // Nên ở đây phải dùng "orderID", "contactName"... (chữ cái đầu viết thường)
+                        row["OrderID"] = item.GetProperty("orderID").ToString();
+                        row["ContactName"] = item.GetProperty("contactName").ToString();
+                        row["UnitPrice"] = item.GetProperty("unitPrice").ToString();
+                        row["Quantity"] = item.GetProperty("quantity").ToString();
+                        row["TotalPrice"] = item.GetProperty("totalPrice").ToString();
+
+                        dtOrder.Rows.Add(row);
+                    }
+                }
+                else
+                {
+                    TempData["ThongBao"] = "Lỗi khi gọi API: " + response.StatusCode;
+                }
+            }
+            catch (Exception ex)
+            {
+                TempData["ThongBao"] = "Không thể kết nối đến API: " + ex.Message;
+            }
+
+            // 4. Ném DataTable đã chứa dữ liệu sang View
+            return View(dtOrder);
         }
 
     }
