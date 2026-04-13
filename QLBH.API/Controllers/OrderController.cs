@@ -70,6 +70,7 @@ namespace QLBH.API.Controllers
                 DataTable dt = bllDonHang.getDonHang();
 
                 // Dùng LINQ để chuyển DataTable thành danh sách đối tượng nặc danh (Anonymous Object)
+                //Load về phía client rồi mới select 
                 var result = dt.AsEnumerable().Select(row => new {
                     OrderID = row["OrderID"],
                     ContactName = row["ContactName"],
@@ -84,6 +85,30 @@ namespace QLBH.API.Controllers
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet("Detail/{id}")]
+        public IActionResult GetOrderDetail(int id)
+        {
+            try
+            {
+                // Gọi hàm từ BLL mà bạn vừa viết
+                List<OrderReq> result = bllDonHang.layDonHangTheoId(id);
+
+                // Kiểm tra xem đơn hàng có tồn tại/có sản phẩm nào không
+                if (result == null || result.Count == 0)
+                {
+                    return NotFound(new { Message = $"Không tìm thấy chi tiết cho đơn hàng mã {id}" });
+                }
+
+                // Trả về danh sách dạng JSON với mã 200 OK
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                // Nếu có lỗi ở BLL/DAL thì API sẽ quăng mã 400 kèm câu thông báo
+                return BadRequest(new { Message = "Lỗi khi lấy dữ liệu: " + ex.Message });
             }
         }
     }

@@ -42,7 +42,7 @@
                         <td class="text-center">@row["Quantity"]</td>
                         <td class="text-end fw-bold text-danger">@row["TotalPrice"]</td>
                         <td class="text-center">
-                            <a href="/Order/Details/@row["OrderID"]" class="btn btn-info btn-sm text-white">Xem</a>
+                            <a href="/Order/Detail/@row["OrderID"]" class="btn btn-info btn-sm text-white">Xem</a>
                             <a href="/Order/Delete/@row["OrderID"]"
                                class="btn btn-danger btn-sm"
                                onclick="return confirm('Bạn có chắc muốn xóa đơn hàng #@row["OrderID"] không?');">Xóa</a>

@@ -221,5 +221,35 @@ namespace QLBH.Web.Controllers
             return View(dtOrder);
         }
 
+        public async Task<IActionResult> Detail(int id)
+        {
+            List<OrderReq> orderDetails = new List<OrderReq>();
+
+            using (HttpClient client = new HttpClient())
+            {
+                HttpResponseMessage response = await client.GetAsync($"http://localhost:5003/api/Order/Detail/{id}");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string data = await response.Content.ReadAsStringAsync();
+
+                    var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                    orderDetails = JsonSerializer.Deserialize<List<OrderReq>>(data, options);
+                }
+
+                else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+                {
+                    // Nếu API trả về 404
+                    ViewBag.ErrorMessage = "Không tìm thấy đơn hàng này!";
+                }
+                else
+                {
+                    // Lỗi khác (500, 400...)
+                    ViewBag.ErrorMessage = "Đã xảy ra lỗi khi kết nối tới hệ thống.";
+                }
+            }
+            return View(orderDetails);
+        }
+
     }
 }

@@ -236,6 +236,29 @@
         }
       }
     },
+    "/api/Order/Detail/{id}": {
+      "get": {
+        "tags": [
+          "Order"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Product/GetCategories": {
       "get": {
         "tags": [
@@ -460,6 +483,14 @@
       "OrderReq": {
         "type": "object",
         "properties": {
+          "orderID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "contactName": {
+            "type": "string",
+            "nullable": true
+          },
           "productId": {
             "type": "integer",
             "format": "int32"
@@ -480,6 +511,10 @@
             "type": "number",
             "format": "double",
             "readOnly": true
+          },
+          "totalPrice": {
+            "type": "number",
+            "format": "double"
           }
         },
         "additionalProperties": false
