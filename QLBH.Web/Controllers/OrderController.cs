@@ -172,8 +172,6 @@ namespace QLBH.Web.Controllers
             DataTable dtOrder = new DataTable();
             dtOrder.Columns.Add("OrderID");
             dtOrder.Columns.Add("ContactName");
-            dtOrder.Columns.Add("ProductName");
-            dtOrder.Columns.Add("UnitPrice");
             dtOrder.Columns.Add("Quantity");
             dtOrder.Columns.Add("TotalPrice");
 
@@ -200,7 +198,6 @@ namespace QLBH.Web.Controllers
                         // Nên ở đây phải dùng "orderID", "contactName"... (chữ cái đầu viết thường)
                         row["OrderID"] = item.GetProperty("orderID").ToString();
                         row["ContactName"] = item.GetProperty("contactName").ToString();
-                        row["UnitPrice"] = item.GetProperty("unitPrice").ToString();
                         row["Quantity"] = item.GetProperty("quantity").ToString();
                         row["TotalPrice"] = item.GetProperty("totalPrice").ToString();
 

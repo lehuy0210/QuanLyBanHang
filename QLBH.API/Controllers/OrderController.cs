@@ -34,20 +34,37 @@ namespace QLBH.API.Controllers
                 _context.Order.Add(newOrder);
                 _context.SaveChanges(); // Để lấy được newOrder.OrderId tự tăng
 
-                // 2. LINQ: Map từ List<CartItem> sang List<OrderDetail>
-                // Đây là phần bạn cần nhất: cực nhanh và sạch code
-                var orderDetails = cart.Select(c => new OrderDetail
-                {
-                    OrderId = newOrder.OrderId,
-                    ProductId = c.ProductId,
-                    UnitPrice = c.UnitPrice,
-                    Quantity = (short)c.Quantity, // Ép kiểu về short theo Model của bạn
-                    Discount = 0f                 // Kiểu float
-                }).ToList();
+                var orderDetails = new List<OrderDetail>();
 
-                // 3. Lưu vào database
+                foreach (var c in cart)
+                {
+                    var product = _context.Products.FirstOrDefault(p => p.ProductId == c.ProductId);
+
+                    if (product == null)
+                    {
+                        throw new Exception($"Sản phẩm mã {c.ProductId} không tồn tại.");
+                    }
+
+                    if (product.UnitsInStock < c.Quantity)
+                    {
+                        throw new Exception($"Sản phẩm '{product.ProductName}' chỉ còn {product.UnitsInStock} cái, không đủ để đặt {c.Quantity}.");
+                    }
+
+                    product.UnitsInStock -= (short)c.Quantity;
+
+                    orderDetails.Add(new OrderDetail
+                    {
+                        OrderId = newOrder.OrderId,
+                        ProductId = c.ProductId,
+                        UnitPrice = c.UnitPrice,
+                        Quantity = (short)c.Quantity,
+                        Discount = 0f
+                    });
+
+                }
+
                 _context.OrderDetail.AddRange(orderDetails);
-                _context.SaveChanges();
+                _context.SaveChanges(); //'product.UnitsInStock' đã thay đổi và sẽ tự động sinh ra câu lệnh UPDATE cùng với câu lệnh INSERT OrderDetail!
 
                 transaction.Commit();
                 return Ok(new { Message = "Đã lưu vào DB thành công", OrderId = newOrder.OrderId });
@@ -74,7 +91,6 @@ namespace QLBH.API.Controllers
                 var result = dt.AsEnumerable().Select(row => new {
                     OrderID = row["OrderID"],
                     ContactName = row["ContactName"],
-                    UnitPrice = row["UnitPrice"],
                     Quantity = row["Quantity"],
                     TotalPrice = row["TotalPrice"]
                 }).ToList();
@@ -107,8 +123,33 @@ namespace QLBH.API.Controllers
             }
             catch (Exception ex)
             {
-                // Nếu có lỗi ở BLL/DAL thì API sẽ quăng mã 400 kèm câu thông báo
-                return BadRequest(new { Message = "Lỗi khi lấy dữ liệu: " + ex.Message });
+                return StatusCode(500, new { message = "Lỗi hệ thống: " + ex.Message });
+            }
+        }
+
+        [HttpDelete("Delete/{id}")]
+        public IActionResult Delete(int id)
+        {
+            try
+            {
+                bool isSuccess = bllDonHang.XoaDonHang(id);
+
+                if (isSuccess)
+                {
+                    return Ok(new { Message = "Đã xóa đơn hàng và cập nhật lại kho thành công!" });
+                }
+                else
+                {
+                    return BadRequest(new { Message = "Không thể xóa đơn hàng lúc này." });
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("Đơn hàng không tồn tại"))
+                {
+                    return NotFound(new { Message = ex.Message });
+                }
+                return StatusCode(500, new { Message = "Lỗi hệ thống: " + ex.Message });
             }
         }
     }

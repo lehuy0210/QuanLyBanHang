@@ -21,5 +21,10 @@ namespace QLBH.BLL
         {
             return dalDonHang.layDonHangTheoId(orderid);
         }
+
+        public bool XoaDonHang(int orderid)
+        {
+            return dalDonHang.XoaDonHang(orderid);
+        }
     }
 }

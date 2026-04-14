@@ -1,4 +1,4 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using QLBH.DAL;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,7 +13,21 @@ builder.Services.AddControllers().AddNewtonsoftJson();
 
 builder.Services.AddDbContext<QLBH_DBContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("cnstr")));
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", builder =>
+    {
+        builder.AllowAnyOrigin()   // Cho phép mọi tên miền/cổng (kể cả MVC của bạn)
+               .AllowAnyMethod()   // Cho phép mọi lệnh (GET, POST, PUT, DELETE)
+               .AllowAnyHeader();  // Cho phép mọi loại dữ liệu (JSON...)
+    });
+});
+
+
 var app = builder.Build();
+
+app.UseCors("AllowAll");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

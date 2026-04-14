@@ -24,7 +24,6 @@
             <tr>
                 <th>Mã ĐH</th>
                 <th>Tên Khách Hàng</th>
-                <th>Đơn Giá</th>
                 <th class="text-center">Số Lượng</th>
                 <th class="text-end">Thành Tiền</th>
                 <th class="text-center">Hành động</th>
@@ -38,14 +37,15 @@
                     <tr>
                         <td class="fw-bold">#@row["OrderID"]</td>
                         <td class="text-primary">@row["ContactName"]</td>
-                        <td>@row["UnitPrice"]</td>
                         <td class="text-center">@row["Quantity"]</td>
                         <td class="text-end fw-bold text-danger">@row["TotalPrice"]</td>
                         <td class="text-center">
                             <a href="/Order/Detail/@row["OrderID"]" class="btn btn-info btn-sm text-white">Xem</a>
-                            <a href="/Order/Delete/@row["OrderID"]"
-                               class="btn btn-danger btn-sm"
-                               onclick="return confirm('Bạn có chắc muốn xóa đơn hàng #@row["OrderID"] không?');">Xóa</a>
+                            <button type="button"
+                                    class="btn btn-danger btn-sm"
+                                    onclick="xoaDonHang(@row["OrderID"])">
+                                Xóa
+                            </button>
                         </td>
                     </tr>
                 }
@@ -60,4 +60,47 @@
             }
         </tbody>
     </table>
+    <script>
+        function xoaDonHang(orderId) {
+            if (!confirm('Bạn có chắc muốn xóa đơn hàng #' + orderId + ' không?')) {
+                return;
+            }
+
+            // SỬA QUAN TRỌNG: Phải thêm http://localhost:5003 (hoặc port thật của API) vào đây
+            fetch('http://localhost:5003/api/Order/Delete/' + orderId, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(async response => {
+                const textData = await response.text();
+
+                if (response.ok) {
+                    alert('Xóa đơn hàng thành công!');
+                    window.location.reload();
+                    return;
+                }
+
+                // Đoạn code gán mã lỗi đã được đặt đúng vị trí bên trong then()
+                let errorMessage = "Lỗi " + response.status + ": Server không gửi kèm thông báo chi tiết.";
+
+                if (textData) {
+                    try {
+                        const jsonData = JSON.parse(textData);
+                        // Bắt các kiểu format Message khác nhau
+                        errorMessage = jsonData.Message || jsonData.message || jsonData.title || textData;
+                    } catch (e) {
+                        errorMessage = textData;
+                    }
+                }
+
+                throw new Error(errorMessage);
+            })
+            .catch(error => {
+                console.error('Lỗi chi tiết:', error);
+                alert('Lỗi khi xóa: ' + error.message);
+            });
+        }
+    </script>
 </div>

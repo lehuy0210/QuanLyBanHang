@@ -14,11 +14,12 @@ namespace QLBH.DAL
     {
         public DataTable getDonHang()
         {
-            string query = "SELECT * FROM DanhSachDonHang";
+            string query = "SELECT * FROM DanhSachDonHang ORDER BY OrderID DESC";
 
             SqlCommand cmd = new SqlCommand(query, _conn);
+            cmd.CommandType = CommandType.Text;
             SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dtDonHang= new DataTable();
+            DataTable dtDonHang = new DataTable();
             da.Fill(dtDonHang);
             return dtDonHang;
         }
@@ -38,8 +39,8 @@ namespace QLBH.DAL
 
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
-                    {
-                        OrderReq order = new OrderReq();
+                {
+                    OrderReq order = new OrderReq();
                     order.OrderID = Convert.ToInt32(dr["OrderID"]);
                     order.ContactName = dr["ContactName"].ToString();
                     order.ProductName = dr["ProductName"].ToString();
@@ -51,15 +52,43 @@ namespace QLBH.DAL
                 }
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-               
+
             }
             finally
             {
                 _conn.Close();
             }
             return lstOrderDetails;
+        }
+
+        public bool XoaDonHang(int orderid)
+        {
+            try
+            {
+                _conn.Open();
+
+                string tenProc = "sp_DeleteOrder_RestoreStock";
+                SqlCommand cmd = new SqlCommand(tenProc, _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("@OrderID", SqlDbType.Int).Value = orderid;
+
+                cmd.ExecuteNonQuery();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                _conn.Close();
+            }
+
+            return false;
         }
     }
 }
