@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http; 
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http; 
 using Microsoft.AspNetCore.Mvc;
 using QLBH.Common;               
 using System.Collections.Generic;
@@ -14,8 +15,7 @@ namespace QLBH.Web.Controllers
     {
         private const string CART_KEY = "CartSession";
 
-        [HttpPost]
-
+        [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> AddToCart(int productId, int quantity, string productName, decimal unitPrice)
         {
@@ -23,63 +23,64 @@ namespace QLBH.Web.Controllers
             string urlTruocDo = Request.Headers["Referer"].ToString();
             if (string.IsNullOrEmpty(urlTruocDo)) urlTruocDo = "/";
 
-            // 2. KIỂM TRA ĐĂNG NHẬP
-            string userSessionData = HttpContext.Session.GetString("UserSession");
+            var userJson = HttpContext.Session.GetString("UserSession");
 
-            if (string.IsNullOrEmpty(userSessionData))
+            // 2. KIỂM TRA ĐĂNG NHẬP
+            if (!User.Identity.IsAuthenticated || string.IsNullOrEmpty(userJson))
             {
-                TempData["ThongBao"] = "Vui lòng đăng nhập để sử dụng giỏ hàng!";
+                TempData["ThongBao"] = "Vui lòng đăng nhập trước khi mua hàng!";
                 return Redirect(urlTruocDo);
             }
 
-            // 3. XỬ LÝ GIỎ HÀNG
-            var cart = GetCartFromSession();
-            var item = cart.FirstOrDefault(p => p.ProductId == productId);
 
-            if (item != null)
-            {
-                item.Quantity += quantity;
-            }
-            else
-            {
-                string nameToSave = productName;
+               // 3. XỬ LÝ GIỎ HÀNG
+                var cart = GetCartFromSession();
+                var item = cart.FirstOrDefault(p => p.ProductId == productId);
 
-                // Chỉ gọi API nếu productName truyền vào bị trống
-                if (string.IsNullOrEmpty(nameToSave))
+                if (item != null)
                 {
-                    try
+                    item.Quantity += quantity;
+                }
+                else
+                {
+                    string nameToSave = productName;
+
+                    // Chỉ gọi API nếu productName truyền vào bị trống
+                    if (string.IsNullOrEmpty(nameToSave))
                     {
-                        using var client = new HttpClient();
-                        var response = await client.GetAsync($"http://localhost:5003/api/Product/GetByID?id={productId}");
-                        if (response.IsSuccessStatusCode)
+                        try
                         {
-                            var productData = await response.Content.ReadFromJsonAsync<ProductReq>();
-                            nameToSave = productData?.Name ?? "Sản phẩm không tên";
+                            using var client = new HttpClient();
+                            var response = await client.GetAsync($"http://localhost:5003/api/Product/GetByID?id={productId}");
+                            if (response.IsSuccessStatusCode)
+                            {
+                                var productData = await response.Content.ReadFromJsonAsync<ProductReq>();
+                                nameToSave = productData?.Name ?? "Sản phẩm không tên";
+                            }
+                        }
+                        catch
+                        {
+                            nameToSave = "Lỗi kết nối API";
                         }
                     }
-                    catch
+
+                    cart.Add(new OrderReq
                     {
-                        nameToSave = "Lỗi kết nối API";
-                    }
+                        ProductId = productId,
+                        Quantity = quantity,
+                        UnitPrice = unitPrice,
+                        ProductName = nameToSave
+                    });
                 }
 
-                cart.Add(new OrderReq
-                {
-                    ProductId = productId,
-                    Quantity = quantity,
-                    UnitPrice = unitPrice,
-                    ProductName = nameToSave
-                });
-            }
+                // 4. LƯU SESSION VÀ TRẢ VỀ
+                SaveCartToSession(cart);
+                TempData["ThongBao"] = "Đã thêm vào giỏ hàng!";
 
-            // 4. LƯU SESSION VÀ TRẢ VỀ
-            SaveCartToSession(cart);
-            TempData["ThongBao"] = "Đã thêm vào giỏ hàng!";
-
-            return Redirect(urlTruocDo);
-            //return Content($"WEB ĐÃ NHẬN: ID={productId}, Tên={productName}, Giá={unitPrice}");
+                return Redirect(urlTruocDo);
+                //return Content($"WEB ĐÃ NHẬN: ID={productId}, Tên={productName}, Giá={unitPrice}");
         }
-
+        [Authorize(Roles = "User")]
         [HttpPost]
         public async Task<IActionResult> Checkout()
         {
@@ -145,12 +146,13 @@ namespace QLBH.Web.Controllers
         private void SaveCartToSession(List<OrderReq> cart) =>
             HttpContext.Session.SetString(CART_KEY, JsonSerializer.Serialize(cart));
 
+        [Authorize(Roles = "User")]
         public IActionResult Success(int id)
         {
             ViewBag.OrderId = id;
             return View(); 
         }
-
+        [Authorize(Roles = "User")]
         public IActionResult Index()
         {
             // Lấy giỏ hàng từ Session để truyền vào View
@@ -165,6 +167,7 @@ namespace QLBH.Web.Controllers
             return View(cart); // Lệnh này sẽ mở file Views/Order/Index.cshtml
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public async Task<IActionResult> List()
         {
@@ -218,6 +221,7 @@ namespace QLBH.Web.Controllers
             return View(dtOrder);
         }
 
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Detail(int id)
         {
             List<OrderReq> orderDetails = new List<OrderReq>();

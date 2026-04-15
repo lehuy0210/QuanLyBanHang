@@ -1,10 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using QLBH.Common;
-using System.Text.Json;
+using System.Security.Claims;
 using System.Text;
+using System.Text.Json;
 
 namespace QLBH.Web.Controllers
 {
+    [AllowAnonymous] // QUAN TRỌNG: Cho phép truy cập không cần đăng nhập
     public class AccountController : Controller
     {
         private readonly HttpClient _httpClient;
@@ -96,15 +101,48 @@ namespace QLBH.Web.Controllers
                         JsonElement root = doc.RootElement;
                         /*JsonElement đại diện cho một giá trị cụ thể trong cấu trúc JSON*/
 
-                        string tenKhachHang = root.GetProperty("userInfo").GetProperty("name").GetString();
+                        JsonElement userInfo = root.GetProperty("userInfo");
 
-                        string maKhachHang = root.GetProperty("userInfo").GetProperty("id").GetString();
+                        string tenNguoiDung = userInfo.GetProperty("name").GetString();
+
+                        string maNguoiDung = userInfo.GetProperty("id").GetString();
+
+                        // Vì lỡ Khách hàng đăng nhập API không trả về Role, ta mặc định họ là "User".
+                        string role = "User";
+                        if (userInfo.TryGetProperty("role", out JsonElement roleElement))
+                        {
+                            role = roleElement.GetString();
+                        }
 
                         HttpContext.Session.SetString("UserSession", successResult);
-                        HttpContext.Session.SetString("CustomerId", maKhachHang);
+                        HttpContext.Session.SetString("CustomerId", maNguoiDung);
                         /*session, key(string), value(string)*/
 
-                        TempData["ThongBao"] = $"Chào mừng {tenKhachHang} đã đăng nhập thành công!";
+                        // --- BẮT ĐẦU GẮN QUYỀN (CLAIMS) ---
+                        var claims = new List<Claim>
+                        {
+                            new Claim(ClaimTypes.Name, tenNguoiDung),
+                            new Claim("UserId", maNguoiDung),
+                            new Claim(ClaimTypes.Role, role) // Gắn "Admin" hoặc "User"
+                        };
+
+                        var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                        var authProperties = new AuthenticationProperties { IsPersistent = true };
+
+                        await HttpContext.SignInAsync(
+                            CookieAuthenticationDefaults.AuthenticationScheme,
+                            new ClaimsPrincipal(claimsIdentity),
+                            authProperties);
+
+
+
+                        TempData["ThongBao"] = $"Chào mừng {tenNguoiDung} đã đăng nhập thành công!";
+
+                        if (role == "Admin")
+                        {
+                            return RedirectToAction("List", "Product");
+                        }
+
                         return RedirectToAction("Index", "Home");
                     }
                 }
@@ -125,9 +163,12 @@ namespace QLBH.Web.Controllers
         }
 
         [HttpGet]
-        public IActionResult Logout()
+        public async Task<IActionResult> Logout()
         {
             HttpContext.Session.Clear();
+
+            // 2. ĐĂNG XUẤT KHỎI HỆ THỐNG PHÂN QUYỀN (CLAIMS) CỦA .NET
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 
             TempData["ThongBao"] = "Bạn đã đăng xuất thành công!";
 

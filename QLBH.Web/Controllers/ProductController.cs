@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using QLBH.Common;
 using QLBH.DAL;
@@ -9,6 +10,7 @@ using static System.Net.WebRequestMethods;
 
 namespace QLBH.Web.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ProductController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;

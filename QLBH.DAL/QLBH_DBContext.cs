@@ -37,6 +37,8 @@ namespace QLBH.DAL
 
         public DbSet<Customer> Customers { get; set; }
 
+        public DbSet<Employee> Employees { get; set; }
+
         public DbSet<Order> Order { get; set; }
         public DbSet<OrderDetail> OrderDetail { get; set; }
 

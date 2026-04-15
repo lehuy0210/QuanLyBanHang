@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace QLBH.DAL.Models;
 
@@ -49,6 +50,7 @@ public partial class Employee
 
     public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 
+    [ForeignKey("ReportsTo")]
     public virtual Employee? ReportsToNavigation { get; set; }
 
     public virtual ICollection<Territory> Territories { get; set; } = new List<Territory>();
