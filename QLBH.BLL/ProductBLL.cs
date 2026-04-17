@@ -17,6 +17,11 @@ namespace QLBH.BLL
         {
             return dalSanPham.getSanPham();
         }
+
+        public DataTable getSanPhamTimKiem(string tukhoa)
+        {
+            return dalSanPham.getSanPhamTimKiem(tukhoa);
+        }
         public bool themSanPham(ProductReq sp)
         {
             return dalSanPham.themSanPham(sp);

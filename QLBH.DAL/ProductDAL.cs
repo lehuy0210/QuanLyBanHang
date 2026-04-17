@@ -21,6 +21,20 @@ namespace QLBH.DAL
             da.Fill(dtSanPham);
             return dtSanPham;
         }
+
+        public DataTable getSanPhamTimKiem(string tukhoa)
+        {
+            string tenProc = "TimKiemSanPham";
+            SqlCommand cmd = new SqlCommand(tenProc, _conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add("@ProductName", SqlDbType.NVarChar, 40).Value = tukhoa;
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            DataTable dtTimKiem = new DataTable();
+            da.Fill(dtTimKiem);
+            return dtTimKiem;
+        }
+
         public bool themSanPham(ProductReq sp)
         {
             try

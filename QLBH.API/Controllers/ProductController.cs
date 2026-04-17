@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using QLBH.BLL;
 using QLBH.Common;
 using QLBH.DAL;
+using static Microsoft.Extensions.Logging.EventSource.LoggingEventSource;
 
 namespace QLBH.API.Controllers
 {
@@ -116,6 +117,21 @@ namespace QLBH.API.Controllers
             catch (Exception ex)
             {
                 return StatusCode(400, ex.Message);
+            }
+        }
+
+        [HttpGet("Search")]
+        public IActionResult Search(string tukhoa)
+        {
+            var dtResult = bllSanPham.getSanPhamTimKiem(tukhoa);
+
+            if (dtResult != null && dtResult.Rows.Count > 0)
+            {
+                return Ok(dtResult);
+            }
+            else
+            {
+                return Ok(new List<object>());
             }
         }
     }

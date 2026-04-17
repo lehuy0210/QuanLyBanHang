@@ -23,12 +23,16 @@ namespace QLBH.Web.Controllers
             string urlTruocDo = Request.Headers["Referer"].ToString();
             if (string.IsNullOrEmpty(urlTruocDo)) urlTruocDo = "/";
 
+            // Kiểm tra xem đây có phải là yêu cầu AJAX không
+            bool isAjax = Request.Headers["X-Requested-With"] == "XMLHttpRequest";
+
             var userJson = HttpContext.Session.GetString("UserSession");
 
             // 2. KIỂM TRA ĐĂNG NHẬP
             if (!User.Identity.IsAuthenticated || string.IsNullOrEmpty(userJson))
             {
                 TempData["ThongBao"] = "Vui lòng đăng nhập trước khi mua hàng!";
+                if (isAjax) return Json(new { success = false, message = "Vui lòng đăng nhập trước khi mua hàng!" }); // Trả về JSON cho AJAX
                 return Redirect(urlTruocDo);
             }
 
@@ -76,8 +80,9 @@ namespace QLBH.Web.Controllers
                 // 4. LƯU SESSION VÀ TRẢ VỀ
                 SaveCartToSession(cart);
                 TempData["ThongBao"] = "Đã thêm vào giỏ hàng!";
+            if (isAjax) return Json(new { success = true, message = "Đã thêm vào giỏ hàng!" }); // Trả về JSON cho AJAX
 
-                return Redirect(urlTruocDo);
+            return Redirect(urlTruocDo);
                 //return Content($"WEB ĐÃ NHẬN: ID={productId}, Tên={productName}, Giá={unitPrice}");
         }
         [Authorize(Roles = "User")]
