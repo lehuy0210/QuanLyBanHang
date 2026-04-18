@@ -75,9 +75,10 @@ namespace QLBH.DAL
 
                 cmd.Parameters.Add("@OrderID", SqlDbType.Int).Value = orderid;
 
-                cmd.ExecuteNonQuery();
-
-                return true;
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    return true;
+                }
             }
             catch (Exception ex)
             {
