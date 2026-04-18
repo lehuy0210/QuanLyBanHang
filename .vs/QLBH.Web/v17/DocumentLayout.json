@@ -3,76 +3,132 @@
   "WorkspaceRootPath": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.web\\views\\shared\\_layouthome.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|solutionrelative:qlbh.web\\views\\shared\\_layouthome.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.web\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|solutionrelative:qlbh.web\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BE3ACB28-F0E9-4575-B820-EA2D42AAE65C}|QLBH.API\\QLBH.API.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.api\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BE3ACB28-F0E9-4575-B820-EA2D42AAE65C}|QLBH.API\\QLBH.API.csproj|solutionrelative:qlbh.api\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE3ACB28-F0E9-4575-B820-EA2D42AAE65C}|QLBH.API\\QLBH.API.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.api\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE3ACB28-F0E9-4575-B820-EA2D42AAE65C}|QLBH.API\\QLBH.API.csproj|solutionrelative:qlbh.api\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DC2089CC-8BE0-4840-A1EC-138FEFDBE051}|QLBH.DAL\\QLBH.DAL.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.dal\\orderdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC2089CC-8BE0-4840-A1EC-138FEFDBE051}|QLBH.DAL\\QLBH.DAL.csproj|solutionrelative:qlbh.dal\\orderdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.web\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|solutionrelative:qlbh.web\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.web\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|solutionrelative:qlbh.web\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DC2089CC-8BE0-4840-A1EC-138FEFDBE051}|QLBH.DAL\\QLBH.DAL.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.dal\\employeedal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC2089CC-8BE0-4840-A1EC-138FEFDBE051}|QLBH.DAL\\QLBH.DAL.csproj|solutionrelative:qlbh.dal\\employeedal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DC2089CC-8BE0-4840-A1EC-138FEFDBE051}|QLBH.DAL\\QLBH.DAL.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.dal\\productdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DC2089CC-8BE0-4840-A1EC-138FEFDBE051}|QLBH.DAL\\QLBH.DAL.csproj|solutionrelative:qlbh.dal\\productdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE3ACB28-F0E9-4575-B820-EA2D42AAE65C}|QLBH.API\\QLBH.API.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE3ACB28-F0E9-4575-B820-EA2D42AAE65C}|QLBH.API\\QLBH.API.csproj|solutionrelative:qlbh.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DC2089CC-8BE0-4840-A1EC-138FEFDBE051}|QLBH.DAL\\QLBH.DAL.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.dal\\customerdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC2089CC-8BE0-4840-A1EC-138FEFDBE051}|QLBH.DAL\\QLBH.DAL.csproj|solutionrelative:qlbh.dal\\customerdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{09AF03BC-10C9-49FF-8047-5FC35D842CDF}|QLBH.BLL\\QLBH.BLL.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.bll\\productbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09AF03BC-10C9-49FF-8047-5FC35D842CDF}|QLBH.BLL\\QLBH.BLL.csproj|solutionrelative:qlbh.bll\\productbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DC2089CC-8BE0-4840-A1EC-138FEFDBE051}|QLBH.DAL\\QLBH.DAL.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.dal\\dbconnect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DC2089CC-8BE0-4840-A1EC-138FEFDBE051}|QLBH.DAL\\QLBH.DAL.csproj|solutionrelative:qlbh.dal\\dbconnect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{74F495AD-02E4-4172-A12A-49BEBC5F157A}|QLBH.Comman\\QLBH.Common.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.comman\\productreq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{74F495AD-02E4-4172-A12A-49BEBC5F157A}|QLBH.Comman\\QLBH.Common.csproj|solutionrelative:qlbh.comman\\productreq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.web\\views\\order\\success.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|solutionrelative:qlbh.web\\views\\order\\success.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.web\\views\\shared\\_layouthome.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|solutionrelative:qlbh.web\\views\\shared\\_layouthome.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|solutionrelative:qlbh.web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|solutionrelative:qlbh.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.web\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|solutionrelative:qlbh.web\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.web\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|solutionrelative:qlbh.web\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.web\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|solutionrelative:qlbh.web\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.web\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|solutionrelative:qlbh.web\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.web\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|solutionrelative:qlbh.web\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE3ACB28-F0E9-4575-B820-EA2D42AAE65C}|QLBH.API\\QLBH.API.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.api\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE3ACB28-F0E9-4575-B820-EA2D42AAE65C}|QLBH.API\\QLBH.API.csproj|solutionrelative:qlbh.api\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.web\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|solutionrelative:qlbh.web\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.web\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|solutionrelative:qlbh.web\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.web\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|solutionrelative:qlbh.web\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.web\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|solutionrelative:qlbh.web\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE3ACB28-F0E9-4575-B820-EA2D42AAE65C}|QLBH.API\\QLBH.API.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.api\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE3ACB28-F0E9-4575-B820-EA2D42AAE65C}|QLBH.API\\QLBH.API.csproj|solutionrelative:qlbh.api\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE3ACB28-F0E9-4575-B820-EA2D42AAE65C}|QLBH.API\\QLBH.API.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.api\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE3ACB28-F0E9-4575-B820-EA2D42AAE65C}|QLBH.API\\QLBH.API.csproj|solutionrelative:qlbh.api\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE3ACB28-F0E9-4575-B820-EA2D42AAE65C}|QLBH.API\\QLBH.API.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.api\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE3ACB28-F0E9-4575-B820-EA2D42AAE65C}|QLBH.API\\QLBH.API.csproj|solutionrelative:qlbh.api\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE3ACB28-F0E9-4575-B820-EA2D42AAE65C}|QLBH.API\\QLBH.API.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.api\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE3ACB28-F0E9-4575-B820-EA2D42AAE65C}|QLBH.API\\QLBH.API.csproj|solutionrelative:qlbh.api\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09AF03BC-10C9-49FF-8047-5FC35D842CDF}|QLBH.BLL\\QLBH.BLL.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.bll\\productbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09AF03BC-10C9-49FF-8047-5FC35D842CDF}|QLBH.BLL\\QLBH.BLL.csproj|solutionrelative:qlbh.bll\\productbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09AF03BC-10C9-49FF-8047-5FC35D842CDF}|QLBH.BLL\\QLBH.BLL.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.bll\\orderbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09AF03BC-10C9-49FF-8047-5FC35D842CDF}|QLBH.BLL\\QLBH.BLL.csproj|solutionrelative:qlbh.bll\\orderbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09AF03BC-10C9-49FF-8047-5FC35D842CDF}|QLBH.BLL\\QLBH.BLL.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.bll\\employeebll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09AF03BC-10C9-49FF-8047-5FC35D842CDF}|QLBH.BLL\\QLBH.BLL.csproj|solutionrelative:qlbh.bll\\employeebll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09AF03BC-10C9-49FF-8047-5FC35D842CDF}|QLBH.BLL\\QLBH.BLL.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.bll\\customerbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09AF03BC-10C9-49FF-8047-5FC35D842CDF}|QLBH.BLL\\QLBH.BLL.csproj|solutionrelative:qlbh.bll\\customerbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74F495AD-02E4-4172-A12A-49BEBC5F157A}|QLBH.Comman\\QLBH.Common.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.comman\\loginreq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{74F495AD-02E4-4172-A12A-49BEBC5F157A}|QLBH.Comman\\QLBH.Common.csproj|solutionrelative:qlbh.comman\\loginreq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74F495AD-02E4-4172-A12A-49BEBC5F157A}|QLBH.Comman\\QLBH.Common.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.comman\\orderreq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{74F495AD-02E4-4172-A12A-49BEBC5F157A}|QLBH.Comman\\QLBH.Common.csproj|solutionrelative:qlbh.comman\\orderreq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.web\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|solutionrelative:qlbh.web\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE3ACB28-F0E9-4575-B820-EA2D42AAE65C}|QLBH.API\\QLBH.API.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE3ACB28-F0E9-4575-B820-EA2D42AAE65C}|QLBH.API\\QLBH.API.csproj|solutionrelative:qlbh.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{74F495AD-02E4-4172-A12A-49BEBC5F157A}|QLBH.Comman\\QLBH.Common.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.comman\\productreq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{74F495AD-02E4-4172-A12A-49BEBC5F157A}|QLBH.Comman\\QLBH.Common.csproj|solutionrelative:qlbh.comman\\productreq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|solutionrelative:qlbh.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DC2089CC-8BE0-4840-A1EC-138FEFDBE051}|QLBH.DAL\\QLBH.DAL.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.dal\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DC2089CC-8BE0-4840-A1EC-138FEFDBE051}|QLBH.DAL\\QLBH.DAL.csproj|solutionrelative:qlbh.dal\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.web\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|solutionrelative:qlbh.web\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.web\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -103,56 +159,12 @@
       "RelativeMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|solutionrelative:qlbh.web\\views\\customer\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE3ACB28-F0E9-4575-B820-EA2D42AAE65C}|QLBH.API\\QLBH.API.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.api\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE3ACB28-F0E9-4575-B820-EA2D42AAE65C}|QLBH.API\\QLBH.API.csproj|solutionrelative:qlbh.api\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BE3ACB28-F0E9-4575-B820-EA2D42AAE65C}|QLBH.API\\QLBH.API.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.api\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE3ACB28-F0E9-4575-B820-EA2D42AAE65C}|QLBH.API\\QLBH.API.csproj|solutionrelative:qlbh.api\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DC2089CC-8BE0-4840-A1EC-138FEFDBE051}|QLBH.DAL\\QLBH.DAL.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.dal\\employeedal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DC2089CC-8BE0-4840-A1EC-138FEFDBE051}|QLBH.DAL\\QLBH.DAL.csproj|solutionrelative:qlbh.dal\\employeedal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DC2089CC-8BE0-4840-A1EC-138FEFDBE051}|QLBH.DAL\\QLBH.DAL.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.dal\\orderdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DC2089CC-8BE0-4840-A1EC-138FEFDBE051}|QLBH.DAL\\QLBH.DAL.csproj|solutionrelative:qlbh.dal\\orderdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{74F495AD-02E4-4172-A12A-49BEBC5F157A}|QLBH.Comman\\QLBH.Common.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.comman\\employeereq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{74F495AD-02E4-4172-A12A-49BEBC5F157A}|QLBH.Comman\\QLBH.Common.csproj|solutionrelative:qlbh.comman\\employeereq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{09AF03BC-10C9-49FF-8047-5FC35D842CDF}|QLBH.BLL\\QLBH.BLL.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.bll\\employeebll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09AF03BC-10C9-49FF-8047-5FC35D842CDF}|QLBH.BLL\\QLBH.BLL.csproj|solutionrelative:qlbh.bll\\employeebll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{09AF03BC-10C9-49FF-8047-5FC35D842CDF}|QLBH.BLL\\QLBH.BLL.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.bll\\customerbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09AF03BC-10C9-49FF-8047-5FC35D842CDF}|QLBH.BLL\\QLBH.BLL.csproj|solutionrelative:qlbh.bll\\customerbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DC2089CC-8BE0-4840-A1EC-138FEFDBE051}|QLBH.DAL\\QLBH.DAL.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.dal\\customerdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DC2089CC-8BE0-4840-A1EC-138FEFDBE051}|QLBH.DAL\\QLBH.DAL.csproj|solutionrelative:qlbh.dal\\customerdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{09AF03BC-10C9-49FF-8047-5FC35D842CDF}|QLBH.BLL\\QLBH.BLL.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.bll\\orderbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09AF03BC-10C9-49FF-8047-5FC35D842CDF}|QLBH.BLL\\QLBH.BLL.csproj|solutionrelative:qlbh.bll\\orderbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DC2089CC-8BE0-4840-A1EC-138FEFDBE051}|QLBH.DAL\\QLBH.DAL.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.dal\\dbconnect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DC2089CC-8BE0-4840-A1EC-138FEFDBE051}|QLBH.DAL\\QLBH.DAL.csproj|solutionrelative:qlbh.dal\\dbconnect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{74F495AD-02E4-4172-A12A-49BEBC5F157A}|QLBH.Comman\\QLBH.Common.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.comman\\customerreq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{74F495AD-02E4-4172-A12A-49BEBC5F157A}|QLBH.Comman\\QLBH.Common.csproj|solutionrelative:qlbh.comman\\customerreq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{74F495AD-02E4-4172-A12A-49BEBC5F157A}|QLBH.Comman\\QLBH.Common.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.comman\\orderreq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{74F495AD-02E4-4172-A12A-49BEBC5F157A}|QLBH.Comman\\QLBH.Common.csproj|solutionrelative:qlbh.comman\\orderreq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{74F495AD-02E4-4172-A12A-49BEBC5F157A}|QLBH.Comman\\QLBH.Common.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.comman\\loginreq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{74F495AD-02E4-4172-A12A-49BEBC5F157A}|QLBH.Comman\\QLBH.Common.csproj|solutionrelative:qlbh.comman\\loginreq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{74F495AD-02E4-4172-A12A-49BEBC5F157A}|QLBH.Comman\\QLBH.Common.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.comman\\categoryreq.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -179,10 +191,6 @@
       "RelativeMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|solutionrelative:qlbh.web\\views\\order\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.web\\views\\order\\success.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|solutionrelative:qlbh.web\\views\\order\\success.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.web\\views\\product\\list.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|solutionrelative:qlbh.web\\views\\product\\list.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -197,14 +205,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.web\\views\\product\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|solutionrelative:qlbh.web\\views\\product\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.web\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|solutionrelative:qlbh.web\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.web\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FE2085F4-A40B-4989-9AE3-497424576E4A}|QLBH.Web\\QLBH.Web.csproj|solutionrelative:qlbh.web\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DC2089CC-8BE0-4840-A1EC-138FEFDBE051}|QLBH.DAL\\QLBH.DAL.csproj|c:\\users\\asus\\desktop\\\u00F4n t\u1EADp\\qlbh.web\\qlbh.dal\\migrations\\qlbh_dbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -278,7 +278,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 779,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -286,85 +286,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "_LayoutHome.cshtml",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Shared\\_LayoutHome.cshtml",
-              "RelativeDocumentMoniker": "QLBH.Web\\Views\\Shared\\_LayoutHome.cshtml",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Shared\\_LayoutHome.cshtml*",
-              "RelativeToolTip": "QLBH.Web\\Views\\Shared\\_LayoutHome.cshtml*",
-              "ViewState": "AgIAAGMBAAAAAAAAAAAhwHUBAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-07T09:04:48.146Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "ProductController.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.API\\Controllers\\ProductController.cs",
-              "RelativeDocumentMoniker": "QLBH.API\\Controllers\\ProductController.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.API\\Controllers\\ProductController.cs",
-              "RelativeToolTip": "QLBH.API\\Controllers\\ProductController.cs",
-              "ViewState": "AgIAAFgAAAAAAAAAAAAMwH0AAAA/AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T07:21:37.972Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.API\\Program.cs",
-              "RelativeDocumentMoniker": "QLBH.API\\Program.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.API\\Program.cs",
-              "RelativeToolTip": "QLBH.API\\Program.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAuwCQAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-07T08:44:06.218Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "OrderController.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.API\\Controllers\\OrderController.cs",
-              "RelativeDocumentMoniker": "QLBH.API\\Controllers\\OrderController.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.API\\Controllers\\OrderController.cs",
-              "RelativeToolTip": "QLBH.API\\Controllers\\OrderController.cs",
-              "ViewState": "AgIAAIkAAAAAAAAAAAAtwCEAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-10T13:14:05.996Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "OrderController.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Controllers\\OrderController.cs",
-              "RelativeDocumentMoniker": "QLBH.Web\\Controllers\\OrderController.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Controllers\\OrderController.cs*",
-              "RelativeToolTip": "QLBH.Web\\Controllers\\OrderController.cs*",
-              "ViewState": "AgIAAEAAAAAAAAAAAAAQwE4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-10T13:14:58.71Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ProductController.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Controllers\\ProductController.cs",
-              "RelativeDocumentMoniker": "QLBH.Web\\Controllers\\ProductController.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Controllers\\ProductController.cs",
-              "RelativeToolTip": "QLBH.Web\\Controllers\\ProductController.cs",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAcwFwAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T07:21:30.991Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
               "Title": "ProductDAL.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.DAL\\ProductDAL.cs",
               "RelativeDocumentMoniker": "QLBH.DAL\\ProductDAL.cs",
@@ -377,70 +299,98 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OrderDAL.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.DAL\\OrderDAL.cs",
+              "RelativeDocumentMoniker": "QLBH.DAL\\OrderDAL.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.DAL\\OrderDAL.cs",
+              "RelativeToolTip": "QLBH.DAL\\OrderDAL.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAkwCEAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T03:02:09.301Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EmployeeDAL.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.DAL\\EmployeeDAL.cs",
+              "RelativeDocumentMoniker": "QLBH.DAL\\EmployeeDAL.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.DAL\\EmployeeDAL.cs",
+              "RelativeToolTip": "QLBH.DAL\\EmployeeDAL.cs",
+              "ViewState": "AgIAAH8AAAAAAAAAAAAYwJcAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-15T06:02:12.309Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DbConnect.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.DAL\\DbConnect.cs",
+              "RelativeDocumentMoniker": "QLBH.DAL\\DbConnect.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.DAL\\DbConnect.cs",
+              "RelativeToolTip": "QLBH.DAL\\DbConnect.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-07T01:29:26.776Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "QLBH.Web\\Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "QLBH.Web\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAAACEAAAAuAAAAAAAAAA==",
+              "Title": "CustomerDAL.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.DAL\\CustomerDAL.cs",
+              "RelativeDocumentMoniker": "QLBH.DAL\\CustomerDAL.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.DAL\\CustomerDAL.cs",
+              "RelativeToolTip": "QLBH.DAL\\CustomerDAL.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAAIgAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-06T07:28:46.782Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.API\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "QLBH.API\\Controllers\\OrderController.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.API\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "QLBH.API\\Controllers\\OrderController.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAAAF4AAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T13:14:05.996Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Success.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Order\\Success.cshtml",
+              "RelativeDocumentMoniker": "QLBH.Web\\Views\\Order\\Success.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Order\\Success.cshtml",
+              "RelativeToolTip": "QLBH.Web\\Views\\Order\\Success.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-07T09:06:25.455Z",
+              "WhenOpened": "2026-04-10T14:29:49.424Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "_LayoutHome.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Shared\\_LayoutHome.cshtml",
+              "RelativeDocumentMoniker": "QLBH.Web\\Views\\Shared\\_LayoutHome.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Shared\\_LayoutHome.cshtml",
+              "RelativeToolTip": "QLBH.Web\\Views\\Shared\\_LayoutHome.cshtml",
+              "ViewState": "AgIAABYBAAAAAAAAAAAAABIBAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-07T09:04:48.146Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "ProductBLL.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.BLL\\ProductBLL.cs",
-              "RelativeDocumentMoniker": "QLBH.BLL\\ProductBLL.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.BLL\\ProductBLL.cs",
-              "RelativeToolTip": "QLBH.BLL\\ProductBLL.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABcAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T07:21:43.49Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ProductReq.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Comman\\ProductReq.cs",
-              "RelativeDocumentMoniker": "QLBH.Comman\\ProductReq.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Comman\\ProductReq.cs",
-              "RelativeToolTip": "QLBH.Comman\\ProductReq.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-07T01:32:10.414Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "QLBH.Web\\Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "QLBH.Web\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAAFEAAAAAAAAAAAAowFEAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-08T06:50:50.924Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Program.cs",
-              "RelativeDocumentMoniker": "QLBH.Web\\Program.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Program.cs",
-              "RelativeToolTip": "QLBH.Web\\Program.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-07T09:07:43.609Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "QLBH.Web\\Views\\Shared\\_Layout.cshtml",
@@ -448,251 +398,177 @@
               "RelativeToolTip": "QLBH.Web\\Views\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAACQAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-06T07:36:45.373Z"
+              "WhenOpened": "2026-04-06T07:36:45.373Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "CustomerController.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Controllers\\CustomerController.cs",
-              "RelativeDocumentMoniker": "QLBH.Web\\Controllers\\CustomerController.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Controllers\\CustomerController.cs",
-              "RelativeToolTip": "QLBH.Web\\Controllers\\CustomerController.cs",
-              "ViewState": "AgIAAHAAAAAAAAAAAAAYwIsAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 9,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "QLBH.Web\\Views\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "QLBH.Web\\Views\\Account\\Login.cshtml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-08T06:51:53.832Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Account\\Register.cshtml",
+              "RelativeDocumentMoniker": "QLBH.Web\\Views\\Account\\Register.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Account\\Register.cshtml",
+              "RelativeToolTip": "QLBH.Web\\Views\\Account\\Register.cshtml",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAAAEAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-08T06:51:09.271Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "QLBH.Web\\Controllers\\ProductController.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Controllers\\ProductController.cs",
+              "RelativeToolTip": "QLBH.Web\\Controllers\\ProductController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T07:25:02.748Z"
+              "WhenOpened": "2026-04-06T07:21:30.991Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.API\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "QLBH.API\\Controllers\\AccountController.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.API\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "QLBH.API\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAYwEIAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-09T13:52:27.92Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "EmployeeController.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Controllers\\EmployeeController.cs",
-              "RelativeDocumentMoniker": "QLBH.Web\\Controllers\\EmployeeController.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Controllers\\EmployeeController.cs",
-              "RelativeToolTip": "QLBH.Web\\Controllers\\EmployeeController.cs",
-              "ViewState": "AgIAAGgAAAAAAAAAAAAYwIMAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-15T06:31:07.305Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Employee.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.DAL\\Models\\Employee.cs",
-              "RelativeDocumentMoniker": "QLBH.DAL\\Models\\Employee.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.DAL\\Models\\Employee.cs",
-              "RelativeToolTip": "QLBH.DAL\\Models\\Employee.cs",
-              "ViewState": "AgIAACUAAAAAAAAAAAAuwDEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-15T07:04:48.73Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 12,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "QLBH.Web\\Controllers\\HomeController.cs",
               "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Controllers\\HomeController.cs",
               "RelativeToolTip": "QLBH.Web\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAwAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-07T09:04:15.937Z"
+              "WhenOpened": "2026-04-07T09:04:15.937Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\appsettings.json",
-              "RelativeDocumentMoniker": "QLBH.Web\\appsettings.json",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\appsettings.json",
-              "RelativeToolTip": "QLBH.Web\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-04-11T14:49:26.643Z"
+              "DocumentIndex": 13,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "QLBH.Web\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "QLBH.Web\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAFkAAAAAAAAAAAAAAHMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T06:50:50.924Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "List.cshtml",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Employee\\List.cshtml",
-              "RelativeDocumentMoniker": "QLBH.Web\\Views\\Employee\\List.cshtml",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Employee\\List.cshtml",
-              "RelativeToolTip": "QLBH.Web\\Views\\Employee\\List.cshtml",
-              "ViewState": "AgIAACMAAAAAAAAAAAAgwD8AAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-15T06:33:02.624Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Employee\\Create.cshtml",
-              "RelativeDocumentMoniker": "QLBH.Web\\Views\\Employee\\Create.cshtml",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Employee\\Create.cshtml",
-              "RelativeToolTip": "QLBH.Web\\Views\\Employee\\Create.cshtml",
-              "ViewState": "AgIAAD4AAAAAAAAAAAAgwFoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-15T06:33:21.592Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Employee\\Edit.cshtml",
-              "RelativeDocumentMoniker": "QLBH.Web\\Views\\Employee\\Edit.cshtml",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Employee\\Edit.cshtml",
-              "RelativeToolTip": "QLBH.Web\\Views\\Employee\\Edit.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAgwBIAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-15T06:33:33.579Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 14,
               "Title": "EmployeeController.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.API\\Controllers\\EmployeeController.cs",
-              "RelativeDocumentMoniker": "QLBH.API\\Controllers\\EmployeeController.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.API\\Controllers\\EmployeeController.cs",
-              "RelativeToolTip": "QLBH.API\\Controllers\\EmployeeController.cs",
-              "ViewState": "AgIAAFIAAAAAAAAAAAAgwGUAAAABAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Controllers\\EmployeeController.cs",
+              "RelativeDocumentMoniker": "QLBH.Web\\Controllers\\EmployeeController.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Controllers\\EmployeeController.cs",
+              "RelativeToolTip": "QLBH.Web\\Controllers\\EmployeeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-15T06:30:51.014Z"
+              "WhenOpened": "2026-04-15T06:31:07.305Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "EmployeeDAL.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.DAL\\EmployeeDAL.cs",
-              "RelativeDocumentMoniker": "QLBH.DAL\\EmployeeDAL.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.DAL\\EmployeeDAL.cs",
-              "RelativeToolTip": "QLBH.DAL\\EmployeeDAL.cs",
-              "ViewState": "AgIAAI0AAAAAAAAAAAAgwKkAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 15,
+              "Title": "CustomerController.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Controllers\\CustomerController.cs",
+              "RelativeDocumentMoniker": "QLBH.Web\\Controllers\\CustomerController.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Controllers\\CustomerController.cs",
+              "RelativeToolTip": "QLBH.Web\\Controllers\\CustomerController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-15T06:02:12.309Z"
+              "WhenOpened": "2026-04-06T07:25:02.748Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "List.cshtml",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Customer\\List.cshtml",
-              "RelativeDocumentMoniker": "QLBH.Web\\Views\\Customer\\List.cshtml",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Customer\\List.cshtml",
-              "RelativeToolTip": "QLBH.Web\\Views\\Customer\\List.cshtml",
-              "ViewState": "AgIAACMAAAAAAAAAAAAgwD8AAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-06T07:28:00.419Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Customer\\Create.cshtml",
-              "RelativeDocumentMoniker": "QLBH.Web\\Views\\Customer\\Create.cshtml",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Customer\\Create.cshtml",
-              "RelativeToolTip": "QLBH.Web\\Views\\Customer\\Create.cshtml",
-              "ViewState": "AgIAAC8AAAAAAAAAAAAgwEsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-07T01:41:42.688Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Customer\\Edit.cshtml",
-              "RelativeDocumentMoniker": "QLBH.Web\\Views\\Customer\\Edit.cshtml",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Customer\\Edit.cshtml",
-              "RelativeToolTip": "QLBH.Web\\Views\\Customer\\Edit.cshtml",
-              "ViewState": "AgIAADgAAAAAAAAAAAAgwFQAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-07T03:07:34.818Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "OrderDAL.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.DAL\\OrderDAL.cs",
-              "RelativeDocumentMoniker": "QLBH.DAL\\OrderDAL.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.DAL\\OrderDAL.cs",
-              "RelativeToolTip": "QLBH.DAL\\OrderDAL.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAA7wBUAAAAyAAAAAAAAAA==",
+              "DocumentIndex": 16,
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "QLBH.Web\\Controllers\\OrderController.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "QLBH.Web\\Controllers\\OrderController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T03:02:09.301Z"
+              "WhenOpened": "2026-04-10T13:14:58.71Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 17,
               "Title": "CustomerController.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.API\\Controllers\\CustomerController.cs",
               "RelativeDocumentMoniker": "QLBH.API\\Controllers\\CustomerController.cs",
               "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.API\\Controllers\\CustomerController.cs",
               "RelativeToolTip": "QLBH.API\\Controllers\\CustomerController.cs",
-              "ViewState": "AgIAAE4AAAAAAAAAAAAYwGkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAYwA0AAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T07:22:00.03Z"
+              "WhenOpened": "2026-04-06T07:22:00.03Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "EmployeeReq.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Comman\\EmployeeReq.cs",
-              "RelativeDocumentMoniker": "QLBH.Comman\\EmployeeReq.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Comman\\EmployeeReq.cs",
-              "RelativeToolTip": "QLBH.Comman\\EmployeeReq.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAAACwAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 18,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.API\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "QLBH.API\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.API\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "QLBH.API\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAmwEgAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-15T05:58:55.103Z"
+              "WhenOpened": "2026-04-09T13:52:27.92Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "EmployeeBLL.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.BLL\\EmployeeBLL.cs",
-              "RelativeDocumentMoniker": "QLBH.BLL\\EmployeeBLL.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.BLL\\EmployeeBLL.cs",
-              "RelativeToolTip": "QLBH.BLL\\EmployeeBLL.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAAABsAAAArAAAAAAAAAA==",
+              "DocumentIndex": 19,
+              "Title": "EmployeeController.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.API\\Controllers\\EmployeeController.cs",
+              "RelativeDocumentMoniker": "QLBH.API\\Controllers\\EmployeeController.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.API\\Controllers\\EmployeeController.cs",
+              "RelativeToolTip": "QLBH.API\\Controllers\\EmployeeController.cs",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAYwFQAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-15T06:25:26.963Z"
+              "WhenOpened": "2026-04-15T06:30:51.014Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "CustomerBLL.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.BLL\\CustomerBLL.cs",
-              "RelativeDocumentMoniker": "QLBH.BLL\\CustomerBLL.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.BLL\\CustomerBLL.cs",
-              "RelativeToolTip": "QLBH.BLL\\CustomerBLL.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAADwvyYAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 20,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.API\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "QLBH.API\\Controllers\\ProductController.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.API\\Controllers\\ProductController.cs",
+              "RelativeToolTip": "QLBH.API\\Controllers\\ProductController.cs",
+              "ViewState": "AgIAAFgAAAAAAAAAAAAMwH0AAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T07:21:48.049Z"
+              "WhenOpened": "2026-04-06T07:21:37.972Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "CustomerDAL.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.DAL\\CustomerDAL.cs",
-              "RelativeDocumentMoniker": "QLBH.DAL\\CustomerDAL.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.DAL\\CustomerDAL.cs",
-              "RelativeToolTip": "QLBH.DAL\\CustomerDAL.cs",
-              "ViewState": "AgIAAJIAAAAAAAAAAAAowKUAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 21,
+              "Title": "ProductBLL.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.BLL\\ProductBLL.cs",
+              "RelativeDocumentMoniker": "QLBH.BLL\\ProductBLL.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.BLL\\ProductBLL.cs",
+              "RelativeToolTip": "QLBH.BLL\\ProductBLL.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-06T07:28:46.782Z"
+              "WhenOpened": "2026-04-06T07:21:43.49Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 22,
               "Title": "OrderBLL.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.BLL\\OrderBLL.cs",
               "RelativeDocumentMoniker": "QLBH.BLL\\OrderBLL.cs",
@@ -704,43 +580,31 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "DbConnect.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.DAL\\DbConnect.cs",
-              "RelativeDocumentMoniker": "QLBH.DAL\\DbConnect.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.DAL\\DbConnect.cs",
-              "RelativeToolTip": "QLBH.DAL\\DbConnect.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
+              "DocumentIndex": 23,
+              "Title": "EmployeeBLL.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.BLL\\EmployeeBLL.cs",
+              "RelativeDocumentMoniker": "QLBH.BLL\\EmployeeBLL.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.BLL\\EmployeeBLL.cs",
+              "RelativeToolTip": "QLBH.BLL\\EmployeeBLL.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAAABsAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-07T01:29:26.776Z"
+              "WhenOpened": "2026-04-15T06:25:26.963Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "CustomerReq.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Comman\\CustomerReq.cs",
-              "RelativeDocumentMoniker": "QLBH.Comman\\CustomerReq.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Comman\\CustomerReq.cs",
-              "RelativeToolTip": "QLBH.Comman\\CustomerReq.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAxwB0AAAAtAAAAAAAAAA==",
+              "DocumentIndex": 24,
+              "Title": "CustomerBLL.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.BLL\\CustomerBLL.cs",
+              "RelativeDocumentMoniker": "QLBH.BLL\\CustomerBLL.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.BLL\\CustomerBLL.cs",
+              "RelativeToolTip": "QLBH.BLL\\CustomerBLL.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAwwCYAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-07T01:32:12.045Z"
+              "WhenOpened": "2026-04-06T07:21:48.049Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "OrderReq.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Comman\\OrderReq.cs",
-              "RelativeDocumentMoniker": "QLBH.Comman\\OrderReq.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Comman\\OrderReq.cs",
-              "RelativeToolTip": "QLBH.Comman\\OrderReq.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-10T13:17:08.646Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 25,
               "Title": "LoginReq.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Comman\\LoginReq.cs",
               "RelativeDocumentMoniker": "QLBH.Comman\\LoginReq.cs",
@@ -752,7 +616,187 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "OrderReq.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Comman\\OrderReq.cs",
+              "RelativeDocumentMoniker": "QLBH.Comman\\OrderReq.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Comman\\OrderReq.cs",
+              "RelativeToolTip": "QLBH.Comman\\OrderReq.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T13:17:08.646Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.API\\Program.cs",
+              "RelativeDocumentMoniker": "QLBH.API\\Program.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.API\\Program.cs",
+              "RelativeToolTip": "QLBH.API\\Program.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAuwCQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-07T08:44:06.218Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "QLBH.Web\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "QLBH.Web\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAAACEAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-07T09:06:25.455Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "ProductReq.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Comman\\ProductReq.cs",
+              "RelativeDocumentMoniker": "QLBH.Comman\\ProductReq.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Comman\\ProductReq.cs",
+              "RelativeToolTip": "QLBH.Comman\\ProductReq.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-07T01:32:10.414Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Program.cs",
+              "RelativeDocumentMoniker": "QLBH.Web\\Program.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Program.cs",
+              "RelativeToolTip": "QLBH.Web\\Program.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-07T09:07:43.609Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "Employee.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.DAL\\Models\\Employee.cs",
+              "RelativeDocumentMoniker": "QLBH.DAL\\Models\\Employee.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.DAL\\Models\\Employee.cs",
+              "RelativeToolTip": "QLBH.DAL\\Models\\Employee.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAuwDEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-15T07:04:48.73Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\appsettings.json",
+              "RelativeDocumentMoniker": "QLBH.Web\\appsettings.json",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\appsettings.json",
+              "RelativeToolTip": "QLBH.Web\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-11T14:49:26.643Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "List.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Employee\\List.cshtml",
+              "RelativeDocumentMoniker": "QLBH.Web\\Views\\Employee\\List.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Employee\\List.cshtml",
+              "RelativeToolTip": "QLBH.Web\\Views\\Employee\\List.cshtml",
+              "ViewState": "AgIAACMAAAAAAAAAAAAgwD8AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-15T06:33:02.624Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Employee\\Create.cshtml",
+              "RelativeDocumentMoniker": "QLBH.Web\\Views\\Employee\\Create.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Employee\\Create.cshtml",
+              "RelativeToolTip": "QLBH.Web\\Views\\Employee\\Create.cshtml",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAgwFoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-15T06:33:21.592Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Employee\\Edit.cshtml",
+              "RelativeDocumentMoniker": "QLBH.Web\\Views\\Employee\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Employee\\Edit.cshtml",
+              "RelativeToolTip": "QLBH.Web\\Views\\Employee\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAgwBIAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-15T06:33:33.579Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "List.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Customer\\List.cshtml",
+              "RelativeDocumentMoniker": "QLBH.Web\\Views\\Customer\\List.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Customer\\List.cshtml",
+              "RelativeToolTip": "QLBH.Web\\Views\\Customer\\List.cshtml",
+              "ViewState": "AgIAACMAAAAAAAAAAAAgwD8AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-06T07:28:00.419Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Customer\\Create.cshtml",
+              "RelativeDocumentMoniker": "QLBH.Web\\Views\\Customer\\Create.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Customer\\Create.cshtml",
+              "RelativeToolTip": "QLBH.Web\\Views\\Customer\\Create.cshtml",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAgwEsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-07T01:41:42.688Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Customer\\Edit.cshtml",
+              "RelativeDocumentMoniker": "QLBH.Web\\Views\\Customer\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Customer\\Edit.cshtml",
+              "RelativeToolTip": "QLBH.Web\\Views\\Customer\\Edit.cshtml",
+              "ViewState": "AgIAADgAAAAAAAAAAAAgwFQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-07T03:07:34.818Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 39,
+              "Title": "EmployeeReq.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Comman\\EmployeeReq.cs",
+              "RelativeDocumentMoniker": "QLBH.Comman\\EmployeeReq.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Comman\\EmployeeReq.cs",
+              "RelativeToolTip": "QLBH.Comman\\EmployeeReq.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAAACwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-15T05:58:55.103Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "CustomerReq.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Comman\\CustomerReq.cs",
+              "RelativeDocumentMoniker": "QLBH.Comman\\CustomerReq.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Comman\\CustomerReq.cs",
+              "RelativeToolTip": "QLBH.Comman\\CustomerReq.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAxwB0AAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-07T01:32:12.045Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
               "Title": "QLBH_DBContext.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.DAL\\QLBH_DBContext.cs",
               "RelativeDocumentMoniker": "QLBH.DAL\\QLBH_DBContext.cs",
@@ -764,7 +808,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 43,
               "Title": "SupplierReq.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Comman\\SupplierReq.cs",
               "RelativeDocumentMoniker": "QLBH.Comman\\SupplierReq.cs",
@@ -776,7 +820,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 41,
               "Title": "CategoryReq.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Comman\\CategoryReq.cs",
               "RelativeDocumentMoniker": "QLBH.Comman\\CategoryReq.cs",
@@ -788,7 +832,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 44,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.API\\appsettings.json",
               "RelativeDocumentMoniker": "QLBH.API\\appsettings.json",
@@ -800,7 +844,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 45,
               "Title": "List.cshtml",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Order\\List.cshtml",
               "RelativeDocumentMoniker": "QLBH.Web\\Views\\Order\\List.cshtml",
@@ -812,7 +856,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 46,
               "Title": "Detail.cshtml",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Order\\Detail.cshtml",
               "RelativeDocumentMoniker": "QLBH.Web\\Views\\Order\\Detail.cshtml",
@@ -824,19 +868,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
-              "Title": "Success.cshtml",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Order\\Success.cshtml",
-              "RelativeDocumentMoniker": "QLBH.Web\\Views\\Order\\Success.cshtml",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Order\\Success.cshtml",
-              "RelativeToolTip": "QLBH.Web\\Views\\Order\\Success.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-10T14:29:49.424Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 47,
               "Title": "List.cshtml",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Product\\List.cshtml",
               "RelativeDocumentMoniker": "QLBH.Web\\Views\\Product\\List.cshtml",
@@ -848,7 +880,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 48,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Order\\Index.cshtml",
               "RelativeDocumentMoniker": "QLBH.Web\\Views\\Order\\Index.cshtml",
@@ -860,7 +892,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 49,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Product\\Create.cshtml",
               "RelativeDocumentMoniker": "QLBH.Web\\Views\\Product\\Create.cshtml",
@@ -872,7 +904,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 50,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Product\\Edit.cshtml",
               "RelativeDocumentMoniker": "QLBH.Web\\Views\\Product\\Edit.cshtml",
@@ -881,30 +913,6 @@
               "ViewState": "AgIAADMAAAAAAAAAAAAAwEwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-04-07T03:08:36.137Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 49,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Account\\Login.cshtml",
-              "RelativeDocumentMoniker": "QLBH.Web\\Views\\Account\\Login.cshtml",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Account\\Login.cshtml",
-              "RelativeToolTip": "QLBH.Web\\Views\\Account\\Login.cshtml",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-08T06:51:53.832Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 50,
-              "Title": "Register.cshtml",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Account\\Register.cshtml",
-              "RelativeDocumentMoniker": "QLBH.Web\\Views\\Account\\Register.cshtml",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\\u00D4n t\u1EADp\\QLBH.Web\\QLBH.Web\\Views\\Account\\Register.cshtml",
-              "RelativeToolTip": "QLBH.Web\\Views\\Account\\Register.cshtml",
-              "ViewState": "AgIAACQAAAAAAAAAAAAAAAEAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-08T06:51:09.271Z"
             },
             {
               "$type": "Document",
