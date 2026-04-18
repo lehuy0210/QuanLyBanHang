@@ -174,7 +174,5 @@ namespace QLBH.Web.Controllers
 
             return RedirectToAction("Index", "Home");
         }
-
-
     }
 }
