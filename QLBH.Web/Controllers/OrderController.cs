@@ -5,7 +5,6 @@ using QLBH.Common;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;            
-using System.Net.Http;
 using System.Net.Http.Json;    
 using System.Text.Json;     
 using System.Threading.Tasks;
@@ -59,7 +58,7 @@ namespace QLBH.Web.Controllers
                             if (response.IsSuccessStatusCode)
                             {
                                 var productData = await response.Content.ReadFromJsonAsync<ProductReq>();
-                                nameToSave = productData?.Name ?? "Sản phẩm không tên";
+                                nameToSave = productData.Name;
                             }
                         }
                         catch
