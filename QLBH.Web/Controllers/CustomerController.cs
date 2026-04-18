@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using QLBH.Common;
 using System.Data;
+using System.Net.Http.Json;
 using static System.Net.WebRequestMethods;
 
 namespace QLBH.Web.Controllers
@@ -38,7 +39,7 @@ namespace QLBH.Web.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Create()
+        public IActionResult Create()
         {
             var model = new CustomerReq();
 
@@ -113,14 +114,14 @@ namespace QLBH.Web.Controllers
         }
 
 
-        [HttpPost("Edit/{id?}")]
+        [HttpPost("Customer/Edit/{id?}")]
         public async Task<IActionResult> Edit(CustomerReq kh)
         {
             var client = _httpClientFactory.CreateClient();
 
             string apiSuaKhachHang = "http://localhost:5003/api/Customer/Edit";
 
-            var response = await client.PutAsJsonAsync(apiSuaKhachHang, kh);
+            var response = await client.PostAsJsonAsync(apiSuaKhachHang, kh);
 
             if (response.IsSuccessStatusCode)
             {

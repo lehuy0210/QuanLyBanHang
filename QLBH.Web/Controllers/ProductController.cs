@@ -5,7 +5,7 @@ using QLBH.Common;
 using QLBH.DAL;
 using QLBH.DAL.Models;
 using System.Data;
-using System.Net.Http;
+using System.Net.Http.Json;
 using static System.Net.WebRequestMethods;
 
 namespace QLBH.Web.Controllers
@@ -118,7 +118,7 @@ namespace QLBH.Web.Controllers
             return View(model);
         }
 
-        [HttpPost]
+        [HttpPut]
         public async Task<IActionResult> Edit(ProductReq sp)
         {
             var client = _httpClientFactory.CreateClient();
