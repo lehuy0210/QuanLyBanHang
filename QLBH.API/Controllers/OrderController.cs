@@ -38,20 +38,7 @@ namespace QLBH.API.Controllers
 
                 foreach (var c in cart)
                 {
-                    var product = _context.Products.FirstOrDefault(p => p.ProductId == c.ProductId);
-
-                    if (product == null)
-                    {
-                        throw new Exception($"Sản phẩm mã {c.ProductId} không tồn tại.");
-                    }
-
-                    if (product.UnitsInStock < c.Quantity)
-                    {
-                        throw new Exception($"Sản phẩm '{product.ProductName}' chỉ còn {product.UnitsInStock} cái, không đủ để đặt {c.Quantity}.");
-                    }
-
-                    product.UnitsInStock -= (short)c.Quantity;
-
+               
                     orderDetails.Add(new OrderDetail
                     {
                         OrderId = newOrder.OrderId,
@@ -64,7 +51,8 @@ namespace QLBH.API.Controllers
                 }
 
                 _context.OrderDetail.AddRange(orderDetails);
-                _context.SaveChanges(); //'product.UnitsInStock' đã thay đổi và sẽ tự động sinh ra câu lệnh UPDATE cùng với câu lệnh INSERT OrderDetail!
+
+                _context.SaveChanges(); //KHI GỌI LỆNH NÀY, TRIGGER trg_CheckStock SẼ NHẢY VÀO LÀM VIỆC!
 
                 transaction.Commit();
                 return Ok(new { Message = "Đã lưu vào DB thành công", OrderId = newOrder.OrderId });
