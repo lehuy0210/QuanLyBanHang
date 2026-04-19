@@ -1,5 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
-using QLBH.Common;
+using QLBH.DTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -21,7 +21,7 @@ namespace QLBH.DAL
                 return dtKhachHang;
             }
 
-        public bool themKhachHang(CustomerReq kh)
+        public bool themKhachHang(CustomerDTO kh)
         {
             try
             {
@@ -60,9 +60,9 @@ namespace QLBH.DAL
             return false;
         }
 
-        public CustomerReq layKHTheoID(string idKH)
+        public CustomerDTO layKHTheoID(string idKH)
         {
-            CustomerReq kh = null;
+            CustomerDTO kh = null;
             try
             {
                 _conn.Open();
@@ -77,7 +77,7 @@ namespace QLBH.DAL
 
                 if (dr.Read())
                 {
-                    kh = new CustomerReq();
+                    kh = new CustomerDTO();
                     kh.Id = dr["CustomerID"].ToString();
                     kh.Name = dr["ContactName"].ToString();
                     kh.Address = dr["Address"].ToString();
@@ -128,7 +128,7 @@ namespace QLBH.DAL
             return false;
         }
 
-        public bool suaKhachHang(CustomerReq kh)
+        public bool suaKhachHang(CustomerDTO kh)
         {
             try
             {

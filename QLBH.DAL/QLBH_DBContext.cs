@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using QLBH.Common;
 using QLBH.DAL.Models;
+using QLBH.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,8 +42,8 @@ namespace QLBH.DAL
         public DbSet<Order> Order { get; set; }
         public DbSet<OrderDetail> OrderDetail { get; set; }
 
-        public DbSet<CategoryReq> CategoryReqs { get; set; }
-        public DbSet<SupplierReq> SupplierReqs { get; set; }
+        public DbSet<CategoryDTO> CategoryReqs { get; set; }
+        public DbSet<SupplierDTO> SupplierReqs { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

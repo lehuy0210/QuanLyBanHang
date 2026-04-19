@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using QLBH.Common;
+using QLBH.DTO;
 using QLBH.DAL;
 using QLBH.DAL.Models;
 using System.Data;
@@ -20,7 +20,7 @@ namespace QLBH.Web.Controllers
             _httpClientFactory = httpClientFactory;
         }
 
-        private async Task LoadDropdownData(ProductReq model)
+        private async Task LoadDropdownData(ProductDTO model)
         {
             var client = _httpClientFactory.CreateClient();
 
@@ -28,27 +28,27 @@ namespace QLBH.Web.Controllers
             if (resCat.IsSuccessStatusCode)
             {
                 var jsonCat = await resCat.Content.ReadAsStringAsync();
-                model.Categories = JsonConvert.DeserializeObject<List<CategoryReq>>(jsonCat);
+                model.Categories = JsonConvert.DeserializeObject<List<CategoryDTO>>(jsonCat);
             }
 
             var resSup = await client.GetAsync("http://localhost:5003/api/Product/GetSuppliers");
             if (resSup.IsSuccessStatusCode)
             {
                 var jsonSup = await resSup.Content.ReadAsStringAsync();
-                model.Suppliers = JsonConvert.DeserializeObject<List<SupplierReq>>(jsonSup);
+                model.Suppliers = JsonConvert.DeserializeObject<List<SupplierDTO>>(jsonSup);
             }
         }
         [HttpGet]
         public async Task<IActionResult> Create()
         {
-            var model = new ProductReq();
+            var model = new ProductDTO();
 
             await LoadDropdownData(model);
 
             return View(model);
         }
         [HttpPost]
-        public async Task<IActionResult> Create(ProductReq sp)
+        public async Task<IActionResult> Create(ProductDTO sp)
         {
             var client = _httpClientFactory.CreateClient();
 
@@ -101,11 +101,11 @@ namespace QLBH.Web.Controllers
             string apiLaySanPhamTheoId = $"http://localhost:5003/api/Product/GetById?id={id}";
             var response = await client.GetAsync(apiLaySanPhamTheoId);
 
-            var model = new ProductReq();
+            var model = new ProductDTO();
             if (response.IsSuccessStatusCode)
             {
                 var jsonString = await response.Content.ReadAsStringAsync();
-                model = JsonConvert.DeserializeObject<ProductReq>(jsonString);
+                model = JsonConvert.DeserializeObject<ProductDTO>(jsonString);
             }
             else
             {
@@ -119,7 +119,7 @@ namespace QLBH.Web.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Edit(ProductReq sp)
+        public async Task<IActionResult> Edit(ProductDTO sp)
         {
             var client = _httpClientFactory.CreateClient();
 

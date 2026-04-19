@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.Comman\\QLBH.Common.csproj",
-      "projectName": "QLBH.Common",
-      "projectPath": "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.Comman\\QLBH.Common.csproj",
+      "projectUniqueName": "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.Comman\\QLBH.DTO.csproj",
+      "projectName": "QLBH.DTO",
+      "projectPath": "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.Comman\\QLBH.DTO.csproj",
       "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.Comman\\obj\\",
       "projectStyle": "PackageReference",

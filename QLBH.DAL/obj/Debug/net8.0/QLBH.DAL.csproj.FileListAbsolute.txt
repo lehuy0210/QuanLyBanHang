@@ -12,7 +12,7 @@ C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.DAL\obj\Debug\net8.0\refint\QLBH.D
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.DAL\obj\Debug\net8.0\QLBH.DAL.pdb
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.DAL\obj\Debug\net8.0\QLBH.DAL.genruntimeconfig.cache
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.DAL\obj\Debug\net8.0\ref\QLBH.DAL.dll
-C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.DAL\bin\Debug\net8.0\QLBH.Common.dll
-C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.DAL\bin\Debug\net8.0\QLBH.Common.pdb
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.DAL\obj\Debug\net8.0\QLBH.DAL.csproj.Up2Date
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.DAL\obj\Debug\net8.0\QLBH.DAL.sourcelink.json
+C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.DAL\bin\Debug\net8.0\QLBH.DTO.dll
+C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.DAL\bin\Debug\net8.0\QLBH.DTO.pdb

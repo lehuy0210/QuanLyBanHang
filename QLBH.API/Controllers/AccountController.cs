@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using QLBH.Common;
 using QLBH.DAL;
+using QLBH.DTO;
 using System;
 
 namespace QLBH.API.Controllers
@@ -18,7 +18,7 @@ namespace QLBH.API.Controllers
         }
 
         [HttpPost("Login")]
-        public async Task<IActionResult> Login([FromBody] LoginReq request)
+        public async Task<IActionResult> Login([FromBody] LoginDTO request)
         {
             try
             {

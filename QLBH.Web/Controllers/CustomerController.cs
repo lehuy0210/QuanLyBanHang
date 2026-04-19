@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using QLBH.Common;
+using QLBH.DTO;
 using System.Data;
 using System.Net.Http.Json;
 using static System.Net.WebRequestMethods;
@@ -41,13 +41,13 @@ namespace QLBH.Web.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            var model = new CustomerReq();
+            var model = new CustomerDTO();
 
             return View(model);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(CustomerReq kh)
+        public async Task<IActionResult> Create(CustomerDTO kh)
         {
             var client = _httpClientFactory.CreateClient();
 
@@ -98,11 +98,11 @@ namespace QLBH.Web.Controllers
             string apiLayKHTheoId = $"http://localhost:5003/api/Customer/GetById?id={id}";
             var response = await client.GetAsync(apiLayKHTheoId);
 
-            var model = new CustomerReq();
+            var model = new CustomerDTO();
             if (response.IsSuccessStatusCode)
             {
                 var jsonString = await response.Content.ReadAsStringAsync();
-                model = JsonConvert.DeserializeObject<CustomerReq>(jsonString);
+                model = JsonConvert.DeserializeObject<CustomerDTO>(jsonString);
             }
             else
             {
@@ -115,7 +115,7 @@ namespace QLBH.Web.Controllers
 
 
         [HttpPost("Customer/Edit/{id?}")]
-        public async Task<IActionResult> Edit(CustomerReq kh)
+        public async Task<IActionResult> Edit(CustomerDTO kh)
         {
             var client = _httpClientFactory.CreateClient();
 

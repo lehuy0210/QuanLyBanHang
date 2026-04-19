@@ -1,5 +1,5 @@
-﻿using QLBH.Common;
-using QLBH.DAL;
+﻿using QLBH.DAL;
+using QLBH.DTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -18,12 +18,12 @@ namespace QLBH.BLL
             return dalNV.getKhachHang();
         }
 
-        public bool themKhachHang(EmployeeReq nv)
+        public bool themKhachHang(EmployeeDTO nv)
         {
             return dalNV.themKhachHang(nv);
         }
 
-        public EmployeeReq layKHTheoID(int idNV)
+        public EmployeeDTO layKHTheoID(int idNV)
         {
             return dalNV.layNVTheoID(idNV);
         }
@@ -33,7 +33,7 @@ namespace QLBH.BLL
             return dalNV.xoaKhachHang(idNV);
         }
 
-        public bool suaKhachHang(EmployeeReq nv)
+        public bool suaKhachHang(EmployeeDTO nv)
         {
             return dalNV.suaNhanVien(nv);
         }

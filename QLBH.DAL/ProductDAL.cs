@@ -1,5 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
-using QLBH.Common;
+using QLBH.DTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -35,7 +35,7 @@ namespace QLBH.DAL
             return dtTimKiem;
         }
 
-        public bool themSanPham(ProductReq sp)
+        public bool themSanPham(ProductDTO sp)
         {
             try
             {
@@ -68,7 +68,7 @@ namespace QLBH.DAL
             return false;
         }
 
-        public bool suaSanPham(ProductReq sp)
+        public bool suaSanPham(ProductDTO sp)
         {
             try
             {
@@ -102,9 +102,9 @@ namespace QLBH.DAL
             return false;
         }
 
-        public ProductReq laySanPhamTheoId(int idSP)
+        public ProductDTO laySanPhamTheoId(int idSP)
         {
-            ProductReq sp = null;
+            ProductDTO sp = null;
             try
             {
                 _conn.Open();
@@ -118,7 +118,7 @@ namespace QLBH.DAL
                 SqlDataReader dr = cmd.ExecuteReader();
                 if(dr.Read())
                 {
-                    sp = new ProductReq();
+                    sp = new ProductDTO();
                     sp.Id = Convert.ToInt32(dr["ProductID"]);
                     sp.Name = dr["ProductName"].ToString();
                     sp.Price = Convert.ToDecimal(dr["UnitPrice"]);

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using QLBH.BLL;
-using QLBH.Common;
+using QLBH.DTO;
 using QLBH.DAL;
 
 namespace QLBH.API.Controllers
@@ -19,7 +19,7 @@ namespace QLBH.API.Controllers
 
         [HttpPost("Create")]
 
-        public IActionResult Create([FromBody] CustomerReq kh)
+        public IActionResult Create([FromBody] CustomerDTO kh)
         {
             try
             {
@@ -77,12 +77,12 @@ namespace QLBH.API.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(400, ex.Message);
+                return StatusCode(400, new { success = false, message = "Lỗi server: " + ex.Message });
             }
         }
 
         [HttpPut("Edit")]
-        public IActionResult Edit([FromBody] CustomerReq kh)
+        public IActionResult Edit([FromBody] CustomerDTO kh)
         {
             try
             {

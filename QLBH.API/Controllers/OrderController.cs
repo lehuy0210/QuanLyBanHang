@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using QLBH.BLL;
-using QLBH.Common;
 using QLBH.DAL;
 using QLBH.DAL.Models;
+using QLBH.DTO;
 using System.Data;
 
 namespace QLBH.API.Controllers
@@ -18,7 +18,7 @@ namespace QLBH.API.Controllers
         public OrderController(QLBH_DBContext context) { _context = context; }
 
         [HttpPost("Create")]
-        public IActionResult CreateOrder(string customerId, [FromBody] List<OrderReq> cart)
+        public IActionResult CreateOrder(string customerId, [FromBody] List<OrderDTO> cart)
         {
             using var transaction = _context.Database.BeginTransaction();
             try
@@ -84,7 +84,7 @@ namespace QLBH.API.Controllers
                 }).ToList();
 
                 return Ok(result);
-                // Trả về dạng: [{ "orderID": 1, "contactName": "A"... }, { ... }]
+  
             }
             catch (Exception ex)
             {
@@ -98,7 +98,7 @@ namespace QLBH.API.Controllers
             try
             {
                 // Gọi hàm từ BLL mà bạn vừa viết
-                List<OrderReq> result = bllDonHang.layDonHangTheoId(id);
+                List<OrderDTO> result = bllDonHang.layDonHangTheoId(id);
 
                 // Kiểm tra xem đơn hàng có tồn tại/có sản phẩm nào không
                 if (result == null || result.Count == 0)

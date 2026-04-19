@@ -56,10 +56,8 @@ C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.API\bin\Debug\net8.0\runtimes\win\
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.API\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.API\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.API\bin\Debug\net8.0\QLBH.BLL.dll
-C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.API\bin\Debug\net8.0\QLBH.Common.dll
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.API\bin\Debug\net8.0\QLBH.DAL.dll
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.API\bin\Debug\net8.0\QLBH.BLL.pdb
-C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.API\bin\Debug\net8.0\QLBH.Common.pdb
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.API\bin\Debug\net8.0\QLBH.DAL.pdb
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.API\obj\Debug\net8.0\QLBH.API.csproj.AssemblyReference.cache
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.API\obj\Debug\net8.0\rpswa.dswa.cache.json
@@ -156,3 +154,5 @@ C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.API\bin\Debug\net8.0\ru\Microsoft.
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.API\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.API\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.API\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.API\bin\Debug\net8.0\QLBH.DTO.dll
+C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.API\bin\Debug\net8.0\QLBH.DTO.pdb

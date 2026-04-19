@@ -9,7 +9,7 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "QLBH.Common.LoginReq",
+        "Type": "QLBH.DTO.LoginDTO",
         "IsRequired": true
       }
     ],
@@ -25,7 +25,7 @@
     "Parameters": [
       {
         "Name": "kh",
-        "Type": "QLBH.Common.CustomerReq",
+        "Type": "QLBH.DTO.CustomerDTO",
         "IsRequired": true
       }
     ],
@@ -57,7 +57,7 @@
     "Parameters": [
       {
         "Name": "kh",
-        "Type": "QLBH.Common.CustomerReq",
+        "Type": "QLBH.DTO.CustomerDTO",
         "IsRequired": true
       }
     ],
@@ -99,7 +99,7 @@
     "Parameters": [
       {
         "Name": "nv",
-        "Type": "QLBH.Common.EmployeeReq",
+        "Type": "QLBH.DTO.EmployeeDTO",
         "IsRequired": true
       }
     ],
@@ -131,7 +131,7 @@
     "Parameters": [
       {
         "Name": "nv",
-        "Type": "QLBH.Common.EmployeeReq",
+        "Type": "QLBH.DTO.EmployeeDTO",
         "IsRequired": true
       }
     ],
@@ -178,7 +178,7 @@
       },
       {
         "Name": "cart",
-        "Type": "System.Collections.Generic.List\u00601[[QLBH.Common.OrderReq, QLBH.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[QLBH.DTO.OrderDTO, QLBH.DTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "IsRequired": true
       }
     ],
@@ -236,7 +236,7 @@
     "Parameters": [
       {
         "Name": "sp",
-        "Type": "QLBH.Common.ProductReq",
+        "Type": "QLBH.DTO.ProductDTO",
         "IsRequired": true
       }
     ],
@@ -268,7 +268,7 @@
     "Parameters": [
       {
         "Name": "sp",
-        "Type": "QLBH.Common.ProductReq",
+        "Type": "QLBH.DTO.ProductDTO",
         "IsRequired": true
       }
     ],

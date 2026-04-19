@@ -1,6 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
-using QLBH.Common;
 using QLBH.DAL.Models;
+using QLBH.DTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -24,9 +24,9 @@ namespace QLBH.DAL
             return dtDonHang;
         }
 
-        public List<OrderReq> layDonHangTheoId(int orderid)
+        public List<OrderDTO> layDonHangTheoId(int orderid)
         {
-            List<OrderReq> lstOrderDetails = new List<OrderReq>();
+            List<OrderDTO> lstOrderDetails = new List<OrderDTO>();
             try
             {
                 _conn.Open();
@@ -40,7 +40,7 @@ namespace QLBH.DAL
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    OrderReq order = new OrderReq();
+                    OrderDTO order = new OrderDTO();
                     order.OrderID = Convert.ToInt32(dr["OrderID"]);
                     order.ContactName = dr["ContactName"].ToString();
                     order.ProductName = dr["ProductName"].ToString();

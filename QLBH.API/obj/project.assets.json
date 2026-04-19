@@ -1662,13 +1662,23 @@
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.25",
-          "QLBH.Common": "1.0.0"
+          "QLBH.DTO": "1.0.0"
         },
         "compile": {
           "bin/placeholder/QLBH.DAL.dll": {}
         },
         "runtime": {
           "bin/placeholder/QLBH.DAL.dll": {}
+        }
+      },
+      "QLBH.DTO/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/QLBH.DTO.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/QLBH.DTO.dll": {}
         }
       }
     }
@@ -4595,6 +4605,11 @@
       "type": "project",
       "path": "../QLBH.DAL/QLBH.DAL.csproj",
       "msbuildProject": "../QLBH.DAL/QLBH.DAL.csproj"
+    },
+    "QLBH.DTO/1.0.0": {
+      "type": "project",
+      "path": "../QLBH.Comman/QLBH.DTO.csproj",
+      "msbuildProject": "../QLBH.Comman/QLBH.DTO.csproj"
     }
   },
   "projectFileDependencyGroups": {

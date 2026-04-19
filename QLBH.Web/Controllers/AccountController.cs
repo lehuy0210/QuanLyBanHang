@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using QLBH.Common;
+using QLBH.DTO;
 using System.Security.Claims;
 using System.Text;
 using System.Text.Json;
@@ -26,7 +26,7 @@ namespace QLBH.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Register(CustomerReq request, string Matkhaunhaplai)
+        public async Task<ActionResult> Register(CustomerDTO request, string Matkhaunhaplai)
         {
             if (request.Password != Matkhaunhaplai)
             {
@@ -74,7 +74,7 @@ namespace QLBH.Web.Controllers
 
         [HttpPost]
 
-        public async Task<ActionResult> Login(LoginReq request)
+        public async Task<ActionResult> Login(LoginDTO request)
         {
             if (string.IsNullOrEmpty(request.Username) || string.IsNullOrEmpty(request.Password))
             {

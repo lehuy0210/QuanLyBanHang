@@ -251,11 +251,11 @@ C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.Web\bin\Debug\net8.0\tr\Microsoft.
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.Web\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Scripting.resources.dll
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.Web\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Scripting.resources.dll
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.Web\bin\Debug\net8.0\QLBH.BLL.dll
-C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.Web\bin\Debug\net8.0\QLBH.Common.dll
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.Web\bin\Debug\net8.0\QLBH.BLL.pdb
-C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.Web\bin\Debug\net8.0\QLBH.Common.pdb
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.Web\obj\Debug\net8.0\QLBH.Web.RazorAssemblyInfo.cache
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.Web\obj\Debug\net8.0\QLBH.Web.RazorAssemblyInfo.cs
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.Web\bin\Debug\net8.0\libman.json
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.Web\bin\Debug\net8.0\QLBH.Web.staticwebassets.runtime.json
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.Web\obj\Debug\net8.0\QLBH.Web.sourcelink.json
+C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.Web\bin\Debug\net8.0\QLBH.DTO.dll
+C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.Web\bin\Debug\net8.0\QLBH.DTO.pdb

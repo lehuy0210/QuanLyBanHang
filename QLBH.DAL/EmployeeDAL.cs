@@ -1,5 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
-using QLBH.Common;
+using QLBH.DTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -21,7 +21,7 @@ namespace QLBH.DAL
             return dtNhanVien;
         }
 
-        public bool themKhachHang(EmployeeReq nv)
+        public bool themKhachHang(EmployeeDTO nv)
         {
             try
             {
@@ -59,9 +59,9 @@ namespace QLBH.DAL
             return false;
         }
 
-        public EmployeeReq layNVTheoID(int idNV)
+        public EmployeeDTO layNVTheoID(int idNV)
         {
-            EmployeeReq nv = null;
+            EmployeeDTO nv = null;
             try
             {
                 _conn.Open();
@@ -76,7 +76,7 @@ namespace QLBH.DAL
 
                 if (dr.Read())
                 {
-                    nv = new EmployeeReq();
+                    nv = new EmployeeDTO();
                     nv.Id = dr["EmployeeID"].ToString();
                     nv.LastName = dr["LastName"].ToString();
                     nv.FirstName= dr["FirstName"].ToString();
@@ -129,7 +129,7 @@ namespace QLBH.DAL
             return false;
         }
 
-        public bool suaNhanVien(EmployeeReq nv)
+        public bool suaNhanVien(EmployeeDTO nv)
         {
             try
             {

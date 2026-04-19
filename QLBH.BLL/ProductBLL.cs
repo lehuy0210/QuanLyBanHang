@@ -1,5 +1,5 @@
-﻿using QLBH.Common;
-using QLBH.DAL;
+﻿using QLBH.DAL;
+using QLBH.DTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -22,17 +22,17 @@ namespace QLBH.BLL
         {
             return dalSanPham.getSanPhamTimKiem(tukhoa);
         }
-        public bool themSanPham(ProductReq sp)
+        public bool themSanPham(ProductDTO sp)
         {
             return dalSanPham.themSanPham(sp);
         }
 
-        public bool suaSanPham(ProductReq sp)
+        public bool suaSanPham(ProductDTO sp)
         {
             return dalSanPham.suaSanPham(sp);
         }
 
-        public ProductReq laySanPhamTheoId(int idSP)
+        public ProductDTO laySanPhamTheoId(int idSP)
         {
             return dalSanPham.laySanPhamTheoId(idSP);
         }

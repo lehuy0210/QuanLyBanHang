@@ -4,12 +4,12 @@
     "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.DAL\\QLBH.DAL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.Comman\\QLBH.Common.csproj": {
+    "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.Comman\\QLBH.DTO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.Comman\\QLBH.Common.csproj",
-        "projectName": "QLBH.Common",
-        "projectPath": "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.Comman\\QLBH.Common.csproj",
+        "projectUniqueName": "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.Comman\\QLBH.DTO.csproj",
+        "projectName": "QLBH.DTO",
+        "projectPath": "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.Comman\\QLBH.DTO.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.Comman\\obj\\",
         "projectStyle": "PackageReference",
@@ -111,8 +111,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.Comman\\QLBH.Common.csproj": {
-                "projectPath": "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.Comman\\QLBH.Common.csproj"
+              "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.Comman\\QLBH.DTO.csproj": {
+                "projectPath": "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.Comman\\QLBH.DTO.csproj"
               }
             }
           }

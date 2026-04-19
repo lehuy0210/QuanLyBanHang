@@ -11,7 +11,6 @@
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "8.0.25",
           "Microsoft.EntityFrameworkCore.Design": "8.0.25",
           "QLBH.BLL": "1.0.0",
-          "QLBH.Common": "1.0.0",
           "QLBH.DAL": "1.0.0",
           "Swashbuckle.AspNetCore": "6.6.2"
         },
@@ -886,21 +885,21 @@
           }
         }
       },
-      "QLBH.Common/1.0.0": {
+      "QLBH.DAL/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.25",
+          "QLBH.DTO": "1.0.0"
+        },
         "runtime": {
-          "QLBH.Common.dll": {
+          "QLBH.DAL.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
       },
-      "QLBH.DAL/1.0.0": {
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.25",
-          "QLBH.Common": "1.0.0"
-        },
+      "QLBH.DTO/1.0.0": {
         "runtime": {
-          "QLBH.DAL.dll": {
+          "QLBH.DTO.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -1325,12 +1324,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "QLBH.Common/1.0.0": {
+    "QLBH.DAL/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "QLBH.DAL/1.0.0": {
+    "QLBH.DTO/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -1,6 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Http
 @using System.Text.Json
-@using QLBH.Common
+@using QLBH.DTO
 @{
     // 1. Lấy thông tin User từ Session
     var userSessionData = Context.Session.GetString("UserSession");
@@ -22,14 +22,14 @@
 
     // 2. Lấy thông tin Giỏ hàng
     int countCart = 0;
-    List<OrderReq> currentCart = new List<OrderReq>();
+    List<OrderDTO> currentCart = new List<OrderDTO>();
     var sessionCart = Context.Session.GetString("CartSession");
 
     if (!string.IsNullOrEmpty(sessionCart))
     {
         try
         {
-            var items = JsonSerializer.Deserialize<List<OrderReq>>(sessionCart);
+            var items = JsonSerializer.Deserialize<List<OrderDTO>>(sessionCart);
             if (items != null)
             {
                 currentCart = items;

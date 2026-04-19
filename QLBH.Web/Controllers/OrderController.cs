@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http; 
 using Microsoft.AspNetCore.Mvc;
-using QLBH.Common;               
+using QLBH.DTO;               
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;            
@@ -57,7 +57,7 @@ namespace QLBH.Web.Controllers
                             var response = await client.GetAsync($"http://localhost:5003/api/Product/GetByID?id={productId}");
                             if (response.IsSuccessStatusCode)
                             {
-                                var productData = await response.Content.ReadFromJsonAsync<ProductReq>();
+                                var productData = await response.Content.ReadFromJsonAsync<ProductDTO>();
                                 nameToSave = productData.Name;
                             }
                         }
@@ -67,7 +67,7 @@ namespace QLBH.Web.Controllers
                         }
                     }
 
-                    cart.Add(new OrderReq
+                    cart.Add(new OrderDTO
                     {
                         ProductId = productId,
                         Quantity = quantity,
@@ -131,23 +131,23 @@ namespace QLBH.Web.Controllers
             }
         }
 
-        private List<OrderReq> GetCartFromSession()
+        private List<OrderDTO> GetCartFromSession()
         {
             try
             {
                 var data = HttpContext.Session.GetString(CART_KEY);
-                if (string.IsNullOrEmpty(data)) return new List<OrderReq>();
-                return JsonSerializer.Deserialize<List<OrderReq>>(data) ?? new List<OrderReq>();
+                if (string.IsNullOrEmpty(data)) return new List<OrderDTO>();
+                return JsonSerializer.Deserialize<List<OrderDTO>>(data) ?? new List<OrderDTO>();
             }
             catch
             {
                 // Nếu dữ liệu cũ trong Session bị lỗi format, xóa nó đi để tạo mới
                 HttpContext.Session.Remove(CART_KEY);
-                return new List<OrderReq>();
+                return new List<OrderDTO>();
             }
         }
 
-        private void SaveCartToSession(List<OrderReq> cart) =>
+        private void SaveCartToSession(List<OrderDTO> cart) =>
             HttpContext.Session.SetString(CART_KEY, JsonSerializer.Serialize(cart));
 
         [Authorize(Roles = "User")]
@@ -228,7 +228,7 @@ namespace QLBH.Web.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Detail(int id)
         {
-            List<OrderReq> orderDetails = new List<OrderReq>();
+            List<OrderDTO> orderDetails = new List<OrderDTO>();
 
             using (HttpClient client = new HttpClient())
             {
@@ -239,7 +239,7 @@ namespace QLBH.Web.Controllers
                     string data = await response.Content.ReadAsStringAsync();
 
                     var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-                    orderDetails = JsonSerializer.Deserialize<List<OrderReq>>(data, options);
+                    orderDetails = JsonSerializer.Deserialize<List<OrderDTO>>(data, options);
                 }
 
                 else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)

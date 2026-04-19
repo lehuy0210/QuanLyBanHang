@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using QLBH.BLL;
-using QLBH.Common;
 using QLBH.DAL;
+using QLBH.DTO;
 using static Microsoft.Extensions.Logging.EventSource.LoggingEventSource;
 
 namespace QLBH.API.Controllers
@@ -21,19 +21,19 @@ namespace QLBH.API.Controllers
         [HttpGet("GetCategories")]
         public IActionResult GetCategories()
         {
-            var data = _context.Categories.Select(c => new CategoryReq { Id = c.CategoryId, Name = c.CategoryName }).ToList();
+            var data = _context.Categories.Select(c => new CategoryDTO { Id = c.CategoryId, Name = c.CategoryName }).ToList();
             return Ok(data);
         }
 
         [HttpGet("GetSuppliers")]
         public IActionResult GetSuppliers()
         {
-            var data = _context.Suppliers.Select(s => new SupplierReq { Id = s.SupplierId, Name = s.CompanyName }).ToList();
+            var data = _context.Suppliers.Select(s => new SupplierDTO { Id = s.SupplierId, Name = s.CompanyName }).ToList();
             return Ok(data);
         }
 
         [HttpPost("Create")]
-        public IActionResult Create([FromBody] ProductReq sp)
+        public IActionResult Create([FromBody] ProductDTO sp)
         {
             try
             {
@@ -81,7 +81,7 @@ namespace QLBH.API.Controllers
             }
         }
         [HttpPut("Edit")]
-        public IActionResult Edit([FromBody] ProductReq sp)
+        public IActionResult Edit([FromBody] ProductDTO sp)
         {
             try
             {
@@ -116,7 +116,7 @@ namespace QLBH.API.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(400, ex.Message);
+                return StatusCode(400, new { success = false, message = "Lỗi server: " + ex.Message });
             }
         }
 

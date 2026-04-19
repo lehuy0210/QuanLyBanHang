@@ -1492,14 +1492,14 @@
           }
         }
       },
-      "QLBH.Common/1.0.0": {
+      "QLBH.DTO/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "compile": {
-          "bin/placeholder/QLBH.Common.dll": {}
+          "bin/placeholder/QLBH.DTO.dll": {}
         },
         "runtime": {
-          "bin/placeholder/QLBH.Common.dll": {}
+          "bin/placeholder/QLBH.DTO.dll": {}
         }
       }
     }
@@ -4004,10 +4004,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "QLBH.Common/1.0.0": {
+    "QLBH.DTO/1.0.0": {
       "type": "project",
-      "path": "../QLBH.Comman/QLBH.Common.csproj",
-      "msbuildProject": "../QLBH.Comman/QLBH.Common.csproj"
+      "path": "../QLBH.Comman/QLBH.DTO.csproj",
+      "msbuildProject": "../QLBH.Comman/QLBH.DTO.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -4015,7 +4015,7 @@
       "Microsoft.EntityFrameworkCore.Design >= 8.0.25",
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.25",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.25",
-      "QLBH.Common >= 1.0.0"
+      "QLBH.DTO >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -4050,8 +4050,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.Comman\\QLBH.Common.csproj": {
-              "projectPath": "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.Comman\\QLBH.Common.csproj"
+            "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.Comman\\QLBH.DTO.csproj": {
+              "projectPath": "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.Comman\\QLBH.DTO.csproj"
             }
           }
         }

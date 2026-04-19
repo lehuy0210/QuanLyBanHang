@@ -1,5 +1,5 @@
-﻿using QLBH.Common;
-using QLBH.DAL;
+﻿using QLBH.DAL;
+using QLBH.DTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -17,7 +17,7 @@ namespace QLBH.BLL
             return dalDonHang.getDonHang();
         }
 
-        public List<OrderReq> layDonHangTheoId(int orderid)
+        public List<OrderDTO> layDonHangTheoId(int orderid)
         {
             return dalDonHang.layDonHangTheoId(orderid);
         }

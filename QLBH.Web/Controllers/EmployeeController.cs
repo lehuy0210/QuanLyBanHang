@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using QLBH.Common;
+using QLBH.DTO;
 using System.Data;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
@@ -38,12 +38,12 @@ namespace QLBH.Web.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            var model = new EmployeeReq();
+            var model = new EmployeeDTO();
             return View(model);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(EmployeeReq nv)
+        public async Task<IActionResult> Create(EmployeeDTO nv)
         {
             var client = _httpClientFactory.CreateClient();
             string apiThemNV = "http://localhost:5003/api/Employee/Create";
@@ -91,12 +91,12 @@ namespace QLBH.Web.Controllers
             string apiLayNVTheoId = $"http://localhost:5003/api/Employee/GetById?id={id}";
 
             var response = await client.GetAsync(apiLayNVTheoId);
-            var model = new EmployeeReq();
+            var model = new EmployeeDTO();
 
             if (response.IsSuccessStatusCode)
             {
                 var jsonString = await response.Content.ReadAsStringAsync();
-                model = JsonConvert.DeserializeObject<EmployeeReq>(jsonString);
+                model = JsonConvert.DeserializeObject<EmployeeDTO>(jsonString);
             }
             else
             {
@@ -108,7 +108,7 @@ namespace QLBH.Web.Controllers
         }
 
         [HttpPost("Employee/Edit/{id?}")]
-        public async Task<IActionResult> Edit(EmployeeReq nv)
+        public async Task<IActionResult> Edit(EmployeeDTO nv)
         {
             var client = _httpClientFactory.CreateClient();
             string apiSuaNhanVien = "http://localhost:5003/api/Employee/Edit";

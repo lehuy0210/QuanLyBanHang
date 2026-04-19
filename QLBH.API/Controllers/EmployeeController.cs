@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using QLBH.BLL;
-using QLBH.Common;
+using QLBH.DTO;
 using System;
 
 namespace QLBH.API.Controllers
@@ -18,11 +18,11 @@ namespace QLBH.API.Controllers
         }
 
         [HttpPost("Create")]
-        public IActionResult Create([FromBody] EmployeeReq nv)
+        public IActionResult Create([FromBody] EmployeeDTO nv)
         {
             try
             {
-                if (bllNhanVien.themKhachHang(nv)) // Lưu ý: Tên hàm BLL của bạn đang để là themKhachHang
+                if (bllNhanVien.themKhachHang(nv))
                 {
                     return Ok(new { success = true, message = "Thêm nhân viên thành công!" });
                 }
@@ -38,7 +38,7 @@ namespace QLBH.API.Controllers
         }
 
         [HttpGet("GetByID")]
-        public IActionResult GetById(int id) // BLL của Employee dùng int idNV
+        public IActionResult GetById(int id)
         {
             try
             {
@@ -75,16 +75,16 @@ namespace QLBH.API.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(400, ex.Message);
+                return StatusCode(400, new { success = false, message = "Lỗi server: " + ex.Message });
             }
         }
 
         [HttpPut("Edit")]
-        public IActionResult Edit([FromBody] EmployeeReq nv)
+        public IActionResult Edit([FromBody] EmployeeDTO nv)
         {
             try
             {
-                if (bllNhanVien.suaKhachHang(nv)) // BLL dùng suaKhachHang / suaNhanVien
+                if (bllNhanVien.suaKhachHang(nv))
                 {
                     return Ok(new { success = true, message = "Cập nhật nhân viên thành công!" });
                 }

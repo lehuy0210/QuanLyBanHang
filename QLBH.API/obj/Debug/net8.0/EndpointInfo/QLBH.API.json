@@ -14,22 +14,22 @@
           "content": {
             "application/json-patch+json": {
               "schema": {
-                "$ref": "#/components/schemas/LoginReq"
+                "$ref": "#/components/schemas/LoginDTO"
               }
             },
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/LoginReq"
+                "$ref": "#/components/schemas/LoginDTO"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/LoginReq"
+                "$ref": "#/components/schemas/LoginDTO"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/LoginReq"
+                "$ref": "#/components/schemas/LoginDTO"
               }
             }
           }
@@ -62,22 +62,22 @@
           "content": {
             "application/json-patch+json": {
               "schema": {
-                "$ref": "#/components/schemas/CustomerReq"
+                "$ref": "#/components/schemas/CustomerDTO"
               }
             },
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CustomerReq"
+                "$ref": "#/components/schemas/CustomerDTO"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/CustomerReq"
+                "$ref": "#/components/schemas/CustomerDTO"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/CustomerReq"
+                "$ref": "#/components/schemas/CustomerDTO"
               }
             }
           }
@@ -140,22 +140,22 @@
           "content": {
             "application/json-patch+json": {
               "schema": {
-                "$ref": "#/components/schemas/CustomerReq"
+                "$ref": "#/components/schemas/CustomerDTO"
               }
             },
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CustomerReq"
+                "$ref": "#/components/schemas/CustomerDTO"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/CustomerReq"
+                "$ref": "#/components/schemas/CustomerDTO"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/CustomerReq"
+                "$ref": "#/components/schemas/CustomerDTO"
               }
             }
           }
@@ -188,22 +188,22 @@
           "content": {
             "application/json-patch+json": {
               "schema": {
-                "$ref": "#/components/schemas/EmployeeReq"
+                "$ref": "#/components/schemas/EmployeeDTO"
               }
             },
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/EmployeeReq"
+                "$ref": "#/components/schemas/EmployeeDTO"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/EmployeeReq"
+                "$ref": "#/components/schemas/EmployeeDTO"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/EmployeeReq"
+                "$ref": "#/components/schemas/EmployeeDTO"
               }
             }
           }
@@ -268,22 +268,22 @@
           "content": {
             "application/json-patch+json": {
               "schema": {
-                "$ref": "#/components/schemas/EmployeeReq"
+                "$ref": "#/components/schemas/EmployeeDTO"
               }
             },
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/EmployeeReq"
+                "$ref": "#/components/schemas/EmployeeDTO"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/EmployeeReq"
+                "$ref": "#/components/schemas/EmployeeDTO"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/EmployeeReq"
+                "$ref": "#/components/schemas/EmployeeDTO"
               }
             }
           }
@@ -315,7 +315,7 @@
               "schema": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/OrderReq"
+                  "$ref": "#/components/schemas/OrderDTO"
                 }
               }
             },
@@ -323,7 +323,7 @@
               "schema": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/OrderReq"
+                  "$ref": "#/components/schemas/OrderDTO"
                 }
               }
             },
@@ -331,7 +331,7 @@
               "schema": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/OrderReq"
+                  "$ref": "#/components/schemas/OrderDTO"
                 }
               }
             },
@@ -339,7 +339,7 @@
               "schema": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/OrderReq"
+                  "$ref": "#/components/schemas/OrderDTO"
                 }
               }
             }
@@ -443,22 +443,22 @@
           "content": {
             "application/json-patch+json": {
               "schema": {
-                "$ref": "#/components/schemas/ProductReq"
+                "$ref": "#/components/schemas/ProductDTO"
               }
             },
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ProductReq"
+                "$ref": "#/components/schemas/ProductDTO"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/ProductReq"
+                "$ref": "#/components/schemas/ProductDTO"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/ProductReq"
+                "$ref": "#/components/schemas/ProductDTO"
               }
             }
           }
@@ -513,22 +513,22 @@
           "content": {
             "application/json-patch+json": {
               "schema": {
-                "$ref": "#/components/schemas/ProductReq"
+                "$ref": "#/components/schemas/ProductDTO"
               }
             },
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ProductReq"
+                "$ref": "#/components/schemas/ProductDTO"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/ProductReq"
+                "$ref": "#/components/schemas/ProductDTO"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/ProductReq"
+                "$ref": "#/components/schemas/ProductDTO"
               }
             }
           }
@@ -586,7 +586,7 @@
   },
   "components": {
     "schemas": {
-      "CategoryReq": {
+      "CategoryDTO": {
         "type": "object",
         "properties": {
           "id": {
@@ -600,7 +600,7 @@
         },
         "additionalProperties": false
       },
-      "CustomerReq": {
+      "CustomerDTO": {
         "type": "object",
         "properties": {
           "id": {
@@ -638,7 +638,7 @@
         },
         "additionalProperties": false
       },
-      "EmployeeReq": {
+      "EmployeeDTO": {
         "type": "object",
         "properties": {
           "id": {
@@ -680,7 +680,7 @@
         },
         "additionalProperties": false
       },
-      "LoginReq": {
+      "LoginDTO": {
         "type": "object",
         "properties": {
           "username": {
@@ -694,7 +694,7 @@
         },
         "additionalProperties": false
       },
-      "OrderReq": {
+      "OrderDTO": {
         "type": "object",
         "properties": {
           "orderID": {
@@ -733,7 +733,7 @@
         },
         "additionalProperties": false
       },
-      "ProductReq": {
+      "ProductDTO": {
         "type": "object",
         "properties": {
           "id": {
@@ -763,21 +763,21 @@
           "categories": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/CategoryReq"
+              "$ref": "#/components/schemas/CategoryDTO"
             },
             "nullable": true
           },
           "suppliers": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/SupplierReq"
+              "$ref": "#/components/schemas/SupplierDTO"
             },
             "nullable": true
           }
         },
         "additionalProperties": false
       },
-      "SupplierReq": {
+      "SupplierDTO": {
         "type": "object",
         "properties": {
           "id": {
