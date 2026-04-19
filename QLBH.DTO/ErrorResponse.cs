@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace QLBH.DTO
 {
-    internal class ErrorResponse
+    public class ErrorResponse
     {
+        public ErrorDetail error { get; set; }
+
+        public class ErrorDetail
+        {
+            public string userMessage { get; set; }
+            public string internalMessage { get; set; }
+            public int code { get; set; }
+        }
     }
 }

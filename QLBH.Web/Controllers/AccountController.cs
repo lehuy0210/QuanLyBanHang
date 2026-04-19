@@ -146,12 +146,34 @@ namespace QLBH.Web.Controllers
                         return RedirectToAction("Index", "Home");
                     }
                 }
-                else 
+                else
                 {
-                   
                     string errorResult = await response.Content.ReadAsStringAsync();
 
-                    ViewBag.ThongBaoLoi = errorResult;
+                    try
+                    {
+                        // Ép kiểu chuỗi JSON lỗi vào Class ErrorResponse
+                        var errorData = JsonSerializer.Deserialize<ErrorResponse>(errorResult, new JsonSerializerOptions
+                        {
+                            PropertyNameCaseInsensitive = true // Bỏ qua phân biệt hoa/thường
+                        });
+
+                        // Chỉ lấy đúng userMessage để hiển thị cho người dùng
+                        if (errorData != null && errorData.error != null)
+                        {
+                            ViewBag.ThongBaoLoi = errorData.error.userMessage;
+                        }
+                        else
+                        {
+                            ViewBag.ThongBaoLoi = "Đăng nhập thất bại. Vui lòng kiểm tra lại.";
+                        }
+                    }
+                    catch (JsonException)
+                    {
+                        // Đề phòng API sập trả về HTML thay vì JSON
+                        ViewBag.ThongBaoLoi = "Lỗi từ máy chủ: " + errorResult;
+                    }
+
                     return View(request);
                 }
             }

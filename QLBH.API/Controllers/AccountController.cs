@@ -23,8 +23,6 @@ namespace QLBH.API.Controllers
             try
             {
                 // 1. TÌM TRONG BẢNG NHÂN VIÊN (ADMIN) TRƯỚC
-                // (Lưu ý: Bạn hãy sửa lại tên trường "Username", "Password", "EmployeeId", "EmployeeName" 
-                // cho khớp với thiết kế Entity Employee của bạn nhé)
                 var employee = await _context.Employees
                     .FirstOrDefaultAsync(e => e.Username == request.Username);
 
@@ -32,7 +30,15 @@ namespace QLBH.API.Controllers
                 {
                     if (employee.Password != request.Password)
                     {
-                        return Unauthorized("Mật khẩu không chính xác.");
+                        return Unauthorized(new
+                        {
+                            error = new
+                            {
+                                userMessage = "Mật khẩu không chính xác.",
+                                internalMessage = "Mật khẩu Employee không khớp",
+                                code = 401
+                            }
+                        });
                     }
 
                     // Trả về thông tin Nhân viên + Gắn mác Role: "Admin"
@@ -57,7 +63,15 @@ namespace QLBH.API.Controllers
                 {
                     if (customer.Password != request.Password)
                     {
-                        return Unauthorized("Mật khẩu không chính xác.");
+                        return Unauthorized(new
+                        {
+                            error = new
+                            {
+                                userMessage = "Mật khẩu không chính xác.",
+                                internalMessage = "Mật khẩu Employee không khớp",
+                                code = 401
+                            }
+                        });
                     }
 
                     // Trả về thông tin Khách hàng + Gắn mác Role: "User"
@@ -75,11 +89,27 @@ namespace QLBH.API.Controllers
                 }
 
                 // 3. KHÔNG TÌM THẤY Ở CẢ 2 BẢNG
-                return BadRequest("Tên đăng nhập không tồn tại trong hệ thống.");
+                return BadRequest(new
+                {
+                    error = new
+                    {
+                        userMessage = "Tên đăng nhập không tồn tại trong hệ thống.",
+                        internalMessage = "Username không tìm thấy trong bảng Employee hoặc Customer",
+                        code = 404
+                    }
+                });
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "Lỗi server: " + ex.Message);
+                return StatusCode(500, new
+                {
+                    error = new
+                    {
+                        userMessage = "Đã xảy ra lỗi hệ thống, vui lòng thử lại sau.",
+                        internalMessage = ex.Message,
+                        code = 500
+                    }
+                });
             }
         }
     }
