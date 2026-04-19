@@ -29,13 +29,29 @@ namespace QLBH.API.Controllers
                 }
                 else
                 {
-                    return BadRequest(new { success = false, message = "Thêm khách hàng thất bại." });
+                    return BadRequest(new
+                    {
+                        error = new
+                        {
+                            userMessage = "Không thể tạo mới dữ liệu khách hàng",
+                            internalMessage = "Thất bại khi thêm khách hàng vào database",
+                            code = 40
+                        }
+                    });
                 }
 
             }
             catch (Exception ex)
             {
-                return StatusCode(400, new { success = false, message = "Lỗi server: " + ex.Message });
+                return StatusCode(500, new
+                {
+                    error = new
+                    {
+                        userMessage = "Hệ thống gặp sự cố, vui lòng thử lại sau",
+                        internalMessage = ex.Message,
+                        code = 50
+                    }
+                });
             }
         }
 
@@ -52,12 +68,28 @@ namespace QLBH.API.Controllers
                 }
                 else
                 {
-                    return NotFound(new { success = false, message = "Không tìm thấy khách hàng." });
+                    return NotFound(new
+                    {
+                        error = new
+                        {
+                            userMessage = "Không tìm thấy khách hàng này",
+                            internalMessage = "Không tìm thấy khách hàng trong database",
+                            code = 34
+                        }
+                    });
                 }
             }
             catch (Exception ex)
             {
-                return StatusCode(400, new { success = false, message = "Lỗi server: " + ex.Message });
+                return StatusCode(500, new
+                {
+                    error = new
+                    {
+                        userMessage = "Hệ thống gặp sự cố, vui lòng thử lại sau",
+                        internalMessage = ex.Message,
+                        code = 50
+                    }
+                });
             }
         }
 
@@ -72,12 +104,28 @@ namespace QLBH.API.Controllers
                 }
                 else
                 {
-                    return BadRequest("Khách hàng không tồn tại hoặc không thể xóa.");
+                    return NotFound(new
+                    {
+                        error = new
+                        {
+                            userMessage = "Không tìm thấy khách hàng này",
+                            internalMessage = "Không tìm thấy khách hàng trong database",
+                            code = 34
+                        }
+                    });
                 }
             }
             catch (Exception ex)
             {
-                return StatusCode(400, new { success = false, message = "Lỗi server: " + ex.Message });
+                return StatusCode(500, new
+                {
+                    error = new
+                    {
+                        userMessage = "Hệ thống gặp sự cố, vui lòng thử lại sau",
+                        internalMessage = ex.Message,
+                        code = 50
+                    }
+                });
             }
         }
 
@@ -92,13 +140,29 @@ namespace QLBH.API.Controllers
                 }
                 else
                 {
-                    return BadRequest(new { success = false, message = "Cập nhật khách hàng thất bại." });
+                    return BadRequest(new
+                    {
+                        error = new
+                        {
+                            userMessage = "Không thể cập nhật thông tin khách hàng",
+                            internalMessage = "Không thể cập nhật khách hàng trong database",
+                            code = 40
+                        }
+                    });
                 }
 
             }
             catch (Exception ex)
             {
-                return StatusCode(400, new { success = false, message = "Lỗi server: " + ex.Message });
+                return StatusCode(500, new
+                {
+                    error = new
+                    {
+                        userMessage = "Hệ thống gặp sự cố, vui lòng thử lại sau",
+                        internalMessage = ex.Message,
+                        code = 50
+                    }
+                });
             }
         }
     }

@@ -63,7 +63,15 @@ namespace QLBH.API.Controllers
 
                 string loiThatSu = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
 
-                return BadRequest(loiThatSu);
+                return StatusCode(500, new
+                {
+                    error = new
+                    {
+                        userMessage = "Hệ thống gặp sự cố trong quá trình tạo đơn hàng, vui lòng thử lại sau",
+                        internalMessage = loiThatSu,
+                        code = 50
+                    }
+                });
             }
         }
 
@@ -88,7 +96,15 @@ namespace QLBH.API.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return StatusCode(500, new
+                {
+                    error = new
+                    {
+                        userMessage = "Hệ thống gặp sự cố khi lấy danh sách đơn hàng",
+                        internalMessage = ex.Message,
+                        code = 50
+                    }
+                });
             }
         }
 
@@ -103,7 +119,15 @@ namespace QLBH.API.Controllers
                 // Kiểm tra xem đơn hàng có tồn tại/có sản phẩm nào không
                 if (result == null || result.Count == 0)
                 {
-                    return NotFound(new { Message = $"Không tìm thấy chi tiết cho đơn hàng mã {id}" });
+                    return NotFound(new
+                    {
+                        error = new
+                        {
+                            userMessage = "Đơn hàng không tồn tại",
+                            internalMessage = $"Chi tiết đơn hàng {id} không có trong database",
+                            code = 34
+                        }
+                    });
                 }
 
                 // Trả về danh sách dạng JSON với mã 200 OK
@@ -111,7 +135,15 @@ namespace QLBH.API.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { message = "Lỗi hệ thống: " + ex.Message });
+                return StatusCode(500, new
+                {
+                    error = new
+                    {
+                        userMessage = "Hệ thống gặp sự cố, vui lòng thử lại sau",
+                        internalMessage = ex.Message,
+                        code = 50
+                    }
+                });
             }
         }
 
@@ -128,16 +160,40 @@ namespace QLBH.API.Controllers
                 }
                 else
                 {
-                    return BadRequest(new { Message = "Không thể xóa đơn hàng lúc này." });
+                    return BadRequest(new
+                    {
+                        error = new
+                        {
+                            userMessage = "Không thể xóa đơn hàng lúc này",
+                            internalMessage = "Không thể xóa đơn hàng trong database",
+                            code = 40
+                        }
+                    });
                 }
             }
             catch (Exception ex)
             {
                 if (ex.Message.Contains("Đơn hàng không tồn tại"))
                 {
-                    return NotFound(new { Message = ex.Message });
+                    return NotFound(new
+                    {
+                        error = new
+                        {
+                            userMessage = "Đơn hàng không tồn tại",
+                            internalMessage = "Không tìm thấy đơn hàng trong database để xóa",
+                            code = 34
+                        }
+                    });
                 }
-                return StatusCode(500, new { Message = "Lỗi hệ thống: " + ex.Message });
+                return StatusCode(500, new
+                {
+                    error = new
+                    {
+                        userMessage = "Hệ thống gặp sự cố, vui lòng thử lại sau",
+                        internalMessage = ex.Message,
+                        code = 50
+                    }
+                });
             }
         }
     }

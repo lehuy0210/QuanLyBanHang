@@ -21,7 +21,7 @@ namespace QLBH.DAL
             return dtNhanVien;
         }
 
-        public bool themKhachHang(EmployeeDTO nv)
+        public bool themNhanVien(EmployeeDTO nv)
         {
             try
             {
@@ -100,7 +100,7 @@ namespace QLBH.DAL
             return nv;
         }
 
-        public bool xoaKhachHang(int idNV)
+        public bool xoaNhanVien(int idNV)
         {
             try
             {

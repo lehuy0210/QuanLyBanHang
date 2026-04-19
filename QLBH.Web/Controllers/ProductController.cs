@@ -63,8 +63,13 @@ namespace QLBH.Web.Controllers
             }
             else
             {
-                var errorDetail = await response.Content.ReadAsStringAsync();
-                TempData["Error"] = "Thêm thất bại. Chi tiết: " + errorDetail;
+                var errorJson = await response.Content.ReadAsStringAsync();
+                try
+                {
+                    using var doc = System.Text.Json.JsonDocument.Parse(errorJson);
+                    TempData["Error"] = doc.RootElement.GetProperty("error").GetProperty("userMessage").GetString();
+                }
+                catch { TempData["Error"] = "Thêm thất bại. Chi tiết: " + errorJson; }
             }
             await LoadDropdownData(sp);
 
@@ -134,8 +139,13 @@ namespace QLBH.Web.Controllers
             }
             else
             {
-                var errorDetail = await response.Content.ReadAsStringAsync();
-                TempData["Error"] = "Cập nhật thất bại. Chi tiết: " + errorDetail;
+                var errorJson = await response.Content.ReadAsStringAsync();
+                try
+                {
+                    using var doc = System.Text.Json.JsonDocument.Parse(errorJson);
+                    TempData["Error"] = doc.RootElement.GetProperty("error").GetProperty("userMessage").GetString();
+                }
+                catch { TempData["Error"] = "Cập nhật thất bại. Chi tiết: " + errorJson; }
             }
 
             await LoadDropdownData(sp);
@@ -159,8 +169,13 @@ namespace QLBH.Web.Controllers
             }
             else
             {
-                var error = await response.Content.ReadAsStringAsync();
-                TempData["Error"] = "Xóa thất bại! Chi tiết: " + error;
+                var errorJson = await response.Content.ReadAsStringAsync();
+                try
+                {
+                    using var doc = System.Text.Json.JsonDocument.Parse(errorJson);
+                    TempData["Error"] = doc.RootElement.GetProperty("error").GetProperty("userMessage").GetString();
+                }
+                catch { TempData["Error"] = "Xóa thất bại! Chi tiết: " + errorJson; }
             }
             return RedirectToAction("List");
         }

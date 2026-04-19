@@ -21,15 +21,45 @@ namespace QLBH.API.Controllers
         [HttpGet("GetCategories")]
         public IActionResult GetCategories()
         {
-            var data = _context.Categories.Select(c => new CategoryDTO { Id = c.CategoryId, Name = c.CategoryName }).ToList();
-            return Ok(data);
+            try
+            {
+                var data = _context.Categories.Select(c => new CategoryDTO { Id = c.CategoryId, Name = c.CategoryName }).ToList();
+                return Ok(data);
+            }
+            catch(Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    error = new
+                    {
+                        userMessage = "Hệ thống gặp sự cố khi lấy danh mục sản phẩm",
+                        internalMessage = ex.Message,
+                        code = 50
+                    }
+                });
+            }
         }
 
         [HttpGet("GetSuppliers")]
         public IActionResult GetSuppliers()
         {
-            var data = _context.Suppliers.Select(s => new SupplierDTO { Id = s.SupplierId, Name = s.CompanyName }).ToList();
-            return Ok(data);
+            try
+            {
+                var data = _context.Suppliers.Select(s => new SupplierDTO { Id = s.SupplierId, Name = s.CompanyName }).ToList();
+                return Ok(data);
+            }
+            catch(Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    error = new
+                    {
+                        userMessage = "Hệ thống gặp sự cố khi lấy danh sách nhà cung cấp",
+                        internalMessage = ex.Message,
+                        code = 50
+                    }
+                });
+            }
         }
 
         [HttpPost("Create")]
@@ -43,20 +73,51 @@ namespace QLBH.API.Controllers
                 }
                 else
                 {
-                    return BadRequest(new { success = false, message = "Thêm sản phẩm thất bại." });
+                    return BadRequest(new
+                    {
+                        error = new
+                        {
+                            userMessage = "Không thể tạo mới dữ liệu sản phẩm",
+                            internalMessage = "Failed to insert product into the database",
+                            code = 40
+                        }
+                    });
                 }
 
             }
             catch (Exception ex)
             {
-                return StatusCode(400, new { success = false, message = "Lỗi server: " + ex.Message });
+                return StatusCode(500, new
+                {
+                    error = new
+                    {
+                        userMessage = "Hệ thống gặp sự cố, vui lòng thử lại sau",
+                        internalMessage = ex.Message,
+                        code = 50
+                    }
+                });
             }
 
         }
         [HttpGet("List")]
         public IActionResult List()
         {
-            return Ok(bllSanPham.getSanPham());
+            try
+            {
+                return Ok(bllSanPham.getSanPham());
+            }
+            catch(Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    error = new
+                    {
+                        userMessage = "Hệ thống gặp sự cố khi lấy danh sách sản phẩm",
+                        internalMessage = ex.Message,
+                        code = 50
+                    }
+                });
+            }
         }
         [HttpGet("GetByID")]
 
@@ -72,12 +133,28 @@ namespace QLBH.API.Controllers
                 }
                 else
                 {
-                    return NotFound(new { success = false, message = "Không tìm thấy sản phẩm." });
+                    return NotFound(new
+                    {
+                        error = new
+                        {
+                            userMessage = "Sản phẩm không tồn tại",
+                            internalMessage = "Không tìm thấy sản phẩm trong database",
+                            code = 34
+                        }
+                    });
                 }
             }
             catch (Exception ex)
             {
-                return StatusCode(400, new { success = false, message = "Lỗi server: " + ex.Message });
+                return StatusCode(500, new
+                {
+                    error = new
+                    {
+                        userMessage = "Hệ thống gặp sự cố, vui lòng thử lại sau",
+                        internalMessage = ex.Message,
+                        code = 50
+                    }
+                });
             }
         }
         [HttpPut("Edit")]
@@ -91,12 +168,28 @@ namespace QLBH.API.Controllers
                 }
                 else
                 {
-                    return BadRequest(new { success = false, message = "Cập nhật sản phẩm thất bại." });
+                    return BadRequest(new
+                    {
+                        error = new
+                        {
+                            userMessage = "Không thể cập nhật thông tin sản phẩm",
+                            internalMessage = "Không cập nhật được sản phẩm trong database",
+                            code = 40
+                        }
+                    });
                 }
             }
             catch (Exception ex)
             {
-                return StatusCode(400, new { success = false, message = "Lỗi server: " + ex.Message });
+                return StatusCode(500, new
+                {
+                    error = new
+                    {
+                        userMessage = "Hệ thống gặp sự cố, vui lòng thử lại sau",
+                        internalMessage = ex.Message,
+                        code = 50
+                    }
+                });
             }
         }
 
@@ -111,27 +204,58 @@ namespace QLBH.API.Controllers
                 }
                 else
                 {
-                    return BadRequest("Sản phẩm không tồn tại hoặc không thể xóa.");
+                    return NotFound(new
+                    {
+                        error = new
+                        {
+                            userMessage = "Sorry, the requested resource does not exist",
+                            internalMessage = "No product found in the database to delete",
+                            code = 34
+                        }
+                    });
                 }
             }
             catch (Exception ex)
             {
-                return StatusCode(400, new { success = false, message = "Lỗi server: " + ex.Message });
+                return StatusCode(500, new
+                {
+                    error = new
+                    {
+                        userMessage = "Hệ thống gặp sự cố, vui lòng thử lại sau",
+                        internalMessage = ex.Message,
+                        code = 50
+                    }
+                });
             }
         }
 
         [HttpGet("Search")]
         public IActionResult Search(string tukhoa)
         {
-            var dtResult = bllSanPham.getSanPhamTimKiem(tukhoa);
+            try
+            {
+                var dtResult = bllSanPham.getSanPhamTimKiem(tukhoa);
 
-            if (dtResult != null && dtResult.Rows.Count > 0)
-            {
-                return Ok(dtResult);
+                if (dtResult != null && dtResult.Rows.Count > 0)
+                {
+                    return Ok(dtResult);
+                }
+                else
+                {
+                    return Ok(new List<object>());
+                }
             }
-            else
+            catch(Exception ex)
             {
-                return Ok(new List<object>());
+                return StatusCode(500, new
+                {
+                    error = new
+                    {
+                        userMessage = "Hệ thống gặp sự cố trong quá trình tìm kiếm",
+                        internalMessage = ex.Message,
+                        code = 50
+                    }
+                });
             }
         }
     }

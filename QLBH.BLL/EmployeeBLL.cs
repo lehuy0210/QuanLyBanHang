@@ -18,22 +18,22 @@ namespace QLBH.BLL
             return dalNV.getKhachHang();
         }
 
-        public bool themKhachHang(EmployeeDTO nv)
+        public bool themNhanVien(EmployeeDTO nv)
         {
-            return dalNV.themKhachHang(nv);
+            return dalNV.themNhanVien(nv);
         }
 
-        public EmployeeDTO layKHTheoID(int idNV)
+        public EmployeeDTO layNVTheoID(int idNV)
         {
             return dalNV.layNVTheoID(idNV);
         }
 
-        public bool xoaKhachHang(int idNV)
+        public bool xoaNhanVien(int idNV)
         {
-            return dalNV.xoaKhachHang(idNV);
+            return dalNV.xoaNhanVien(idNV);
         }
 
-        public bool suaKhachHang(EmployeeDTO nv)
+        public bool suaNhanVien(EmployeeDTO nv)
         {
             return dalNV.suaNhanVien(nv);
         }

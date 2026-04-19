@@ -22,18 +22,34 @@ namespace QLBH.API.Controllers
         {
             try
             {
-                if (bllNhanVien.themKhachHang(nv))
+                if (bllNhanVien.themNhanVien(nv))
                 {
                     return Ok(new { success = true, message = "Thêm nhân viên thành công!" });
                 }
                 else
                 {
-                    return BadRequest(new { success = false, message = "Thêm nhân viên thất bại." });
+                    return BadRequest(new
+                    {
+                        error = new
+                        {
+                            userMessage = "Không thể tạo mới dữ liệu nhân viên",
+                            internalMessage = "Thất bại khi thêm nhân viên vào database",
+                            code = 40
+                        }
+                    });
                 }
             }
             catch (Exception ex)
             {
-                return StatusCode(400, new { success = false, message = "Lỗi server: " + ex.Message });
+                return StatusCode(500, new
+                {
+                    error = new
+                    {
+                        userMessage = "Hệ thống gặp sự cố, vui lòng thử lại sau",
+                        internalMessage = ex.Message,
+                        code = 50
+                    }
+                });
             }
         }
 
@@ -42,7 +58,7 @@ namespace QLBH.API.Controllers
         {
             try
             {
-                var nv = bllNhanVien.layKHTheoID(id);
+                var nv = bllNhanVien.layNVTheoID(id);
 
                 if (nv != null)
                 {
@@ -50,12 +66,28 @@ namespace QLBH.API.Controllers
                 }
                 else
                 {
-                    return NotFound(new { success = false, message = "Không tìm thấy nhân viên." });
+                    return NotFound(new
+                    {
+                        error = new
+                        {
+                            userMessage = "Không tìm thấy nhân viên này",
+                            internalMessage = "Không tìm thấy nhân viên trong database",
+                            code = 34
+                        }
+                    });
                 }
             }
             catch (Exception ex)
             {
-                return StatusCode(400, new { success = false, message = "Lỗi server: " + ex.Message });
+                return StatusCode(500, new
+                {
+                    error = new
+                    {
+                        userMessage = "Hệ thống gặp sự cố, vui lòng thử lại sau",
+                        internalMessage = ex.Message,
+                        code = 50
+                    }
+                });
             }
         }
 
@@ -64,18 +96,34 @@ namespace QLBH.API.Controllers
         {
             try
             {
-                if (bllNhanVien.xoaKhachHang(id))
+                if (bllNhanVien.xoaNhanVien(id))
                 {
                     return Ok(true);
                 }
                 else
                 {
-                    return BadRequest("Nhân viên không tồn tại hoặc không thể xóa.");
+                    return NotFound(new
+                    {
+                        error = new
+                        {
+                            userMessage = "Không tìm thấy nhân viên này",
+                            internalMessage = "\"Không tìm thấy nhân viên trong database để xóa",
+                            code = 34
+                        }
+                    });
                 }
             }
             catch (Exception ex)
             {
-                return StatusCode(400, new { success = false, message = "Lỗi server: " + ex.Message });
+                return StatusCode(500, new
+                {
+                    error = new
+                    {
+                        userMessage = "Hệ thống gặp sự cố, vui lòng thử lại sau",
+                        internalMessage = ex.Message,
+                        code = 50
+                    }
+                });
             }
         }
 
@@ -84,18 +132,34 @@ namespace QLBH.API.Controllers
         {
             try
             {
-                if (bllNhanVien.suaKhachHang(nv))
+                if (bllNhanVien.suaNhanVien(nv))
                 {
                     return Ok(new { success = true, message = "Cập nhật nhân viên thành công!" });
                 }
                 else
                 {
-                    return BadRequest(new { success = false, message = "Cập nhật nhân viên thất bại." });
+                    return BadRequest(new
+                    {
+                        error = new
+                        {
+                            userMessage = "Không thể cập nhật thông tin nhân viên",
+                            internalMessage = "Không thể cập nhật nhân viên trong database",
+                            code = 40
+                        }
+                    });
                 }
             }
             catch (Exception ex)
             {
-                return StatusCode(400, new { success = false, message = "Lỗi server: " + ex.Message });
+                return StatusCode(500, new
+                {
+                    error = new
+                    {
+                        userMessage = "Hệ thống gặp sự cố, vui lòng thử lại sau",
+                        internalMessage = ex.Message,
+                        code = 50
+                    }
+                });
             }
         }
     }

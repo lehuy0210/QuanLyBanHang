@@ -124,8 +124,13 @@ namespace QLBH.Web.Controllers
             }
             else
             {
-                string errorMsg = await response.Content.ReadAsStringAsync();
-                TempData["ThongBao"] = "Lỗi đặt hàng: " + errorMsg;
+                var errorJson = await response.Content.ReadAsStringAsync();
+                try
+                {
+                    using var doc = JsonDocument.Parse(errorJson);
+                    TempData["ThongBao"] = doc.RootElement.GetProperty("error").GetProperty("userMessage").GetString();
+                }
+                catch { TempData["ThongBao"] = "Lỗi đặt hàng: " + errorJson; }
 
                 return RedirectToAction("Index");
             }
