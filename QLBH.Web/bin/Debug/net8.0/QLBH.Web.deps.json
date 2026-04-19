@@ -1705,7 +1705,8 @@
       },
       "QLBH.BLL/1.0.0": {
         "dependencies": {
-          "QLBH.DAL": "1.0.0"
+          "QLBH.DAL": "1.0.0",
+          "QLBH.DTO": "1.0.0"
         },
         "runtime": {
           "QLBH.BLL.dll": {

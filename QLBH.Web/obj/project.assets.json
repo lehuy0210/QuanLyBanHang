@@ -2621,7 +2621,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
-          "QLBH.DAL": "1.0.0"
+          "QLBH.DAL": "1.0.0",
+          "QLBH.DTO": "1.0.0"
         },
         "compile": {
           "bin/placeholder/QLBH.BLL.dll": {}
@@ -7432,8 +7433,8 @@
     },
     "QLBH.DTO/1.0.0": {
       "type": "project",
-      "path": "../QLBH.Comman/QLBH.DTO.csproj",
-      "msbuildProject": "../QLBH.Comman/QLBH.DTO.csproj"
+      "path": "../QLBH.DTO/QLBH.DTO.csproj",
+      "msbuildProject": "../QLBH.DTO/QLBH.DTO.csproj"
     }
   },
   "projectFileDependencyGroups": {

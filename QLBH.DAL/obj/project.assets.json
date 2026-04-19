@@ -4006,8 +4006,8 @@
     },
     "QLBH.DTO/1.0.0": {
       "type": "project",
-      "path": "../QLBH.Comman/QLBH.DTO.csproj",
-      "msbuildProject": "../QLBH.Comman/QLBH.DTO.csproj"
+      "path": "../QLBH.DTO/QLBH.DTO.csproj",
+      "msbuildProject": "../QLBH.DTO/QLBH.DTO.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -4050,8 +4050,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.Comman\\QLBH.DTO.csproj": {
-              "projectPath": "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.Comman\\QLBH.DTO.csproj"
+            "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.DTO\\QLBH.DTO.csproj": {
+              "projectPath": "C:\\Users\\ASUS\\Desktop\\Ôn tập\\QLBH.Web\\QLBH.DTO\\QLBH.DTO.csproj"
             }
           }
         }
