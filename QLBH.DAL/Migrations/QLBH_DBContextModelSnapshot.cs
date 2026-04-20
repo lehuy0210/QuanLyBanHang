@@ -52,6 +52,40 @@ namespace QLBH.DAL.Migrations
                     b.ToTable("EmployeeTerritory");
                 });
 
+            modelBuilder.Entity("QLBH.Common.CategoryReq", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CategoryReqs");
+                });
+
+            modelBuilder.Entity("QLBH.Common.SupplierReq", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SupplierReqs");
+                });
+
             modelBuilder.Entity("QLBH.DAL.Models.Category", b =>
                 {
                     b.Property<int>("CategoryId")
@@ -119,7 +153,7 @@ namespace QLBH.DAL.Migrations
 
                     b.HasKey("CustomerId");
 
-                    b.ToTable("Customers");
+                    b.ToTable("Customer");
                 });
 
             modelBuilder.Entity("QLBH.DAL.Models.CustomerDemographic", b =>
@@ -193,6 +227,9 @@ namespace QLBH.DAL.Migrations
                     b.Property<int?>("ReportsTo")
                         .HasColumnType("int");
 
+                    b.Property<int?>("ReportsToNavigationEmployeeId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
@@ -204,9 +241,9 @@ namespace QLBH.DAL.Migrations
 
                     b.HasKey("EmployeeId");
 
-                    b.HasIndex("ReportsTo");
+                    b.HasIndex("ReportsToNavigationEmployeeId");
 
-                    b.ToTable("Employees");
+                    b.ToTable("Employee");
                 });
 
             modelBuilder.Entity("QLBH.DAL.Models.Order", b =>
@@ -253,6 +290,9 @@ namespace QLBH.DAL.Migrations
                     b.Property<int?>("ShipVia")
                         .HasColumnType("int");
 
+                    b.Property<int?>("ShipViaNavigationShipperId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime?>("ShippedDate")
                         .HasColumnType("datetime2");
 
@@ -262,9 +302,9 @@ namespace QLBH.DAL.Migrations
 
                     b.HasIndex("EmployeeId");
 
-                    b.HasIndex("ShipVia");
+                    b.HasIndex("ShipViaNavigationShipperId");
 
-                    b.ToTable("Orders", (string)null);
+                    b.ToTable("Order");
                 });
 
             modelBuilder.Entity("QLBH.DAL.Models.OrderDetail", b =>
@@ -288,7 +328,7 @@ namespace QLBH.DAL.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("Order Details", (string)null);
+                    b.ToTable("OrderDetail");
                 });
 
             modelBuilder.Entity("QLBH.DAL.Models.Product", b =>
@@ -439,40 +479,6 @@ namespace QLBH.DAL.Migrations
                     b.ToTable("Territory");
                 });
 
-            modelBuilder.Entity("QLBH.DTO.CategoryDTO", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("CategoryReqs");
-                });
-
-            modelBuilder.Entity("QLBH.DTO.SupplierDTO", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("SupplierReqs");
-                });
-
             modelBuilder.Entity("CustomerCustomerDemographic", b =>
                 {
                     b.HasOne("QLBH.DAL.Models.CustomerDemographic", null)
@@ -507,7 +513,7 @@ namespace QLBH.DAL.Migrations
                 {
                     b.HasOne("QLBH.DAL.Models.Employee", "ReportsToNavigation")
                         .WithMany("InverseReportsToNavigation")
-                        .HasForeignKey("ReportsTo");
+                        .HasForeignKey("ReportsToNavigationEmployeeId");
 
                     b.Navigation("ReportsToNavigation");
                 });
@@ -524,7 +530,7 @@ namespace QLBH.DAL.Migrations
 
                     b.HasOne("QLBH.DAL.Models.Shipper", "ShipViaNavigation")
                         .WithMany("Orders")
-                        .HasForeignKey("ShipVia");
+                        .HasForeignKey("ShipViaNavigationShipperId");
 
                     b.Navigation("Customer");
 

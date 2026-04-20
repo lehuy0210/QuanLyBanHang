@@ -1,3 +1,4 @@
+C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.BLL\bin\Debug\net8.0\Data\InertNorthwind.sql
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.BLL\bin\Debug\net8.0\QLBH.BLL.deps.json
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.BLL\bin\Debug\net8.0\QLBH.BLL.dll
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.BLL\bin\Debug\net8.0\QLBH.BLL.pdb

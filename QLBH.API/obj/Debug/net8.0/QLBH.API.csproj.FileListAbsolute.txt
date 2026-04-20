@@ -2,6 +2,7 @@ C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.API\bin\Debug\net8.0\appsettings.D
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.API\bin\Debug\net8.0\appsettings.json
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.API\bin\Debug\net8.0\QLBH.API.staticwebassets.endpoints.json
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.API\bin\Debug\net8.0\QLBH.API.exe
+C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.API\bin\Debug\net8.0\Data\InertNorthwind.sql
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.API\bin\Debug\net8.0\QLBH.API.deps.json
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.API\bin\Debug\net8.0\QLBH.API.runtimeconfig.json
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.API\bin\Debug\net8.0\QLBH.API.dll

@@ -34,32 +34,32 @@ namespace QLBH.DAL
         {
             base.OnModelCreating(modelBuilder);
 
-            // 1. Cấu hình bảng Order Details (Khóa chính phức hợp)
-            modelBuilder.Entity<OrderDetail>(entity =>
-            {
-                entity.HasKey(e => new { e.OrderId, e.ProductId });
-                entity.ToTable("Order Details");
-            });
-
+            // Map tên bảng cho đúng
             modelBuilder.Entity<Order>().ToTable("Orders");
+            modelBuilder.Entity<OrderDetail>().ToTable("Order Details");
 
-            // 2. Mapping View DanhSachSanPham
+            // Fix lỗi khóa chính phức hợp
+            modelBuilder.Entity<OrderDetail>().HasKey(od => new { od.OrderId, od.ProductId });
+
+            // CẤU HÌNH KIỂU DỮ LIỆU MONEY (Fix cảnh báo truncation)
+            modelBuilder.Entity<Order>().Property(o => o.Freight).HasColumnType("money");
+            modelBuilder.Entity<OrderDetail>().Property(od => od.UnitPrice).HasColumnType("money");
+            modelBuilder.Entity<Product>().Property(p => p.UnitPrice).HasColumnType("money");
+            modelBuilder.Entity<ProductDTO>().Property(p => p.Price).HasColumnType("money");
+
+            // Mapping Views
             modelBuilder.Entity<ProductDTO>(entity => {
                 entity.HasNoKey();
                 entity.ToView("DanhSachSanPham");
-
-                // Ánh xạ thuộc tính Id/Name trong C# với cột ProductID/ProductName trong SQL
                 entity.Property(p => p.Id).HasColumnName("ProductID");
                 entity.Property(p => p.Name).HasColumnName("ProductName");
                 entity.Property(p => p.Price).HasColumnName("UnitPrice");
                 entity.Property(p => p.Quantity).HasColumnName("QuantityPerUnit");
             });
 
-            // 3. Mapping View DanhSachKhachHang
             modelBuilder.Entity<CustomerDTO>(entity => {
                 entity.HasNoKey();
                 entity.ToView("DanhSachKhachHang");
-
                 entity.Property(c => c.Id).HasColumnName("CustomerID");
                 entity.Property(c => c.Name).HasColumnName("ContactName");
             });
