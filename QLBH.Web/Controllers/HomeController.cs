@@ -32,5 +32,11 @@ namespace QLBH.Web.Controllers
             }
             return View(new DataTable());
         }
+
+        [AllowAnonymous]
+        public IActionResult AccessDenied()
+        {
+            return View();
+        }
     }
 }
