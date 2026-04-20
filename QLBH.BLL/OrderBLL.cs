@@ -26,5 +26,10 @@ namespace QLBH.BLL
         {
             return dalDonHang.XoaDonHang(orderid);
         }
+
+        public List<OrderDTO> layDonHangTheoKH(string idKH)
+        {
+            return dalDonHang.layDonHangTheoIdKhachHang(idKH);
+        }
     }
 }

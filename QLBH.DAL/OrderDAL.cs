@@ -91,5 +91,42 @@ namespace QLBH.DAL
 
             return false;
         }
+
+        public List<OrderDTO> layDonHangTheoIdKhachHang(string idKH)
+        {
+            List<OrderDTO> lstOrderDetails = new List<OrderDTO>();
+            try
+            {
+                _conn.Open();
+
+                string tenProc = "HoaDonKhachHang";
+                SqlCommand cmd = new SqlCommand(tenProc, _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("@CustomerID", SqlDbType.NChar,5).Value = idKH;
+
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    OrderDTO order = new OrderDTO();
+                    order.OrderID = Convert.ToInt32(dr["OrderID"]);
+                    order.ProductName = dr["ProductName"].ToString();
+                    order.UnitPrice = Convert.ToDecimal(dr["UnitPrice"]);
+                    order.Quantity = Convert.ToInt32(dr["Quantity"]);
+                    order.TotalPrice = Convert.ToDecimal(dr["Total Price"]);
+                    lstOrderDetails.Add(order);
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+            }
+            finally
+            {
+                _conn.Close();
+            }
+            return lstOrderDetails;
+        }
     }
 }
