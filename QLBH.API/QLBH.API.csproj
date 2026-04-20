@@ -17,7 +17,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\QLBH.BLL\QLBH.BLL.csproj" />
-    <ProjectReference Include="..\QLBH.Comman\QLBH.Common.csproj" />
     <ProjectReference Include="..\QLBH.DAL\QLBH.DAL.csproj" />
     <ProjectReference Include="..\QLBH.DTO\QLBH.DTO.csproj" />
   </ItemGroup>
