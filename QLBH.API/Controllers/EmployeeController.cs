@@ -107,7 +107,7 @@ namespace QLBH.API.Controllers
                         error = new
                         {
                             userMessage = "Không tìm thấy nhân viên này",
-                            internalMessage = "\"Không tìm thấy nhân viên trong database để xóa",
+                            internalMessage = "Không tìm thấy nhân viên trong database để xóa",
                             code = 34
                         }
                     });

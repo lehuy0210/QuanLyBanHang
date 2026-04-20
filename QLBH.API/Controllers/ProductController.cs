@@ -208,8 +208,8 @@ namespace QLBH.API.Controllers
                     {
                         error = new
                         {
-                            userMessage = "Sorry, the requested resource does not exist",
-                            internalMessage = "No product found in the database to delete",
+                            userMessage = "Sản phẩm không tồn tại",
+                            internalMessage = "Không tìm thấy sản phẩm trong database để xóa",
                             code = 34
                         }
                     });
