@@ -165,6 +165,22 @@
   },
   {
     "ContainingType": "QLBH.API.Controllers.OrderController",
+    "Method": "GetOrderDetailByCustomer",
+    "RelativePath": "api/Order/ByCustomer/{idKH}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idKH",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QLBH.API.Controllers.OrderController",
     "Method": "CreateOrder",
     "RelativePath": "api/Order/Create",
     "HttpMethod": "POST",
