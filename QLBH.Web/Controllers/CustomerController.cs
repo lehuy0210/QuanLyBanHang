@@ -8,7 +8,6 @@ using static System.Net.WebRequestMethods;
 
 namespace QLBH.Web.Controllers
 {
-    [Authorize(Roles = "Admin")]
     public class CustomerController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
@@ -17,7 +16,7 @@ namespace QLBH.Web.Controllers
         {
             _httpClientFactory = httpClientFactory;
         }
-
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> List()
         {
             var client = _httpClientFactory.CreateClient();
@@ -37,7 +36,7 @@ namespace QLBH.Web.Controllers
 
             return View(new DataTable());
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult Create()
         {
@@ -45,7 +44,7 @@ namespace QLBH.Web.Controllers
 
             return View(model);
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> Create(CustomerDTO kh)
         {
@@ -72,7 +71,7 @@ namespace QLBH.Web.Controllers
             }
             return View(kh);
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpGet("Customer/Delete/{id}")]
         public async Task<IActionResult> Delete(string id)
         {
@@ -99,7 +98,7 @@ namespace QLBH.Web.Controllers
             }
             return RedirectToAction("List");
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpGet("Customer/Edit/{id}")]
         public async Task<IActionResult> Edit(string id)
         {
@@ -128,7 +127,7 @@ namespace QLBH.Web.Controllers
             return View(model);
         }
 
-
+        [Authorize(Roles = "Admin")]
         [HttpPost("Customer/Edit/{id?}")]
         public async Task<IActionResult> Edit(CustomerDTO kh)
         {
@@ -150,6 +149,36 @@ namespace QLBH.Web.Controllers
             }
 
             return View(kh);
+        }
+
+        [Authorize(Roles = "User")]
+        [HttpGet("Customer/OrderDetail")]
+        public async Task<IActionResult> OrderDetail()
+        {
+            string currentUserId = User.FindFirst("UserId")?.Value;
+
+            List<OrderDTO> model = new List<OrderDTO>();
+
+            var client = _httpClientFactory.CreateClient();
+
+            string apiDonHangTheoKH = $"http://localhost:5003/api/Order/ByCustomer/{currentUserId}";
+
+            var response = await client.GetAsync(apiDonHangTheoKH);
+
+            if(response.IsSuccessStatusCode)
+            {
+                string data = await response.Content.ReadAsStringAsync();
+
+                var options = new System.Text.Json.JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                model = System.Text.Json.JsonSerializer.Deserialize<List<OrderDTO>>(data, options);
+            }
+            else
+            {
+                var errorDetail = await response.Content.ReadAsStringAsync();
+                TempData["Error"] = "Load đơn hàng thất bại. Chi tiết: " + errorDetail;
+            }
+            return View(model);
+
         }
     }
 }
