@@ -16,16 +16,17 @@ Dự án Hệ Thống Quản Lý Bán Hàng sử dụng kiến trúc N-Layer (We
 
 ## Cách Cài Đặt và Chạy
 1. Cập nhật chuỗi kết nối (Connection String) `cnstr` bên trong file `QLBH.API/appsettings.json` để trỏ vào SQL Server `Northwind` của bạn.
-2. Build solution: 
+2. Cài đặt database ```Northwind Update-Database -Context QLBH_DBContext```
+3. Build solution: 
    ```bash
    dotnet build
    ```
-3. Chạy API Server:
+4. Chạy API Server:
    ```bash
    cd QLBH.API
    dotnet run
    ```
-4. Chạy Web UI:
+5. Chạy Web UI:
    ```bash
    cd QLBH.Web
    dotnet run
