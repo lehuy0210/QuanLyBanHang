@@ -43,7 +43,7 @@ namespace QLBH.Web.Controllers
                 và chuyển đổi ngược JSON lại thành các đối tượng hoặc kiểu giá trị */
                 var content = new StringContent(jsonRequest, Encoding.UTF8, "application/json");
 
-                HttpResponseMessage response = await _httpClient.PostAsync("api/Customer/Create", content);
+                HttpResponseMessage response = await _httpClient.PostAsync("api/Customer", content);
                 /*Post Async là gửi một yêu cầu POST đến URI đã được chỉ định dưới dạng một thao tác bất đồng bộ.*/
                 /*Tham số thứ 1 là URL vào BaseAddress*/
                 /*Tham số thứ 2 là StringContent*/
@@ -55,8 +55,24 @@ namespace QLBH.Web.Controllers
                 }
                 else
                 {
+                    // 1. Đọc nội dung lỗi từ API (chuỗi JSON)
                     string errorResult = await response.Content.ReadAsStringAsync();
-                    ViewBag.ThongBaoLoi = $"API báo lỗi {(int)response.StatusCode}. Chi tiết: {errorResult}";
+
+                    // 2. Sử dụng thư viện System.Text.Json để đọc cấu trúc JSON
+                    using var doc = System.Text.Json.JsonDocument.Parse(errorResult);
+                    var root = doc.RootElement;
+
+                    if (root.TryGetProperty("error", out var errorElement))
+                    {
+                        ViewBag.ThongBaoLoi = errorElement.GetProperty("userMessage").GetString();
+                    }
+
+                    else
+                    {
+                        // Phòng hờ nếu API trả về cấu trúc khác
+                        ViewBag.ThongBaoLoi = "Lỗi không xác định: " + errorResult;
+                    }
+
                     return View(request);
                 }
             }
