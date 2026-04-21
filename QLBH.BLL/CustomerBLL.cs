@@ -25,18 +25,18 @@ namespace QLBH.BLL
             {
                 throw new Exception("Họ và tên không được để trống");
             }
-           
+
             if (kh.Username == null)
             {
                 throw new Exception("Tên đăng nhập không được để trống");
             }
 
-            if(kh.Password == null)
+            if (kh.Password == null)
             {
                 throw new Exception("Mật khẩu không được đễ trống");
             }
 
-            if(kh.Phone == null)
+            if (kh.Phone == null)
             {
                 throw new Exception("Số điện thoại không được để trống");
             }
@@ -49,9 +49,9 @@ namespace QLBH.BLL
             for (int i = 0; i < kh.Phone.Length; i++)
             {
                 if (kh.Phone[i] < '0' && kh.Phone[i] > '9')
-                  {
-                       throw new Exception("Số điện thoại sai cú pháp");
-                  }
+                {
+                    throw new Exception("Số điện thoại sai cú pháp");
+                }
             }
             return dalKhachHang.themKhachHang(kh);
         }
