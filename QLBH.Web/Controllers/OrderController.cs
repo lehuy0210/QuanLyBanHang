@@ -104,7 +104,7 @@ namespace QLBH.Web.Controllers
 
             // Dùng HttpClient để gửi dữ liệu sang API
             using var client = new HttpClient();
-            var response = await client.PostAsJsonAsync($"http://localhost:5003/api/Order/Create?customerId={customerId}", cart);
+            var response = await client.PostAsJsonAsync($"http://localhost:5003/api/Order?customerId={customerId}", cart);
 
             if (response.IsSuccessStatusCode)
             {
@@ -186,6 +186,7 @@ namespace QLBH.Web.Controllers
             dtOrder.Columns.Add("ContactName");
             dtOrder.Columns.Add("Quantity");
             dtOrder.Columns.Add("TotalPrice");
+            dtOrder.Columns.Add("OrderDate");
 
             try
             {
@@ -193,7 +194,7 @@ namespace QLBH.Web.Controllers
                 using var client = new HttpClient();
 
                 // LƯU Ý: Sửa lại port 5003 thành port thực tế API của bạn đang chạy
-                var response = await client.GetAsync("http://localhost:5003/api/Order/List");
+                var response = await client.GetAsync("http://localhost:5003/api/Order");
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -212,6 +213,7 @@ namespace QLBH.Web.Controllers
                         row["ContactName"] = item.GetProperty("contactName").ToString();
                         row["Quantity"] = item.GetProperty("quantity").ToString();
                         row["TotalPrice"] = item.GetProperty("totalPrice").ToString();
+                        row["OrderDate"] = item.GetProperty("orderDate").ToString();
 
                         dtOrder.Rows.Add(row);
                     }
@@ -237,7 +239,7 @@ namespace QLBH.Web.Controllers
 
             using (HttpClient client = new HttpClient())
             {
-                HttpResponseMessage response = await client.GetAsync($"http://localhost:5003/api/Order/Detail/{id}");
+                HttpResponseMessage response = await client.GetAsync($"http://localhost:5003/api/Order/{id}");
 
                 if (response.IsSuccessStatusCode)
                 {
