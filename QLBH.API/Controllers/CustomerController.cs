@@ -11,13 +11,13 @@ namespace QLBH.API.Controllers
     {
         private readonly CustomerBLL bllKhachHang = new CustomerBLL();
 
-        [HttpGet("List")]
+        [HttpGet]
         public IActionResult List()
         {
             return Ok(bllKhachHang.getKhachHang());
         }
 
-        [HttpPost("Create")]
+        [HttpPost]
 
         public IActionResult Create([FromBody] CustomerDTO kh)
         {
@@ -35,7 +35,7 @@ namespace QLBH.API.Controllers
                         {
                             userMessage = "Không thể tạo mới dữ liệu khách hàng",
                             internalMessage = "Thất bại khi thêm khách hàng vào database",
-                            code = 40
+                            code = 40 
                         }
                     });
                 }
@@ -43,19 +43,18 @@ namespace QLBH.API.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new
+                return StatusCode(400, new
                 {
                     error = new
                     {
-                        userMessage = "Hệ thống gặp sự cố, vui lòng thử lại sau",
-                        internalMessage = ex.Message,
-                        code = 50
+                        userMessage = ex.Message,
+                        code = 40
                     }
                 });
             }
         }
 
-        [HttpGet("GetByID")]
+        [HttpGet("{id}")]
         public IActionResult GetById(string id)
         {
             try
@@ -93,8 +92,8 @@ namespace QLBH.API.Controllers
             }
         }
 
-        [HttpDelete("Delete")]
-        public IActionResult Delete([FromQuery] string id)
+        [HttpDelete("{id}")]
+        public IActionResult Delete(string id)
         {
             try
             {
@@ -129,9 +128,14 @@ namespace QLBH.API.Controllers
             }
         }
 
-        [HttpPut("Edit")]
-        public IActionResult Edit([FromBody] CustomerDTO kh)
+        [HttpPut("{id}")]
+        public IActionResult Edit(string id, [FromBody] CustomerDTO kh)
         {
+            if (id != kh.Id)
+            {
+                return BadRequest(new { message = "ID trên URL không khớp với dữ liệu gửi lên!" });
+            }
+
             try
             {
                 if(bllKhachHang.suaKhachHang(kh))
