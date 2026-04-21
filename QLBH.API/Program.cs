@@ -12,6 +12,13 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers().AddNewtonsoftJson();
 
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        // Giữ nguyên tên thuộc tính như trong code C# (PascalCase)
+        options.JsonSerializerOptions.PropertyNamingPolicy = null;
+    });
+
 builder.Services.Configure<ApiBehaviorOptions>(options =>
 {
     // Tắt tính năng tự động chặn lỗi 400 để nó chạy vào Action/BLL
