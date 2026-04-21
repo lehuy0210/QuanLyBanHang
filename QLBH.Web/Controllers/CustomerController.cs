@@ -21,7 +21,7 @@ namespace QLBH.Web.Controllers
         {
             var client = _httpClientFactory.CreateClient();
 
-            string apiCustomer = "http://localhost:5003/api/Customer/List";
+            string apiCustomer = "http://localhost:5003/api/Customer";
 
             var response = await client.GetAsync(apiCustomer);
 
@@ -50,7 +50,7 @@ namespace QLBH.Web.Controllers
         {
             var client = _httpClientFactory.CreateClient();
 
-            string apiThemKH = "http://localhost:5003/api/Customer/Create";
+            string apiThemKH = "http://localhost:5003/api/Customer";
 
             var response = await client.PostAsJsonAsync(apiThemKH, kh);
 
@@ -77,7 +77,7 @@ namespace QLBH.Web.Controllers
         {
             var client = _httpClientFactory.CreateClient();
 
-            string apiXoaKhachHang = $"http://localhost:5003/api/Customer/Delete?id={id}";
+            string apiXoaKhachHang = $"http://localhost:5003/api/Customer/{id}";
 
             var response = await client.DeleteAsync(apiXoaKhachHang);
 
@@ -104,7 +104,7 @@ namespace QLBH.Web.Controllers
         {
             var client = _httpClientFactory.CreateClient();
 
-            string apiLayKHTheoId = $"http://localhost:5003/api/Customer/GetById?id={id}";
+            string apiLayKHTheoId = $"http://localhost:5003/api/Customer/{id}";
             var response = await client.GetAsync(apiLayKHTheoId);
 
             var model = new CustomerDTO();
@@ -129,13 +129,13 @@ namespace QLBH.Web.Controllers
 
         [Authorize(Roles = "Admin")]
         [HttpPost("Customer/Edit/{id?}")]
-        public async Task<IActionResult> Edit(CustomerDTO kh)
+        public async Task<IActionResult> Edit(CustomerDTO kh,string id)
         {
             var client = _httpClientFactory.CreateClient();
 
-            string apiSuaKhachHang = "http://localhost:5003/api/Customer/Edit";
+            string apiSuaKhachHang = $"http://localhost:5003/api/Customer/{id}";
 
-            var response = await client.PostAsJsonAsync(apiSuaKhachHang, kh);
+            var response = await client.PutAsJsonAsync(apiSuaKhachHang, kh);
 
             if (response.IsSuccessStatusCode)
             {
