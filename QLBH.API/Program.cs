@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using QLBH.DAL;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,12 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers().AddNewtonsoftJson();
+
+builder.Services.Configure<ApiBehaviorOptions>(options =>
+{
+    // Tắt tính năng tự động chặn lỗi 400 để nó chạy vào Action/BLL
+    options.SuppressModelStateInvalidFilter = true;
+});
 
 builder.Services.AddDbContext<QLBH_DBContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("cnstr")));
