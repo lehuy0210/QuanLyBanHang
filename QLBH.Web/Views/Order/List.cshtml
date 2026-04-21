@@ -3,16 +3,16 @@
 
 @{
     Layout = "_Layout";
-    ViewBag.Title = "Danh sách Đơn hàng";
+    ViewBag.Title = "Danh sách đơn hàng";
 }
 
-@if (TempData["ThongBao"] != null)
+@* @if (TempData["ThongBao"] != null)
 {
     <div class="alert alert-info alert-dismissible fade show" role="alert">
         <strong>Thông báo:</strong> @TempData["ThongBao"]
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-}
+} *@
 
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h2>Danh sách Đơn hàng</h2>
@@ -26,6 +26,7 @@
                 <th>Tên Khách Hàng</th>
                 <th class="text-center">Số Lượng</th>
                 <th class="text-end">Thành Tiền</th>
+                <th>Ngày đặt hàng</th>
                 <th class="text-center">Hành động</th>
             </tr>
         </thead>
@@ -39,6 +40,7 @@
                         <td class="text-primary">@row["ContactName"]</td>
                         <td class="text-center">@row["Quantity"]</td>
                         <td class="text-end fw-bold text-danger">@row["TotalPrice"]</td>
+                        <td>@Convert.ToDateTime(row["OrderDate"]).ToString("dd/MM/yyyy")</td>
                         <td class="text-center">
                             <a href="/Order/Detail/@row["OrderID"]" class="btn btn-info btn-sm text-white">Xem</a>
                             <button type="button"
@@ -67,7 +69,7 @@
             }
 
             // SỬA QUAN TRỌNG: Phải thêm http://localhost:5003 (hoặc port thật của API) vào đây
-            fetch('http://localhost:5003/api/Order/Delete/' + orderId, {
+            fetch('http://localhost:5003/api/Order/' + orderId, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json'
