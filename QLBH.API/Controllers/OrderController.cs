@@ -17,7 +17,7 @@ namespace QLBH.API.Controllers
         private readonly QLBH_DBContext _context;
         public OrderController(QLBH_DBContext context) { _context = context; }
 
-        [HttpPost("Create")]
+        [HttpPost]
         public IActionResult CreateOrder(string customerId, [FromBody] List<OrderDTO> cart)
         {
             using var transaction = _context.Database.BeginTransaction();
@@ -75,7 +75,7 @@ namespace QLBH.API.Controllers
             }
         }
 
-        [HttpGet("List")]
+        [HttpGet]
         public IActionResult List()
         {
             try
@@ -88,7 +88,8 @@ namespace QLBH.API.Controllers
                     OrderID = row["OrderID"],
                     ContactName = row["ContactName"],
                     Quantity = row["Quantity"],
-                    TotalPrice = row["TotalPrice"]
+                    TotalPrice = row["TotalPrice"],
+                    OrderDate = row["OrderDate"]
                 }).ToList();
 
                 return Ok(result);
@@ -108,7 +109,7 @@ namespace QLBH.API.Controllers
             }
         }
 
-        [HttpGet("Detail/{id}")]
+        [HttpGet("{id}")]
         public IActionResult GetOrderDetail(int id)
         {
             try
@@ -147,7 +148,7 @@ namespace QLBH.API.Controllers
             }
         }
 
-        [HttpDelete("Delete/{id}")]
+        [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
             try
@@ -197,7 +198,7 @@ namespace QLBH.API.Controllers
             }
         }
 
-        [HttpGet("ByCustomer/{idKH}")]
+        [HttpGet("Customer/{idKH}")]
         public IActionResult GetOrderDetailByCustomer(string idKH)
         {
             try
