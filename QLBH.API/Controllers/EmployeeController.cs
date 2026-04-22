@@ -11,13 +11,13 @@ namespace QLBH.API.Controllers
     {
         private readonly EmployeeBLL bllNhanVien = new EmployeeBLL();
 
-        [HttpGet("List")]
+        [HttpGet]
         public IActionResult List()
         {
             return Ok(bllNhanVien.getNhanVien());
         }
 
-        [HttpPost("Create")]
+        [HttpPost]
         public IActionResult Create([FromBody] EmployeeDTO nv)
         {
             try
@@ -53,7 +53,7 @@ namespace QLBH.API.Controllers
             }
         }
 
-        [HttpGet("GetByID")]
+        [HttpGet("{id}", Name = "GetEmployeeById")]
         public IActionResult GetById(int id)
         {
             try
@@ -91,8 +91,8 @@ namespace QLBH.API.Controllers
             }
         }
 
-        [HttpDelete("Delete")]
-        public IActionResult Delete([FromQuery] int id)
+        [HttpDelete("{id}")]
+        public IActionResult Delete([FromRoute] int id)
         {
             try
             {
@@ -127,8 +127,8 @@ namespace QLBH.API.Controllers
             }
         }
 
-        [HttpPut("Edit")]
-        public IActionResult Edit([FromBody] EmployeeDTO nv)
+        [HttpPut("{id}")]
+        public IActionResult Edit(int id, [FromBody] EmployeeDTO nv)
         {
             try
             {
