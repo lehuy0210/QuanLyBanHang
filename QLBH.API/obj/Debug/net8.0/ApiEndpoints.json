@@ -17,8 +17,18 @@
   },
   {
     "ContainingType": "QLBH.API.Controllers.CustomerController",
+    "Method": "List",
+    "RelativePath": "api/Customer",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QLBH.API.Controllers.CustomerController",
     "Method": "Create",
-    "RelativePath": "api/Customer/Create",
+    "RelativePath": "api/Customer",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -33,8 +43,24 @@
   },
   {
     "ContainingType": "QLBH.API.Controllers.CustomerController",
+    "Method": "GetById",
+    "RelativePath": "api/Customer/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QLBH.API.Controllers.CustomerController",
     "Method": "Delete",
-    "RelativePath": "api/Customer/Delete",
+    "RelativePath": "api/Customer/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -42,7 +68,7 @@
       {
         "Name": "id",
         "Type": "System.String",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -50,11 +76,16 @@
   {
     "ContainingType": "QLBH.API.Controllers.CustomerController",
     "Method": "Edit",
-    "RelativePath": "api/Customer/Edit",
+    "RelativePath": "api/Customer/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
       {
         "Name": "kh",
         "Type": "QLBH.DTO.CustomerDTO",
@@ -64,25 +95,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "QLBH.API.Controllers.CustomerController",
-    "Method": "GetById",
-    "RelativePath": "api/Customer/GetByID",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "QLBH.API.Controllers.CustomerController",
+    "ContainingType": "QLBH.API.Controllers.EmployeeController",
     "Method": "List",
-    "RelativePath": "api/Customer/List",
+    "RelativePath": "api/Employee",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -92,7 +107,7 @@
   {
     "ContainingType": "QLBH.API.Controllers.EmployeeController",
     "Method": "Create",
-    "RelativePath": "api/Employee/Create",
+    "RelativePath": "api/Employee",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -107,8 +122,25 @@
   },
   {
     "ContainingType": "QLBH.API.Controllers.EmployeeController",
+    "Method": "GetById",
+    "RelativePath": "api/Employee/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "EndpointName": "GetEmployeeById"
+  },
+  {
+    "ContainingType": "QLBH.API.Controllers.EmployeeController",
     "Method": "Delete",
-    "RelativePath": "api/Employee/Delete",
+    "RelativePath": "api/Employee/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -116,22 +148,6 @@
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "QLBH.API.Controllers.EmployeeController",
-    "Method": "Edit",
-    "RelativePath": "api/Employee/Edit",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "nv",
-        "Type": "QLBH.DTO.EmployeeDTO",
         "IsRequired": true
       }
     ],
@@ -139,41 +155,20 @@
   },
   {
     "ContainingType": "QLBH.API.Controllers.EmployeeController",
-    "Method": "GetById",
-    "RelativePath": "api/Employee/GetByID",
-    "HttpMethod": "GET",
+    "Method": "Edit",
+    "RelativePath": "api/Employee/{id}",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "QLBH.API.Controllers.EmployeeController",
-    "Method": "List",
-    "RelativePath": "api/Employee/List",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "QLBH.API.Controllers.OrderController",
-    "Method": "GetOrderDetailByCustomer",
-    "RelativePath": "api/Order/ByCustomer/{idKH}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
+        "IsRequired": true
+      },
       {
-        "Name": "idKH",
-        "Type": "System.String",
+        "Name": "nv",
+        "Type": "QLBH.DTO.EmployeeDTO",
         "IsRequired": true
       }
     ],
@@ -182,7 +177,7 @@
   {
     "ContainingType": "QLBH.API.Controllers.OrderController",
     "Method": "CreateOrder",
-    "RelativePath": "api/Order/Create",
+    "RelativePath": "api/Order",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -202,8 +197,34 @@
   },
   {
     "ContainingType": "QLBH.API.Controllers.OrderController",
+    "Method": "List",
+    "RelativePath": "api/Order",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QLBH.API.Controllers.OrderController",
+    "Method": "GetOrderDetail",
+    "RelativePath": "api/Order/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QLBH.API.Controllers.OrderController",
     "Method": "Delete",
-    "RelativePath": "api/Order/Delete/{id}",
+    "RelativePath": "api/Order/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -218,28 +239,18 @@
   },
   {
     "ContainingType": "QLBH.API.Controllers.OrderController",
-    "Method": "GetOrderDetail",
-    "RelativePath": "api/Order/Detail/{id}",
+    "Method": "GetOrderDetailByCustomer",
+    "RelativePath": "api/Order/Customer/{idKH}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
-        "Type": "System.Int32",
+        "Name": "idKH",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "QLBH.API.Controllers.OrderController",
-    "Method": "List",
-    "RelativePath": "api/Order/List",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
     "ReturnTypes": []
   },
   {

@@ -23,12 +23,17 @@ namespace QLBH.API.Controllers
             using var transaction = _context.Database.BeginTransaction();
             try
             {
+                // Lấy thông tin khách hàng từ DB dựa vào customerId
+                // Lưu ý: Kiểm tra xem DbSet trong context của bạn là 'Customers' hay 'Customer' nhé
+                var khachHang = _context.Customers.FirstOrDefault(c => c.CustomerId == customerId);
+
                 // 1. Tạo bảng Order (Bảng cha)
                 var newOrder = new Order
                 {
                     CustomerId = customerId,
                     OrderDate = DateTime.Now,
-                    ShipName = "Khách hàng " + customerId // Ví dụ lấy tạm thông tin
+                    ShipName = khachHang?.ContactName,
+                    ShipAddress = khachHang?.Address
                 };
 
                 _context.Order.Add(newOrder);

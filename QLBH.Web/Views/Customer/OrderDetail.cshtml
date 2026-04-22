@@ -53,13 +53,20 @@
                             </h2>
                             <div id="@collapseId" class="accordion-collapse collapse" aria-labelledby="@headingId" data-bs-parent="#accordionOrders">
                                 <div class="accordion-body bg-light-subtle">
+
+                                    <div class="mb-3 px-2 text-dark">
+                                        <i class="bi bi-geo-alt-fill text-danger me-1"></i>
+                                        <strong>Địa chỉ giao hàng:</strong> @orderGroup.First().Address
+                                    </div>
+
                                     <div class="table-responsive">
-                                        <table class="table table-sm align-middle mb-0">
+                                        <table class="table table-sm align-middle mb-0 bg-white">
                                             <thead class="table-light">
                                                 <tr class="small text-uppercase text-secondary">
                                                     <th class="ps-3">Sản phẩm</th>
                                                     <th class="text-end">Đơn giá</th>
                                                     <th class="text-center">Số lượng</th>
+
                                                     <th class="text-end pe-3">Thành tiền</th>
                                                 </tr>
                                             </thead>
@@ -72,6 +79,7 @@
                                                         </td>
                                                         <td class="text-end">@item.UnitPrice.ToString("N0") đ</td>
                                                         <td class="text-center">@item.Quantity</td>
+
                                                         <td class="text-end pe-3 fw-bold">@item.TotalPrice.ToString("N0") đ</td>
                                                     </tr>
                                                 }

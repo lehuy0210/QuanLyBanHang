@@ -47,6 +47,7 @@ namespace QLBH.DAL
                     order.UnitPrice = Convert.ToDecimal(dr["UnitPrice"]);
                     order.Quantity = Convert.ToInt32(dr["Quantity"]);
                     order.TotalPrice = Convert.ToDecimal(dr["Total Price"]);
+                    order.Address = dr["Address"].ToString();
                     lstOrderDetails.Add(order);
 
                 }
@@ -105,7 +106,7 @@ namespace QLBH.DAL
                 SqlCommand cmd = new SqlCommand(tenProc, _conn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.Add("@CustomerID", SqlDbType.NChar,5).Value = idKH;
+                cmd.Parameters.Add("@CustomerID", SqlDbType.NChar, 5).Value = idKH.Trim();
 
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
@@ -116,6 +117,7 @@ namespace QLBH.DAL
                     order.UnitPrice = Convert.ToDecimal(dr["UnitPrice"]);
                     order.Quantity = Convert.ToInt32(dr["Quantity"]);
                     order.TotalPrice = Convert.ToDecimal(dr["Total Price"]);
+                    order.Address = dr["Address"].ToString();
                     lstOrderDetails.Add(order);
 
                 }

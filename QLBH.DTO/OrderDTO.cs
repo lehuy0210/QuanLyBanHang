@@ -18,6 +18,8 @@ namespace QLBH.DTO
         //public string Image { get; set; } 
         public decimal Total => UnitPrice * Quantity;
 
+        public string Address { get; set; }
+
         public DateOnly OrderDate { get; set; }
 
         public decimal TotalPrice { get; set; }

@@ -16,6 +16,8 @@ namespace QLBH.DTO
         public int CateId { get; set; }
         public int SupId { get; set; }
 
+        public int UnitsInStock { get; set; }
+
         public IEnumerable<CategoryDTO>? Categories { get; set; }
         public IEnumerable<SupplierDTO>? Suppliers { get; set; }
 
@@ -24,7 +26,7 @@ namespace QLBH.DTO
 
         }
 
-        public ProductDTO(int id, string name, decimal price, string quantity, int cateid, int supid)
+        public ProductDTO(int id, string name, decimal price, string quantity, int cateid, int supid, int uis)
         {
             this.Id = id;
             this.Name = name;
@@ -32,6 +34,7 @@ namespace QLBH.DTO
             this.Quantity = quantity;
             this.CateId = cateid;
             this.SupId = supid;
+            this.UnitsInStock = uis;
         }
 
     }

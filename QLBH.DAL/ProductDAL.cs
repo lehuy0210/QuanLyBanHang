@@ -50,6 +50,7 @@ namespace QLBH.DAL
                 cmd.Parameters.Add("@QuantityPerUnit", SqlDbType.NVarChar, 20).Value = sp.Quantity;
                 cmd.Parameters.Add("@CategoryID", SqlDbType.Int).Value = sp.CateId;
                 cmd.Parameters.Add("@SupplierID", SqlDbType.Int).Value = sp.SupId;
+                cmd.Parameters.Add("@UnitsInStock", SqlDbType.SmallInt).Value = sp.UnitsInStock;
 
                 if(cmd.ExecuteNonQuery() > 0)
                 {
@@ -84,6 +85,7 @@ namespace QLBH.DAL
                 cmd.Parameters.Add("@QuantityPerUnit", SqlDbType.NVarChar, 20).Value = sp.Quantity;
                 cmd.Parameters.Add("@CategoryID", SqlDbType.Int).Value = sp.CateId;
                 cmd.Parameters.Add("@SupplierID", SqlDbType.Int).Value = sp.SupId;
+                cmd.Parameters.Add("@UnitsInStock", SqlDbType.SmallInt).Value = sp.UnitsInStock;
 
                 if (cmd.ExecuteNonQuery() > 0)
                 {
@@ -125,6 +127,7 @@ namespace QLBH.DAL
                     sp.Quantity = dr["QuantityPerUnit"].ToString();
                     sp.CateId = Convert.ToInt32(dr["CategoryID"]);
                     sp.SupId = Convert.ToInt32(dr["SupplierID"]);
+                    sp.UnitsInStock = Convert.ToInt32(dr["UnitsInStock"]);
                 }
                 dr.Close();
 

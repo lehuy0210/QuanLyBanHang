@@ -55,9 +55,14 @@
                                         new { @class = "form-select", required = "required" })
                 </div>
 
-                <div class="col-md-12 mb-3">
+                <div class="col-md-6 mb-3">
                     <label class="form-label fw-bold">Quy cách</label>
                     <input type="text" class="form-control" name="Quantity" value="@Model.Quantity" />
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label class="form-label fw-bold">Số lượng trong kho</label>
+                    <input type="number" class="form-control" name="UnitsInStock" value="@Model.UnitsInStock" required />
                 </div>
             </div>
 

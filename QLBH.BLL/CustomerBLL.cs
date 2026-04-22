@@ -53,6 +53,11 @@ namespace QLBH.BLL
                     throw new Exception("Số điện thoại sai cú pháp");
                 }
             }
+
+            if(kh.Address == null)
+            {
+                throw new Exception("Địa chỉ không được để trống");
+            }
             return dalKhachHang.themKhachHang(kh);
         }
 

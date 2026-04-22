@@ -41,7 +41,7 @@
         }
       }
     },
-    "/api/Customer/List": {
+    "/api/Customer": {
       "get": {
         "tags": [
           "Customer"
@@ -51,9 +51,7 @@
             "description": "OK"
           }
         }
-      }
-    },
-    "/api/Customer/Create": {
+      },
       "post": {
         "tags": [
           "Customer"
@@ -89,7 +87,7 @@
         }
       }
     },
-    "/api/Customer/GetByID": {
+    "/api/Customer/{id}": {
       "get": {
         "tags": [
           "Customer"
@@ -97,7 +95,8 @@
         "parameters": [
           {
             "name": "id",
-            "in": "query",
+            "in": "path",
+            "required": true,
             "schema": {
               "type": "string"
             }
@@ -108,9 +107,7 @@
             "description": "OK"
           }
         }
-      }
-    },
-    "/api/Customer/Delete": {
+      },
       "delete": {
         "tags": [
           "Customer"
@@ -118,7 +115,8 @@
         "parameters": [
           {
             "name": "id",
-            "in": "query",
+            "in": "path",
+            "required": true,
             "schema": {
               "type": "string"
             }
@@ -129,12 +127,20 @@
             "description": "OK"
           }
         }
-      }
-    },
-    "/api/Customer/Edit": {
+      },
       "put": {
         "tags": [
           "Customer"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
         ],
         "requestBody": {
           "content": {
@@ -167,7 +173,7 @@
         }
       }
     },
-    "/api/Employee/List": {
+    "/api/Employee": {
       "get": {
         "tags": [
           "Employee"
@@ -177,9 +183,7 @@
             "description": "OK"
           }
         }
-      }
-    },
-    "/api/Employee/Create": {
+      },
       "post": {
         "tags": [
           "Employee"
@@ -215,15 +219,17 @@
         }
       }
     },
-    "/api/Employee/GetByID": {
+    "/api/Employee/{id}": {
       "get": {
         "tags": [
           "Employee"
         ],
+        "operationId": "GetEmployeeById",
         "parameters": [
           {
             "name": "id",
-            "in": "query",
+            "in": "path",
+            "required": true,
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -235,9 +241,7 @@
             "description": "OK"
           }
         }
-      }
-    },
-    "/api/Employee/Delete": {
+      },
       "delete": {
         "tags": [
           "Employee"
@@ -245,7 +249,8 @@
         "parameters": [
           {
             "name": "id",
-            "in": "query",
+            "in": "path",
+            "required": true,
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -257,12 +262,21 @@
             "description": "OK"
           }
         }
-      }
-    },
-    "/api/Employee/Edit": {
+      },
       "put": {
         "tags": [
           "Employee"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
         ],
         "requestBody": {
           "content": {
@@ -295,7 +309,7 @@
         }
       }
     },
-    "/api/Order/Create": {
+    "/api/Order": {
       "post": {
         "tags": [
           "Order"
@@ -350,9 +364,7 @@
             "description": "OK"
           }
         }
-      }
-    },
-    "/api/Order/List": {
+      },
       "get": {
         "tags": [
           "Order"
@@ -364,7 +376,7 @@
         }
       }
     },
-    "/api/Order/Detail/{id}": {
+    "/api/Order/{id}": {
       "get": {
         "tags": [
           "Order"
@@ -385,9 +397,7 @@
             "description": "OK"
           }
         }
-      }
-    },
-    "/api/Order/Delete/{id}": {
+      },
       "delete": {
         "tags": [
           "Order"
@@ -410,7 +420,7 @@
         }
       }
     },
-    "/api/Order/ByCustomer/{idKH}": {
+    "/api/Order/Customer/{idKH}": {
       "get": {
         "tags": [
           "Order"
@@ -611,11 +621,11 @@
       "CategoryDTO": {
         "type": "object",
         "properties": {
-          "id": {
+          "Id": {
             "type": "integer",
             "format": "int32"
           },
-          "name": {
+          "Name": {
             "type": "string",
             "nullable": true
           }
@@ -625,35 +635,35 @@
       "CustomerDTO": {
         "type": "object",
         "properties": {
-          "id": {
+          "Id": {
             "type": "string",
             "nullable": true
           },
-          "name": {
+          "Name": {
             "type": "string",
             "nullable": true
           },
-          "address": {
+          "Address": {
             "type": "string",
             "nullable": true
           },
-          "city": {
+          "City": {
             "type": "string",
             "nullable": true
           },
-          "country": {
+          "Country": {
             "type": "string",
             "nullable": true
           },
-          "phone": {
+          "Phone": {
             "type": "string",
             "nullable": true
           },
-          "username": {
+          "Username": {
             "type": "string",
             "nullable": true
           },
-          "password": {
+          "Password": {
             "type": "string",
             "nullable": true
           }
@@ -663,39 +673,39 @@
       "EmployeeDTO": {
         "type": "object",
         "properties": {
-          "id": {
+          "Id": {
             "type": "string",
             "nullable": true
           },
-          "lastName": {
+          "LastName": {
             "type": "string",
             "nullable": true
           },
-          "firstName": {
+          "FirstName": {
             "type": "string",
             "nullable": true
           },
-          "address": {
+          "Address": {
             "type": "string",
             "nullable": true
           },
-          "city": {
+          "City": {
             "type": "string",
             "nullable": true
           },
-          "country": {
+          "Country": {
             "type": "string",
             "nullable": true
           },
-          "phone": {
+          "Phone": {
             "type": "string",
             "nullable": true
           },
-          "username": {
+          "Username": {
             "type": "string",
             "nullable": true
           },
-          "password": {
+          "Password": {
             "type": "string",
             "nullable": true
           }
@@ -705,11 +715,11 @@
       "LoginDTO": {
         "type": "object",
         "properties": {
-          "username": {
+          "Username": {
             "type": "string",
             "nullable": true
           },
-          "password": {
+          "Password": {
             "type": "string",
             "nullable": true
           }
@@ -719,36 +729,44 @@
       "OrderDTO": {
         "type": "object",
         "properties": {
-          "orderID": {
+          "OrderID": {
             "type": "integer",
             "format": "int32"
           },
-          "contactName": {
+          "ContactName": {
             "type": "string",
             "nullable": true
           },
-          "productId": {
+          "ProductId": {
             "type": "integer",
             "format": "int32"
           },
-          "productName": {
+          "ProductName": {
             "type": "string",
             "nullable": true
           },
-          "unitPrice": {
+          "UnitPrice": {
             "type": "number",
             "format": "double"
           },
-          "quantity": {
+          "Quantity": {
             "type": "integer",
             "format": "int32"
           },
-          "total": {
+          "Total": {
             "type": "number",
             "format": "double",
             "readOnly": true
           },
-          "totalPrice": {
+          "Address": {
+            "type": "string",
+            "nullable": true
+          },
+          "OrderDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "TotalPrice": {
             "type": "number",
             "format": "double"
           }
@@ -758,38 +776,42 @@
       "ProductDTO": {
         "type": "object",
         "properties": {
-          "id": {
+          "Id": {
             "type": "integer",
             "format": "int32"
           },
-          "name": {
+          "Name": {
             "type": "string",
             "nullable": true
           },
-          "price": {
+          "Price": {
             "type": "number",
             "format": "double"
           },
-          "quantity": {
+          "Quantity": {
             "type": "string",
             "nullable": true
           },
-          "cateId": {
+          "CateId": {
             "type": "integer",
             "format": "int32"
           },
-          "supId": {
+          "SupId": {
             "type": "integer",
             "format": "int32"
           },
-          "categories": {
+          "UnitsInStock": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Categories": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CategoryDTO"
             },
             "nullable": true
           },
-          "suppliers": {
+          "Suppliers": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/SupplierDTO"
@@ -802,11 +824,11 @@
       "SupplierDTO": {
         "type": "object",
         "properties": {
-          "id": {
+          "Id": {
             "type": "integer",
             "format": "int32"
           },
-          "name": {
+          "Name": {
             "type": "string",
             "nullable": true
           }

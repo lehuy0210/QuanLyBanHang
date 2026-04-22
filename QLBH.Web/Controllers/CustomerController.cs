@@ -161,7 +161,7 @@ namespace QLBH.Web.Controllers
 
             var client = _httpClientFactory.CreateClient();
 
-            string apiDonHangTheoKH = $"http://localhost:5003/api/Order/ByCustomer/{currentUserId}";
+            string apiDonHangTheoKH = $"http://localhost:5003/api/Order/Customer/{currentUserId}";
 
             var response = await client.GetAsync(apiDonHangTheoKH);
 

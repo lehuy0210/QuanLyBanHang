@@ -49,9 +49,9 @@ namespace QLBH.DAL.Migrations
             }
 
             // --- 2. TẠO CÁC VIEW (TÁCH RIÊNG TỪNG LỆNH) ---
-            migrationBuilder.Sql("CREATE VIEW [dbo].[DanhSachDonHang] AS SELECT o.OrderID, c.ContactName, SUM(od.Quantity) AS Quantity, SUM(od.UnitPrice * od.Quantity) AS TotalPrice FROM dbo.Orders AS o INNER JOIN dbo.[Order Details] AS od ON o.OrderID = od.OrderID INNER JOIN dbo.Customers AS c ON o.CustomerID = c.CustomerID GROUP BY o.OrderID, c.ContactName;");
+            migrationBuilder.Sql("CREATE VIEW [dbo].[DanhSachDonHang] AS SELECT o.OrderID, c.ContactName, SUM(od.Quantity) AS Quantity, SUM(od.UnitPrice * od.Quantity) AS TotalPrice,o.OrderDate FROM dbo.Orders AS o INNER JOIN dbo.[Order Details] AS od ON o.OrderID = od.OrderID INNER JOIN dbo.Customers AS c ON o.CustomerID = c.CustomerID GROUP BY o.OrderID, c.ContactName,o.OrderDate;");
             migrationBuilder.Sql("CREATE VIEW [dbo].[DanhSachNhanVien] AS SELECT EmployeeID,LastName,FirstName,Address,City,Country,HomePhone,Username,Password FROM Employees;");
-            migrationBuilder.Sql("CREATE VIEW [dbo].[DanhSachSanPham] AS SELECT pr.ProductID, pr.ProductName, pr.UnitPrice, pr.QuantityPerUnit, cata.CategoryName, sup.CompanyName FROM Products pr LEFT JOIN Suppliers sup ON pr.SupplierID = sup.SupplierID LEFT JOIN Categories cata ON pr.CategoryID = cata.CategoryID;");
+            migrationBuilder.Sql("CREATE VIEW [dbo].[DanhSachSanPham] AS SELECT pr.ProductID, pr.ProductName, pr.UnitPrice, pr.QuantityPerUnit, cata.CategoryName, sup.CompanyName, pr.UnitsInStock FROM Products pr LEFT JOIN Suppliers sup ON pr.SupplierID = sup.SupplierID LEFT JOIN Categories cata ON pr.CategoryID = cata.CategoryID;");
             migrationBuilder.Sql("CREATE VIEW [dbo].[DanhSachKhachHang] AS SELECT CustomerID, ContactName, Address, City, Country, Phone,Username,Password FROM Customers;");
             migrationBuilder.Sql("CREATE VIEW [dbo].[ChiTietDonHang] AS SELECT od.OrderID,c.ContactName,od.UnitPrice,od.Quantity,(od.UnitPrice * od.Quantity) AS TotalPrice FROM [Order Details] od INNER JOIN Orders o ON od.OrderID = o.OrderID INNER JOIN Customers c ON o.CustomerID = c.CustomerID;");
             migrationBuilder.Sql("CREATE VIEW [dbo].[Order Subtotals] AS SELECT OrderID, Sum(CONVERT(money,(UnitPrice*Quantity*(1-Discount)/100))*100) AS Subtotal FROM [Order Details] GROUP BY OrderID;");
@@ -59,14 +59,108 @@ namespace QLBH.DAL.Migrations
 
             // --- 3. TẠO STORED PROCEDURES (TÁCH RIÊNG TỪNG LỆNH) ---
             migrationBuilder.Sql(@"CREATE PROCEDURE [dbo].[CustOrderHist] @CustomerID nchar(5) AS SELECT ProductName, Total=SUM(Quantity) FROM Products P, [Order Details] OD, Orders O, Customers C WHERE C.CustomerID = @CustomerID AND C.CustomerID = O.CustomerID AND O.OrderID = OD.OrderID AND OD.ProductID = P.ProductID GROUP BY ProductName;");
-            migrationBuilder.Sql(@"CREATE PROC [dbo].[LayDonHangTheoId] (@OrderId int) AS BEGIN SELECT od.OrderID, c.ContactName, p.ProductName,od.UnitPrice,od.Quantity,(od.UnitPrice * od.Quantity) AS [Total Price] FROM [Order Details] od INNER JOIN Orders o ON od.OrderID = o.OrderID INNER JOIN Products p ON od.ProductID = p.ProductID INNER JOIN Customers c ON o.CustomerID = c.CustomerID WHERE od.OrderID = @OrderId END;");
+            migrationBuilder.Sql(@"CREATE PROC [dbo].[LayDonHangTheoId] (@OrderId int) AS BEGIN SELECT od.OrderID, c.ContactName, p.ProductName,od.UnitPrice,od.Quantity,(od.UnitPrice * od.Quantity) AS [Total Price],c.Address FROM [Order Details] od INNER JOIN Orders o ON od.OrderID = o.OrderID INNER JOIN Products p ON od.ProductID = p.ProductID INNER JOIN Customers c ON o.CustomerID = c.CustomerID WHERE od.OrderID = @OrderId END;");
             migrationBuilder.Sql(@"CREATE PROC [dbo].[LayKhachHangTheoId] (@CustomerID nchar(5)) AS BEGIN SELECT CustomerID, ContactName, Address, City, Country, Phone,UserName,Password FROM Customers WHERE CustomerID = @CustomerID END;");
             migrationBuilder.Sql(@"CREATE PROC [dbo].[LayNhanVienTheoId] (@EmployeeID int) AS BEGIN SELECT EmployeeID,LastName,FirstName,Address,City,Country,HomePhone,Username,Password FROM Employees WHERE EmployeeID = @EmployeeID END;");
+            migrationBuilder.Sql(@"
+                                CREATE   PROC [dbo].[ThemKhachHang] 
+                (@CustomerID nchar(5), @CompanyName nvarchar(40), @ContactName nvarchar(40), @Address nvarchar(60), @City nvarchar(15), @Country nvarchar(15), @Phone nvarchar(24), @Username nvarchar(50),@Password nvarchar(50))      
+                AS BEGIN
+                    INSERT INTO Customers(CustomerID,CompanyName,ContactName, Address, City, Country, Phone,Username,Password)
+                    VALUES (@CustomerID,@CompanyName,@ContactName, @Address, @City, @Country, @Phone,@Username,@Password)
+                END
+                ");
+            migrationBuilder.Sql(@"
+                CREATE PROC [dbo].[ThemNhanVien]
+( 
+	@LastName nvarchar(20),
+	@FirstName nvarchar(10),
+	@Address nvarchar(60),
+	@City nvarchar(15),
+	@Country nvarchar(15),
+	@HomePhone nvarchar(24),
+	@Username nvarchar(50),
+	@Password nvarchar(50)
+)
+AS
+BEGIN
+	INSERT INTO Employees(LastName,FirstName,Address,City,Country,HomePhone,Username,Password)
+	VALUES(@LastName,@FirstName,@Address,@City,@Country,@HomePhone,@Username,@Password)
+END
+GO
+
+            ");
+            migrationBuilder.Sql(@"
+                    CREATE   PROC [dbo].[XoaKhachHang] (@CustomerID nvarchar(450))
+                AS BEGIN
+                    DELETE FROM Customer WHERE CustomerId = @CustomerID
+                END
+           
+            ");
+            migrationBuilder.Sql(@"
+                    CREATE PROC [dbo].[XoaNhanVien]
+(
+	@EmployeeID int
+)
+AS
+BEGIN
+	DELETE FROM Employees
+	WHERE EmployeeID = @EmployeeID
+END
+            ");
+            migrationBuilder.Sql(@"
+                    CREATE PROC [dbo].[SuaNhanVien]
+(
+	@EmployeeID int,
+	@LastName nvarchar(20),
+	@FirstName nvarchar(10),
+	@Address nvarchar(60),
+	@City nvarchar(15),
+	@Country nvarchar(15),
+	@HomePhone nvarchar(24),
+	@Username nvarchar(50),
+	@Password nvarchar(50)
+)
+AS
+BEGIN
+	UPDATE Employees
+	SET LastName = @LastName, FirstName = @FirstName, Address = @Address, City = @City, Country = @Country, HomePhone = @HomePhone, Username = @Username, Password = @Password
+	WHERE EmployeeID = @EmployeeID
+END
+GO
+            ");
+            migrationBuilder.Sql(@"
+ CREATE   PROC [dbo].[SuaKhachHang]
+                (@CustomerID nchar(5),@CompanyName nvarchar(40),@ContactName nvarchar(40), @Address nvarchar(60), @City nvarchar(15), @Country nvarchar(15), @Phone nvarchar(24))
+                AS BEGIN
+                    UPDATE Customers
+                    SET CompanyName = @CompanyName,ContactName = @ContactName, Address = @Address, City = @City, Country = @Country, Phone = @Phone
+                    WHERE CustomerId = @CustomerID
+                END
+                ");
             migrationBuilder.Sql(@"CREATE PROCEDURE [dbo].[LaySanPhamTheoId] (@ProductID INT) AS BEGIN SELECT ProductID, ProductName, UnitPrice, QuantityPerUnit, CategoryID, SupplierID FROM Products WHERE ProductID = @ProductID END;");
             migrationBuilder.Sql(@"CREATE PROC [dbo].[TimKiemSanPham] (@ProductName nvarchar(40)) AS BEGIN SELECT * FROM DanhSachSanPham WHERE ProductName LIKE '%' + @ProductName + '%' END;");
-            migrationBuilder.Sql(@"CREATE PROC [dbo].[ThemSanPham] (@ProductName nvarchar(40), @UnitPrice money, @QuantityPerUnit nvarchar(20), @CategoryID int, @SupplierID int) AS BEGIN INSERT INTO Products(ProductName, UnitPrice, QuantityPerUnit, CategoryID, SupplierID) VALUES(@ProductName, @UnitPrice, @QuantityPerUnit, @CategoryID, @SupplierID) END;");
-            migrationBuilder.Sql(@"CREATE PROC [dbo].[SuaSanPham] (@ProductID int, @ProductName nvarchar(40), @UnitPrice money, @QuantityPerUnit nvarchar(20), @CategoryID int, @SupplierID int) AS BEGIN UPDATE Products SET ProductName = @ProductName, UnitPrice = @UnitPrice, QuantityPerUnit = @QuantityPerUnit, CategoryID = @CategoryID, SupplierID = @SupplierID WHERE ProductID = @ProductID END;");
+            migrationBuilder.Sql(@"CREATE PROC [dbo].[ThemSanPham] (@ProductName nvarchar(40), @UnitPrice money, @QuantityPerUnit nvarchar(20), @CategoryID int, @SupplierID int, @UnitsInStock smallint) AS BEGIN INSERT INTO Products(ProductName, UnitPrice, QuantityPerUnit, CategoryID, SupplierID,UnitsInStock) VALUES(@ProductName, @UnitPrice, @QuantityPerUnit, @CategoryID, @SupplierID,@UnitsInStock) END;");
+            migrationBuilder.Sql(@"CREATE PROC [dbo].[SuaSanPham] (@ProductID int, @ProductName nvarchar(40), @UnitPrice money, @QuantityPerUnit nvarchar(20), @CategoryID int, @SupplierID int,@UnitsInStock smallint) AS BEGIN UPDATE Products SET ProductName = @ProductName, UnitPrice = @UnitPrice, QuantityPerUnit = @QuantityPerUnit, CategoryID = @CategoryID, SupplierID = @SupplierID, UnitsInStock = @UnitsInStock WHERE ProductID = @ProductID END;");
             migrationBuilder.Sql(@"CREATE PROC [dbo].[XoaSanPham] (@ProductID int) AS BEGIN DELETE FROM Products WHERE ProductID = @ProductID END;");
+
+            migrationBuilder.Sql(@"
+                CREATE PROC [dbo].[HoaDonKhachHang]
+(
+	@CustomerID nchar(5)
+)
+AS
+SELECT o.OrderID, p.ProductName, p.UnitPrice,SUM(od.Quantity) AS Quantity, SUM(od.UnitPrice * od.Quantity) AS [Total Price],c.Address
+FROM Orders o
+INNER JOIN Customers c ON o.CustomerID = c.CustomerID
+INNER JOIN [Order Details] od ON o.OrderID = od.OrderID
+INNER JOIN Products p ON od.ProductID = p.ProductID
+WHERE o.CustomerID = @CustomerID
+GROUP BY o.OrderID,p.ProductName,p.UnitPrice,c.Address
+
+
+        ");
+
 
             migrationBuilder.Sql(@"
                 CREATE PROCEDURE [dbo].[sp_DeleteOrder_RestoreStock] @OrderID INT AS 
@@ -97,35 +191,53 @@ namespace QLBH.DAL.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            // Xóa dữ liệu theo thứ tự ngược lại so với cấu trúc Khóa ngoại (Foreign Key)
-            migrationBuilder.Sql("DELETE FROM \"Order Details\";");
-            migrationBuilder.Sql("DELETE FROM \"Orders\";");
-            migrationBuilder.Sql("DELETE FROM \"Products\";");
-            migrationBuilder.Sql("DELETE FROM \"Suppliers\";");
-            migrationBuilder.Sql("DELETE FROM \"Employees\";");
-            migrationBuilder.Sql("DELETE FROM \"Customers\";");
-            migrationBuilder.Sql("DELETE FROM \"Categories\";");
-
-
             // Drop Procedures
-            migrationBuilder.Sql("DROP PROCEDURE IF EXISTS [dbo].[sp_DeleteOrder_RestoreStock]");
-            migrationBuilder.Sql("DROP PROCEDURE IF EXISTS [dbo].[LaySanPhamTheoId]");
-            migrationBuilder.Sql("DROP PROCEDURE IF EXISTS [dbo].[TimKiemSanPham]");
+            migrationBuilder.Sql("DROP PROCEDURE IF EXISTS [dbo].[sp_DeleteOrder_RestoreStock];");
+            migrationBuilder.Sql("DROP PROCEDURE IF EXISTS [dbo].[XoaSanPham];");
+            migrationBuilder.Sql("DROP PROCEDURE IF EXISTS [dbo].[SuaSanPham];");
+            migrationBuilder.Sql("DROP PROCEDURE IF EXISTS [dbo].[ThemSanPham];");
+            migrationBuilder.Sql("DROP PROCEDURE IF EXISTS [dbo].[TimKiemSanPham];");
+            migrationBuilder.Sql("DROP PROCEDURE IF EXISTS [dbo].[LaySanPhamTheoId];");
+            migrationBuilder.Sql("DROP PROCEDURE IF EXISTS [dbo].[SuaKhachHang];");
+            migrationBuilder.Sql("DROP PROCEDURE IF EXISTS [dbo].[SuaNhanVien];");   
+            migrationBuilder.Sql("DROP PROCEDURE IF EXISTS [dbo].[XoaNhanVien];");   
+            migrationBuilder.Sql("DROP PROCEDURE IF EXISTS [dbo].[XoaKhachHang];");
+            migrationBuilder.Sql("DROP PROCEDURE IF EXISTS [dbo].[ThemNhanVien];");
+            migrationBuilder.Sql("DROP PROCEDURE IF EXISTS [dbo].[ThemKhachHang];");
+            migrationBuilder.Sql("DROP PROCEDURE IF EXISTS [dbo].[LayNhanVienTheoId];");
+            migrationBuilder.Sql("DROP PROCEDURE IF EXISTS [dbo].[LayKhachHangTheoId];");
+            migrationBuilder.Sql("DROP PROCEDURE IF EXISTS [dbo].[LayDonHangTheoId];");
+            migrationBuilder.Sql("DROP PROCEDURE IF EXISTS [dbo].[HoaDonKhachHang];");
+            migrationBuilder.Sql("DROP PROCEDURE IF EXISTS [dbo].[CustOrderHist];");
 
             // Drop Views
-            migrationBuilder.Sql("DROP VIEW IF EXISTS [dbo].[DanhSachSanPham]");
-            migrationBuilder.Sql("DROP VIEW IF EXISTS [dbo].[DanhSachKhachHang]");
-            migrationBuilder.Sql("DROP VIEW IF EXISTS [dbo].[DanhSachDonHang]");
+            migrationBuilder.Sql("DROP VIEW IF EXISTS [dbo].[Invoices];");
+            migrationBuilder.Sql("DROP VIEW IF EXISTS [dbo].[Order Subtotals];");
+            migrationBuilder.Sql("DROP VIEW IF EXISTS [dbo].[ChiTietDonHang];");
+            migrationBuilder.Sql("DROP VIEW IF EXISTS [dbo].[DanhSachKhachHang];");
+            migrationBuilder.Sql("DROP VIEW IF EXISTS [dbo].[DanhSachSanPham];");
+            migrationBuilder.Sql("DROP VIEW IF EXISTS [dbo].[DanhSachNhanVien];");
+            migrationBuilder.Sql("DROP VIEW IF EXISTS [dbo].[DanhSachDonHang];");
 
-            // Drop Tables
+
+            // Tầng 1: Các bảng giao thoa/nhiều khóa ngoại nhất
             migrationBuilder.DropTable(name: "Order Details");
+            migrationBuilder.DropTable(name: "CustomerCustomerDemo");
+            migrationBuilder.DropTable(name: "EmployeeTerritories");
+
+            // Tầng 2: Các bảng trung gian
             migrationBuilder.DropTable(name: "Orders");
             migrationBuilder.DropTable(name: "Products");
+            migrationBuilder.DropTable(name: "Territories");
+
+            // Tầng 3: Các bảng gốc (Master data)
             migrationBuilder.DropTable(name: "Employees");
             migrationBuilder.DropTable(name: "Customers");
-            migrationBuilder.DropTable(name: "Suppliers");
             migrationBuilder.DropTable(name: "Categories");
+            migrationBuilder.DropTable(name: "Suppliers");
             migrationBuilder.DropTable(name: "Shippers");
+            migrationBuilder.DropTable(name: "Region");
+            migrationBuilder.DropTable(name: "CustomerDemographics");
         }
     }
 }

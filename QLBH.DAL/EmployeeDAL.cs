@@ -66,7 +66,7 @@ namespace QLBH.DAL
             {
                 _conn.Open();
 
-                string tenProc = "LayKhachHangTheoId";
+                string tenProc = "LayNhanVienTheoId";
                 SqlCommand cmd = new SqlCommand(tenProc, _conn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
@@ -83,7 +83,7 @@ namespace QLBH.DAL
                     nv.Address = dr["Address"].ToString();
                     nv.City = dr["City"].ToString();
                     nv.Country = dr["Country"].ToString();
-                    nv.Phone = dr["Phone"].ToString();
+                    nv.Phone = dr["HomePhone"].ToString();
                     nv.Username = dr["Username"].ToString();
                     nv.Password = dr["Password"].ToString();
                 }

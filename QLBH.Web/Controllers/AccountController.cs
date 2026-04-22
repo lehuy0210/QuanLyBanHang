@@ -33,7 +33,7 @@ namespace QLBH.Web.Controllers
                 ViewBag.ThongBaoLoi = "Mật khẩu nhập lại không khớp!";
                 return View(request);
             }
-            request.Address = request.Address ?? "";
+            //request.Address = request.Address ?? "";
             request.City = request.City ?? "";
             request.Country = request.Country ?? "";
             try
