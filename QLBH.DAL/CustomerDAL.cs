@@ -57,7 +57,7 @@ namespace QLBH.DAL
                 cmd.Parameters.Add("@Country", SqlDbType.NVarChar, 15).Value = kh.Country;
                 cmd.Parameters.Add("@Phone", SqlDbType.NVarChar, 24).Value = kh.Phone;
                 cmd.Parameters.Add("@Username", SqlDbType.NVarChar, 50).Value = kh.Username;
-                cmd.Parameters.Add("@Password", SqlDbType.NVarChar, 50).Value = kh.Password;
+                cmd.Parameters.Add("@Password", SqlDbType.NVarChar, 255).Value = kh.Password;
 
                 if (cmd.ExecuteNonQuery() > 0)
                 {
@@ -161,7 +161,7 @@ namespace QLBH.DAL
                 cmd.Parameters.Add("@Country", SqlDbType.NVarChar, 15).Value = kh.Country;
                 cmd.Parameters.Add("@Phone", SqlDbType.NVarChar, 24).Value = kh.Phone;
                 cmd.Parameters.Add("@Username", SqlDbType.NVarChar, 50).Value = kh.Username;
-                cmd.Parameters.Add("@Password", SqlDbType.NVarChar, 50).Value = kh.Password;
+                cmd.Parameters.Add("@Password", SqlDbType.NVarChar, 255).Value = kh.Password;
 
                 if(cmd.ExecuteNonQuery() > 0)
                 {
