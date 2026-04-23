@@ -157,3 +157,5 @@ C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.API\obj\Debug\net8.0\refint\QLBH.A
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.API\obj\Debug\net8.0\QLBH.API.pdb
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.API\obj\Debug\net8.0\QLBH.API.genruntimeconfig.cache
 C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.API\obj\Debug\net8.0\ref\QLBH.API.dll
+C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\ASUS\Desktop\Ôn tập\QLBH.Web\QLBH.API\bin\Debug\net8.0\BCrypt.Net-Next.dll
