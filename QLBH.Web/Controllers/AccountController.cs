@@ -43,7 +43,7 @@ namespace QLBH.Web.Controllers
                 và chuyển đổi ngược JSON lại thành các đối tượng hoặc kiểu giá trị */
                 var content = new StringContent(jsonRequest, Encoding.UTF8, "application/json");
 
-                HttpResponseMessage response = await _httpClient.PostAsync("api/Customer", content);
+                HttpResponseMessage response = await _httpClient.PostAsync("api/Account/Register", content);
                 /*Post Async là gửi một yêu cầu POST đến URI đã được chỉ định dưới dạng một thao tác bất đồng bộ.*/
                 /*Tham số thứ 1 là URL vào BaseAddress*/
                 /*Tham số thứ 2 là StringContent*/
@@ -123,6 +123,9 @@ namespace QLBH.Web.Controllers
 
                         string maNguoiDung = userInfo.GetProperty("id").GetString();
 
+                        string jwtToken = root.GetProperty("token").GetString();
+                        HttpContext.Session.SetString("JWToken", jwtToken);
+
                         // Vì lỡ Khách hàng đăng nhập API không trả về Role, ta mặc định họ là "User".
                         string role = "User";
                         if (userInfo.TryGetProperty("role", out JsonElement roleElement))
@@ -168,26 +171,23 @@ namespace QLBH.Web.Controllers
 
                     try
                     {
-                        // Ép kiểu chuỗi JSON lỗi vào Class ErrorResponse
-                        var errorData = JsonSerializer.Deserialize<ErrorResponse>(errorResult, new JsonSerializerOptions
-                        {
-                            PropertyNameCaseInsensitive = true // Bỏ qua phân biệt hoa/thường
-                        });
+                        // 2. Thử phân tích JSON, bọc trong try-catch để chống sập
+                        using var doc = System.Text.Json.JsonDocument.Parse(errorResult);
+                        var root = doc.RootElement;
 
-                        // Chỉ lấy đúng userMessage để hiển thị cho người dùng
-                        if (errorData != null && errorData.error != null)
+                        if (root.TryGetProperty("error", out var errorElement))
                         {
-                            ViewBag.ThongBaoLoi = errorData.error.userMessage;
+                            ViewBag.ThongBaoLoi = errorElement.GetProperty("userMessage").GetString();
                         }
                         else
                         {
-                            ViewBag.ThongBaoLoi = "Đăng nhập thất bại. Vui lòng kiểm tra lại.";
+                            ViewBag.ThongBaoLoi = "Lỗi không xác định: " + errorResult;
                         }
                     }
-                    catch (JsonException)
+                    catch (System.Text.Json.JsonException) // BẮT LỖI Ở ĐÂY NẾU CHỮ 'S' XUẤT HIỆN
                     {
-                        // Đề phòng API sập trả về HTML thay vì JSON
-                        ViewBag.ThongBaoLoi = "Lỗi từ máy chủ: " + errorResult;
+                        // Nếu API sập và trả về chữ "Server Error..." thay vì JSON
+                        ViewBag.ThongBaoLoi = "Lỗi từ máy chủ API: " + errorResult;
                     }
 
                     return View(request);
