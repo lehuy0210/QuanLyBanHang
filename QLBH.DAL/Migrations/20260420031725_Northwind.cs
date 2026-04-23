@@ -12,8 +12,8 @@ namespace QLBH.DAL.Migrations
         {
                 // --- 1. TẠO CÁC BẢNG (14 TABLES) ---
                 migrationBuilder.Sql(@"
-                CREATE TABLE [dbo].[Customers]([CustomerID] [nchar](5) NOT NULL PRIMARY KEY, [CompanyName] [nvarchar](40) NOT NULL, [ContactName] [nvarchar](30) NULL, [ContactTitle] [nvarchar](30) NULL, [Address] [nvarchar](60) NULL, [City] [nvarchar](15) NULL, [Region] [nvarchar](15) NULL, [PostalCode] [nvarchar](10) NULL, [Country] [nvarchar](15) NULL, [Phone] [nvarchar](24) NULL, [Fax] [nvarchar](24) NULL, [Username] [nvarchar](50) NULL, [Password] [nvarchar](50) NULL);
-                CREATE TABLE [dbo].[Employees]([EmployeeID] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY, [LastName] [nvarchar](20) NOT NULL, [FirstName] [nvarchar](10) NOT NULL, [Title] [nvarchar](30) NULL, [TitleOfCourtesy] [nvarchar](25) NULL, [BirthDate] [datetime] NULL, [HireDate] [datetime] NULL, [Address] [nvarchar](60) NULL, [City] [nvarchar](15) NULL, [Region] [nvarchar](15) NULL, [PostalCode] [nvarchar](10) NULL, [Country] [nvarchar](15) NULL, [HomePhone] [nvarchar](24) NULL, [Extension] [nvarchar](4) NULL, [Photo] [image] NULL, [Notes] [ntext] NULL, [ReportsTo] [int] NULL, [PhotoPath] [nvarchar](255) NULL, [Username] [nvarchar](50) NULL, [Password] [nvarchar](50) NULL);
+                CREATE TABLE [dbo].[Customers]([CustomerID] [nchar](5) NOT NULL PRIMARY KEY, [CompanyName] [nvarchar](40) NOT NULL, [ContactName] [nvarchar](30) NULL, [ContactTitle] [nvarchar](30) NULL, [Address] [nvarchar](60) NULL, [City] [nvarchar](15) NULL, [Region] [nvarchar](15) NULL, [PostalCode] [nvarchar](10) NULL, [Country] [nvarchar](15) NULL, [Phone] [nvarchar](24) NULL, [Fax] [nvarchar](24) NULL, [Username] [nvarchar](50) NULL, [Password] [nvarchar](255) NULL);
+                CREATE TABLE [dbo].[Employees]([EmployeeID] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY, [LastName] [nvarchar](20) NOT NULL, [FirstName] [nvarchar](10) NOT NULL, [Title] [nvarchar](30) NULL, [TitleOfCourtesy] [nvarchar](25) NULL, [BirthDate] [datetime] NULL, [HireDate] [datetime] NULL, [Address] [nvarchar](60) NULL, [City] [nvarchar](15) NULL, [Region] [nvarchar](15) NULL, [PostalCode] [nvarchar](10) NULL, [Country] [nvarchar](15) NULL, [HomePhone] [nvarchar](24) NULL, [Extension] [nvarchar](4) NULL, [Photo] [image] NULL, [Notes] [ntext] NULL, [ReportsTo] [int] NULL, [PhotoPath] [nvarchar](255) NULL, [Username] [nvarchar](50) NULL, [Password] [nvarchar](255) NULL);
                 CREATE TABLE [dbo].[Categories]([CategoryID] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY, [CategoryName] [nvarchar](15) NOT NULL, [Description] [ntext] NULL, [Picture] [image] NULL);
                 CREATE TABLE [dbo].[Suppliers]([SupplierID] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY, [CompanyName] [nvarchar](40) NOT NULL, [ContactName] [nvarchar](30) NULL, [ContactTitle] [nvarchar](30) NULL, [Address] [nvarchar](60) NULL, [City] [nvarchar](15) NULL, [Region] [nvarchar](15) NULL, [PostalCode] [nvarchar](10) NULL, [Country] [nvarchar](15) NULL, [Phone] [nvarchar](24) NULL, [Fax] [nvarchar](24) NULL, [HomePage] [ntext] NULL);
                 CREATE TABLE [dbo].[Shippers]([ShipperID] [int] IDENTITY(1,1) NOT NULL PRIMARY KEY, [CompanyName] [nvarchar](40) NOT NULL, [Phone] [nvarchar](24) NULL);
@@ -64,7 +64,7 @@ namespace QLBH.DAL.Migrations
             migrationBuilder.Sql(@"CREATE PROC [dbo].[LayNhanVienTheoId] (@EmployeeID int) AS BEGIN SELECT EmployeeID,LastName,FirstName,Address,City,Country,HomePhone,Username,Password FROM Employees WHERE EmployeeID = @EmployeeID END;");
             migrationBuilder.Sql(@"
                                 CREATE   PROC [dbo].[ThemKhachHang] 
-                (@CustomerID nchar(5), @CompanyName nvarchar(40), @ContactName nvarchar(40), @Address nvarchar(60), @City nvarchar(15), @Country nvarchar(15), @Phone nvarchar(24), @Username nvarchar(50),@Password nvarchar(50))      
+                (@CustomerID nchar(5), @CompanyName nvarchar(40), @ContactName nvarchar(40), @Address nvarchar(60), @City nvarchar(15), @Country nvarchar(15), @Phone nvarchar(24), @Username nvarchar(50),@Password nvarchar(255))      
                 AS BEGIN
                     INSERT INTO Customers(CustomerID,CompanyName,ContactName, Address, City, Country, Phone,Username,Password)
                     VALUES (@CustomerID,@CompanyName,@ContactName, @Address, @City, @Country, @Phone,@Username,@Password)
@@ -80,7 +80,7 @@ namespace QLBH.DAL.Migrations
 	@Country nvarchar(15),
 	@HomePhone nvarchar(24),
 	@Username nvarchar(50),
-	@Password nvarchar(50)
+	@Password nvarchar(255)
 )
 AS
 BEGIN
@@ -119,7 +119,7 @@ END
 	@Country nvarchar(15),
 	@HomePhone nvarchar(24),
 	@Username nvarchar(50),
-	@Password nvarchar(50)
+	@Password nvarchar(255)
 )
 AS
 BEGIN
@@ -131,10 +131,10 @@ GO
             ");
             migrationBuilder.Sql(@"
  CREATE   PROC [dbo].[SuaKhachHang]
-                (@CustomerID nchar(5),@CompanyName nvarchar(40),@ContactName nvarchar(40), @Address nvarchar(60), @City nvarchar(15), @Country nvarchar(15), @Phone nvarchar(24))
+                (@CustomerID nchar(5),@CompanyName nvarchar(40),@ContactName nvarchar(40), @Address nvarchar(60), @City nvarchar(15), @Country nvarchar(15), @Phone nvarchar(24),@Username nvarchar(50), @Password nvarchar(255))
                 AS BEGIN
                     UPDATE Customers
-                    SET CompanyName = @CompanyName,ContactName = @ContactName, Address = @Address, City = @City, Country = @Country, Phone = @Phone
+                    SET CompanyName = @CompanyName,ContactName = @ContactName, Address = @Address, City = @City, Country = @Country, Phone = @Phone,Username = @Username, Password = @Password
                     WHERE CustomerId = @CustomerID
                 END
                 ");
