@@ -177,6 +177,34 @@ GROUP BY o.OrderID,p.ProductName,p.UnitPrice,c.Address
                     BEGIN CATCH IF @@TRANCOUNT > 0 ROLLBACK; THROW; END CATCH 
                 END;");
 
+            migrationBuilder.Sql(@"
+                CREATE TRIGGER trg_CheckStock
+                ON dbo.[Order Details]
+                INSTEAD OF INSERT
+                AS
+                BEGIN
+                    SET NOCOUNT ON;
+
+                    IF EXISTS (
+                        SELECT 1
+                        FROM inserted i
+                        JOIN dbo.Products p 
+                            ON p.ProductID = i.ProductID
+                        WHERE i.Quantity > p.UnitsInStock
+                    )
+                        THROW 50003, N'Không đủ hàng trong kho', 1;
+
+                    INSERT INTO dbo.[Order Details]
+                    SELECT * FROM inserted;
+
+                    UPDATE p
+                    SET p.UnitsInStock = p.UnitsInStock - i.Quantity
+                    FROM dbo.Products p
+                    JOIN inserted i 
+                        ON p.ProductID = i.ProductID;
+                END;
+            ");
+
             // --- 4. RÀNG BUỘC KHÓA NGOẠI (FOREIGN KEYS) ---
             migrationBuilder.Sql(@"
                 ALTER TABLE [dbo].[Products] WITH NOCHECK ADD CONSTRAINT [FK_Products_Categories] FOREIGN KEY([CategoryID]) REFERENCES [dbo].[Categories] ([CategoryID]);
@@ -191,6 +219,9 @@ GROUP BY o.OrderID,p.ProductName,p.UnitPrice,c.Address
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            //Drop Triggers
+            migrationBuilder.Sql("DROP TRIGGER IF EXISTS trg_CheckStock;");
+
             // Drop Procedures
             migrationBuilder.Sql("DROP PROCEDURE IF EXISTS [dbo].[sp_DeleteOrder_RestoreStock];");
             migrationBuilder.Sql("DROP PROCEDURE IF EXISTS [dbo].[XoaSanPham];");
@@ -238,6 +269,7 @@ GROUP BY o.OrderID,p.ProductName,p.UnitPrice,c.Address
             migrationBuilder.DropTable(name: "Shippers");
             migrationBuilder.DropTable(name: "Region");
             migrationBuilder.DropTable(name: "CustomerDemographics");
+
         }
     }
 }
