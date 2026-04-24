@@ -2,11 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using QLBH.DTO;
-using QLBH.DAL;
-using QLBH.DAL.Models;
 using System.Data;
-using System.Net.Http.Json;
-using static System.Net.WebRequestMethods;
 
 namespace QLBH.Web.Controllers
 {
@@ -38,6 +34,7 @@ namespace QLBH.Web.Controllers
                 model.Suppliers = JsonConvert.DeserializeObject<List<SupplierDTO>>(jsonSup);
             }
         }
+
         [HttpGet]
         public async Task<IActionResult> Create()
         {
@@ -47,12 +44,13 @@ namespace QLBH.Web.Controllers
 
             return View(model);
         }
+
         [HttpPost]
         public async Task<IActionResult> Create(ProductDTO sp)
         {
             var client = _httpClientFactory.CreateClient();
 
-            string apiThemSanPham = "http://localhost:5003/api/Product/Create";
+            string apiThemSanPham = "http://localhost:5003/api/Product";
 
             var response = await client.PostAsJsonAsync(apiThemSanPham, sp);
 
@@ -80,7 +78,7 @@ namespace QLBH.Web.Controllers
         {
             var client = _httpClientFactory.CreateClient();
 
-            string apiProduct = "http://localhost:5003/api/Product/List";
+            string apiProduct = "http://localhost:5003/api/Product";
 
             var response = await client.GetAsync(apiProduct);
 
@@ -94,16 +92,15 @@ namespace QLBH.Web.Controllers
             }
 
             return View(new DataTable());
-
         }
-
 
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
             var client = _httpClientFactory.CreateClient();
 
-            string apiLaySanPhamTheoId = $"http://localhost:5003/api/Product/GetById?id={id}";
+            // Sửa URL: API của bạn là [HttpGet("{id}")] (Truyền thẳng ID vào URL)
+            string apiLaySanPhamTheoId = $"http://localhost:5003/api/Product/{id}";
             var response = await client.GetAsync(apiLaySanPhamTheoId);
 
             var model = new ProductDTO();
@@ -123,12 +120,12 @@ namespace QLBH.Web.Controllers
             return View(model);
         }
 
-        [HttpPut]
+        [HttpPost]
         public async Task<IActionResult> Edit(ProductDTO sp)
         {
             var client = _httpClientFactory.CreateClient();
 
-            string apiSuaSanPham = "http://localhost:5003/api/Product/Edit";
+            string apiSuaSanPham = $"http://localhost:5003/api/Product/{sp.Id}";
 
             var response = await client.PutAsJsonAsync(apiSuaSanPham, sp);
 
@@ -153,12 +150,11 @@ namespace QLBH.Web.Controllers
             return View(sp);
         }
 
-
         public async Task<IActionResult> Delete(int id)
         {
             var client = _httpClientFactory.CreateClient();
 
-            string apiXoaSanPham = $"http://localhost:5003/api/Product/Delete?id={id}";
+            string apiXoaSanPham = $"http://localhost:5003/api/Product/{id}";
 
             var response = await client.DeleteAsync(apiXoaSanPham);
 
@@ -179,6 +175,5 @@ namespace QLBH.Web.Controllers
             }
             return RedirectToAction("List");
         }
-
     }
 }
