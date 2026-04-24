@@ -20,52 +20,102 @@
         <p class="text-muted">Lựa chọn những sản phẩm chất lượng nhất từ cửa hàng của chúng tôi</p>
     </div>
 
-    <div id="productContainer" class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
-        @if (Model != null && Model.Rows.Count > 0)
-        {
-            foreach (DataRow row in Model.Rows)
-            {
-                <div class="col">
-                    <div class="card h-100 shadow-sm border-0">
-                        <img src="https://placehold.co/300x200?text=SP" class="card-img-top" alt="@row["ProductName"]">
+    <div class="row mt-4">
 
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title fw-bold">@row["ProductName"]</h5>
-                            <div class="mb-2">
-                                <span class="badge bg-info text-dark">@row["CategoryName"]</span>
-                                <small class="text-muted ms-1">Hãng: @row["CompanyName"]</small>
-                            </div>
-                            <p class="card-text text-muted small">Khối lượng: @row["QuantityPerUnit"]</p>
-
-                            <h5 class="card-text text-danger fw-bold mt-auto mb-3">
-                                @string.Format("{0:N0} đ", row["UnitPrice"])
-                            </h5>
-
-                            <form action="/Order/AddToCart" method="post">
-                                <input type="hidden" name="productId" value="@row[0]" />
-                                <input type="hidden" name="productName" value="@row[1]" />
-                                <input type="hidden" name="unitPrice" value="@row[2]" />
-
-                                <div class="d-flex align-items-center mt-3">
-                                    <div class="input-group input-group-sm me-2" style="width: 100px;">
-                                        <span class="input-group-text">SL</span>
-                                        <input type="number" name="quantity" value="1" min="1" class="form-control" />
-                                    </div>
-                                    <button type="submit" class="btn btn-primary btn-sm flex-grow-1 shadow-sm">
-                                        <i class="bi bi-cart-plus"></i> Mua ngay
-                                    </button>
-                                </div>
-                            </form>
+        <div class="col-md-3 col-xl-2 mb-4">
+            <div class="card shadow-sm border-0 bg-light h-100">
+                <div class="card-body">
+                    <form action="/Home/Index" method="get" class="row g-3">
+                        <div class="col-12 mb-3">
+                            <label class="form-label fw-bold">Danh mục</label>
+                            <select name="categoryId" class="form-select">
+                                @if (ViewBag.Categories != null)
+                                {
+                                    foreach (var cat in ViewBag.Categories)
+                                    {
+                                        var isSelected = (Context.Request.Query["categoryId"] == cat.Id.ToString()) ? "selected" : "";
+                                        <option value="@cat.Id" class="@isSelected">@cat.Name</option>
+                                    }
+                                }
+                            </select>
                         </div>
-                    </div>
+
+                        <div class="col-12 mb-3">
+                            <label class="form-label fw-bold">Nhà cung cấp</label>
+                            <select name="supplierId" class="form-select">
+                                @if (ViewBag.Suppliers != null)
+                                {
+                                    foreach (var sup in ViewBag.Suppliers)
+                                    {
+                                        var isSelected = (Context.Request.Query["supplierId"] == sup.Id.ToString()) ? "selected" : "";
+                                        <option value="@sup.Id" class="@isSelected">@sup.Name</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="bi bi-funnel"></i> Lọc sản phẩm
+                                </button>
+                                <a href="/Home/Index" class="btn btn-outline-secondary">Xóa lọc</a>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-            }
-        }
-        else
-        {
-            <div class="col-12 text-center py-5">
-                <h4 class="text-muted">Hiện tại cửa hàng chưa có sản phẩm nào.</h4>
             </div>
-        }
+        </div>
+
+        <div class="col-md-9 col-xl-10">
+            <div id="productContainer" class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 g-4">
+                @if (Model != null && Model.Rows.Count > 0)
+                {
+                    foreach (DataRow row in Model.Rows)
+                    {
+                        <div class="col">
+                            <div class="card h-100 shadow-sm border-0">
+                                <img src="https://placehold.co/300x200?text=SP" class="card-img-top" alt="@row["ProductName"]">
+
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title fw-bold">@row["ProductName"]</h5>
+                                    <div class="mb-2">
+                                        <span class="badge bg-info text-dark">@row["CategoryName"]</span>
+                                        <small class="text-muted ms-1">Hãng: @row["CompanyName"]</small>
+                                    </div>
+                                    <p class="card-text text-muted small">Khối lượng: @row["QuantityPerUnit"]</p>
+
+                                    <h5 class="card-text text-danger fw-bold mt-auto mb-3">
+                                        @string.Format("{0:N0} đ", row["UnitPrice"])
+                                    </h5>
+
+                                    <form action="/Order/AddToCart" method="post">
+                                        <input type="hidden" name="productId" value="@row[0]" />
+                                        <input type="hidden" name="productName" value="@row[1]" />
+                                        <input type="hidden" name="unitPrice" value="@row[2]" />
+
+                                        <div class="d-flex align-items-center mt-3">
+                                            <div class="input-group input-group-sm me-2" style="width: 100px;">
+                                                <span class="input-group-text">SL</span>
+                                                <input type="number" name="quantity" value="1" min="1" class="form-control" />
+                                            </div>
+                                            <button type="submit" class="btn btn-primary btn-sm flex-grow-1 shadow-sm">
+                                                <i class="bi bi-cart-plus"></i> Mua ngay
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="col-12 text-center py-5">
+                        <h4 class="text-muted">Hiện tại không có sản phẩm nào phù hợp với bộ lọc.</h4>
+                    </div>
+                }
+            </div>
+        </div>
     </div>
-</div>
+</div> 
