@@ -18,7 +18,7 @@ namespace QLBH.API.Controllers
             _context = context;
         }
 
-        [HttpGet("GetCategories")]
+        [HttpGet("categories")]
         public IActionResult GetCategories()
         {
             try
@@ -26,7 +26,7 @@ namespace QLBH.API.Controllers
                 var data = _context.Categories.Select(c => new CategoryDTO { Id = c.CategoryId, Name = c.CategoryName }).ToList();
                 return Ok(data);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return StatusCode(500, new
                 {
@@ -40,7 +40,7 @@ namespace QLBH.API.Controllers
             }
         }
 
-        [HttpGet("GetSuppliers")]
+        [HttpGet("suppliers")]
         public IActionResult GetSuppliers()
         {
             try
@@ -48,7 +48,7 @@ namespace QLBH.API.Controllers
                 var data = _context.Suppliers.Select(s => new SupplierDTO { Id = s.SupplierId, Name = s.CompanyName }).ToList();
                 return Ok(data);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return StatusCode(500, new
                 {
@@ -62,14 +62,14 @@ namespace QLBH.API.Controllers
             }
         }
 
-        [HttpPost("Create")]
+        [HttpPost]
         public IActionResult Create([FromBody] ProductDTO sp)
         {
             try
             {
                 if (bllSanPham.themSanPham(sp))
                 {
-                    return Ok(new { success = true, message = "Thêm sản phẩm thành công!" });
+                    return StatusCode(201, new { success = true, message = "Thêm sản phẩm thành công!" });
                 }
                 else
                 {
@@ -99,14 +99,14 @@ namespace QLBH.API.Controllers
             }
 
         }
-        [HttpGet("List")]
+        [HttpGet]
         public IActionResult List()
         {
             try
             {
                 return Ok(bllSanPham.getSanPham());
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return StatusCode(500, new
                 {
@@ -119,7 +119,7 @@ namespace QLBH.API.Controllers
                 });
             }
         }
-        [HttpGet("GetByID")]
+        [HttpGet("{id:int}")]
 
         public IActionResult GetById(int id)
         {
@@ -157,7 +157,7 @@ namespace QLBH.API.Controllers
                 });
             }
         }
-        [HttpPut("Edit")]
+        [HttpPut("{id:int}")]
         public IActionResult Edit([FromBody] ProductDTO sp)
         {
             try
@@ -193,7 +193,7 @@ namespace QLBH.API.Controllers
             }
         }
 
-        [HttpDelete("Delete")]
+        [HttpDelete("{id:int}")]
         public IActionResult Delete(int id)
         {
             try
@@ -229,7 +229,7 @@ namespace QLBH.API.Controllers
             }
         }
 
-        [HttpGet("Search")]
+        [HttpGet("search/{tukhoa}")]
         public IActionResult Search(string tukhoa)
         {
             try
