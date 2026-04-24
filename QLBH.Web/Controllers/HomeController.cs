@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using QLBH.DTO;
 using System.Data;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace QLBH.Web.Controllers
 {
@@ -45,20 +46,24 @@ namespace QLBH.Web.Controllers
 
                 if (dtProducts != null && dtProducts.Rows.Count > 0)
                 {
+                    IEnumerable<DataRow> query = dtProducts.AsEnumerable();
+
                     if (CategoryID.HasValue)
                     {
-                        var rowsToKeep = dtProducts.AsEnumerable().Where(r => Convert.ToInt32(r["CategoryID"]) == CategoryID.Value);
-                        dtProducts = rowsToKeep.Any() ? rowsToKeep.CopyToDataTable() : dtProducts.Clone();
+                        query = query.Where(r => Convert.ToInt32(r["CategoryID"]) == CategoryID.Value);
                     }
 
-                    if (SupplierID.HasValue && dtProducts.Rows.Count > 0)
+                    if (SupplierID.HasValue)
                     {
-                        var rowsToKeep = dtProducts.AsEnumerable().Where(r => Convert.ToInt32(r["SupplierID"]) == SupplierID.Value);
-                        dtProducts = rowsToKeep.Any() ? rowsToKeep.CopyToDataTable() : dtProducts.Clone();
+                        query = query.Where(r => Convert.ToInt32(r["SupplierID"]) == SupplierID.Value);
                     }
+
+                    dtProducts = query.Any() ? query.CopyToDataTable() : dtProducts.Clone();
+                    //Kiểm tra có dữ liệu không? Nếu có thì tạo ra một DataTable mới và copy toàn bộ các dòng dữ liệu đã lọc được bỏ vào bảng đó.
+                    //Không có dữ liệu thì copy cấu trúc bảng gốc nhưng không có dữ liệu
                 }
 
-                    return View(dtProducts);
+                return View(dtProducts);
             }
             return View(new DataTable());
         }
