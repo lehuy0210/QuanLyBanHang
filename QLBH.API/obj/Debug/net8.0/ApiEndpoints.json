@@ -272,7 +272,7 @@
   {
     "ContainingType": "QLBH.API.Controllers.ProductController",
     "Method": "Create",
-    "RelativePath": "api/Product/Create",
+    "RelativePath": "api/Product",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -287,16 +287,26 @@
   },
   {
     "ContainingType": "QLBH.API.Controllers.ProductController",
-    "Method": "Delete",
-    "RelativePath": "api/Product/Delete",
-    "HttpMethod": "DELETE",
+    "Method": "List",
+    "RelativePath": "api/Product",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QLBH.API.Controllers.ProductController",
+    "Method": "GetById",
+    "RelativePath": "api/Product/{id}",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -304,7 +314,7 @@
   {
     "ContainingType": "QLBH.API.Controllers.ProductController",
     "Method": "Edit",
-    "RelativePath": "api/Product/Edit",
+    "RelativePath": "api/Product/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -313,22 +323,27 @@
         "Name": "sp",
         "Type": "QLBH.DTO.ProductDTO",
         "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
     "ContainingType": "QLBH.API.Controllers.ProductController",
-    "Method": "GetById",
-    "RelativePath": "api/Product/GetByID",
-    "HttpMethod": "GET",
+    "Method": "Delete",
+    "RelativePath": "api/Product/{id}",
+    "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -336,27 +351,7 @@
   {
     "ContainingType": "QLBH.API.Controllers.ProductController",
     "Method": "GetCategories",
-    "RelativePath": "api/Product/GetCategories",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "QLBH.API.Controllers.ProductController",
-    "Method": "GetSuppliers",
-    "RelativePath": "api/Product/GetSuppliers",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "QLBH.API.Controllers.ProductController",
-    "Method": "List",
-    "RelativePath": "api/Product/List",
+    "RelativePath": "api/Product/categories",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -366,7 +361,7 @@
   {
     "ContainingType": "QLBH.API.Controllers.ProductController",
     "Method": "Search",
-    "RelativePath": "api/Product/Search",
+    "RelativePath": "api/Product/search/{tukhoa}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -374,9 +369,19 @@
       {
         "Name": "tukhoa",
         "Type": "System.String",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QLBH.API.Controllers.ProductController",
+    "Method": "GetSuppliers",
+    "RelativePath": "api/Product/suppliers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   }
 ]

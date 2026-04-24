@@ -478,7 +478,7 @@
         }
       }
     },
-    "/api/Product/GetCategories": {
+    "/api/Product/categories": {
       "get": {
         "tags": [
           "Product"
@@ -490,7 +490,7 @@
         }
       }
     },
-    "/api/Product/GetSuppliers": {
+    "/api/Product/suppliers": {
       "get": {
         "tags": [
           "Product"
@@ -502,7 +502,7 @@
         }
       }
     },
-    "/api/Product/Create": {
+    "/api/Product": {
       "post": {
         "tags": [
           "Product"
@@ -536,9 +536,7 @@
             "description": "OK"
           }
         }
-      }
-    },
-    "/api/Product/List": {
+      },
       "get": {
         "tags": [
           "Product"
@@ -550,7 +548,7 @@
         }
       }
     },
-    "/api/Product/GetByID": {
+    "/api/Product/{id}": {
       "get": {
         "tags": [
           "Product"
@@ -558,7 +556,8 @@
         "parameters": [
           {
             "name": "id",
-            "in": "query",
+            "in": "path",
+            "required": true,
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -570,12 +569,20 @@
             "description": "OK"
           }
         }
-      }
-    },
-    "/api/Product/Edit": {
+      },
       "put": {
         "tags": [
           "Product"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
         ],
         "requestBody": {
           "content": {
@@ -606,9 +613,7 @@
             "description": "OK"
           }
         }
-      }
-    },
-    "/api/Product/Delete": {
+      },
       "delete": {
         "tags": [
           "Product"
@@ -616,7 +621,8 @@
         "parameters": [
           {
             "name": "id",
-            "in": "query",
+            "in": "path",
+            "required": true,
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -630,7 +636,7 @@
         }
       }
     },
-    "/api/Product/Search": {
+    "/api/Product/search/{tukhoa}": {
       "get": {
         "tags": [
           "Product"
@@ -638,7 +644,8 @@
         "parameters": [
           {
             "name": "tukhoa",
-            "in": "query",
+            "in": "path",
+            "required": true,
             "schema": {
               "type": "string"
             }
