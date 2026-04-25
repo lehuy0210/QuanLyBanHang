@@ -180,5 +180,44 @@ namespace QLBH.Web.Controllers
             return View(model);
 
         }
+
+        [Authorize(Roles = "User")]
+        [HttpGet]
+        public async Task<IActionResult> Information(string id)
+        {
+            var client = _httpClientFactory.CreateClient();
+
+            string apiLayKhachHang = $"http://localhost:5003/api/Customer/{id}";
+            var response = await client.GetAsync(apiLayKhachHang);
+            var model = new CustomerDTO();
+
+            if (response.IsSuccessStatusCode)
+            {
+                var jsonString = await response.Content.ReadAsStringAsync();
+
+                var options = new System.Text.Json.JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                };
+
+                model = System.Text.Json.JsonSerializer.Deserialize<CustomerDTO>(jsonString, options);
+                return View(model);
+            
+            }       
+            else
+            {
+                var errorJson = await response.Content.ReadAsStringAsync();
+                try
+                {
+                    using var doc = System.Text.Json.JsonDocument.Parse(errorJson);
+                    TempData["Error"] = doc.RootElement.GetProperty("error").GetProperty("userMessage").GetString();
+                }
+                catch
+                {
+                    TempData["Error"] = "Không thể tải thông tin chi tiết khách hàng.";
+                }
+            }
+            return RedirectToAction("Index");
+        }
     }
 }
