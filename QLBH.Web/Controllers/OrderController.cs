@@ -262,6 +262,41 @@ namespace QLBH.Web.Controllers
             }
             return View(orderDetails);
         }
+        [HttpPost]
+        public IActionResult RemoveFromCart(int id)
+        {
+            try
+            {
+                // 1. Lấy chuỗi JSON giỏ hàng từ Session
+                var sessionCart = HttpContext.Session.GetString("CartSession");
+                if (string.IsNullOrEmpty(sessionCart))
+                {
+                    return Json(new { success = false, message = "Giỏ hàng trống" });
+                }
 
+                // 2. Ép kiểu về List
+                var cart = System.Text.Json.JsonSerializer.Deserialize<List<OrderDTO>>(sessionCart);
+
+                // 3. Tìm sản phẩm có ID truyền vào (Ở đây là số 1)
+                var itemToRemove = cart.FirstOrDefault(x => x.ProductId == id);
+
+                if (itemToRemove != null)
+                {
+                    // 4. Xóa khỏi List
+                    cart.Remove(itemToRemove);
+
+                    // 5. Lưu ngược List mới lại vào Session
+                    HttpContext.Session.SetString("CartSession", System.Text.Json.JsonSerializer.Serialize(cart));
+
+                    return Json(new { success = true, message = "Đã xóa!" });
+                }
+
+                return Json(new { success = false, message = "Không tìm thấy sản phẩm" });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = ex.Message });
+            }
+        }
     }
 }
