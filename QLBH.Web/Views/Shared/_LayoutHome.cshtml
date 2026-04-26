@@ -128,7 +128,14 @@
                                                             <span class="fw-bold d-block" style="font-size: 0.9rem;">@item.ProductName</span>
                                                             <small class="text-muted">SL: @item.Quantity x @item.UnitPrice.ToString("N0")đ</small>
                                                         </div>
-                                                        <span class="text-danger fw-bold ms-2">@((item.Quantity * item.UnitPrice).ToString("N0"))đ</span>
+
+                                                        <div class="d-flex align-items-center ms-2">
+                                                            <span class="text-danger fw-bold pe-2 border-end">@((item.Quantity * item.UnitPrice).ToString("N0"))đ</span>
+
+                                                            <button type="button" class="btn btn-sm btn-link text-danger text-decoration-none px-2 remove-cart-item" data-id="@item.ProductId" title="Xóa khỏi giỏ">
+                                                                <i class="bi bi-trash3-fill"></i>
+                                                            </button>
+                                                        </div>
                                                     </div>
                                                 }
                                             </div>
@@ -157,7 +164,7 @@
 
                                 <ul class="dropdown-menu dropdown-menu-end shadow border-0 mt-2" aria-labelledby="userDropdown">
                                     <li>
-                                        <a class="dropdown-item py-2" href="/Customer/Information/@idKhachHang">
+                                        <a class="dropdown-item py-2" href="/Customer/Information">
                                             <i class="bi bi-person-badge me-2 text-primary"></i>Thông tin cá nhân
                                         </a>
                                     </li>
@@ -229,16 +236,16 @@
         $(document).ready(function () {
             let timeout = null;
 
-            // --- PHẦN 1: XỬ LÝ LIVE SEARCH (TEXT CHANGED) ---
             $('#searchInput').on('input', function () {
                 clearTimeout(timeout);
                 let keyword = $(this).val().trim();
 
                 // Nếu ô nhập trống thì gọi API lấy toàn bộ danh sách
                 let url = (keyword === "")
-                          ? 'http://localhost:5003/api/Product/List'
-                          : 'http://localhost:5003/api/Product/Search';
-                let data = (keyword === "") ? {} : { tukhoa: keyword };
+                          ? 'http://localhost:5003/api/Product/'
+                          : 'http://localhost:5003/api/Product/search/' + encodeURIComponent(keyword);
+
+                let data = {};
 
                 timeout = setTimeout(function () {
                     $.ajax({
@@ -246,13 +253,12 @@
                         type: 'GET',
                         data: data,
                         success: function (res) {
-                            renderProducts(res); // Gọi hàm vẽ lại giao diện
+                            renderProducts(res);
                         }
                     });
                 }, 400);
             });
 
-            // --- PHẦN 2: HÀM VẼ GIAO DIỆN SẢN PHẨM ---
             function renderProducts(res) {
                 let html = '';
                 if (res && res.length > 0) {
@@ -295,31 +301,54 @@
                 $('#productContainer').html(html);
             }
 
-            // --- PHẦN 3: XỬ LÝ THÊM VÀO GIỎ HÀNG (KHÔNG LOAD LẠI TRANG) ---
-            // Dùng $(document).on vì các Form được tạo ra động bằng JS
             $(document).on('submit', '.add-to-cart-form', function (e) {
-                e.preventDefault(); // CHẶN LỆNH LOAD LẠI TRANG
+                e.preventDefault(); 
 
                 let form = $(this);
                 $.ajax({
-                    url: '/Order/AddToCart', // Đường dẫn Controller MVC của bạn
+                    url: '/Order/AddToCart',
                     type: 'POST',
                     success: function (res) {
-                    // Hiện thông báo từ JSON Server trả về
-                    alert(res.message);
+                        alert(res.message);
 
-                    if (res.success) {
-                        // Nếu thành công thì nạp lại trang để cập nhật số lượng trên menu
-                        location.reload();
+                        if (res.success) {
+                            location.reload();
+                        }
+                    },
+                    error: function () {
+                        alert("Lỗi kết nối server!");
                     }
-                },
-                error: function () {
-                    alert("Lỗi kết nối server!");
+                });
+            }); 
+
+            $(document).on('click', '.remove-cart-item', function (e) {
+                e.preventDefault();
+                e.stopPropagation(); 
+
+                if (!confirm("Bạn có chắc muốn xóa sản phẩm này khỏi giỏ hàng?")) {
+                    return;
                 }
+
+                let productId = $(this).data('id');
+
+                $.ajax({
+                    url: '/Order/RemoveFromCart',
+                    type: 'POST',
+                    data: { id: productId },
+                    success: function (res) {
+                        if (res.success) {
+                            location.reload();
+                        } else {
+                            alert(res.message);
+                        }
+                    },
+                    error: function () {
+                        alert("Lỗi kết nối đến server khi xóa sản phẩm!");
+                    }
                 });
             });
+
         });
     </script>
-
 </body>
 </html>
