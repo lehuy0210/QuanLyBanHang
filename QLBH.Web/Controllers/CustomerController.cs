@@ -161,7 +161,7 @@ namespace QLBH.Web.Controllers
 
             var client = _httpClientFactory.CreateClient();
 
-            string apiDonHangTheoKH = $"http://localhost:5003/api/Order/Customer/{currentUserId}";
+            string apiDonHangTheoKH = $"http://localhost:5003/api/OrderDetail/{currentUserId}";
 
             var response = await client.GetAsync(apiDonHangTheoKH);
 
@@ -183,11 +183,14 @@ namespace QLBH.Web.Controllers
 
         [Authorize(Roles = "User")]
         [HttpGet]
-        public async Task<IActionResult> Information(string id)
+        public async Task<IActionResult> Information()
         {
+
+            string currentUserId = User.FindFirst("UserId")?.Value;
+
             var client = _httpClientFactory.CreateClient();
 
-            string apiLayKhachHang = $"http://localhost:5003/api/Customer/{id}";
+            string apiLayKhachHang = $"http://localhost:5003/api/Customer/{currentUserId}";
             var response = await client.GetAsync(apiLayKhachHang);
             var model = new CustomerDTO();
 
