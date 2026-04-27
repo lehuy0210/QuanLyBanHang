@@ -265,10 +265,10 @@ namespace QLBH.Web.Controllers
             if (resOld.IsSuccessStatusCode)
             {
                 var oldData = await resOld.Content.ReadFromJsonAsync<CustomerDTO>();
-                // 2. Gán lại các giá trị nhạy cảm không sửa ở Form này
+
                 kh.Username = oldData.Username;
                 kh.Password = oldData.Password;
-                kh.Id = id; // Chắc chắn Id đúng
+                kh.Id = id; 
             }
 
             string apiSuaKhachHang = $"http://localhost:5003/api/Customer/{id}";
