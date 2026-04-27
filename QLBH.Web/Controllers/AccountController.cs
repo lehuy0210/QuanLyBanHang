@@ -141,7 +141,7 @@ namespace QLBH.Web.Controllers
                         var claims = new List<Claim>
                         {
                             new Claim(ClaimTypes.Name, tenNguoiDung),
-                            new Claim("UserId", maNguoiDung),
+                            new Claim(ClaimTypes.NameIdentifier, maNguoiDung),
                             new Claim(ClaimTypes.Role, role) // Gắn "Admin" hoặc "User"
                         };
 
