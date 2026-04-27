@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using QLBH.DTO;
 using System.Data;
 using System.Net.Http.Json;
+using System.Security.Claims;
 using static System.Net.WebRequestMethods;
 
 namespace QLBH.Web.Controllers
@@ -186,24 +187,18 @@ namespace QLBH.Web.Controllers
         public async Task<IActionResult> Information()
         {
 
-            string currentUserId = User.FindFirst("UserId")?.Value;
+            string currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             var client = _httpClientFactory.CreateClient();
 
             string apiLayKhachHang = $"http://localhost:5003/api/Customer/{currentUserId}";
             var response = await client.GetAsync(apiLayKhachHang);
-            var model = new CustomerDTO();
 
             if (response.IsSuccessStatusCode)
             {
                 var jsonString = await response.Content.ReadAsStringAsync();
 
-                var options = new System.Text.Json.JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true
-                };
-
-                model = System.Text.Json.JsonSerializer.Deserialize<CustomerDTO>(jsonString, options);
+                var model = JsonConvert.DeserializeObject<CustomerDTO>(jsonString);
                 return View(model);
             
             }       
@@ -221,6 +216,77 @@ namespace QLBH.Web.Controllers
                 }
             }
             return RedirectToAction("Index");
+        }
+
+        [Authorize(Roles = "User")]
+        [HttpGet("User/Edit")]
+        public async Task<IActionResult> EditCustomer()
+        {
+            var id = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            var client = _httpClientFactory.CreateClient();
+
+            string apiLayKHTheoId = $"http://localhost:5003/api/Customer/{id}";
+            var response = await client.GetAsync(apiLayKHTheoId);
+
+            var model = new CustomerDTO();
+            if (response.IsSuccessStatusCode)
+            {
+                var jsonString = await response.Content.ReadAsStringAsync();
+                model = JsonConvert.DeserializeObject<CustomerDTO>(jsonString);
+
+            }
+            else
+            {
+                var errorJson = await response.Content.ReadAsStringAsync();
+                try
+                {
+                    using var doc = System.Text.Json.JsonDocument.Parse(errorJson);
+                    TempData["Error"] = doc.RootElement.GetProperty("error").GetProperty("userMessage").GetString();
+                }
+                catch { TempData["Error"] = "Cập nhật thất bại. Chi tiết: " + errorJson; }
+            }
+
+            return View(model);
+        }
+
+
+        [Authorize(Roles = "User")]
+        [HttpPost("User/Edit")]
+        public async Task<IActionResult> EditCustomer(CustomerDTO kh)
+        {
+
+            var id = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            var client = _httpClientFactory.CreateClient();
+
+            string apiGet = $"http://localhost:5003/api/Customer/{id}";
+            var resOld = await client.GetAsync(apiGet);
+            if (resOld.IsSuccessStatusCode)
+            {
+                var oldData = await resOld.Content.ReadFromJsonAsync<CustomerDTO>();
+                // 2. Gán lại các giá trị nhạy cảm không sửa ở Form này
+                kh.Username = oldData.Username;
+                kh.Password = oldData.Password;
+                kh.Id = id; // Chắc chắn Id đúng
+            }
+
+            string apiSuaKhachHang = $"http://localhost:5003/api/Customer/{id}";
+
+            var response = await client.PutAsJsonAsync(apiSuaKhachHang, kh);
+
+            if (response.IsSuccessStatusCode)
+            {
+                TempData["Success"] = "Cập nhật thông tin thành công.";
+                return RedirectToAction("Information");
+            }
+            else
+            {
+                var errorDetail = await response.Content.ReadAsStringAsync();
+                TempData["Error"] = "Cập nhật thất bại. Chi tiết: " + errorDetail;
+            }
+
+            return View(kh);
         }
     }
 }
