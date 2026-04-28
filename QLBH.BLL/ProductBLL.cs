@@ -29,11 +29,6 @@ namespace QLBH.BLL
                 throw new Exception("Tên sản phẩm không được để trống");
             }
 
-            if(sp.UnitsInStock == null)
-            {
-                throw new Exception("Số lượng trong kho không được để trống");
-            }
-
             if (sp.UnitsInStock < 0)
             {
                 throw new Exception("Số lượng trong kho không được âm");
@@ -52,11 +47,6 @@ namespace QLBH.BLL
             if (sp.Name == null)
             {
                 throw new Exception("Tên sản phẩm không được để trống");
-            }
-
-            if (sp.UnitsInStock == null)
-            {
-                throw new Exception("Số lượng trong kho không được để trống");
             }
 
             if(sp.UnitsInStock < 0)
