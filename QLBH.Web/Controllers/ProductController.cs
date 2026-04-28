@@ -18,16 +18,19 @@ namespace QLBH.Web.Controllers
 
         private async Task LoadDropdownData(ProductDTO model)
         {
+            model.Categories = new List<CategoryDTO>();
+            model.Suppliers = new List<SupplierDTO>();
+
             var client = _httpClientFactory.CreateClient();
 
-            var resCat = await client.GetAsync("http://localhost:5003/api/Product/GetCategories");
+            var resCat = await client.GetAsync("http://localhost:5003/api/Product/categories");
             if (resCat.IsSuccessStatusCode)
             {
                 var jsonCat = await resCat.Content.ReadAsStringAsync();
                 model.Categories = JsonConvert.DeserializeObject<List<CategoryDTO>>(jsonCat);
             }
 
-            var resSup = await client.GetAsync("http://localhost:5003/api/Product/GetSuppliers");
+            var resSup = await client.GetAsync("http://localhost:5003/api/Product/suppliers");
             if (resSup.IsSuccessStatusCode)
             {
                 var jsonSup = await resSup.Content.ReadAsStringAsync();
