@@ -4,6 +4,9 @@
 @{
     Layout = "_LayoutHome";
     ViewData["Title"] = "Trang chủ";
+
+    string selectedCatId = Context.Request.HasFormContentType ? Context.Request.Form["categoryId"].ToString() : "";
+    string selectedSupId = Context.Request.HasFormContentType ? Context.Request.Form["supplierId"].ToString() : "";
 }
 
 <div class="container mt-4">
@@ -25,15 +28,16 @@
         <div class="col-md-3 col-xl-2 mb-4">
             <div class="card shadow-sm border-0 bg-light h-100">
                 <div class="card-body">
-                    <form action="/Home/Index" method="get" class="row g-3">
+                    <form action="/Home/Index" method="post" class="row g-3">
                         <div class="col-12 mb-3">
                             <label class="form-label fw-bold">Danh mục</label>
                             <select name="categoryId" class="form-select">
+                                <option value="">-- Tất cả --</option>
                                 @if (ViewBag.Categories != null)
                                 {
                                     foreach (var cat in ViewBag.Categories)
                                     {
-                                        var isSelected = (Context.Request.Query["categoryId"] == cat.Id.ToString()) ? "selected" : "";
+                                        var isSelected = (selectedCatId == cat.Id.ToString()) ? "selected" : "";
                                         <option value="@cat.Id" class="@isSelected">@cat.Name</option>
                                     }
                                 }
@@ -43,11 +47,12 @@
                         <div class="col-12 mb-3">
                             <label class="form-label fw-bold">Nhà cung cấp</label>
                             <select name="supplierId" class="form-select">
+                                <option value="">-- Tất cả --</option>
                                 @if (ViewBag.Suppliers != null)
                                 {
                                     foreach (var sup in ViewBag.Suppliers)
                                     {
-                                        var isSelected = (Context.Request.Query["supplierId"] == sup.Id.ToString()) ? "selected" : "";
+                                        var isSelected = (selectedSupId == sup.Id.ToString()) ? "selected" : "";
                                         <option value="@sup.Id" class="@isSelected">@sup.Name</option>
                                     }
                                 }
@@ -118,4 +123,4 @@
             </div>
         </div>
     </div>
-</div> 
+</div>
