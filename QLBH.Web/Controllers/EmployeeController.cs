@@ -53,7 +53,7 @@ namespace QLBH.Web.Controllers
             if (response.IsSuccessStatusCode)
             {
                 TempData["Success"] = "Thêm nhân viên thành công.";
-                return RedirectToAction("Create");
+                return RedirectToAction("List");
             }
             else
             {
