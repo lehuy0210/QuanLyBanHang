@@ -8,10 +8,10 @@
                     <h3 class="mb-0">ĐĂNG KÝ THÀNH VIÊN</h3>
                 </div>
                 <div class="card-body p-4">
-                    @if (ViewBag.ThongBaoLoi != null)
+                    @if (TempData["Error"] != null)
                     {
                         <div class="alert alert-danger text-center py-2 mb-4">
-                            @ViewBag.ThongBaoLoi
+                            @TempData["Error"]
                         </div>
                     }
 
