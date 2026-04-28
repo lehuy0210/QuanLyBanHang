@@ -6,13 +6,13 @@
     ViewBag.Title = "Danh sách sản phẩm chi tiết";
 }
 
-@if (TempData["Success"] != null)
+@* @if (TempData["Success"] != null)
 {
     <div class="alert alert-success alert-dismissible fade show" role="alert">
         <strong>Thành công!</strong> @TempData["Success"]
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-}
+} *@
 
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h2>Danh sách sản phẩm</h2>
@@ -49,9 +49,7 @@
                     <td>@row["QuantityPerUnit"]</td>
                     <td>@row["UnitsInStock"]</td>
                     <td class="text-center">
-                        <a href="/Product/Edit/@row["ProductID"]" class="btn btn-warning btn-sm">
-                            Sửa
-                        </a>
+                   <a asp-action="Edit" asp-controller="Product" asp-route-id="@row["ProductID"]" class="btn btn-warning btn-sm">Sửa</a>
                         <a href="/Product/Delete/@row["ProductID"]"
                            class="btn btn-danger btn-sm"
                            onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm @row["ProductName"] không?');">
