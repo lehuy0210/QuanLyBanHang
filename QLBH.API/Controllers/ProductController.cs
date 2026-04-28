@@ -32,8 +32,8 @@ namespace QLBH.API.Controllers
                 {
                     error = new
                     {
-                        userMessage = "Hệ thống gặp sự cố khi lấy danh mục sản phẩm",
-                        internalMessage = ex.Message,
+                        userMessage = ex.Message,
+                        internalMessage = ex.InnerException?.Message,
                         code = 50
                     }
                 });
@@ -54,8 +54,8 @@ namespace QLBH.API.Controllers
                 {
                     error = new
                     {
-                        userMessage = "Hệ thống gặp sự cố khi lấy danh sách nhà cung cấp",
-                        internalMessage = ex.Message,
+                        userMessage = ex.Message,
+                        internalMessage = ex.InnerException?.Message,
                         code = 50
                     }
                 });
@@ -87,12 +87,12 @@ namespace QLBH.API.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new
+                return StatusCode(500, new // Đã đổi thành 500 (hoặc bạn có thể để 400 tùy logic)
                 {
                     error = new
                     {
-                        userMessage = "Hệ thống gặp sự cố, vui lòng thử lại sau",
-                        internalMessage = ex.Message,
+                        userMessage = ex.Message,
+                        internalMessage = ex.InnerException?.Message,
                         code = 50
                     }
                 });
@@ -112,8 +112,8 @@ namespace QLBH.API.Controllers
                 {
                     error = new
                     {
-                        userMessage = "Hệ thống gặp sự cố khi lấy danh sách sản phẩm",
-                        internalMessage = ex.Message,
+                        userMessage = ex.Message,
+                        internalMessage = ex.InnerException?.Message,
                         code = 50
                     }
                 });
@@ -150,8 +150,8 @@ namespace QLBH.API.Controllers
                 {
                     error = new
                     {
-                        userMessage = "Hệ thống gặp sự cố, vui lòng thử lại sau",
-                        internalMessage = ex.Message,
+                        userMessage = ex.Message,
+                        internalMessage = ex.InnerException?.Message,
                         code = 50
                     }
                 });
@@ -172,7 +172,7 @@ namespace QLBH.API.Controllers
                     {
                         error = new
                         {
-                            userMessage = "Không thể cập nhật thông tin sản phẩm",
+                            userMessage = "Không thể cập nhật thôngত্তি sản phẩm",
                             internalMessage = "Không cập nhật được sản phẩm trong database",
                             code = 40
                         }
@@ -185,8 +185,8 @@ namespace QLBH.API.Controllers
                 {
                     error = new
                     {
-                        userMessage = "Hệ thống gặp sự cố, vui lòng thử lại sau",
-                        internalMessage = ex.Message,
+                        userMessage = ex.Message,
+                        internalMessage = ex.InnerException?.Message,
                         code = 50
                     }
                 });
@@ -221,8 +221,8 @@ namespace QLBH.API.Controllers
                 {
                     error = new
                     {
-                        userMessage = "Hệ thống gặp sự cố, vui lòng thử lại sau",
-                        internalMessage = ex.Message,
+                        userMessage = ex.Message,
+                        internalMessage = ex.InnerException?.Message,
                         code = 50
                     }
                 });
@@ -245,14 +245,14 @@ namespace QLBH.API.Controllers
                     return Ok(new List<object>());
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return StatusCode(500, new
                 {
                     error = new
                     {
-                        userMessage = "Hệ thống gặp sự cố trong quá trình tìm kiếm",
-                        internalMessage = ex.Message,
+                        userMessage = ex.Message,
+                        internalMessage = ex.InnerException?.Message,
                         code = 50
                     }
                 });

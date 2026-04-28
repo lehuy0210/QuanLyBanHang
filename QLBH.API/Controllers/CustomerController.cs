@@ -18,7 +18,6 @@ namespace QLBH.API.Controllers
         }
 
         [HttpPost]
-
         public IActionResult Create([FromBody] CustomerDTO kh)
         {
             try
@@ -35,7 +34,7 @@ namespace QLBH.API.Controllers
                         {
                             userMessage = "Không thể tạo mới dữ liệu khách hàng",
                             internalMessage = "Thất bại khi thêm khách hàng vào database",
-                            code = 40 
+                            code = 40
                         }
                     });
                 }
@@ -48,6 +47,7 @@ namespace QLBH.API.Controllers
                     error = new
                     {
                         userMessage = ex.Message,
+                        internalMessage = ex.InnerException?.Message,
                         code = 40
                     }
                 });
@@ -84,8 +84,8 @@ namespace QLBH.API.Controllers
                 {
                     error = new
                     {
-                        userMessage = "Hệ thống gặp sự cố, vui lòng thử lại sau",
-                        internalMessage = ex.Message,
+                        userMessage = ex.Message,
+                        internalMessage = ex.InnerException?.Message,
                         code = 50
                     }
                 });
@@ -97,9 +97,9 @@ namespace QLBH.API.Controllers
         {
             try
             {
-                if(bllKhachHang.xoaKhachHang(id))
+                if (bllKhachHang.xoaKhachHang(id))
                 {
-                    return Ok(true);    
+                    return Ok(true);
                 }
                 else
                 {
@@ -120,8 +120,8 @@ namespace QLBH.API.Controllers
                 {
                     error = new
                     {
-                        userMessage = "Hệ thống gặp sự cố, vui lòng thử lại sau",
-                        internalMessage = ex.Message,
+                        userMessage = ex.Message,
+                        internalMessage = ex.InnerException?.Message,
                         code = 50
                     }
                 });
@@ -138,7 +138,7 @@ namespace QLBH.API.Controllers
 
             try
             {
-                if(bllKhachHang.suaKhachHang(kh))
+                if (bllKhachHang.suaKhachHang(kh))
                 {
                     return Ok(new { success = true, message = "Cập nhật khách hàng thành công!" });
                 }
@@ -162,8 +162,8 @@ namespace QLBH.API.Controllers
                 {
                     error = new
                     {
-                        userMessage = "Hệ thống gặp sự cố, vui lòng thử lại sau",
-                        internalMessage = ex.Message,
+                        userMessage = ex.Message,
+                        internalMessage = ex.InnerException?.Message,
                         code = 50
                     }
                 });

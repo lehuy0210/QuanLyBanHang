@@ -45,8 +45,8 @@ namespace QLBH.API.Controllers
                 {
                     error = new
                     {
-                        userMessage = "Hệ thống gặp sự cố, vui lòng thử lại sau",
-                        internalMessage = ex.Message,
+                        userMessage = ex.Message,
+                        internalMessage = ex.InnerException?.Message,
                         code = 50
                     }
                 });
@@ -83,8 +83,8 @@ namespace QLBH.API.Controllers
                 {
                     error = new
                     {
-                        userMessage = "Hệ thống gặp sự cố, vui lòng thử lại sau",
-                        internalMessage = ex.Message,
+                        userMessage = ex.Message,
+                        internalMessage = ex.InnerException?.Message,
                         code = 50
                     }
                 });
@@ -119,8 +119,8 @@ namespace QLBH.API.Controllers
                 {
                     error = new
                     {
-                        userMessage = "Hệ thống gặp sự cố, vui lòng thử lại sau",
-                        internalMessage = ex.Message,
+                        userMessage = ex.Message,
+                        internalMessage = ex.InnerException?.Message,
                         code = 50
                     }
                 });
@@ -155,8 +155,8 @@ namespace QLBH.API.Controllers
                 {
                     error = new
                     {
-                        userMessage = "Hệ thống gặp sự cố, vui lòng thử lại sau",
-                        internalMessage = ex.Message,
+                        userMessage = ex.Message,
+                        internalMessage = ex.InnerException?.Message,
                         code = 50
                     }
                 });
