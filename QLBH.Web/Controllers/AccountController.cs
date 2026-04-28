@@ -30,14 +30,12 @@ namespace QLBH.Web.Controllers
         {
             if (request.Password != Matkhaunhaplai)
             {
-                ViewBag.ThongBaoLoi = "Mật khẩu nhập lại không khớp!";
+                TempData["Error"] = "Mật khẩu nhập lại không khớp!";
                 return View(request);
             }
-            //request.Address = request.Address ?? "";
             request.City = request.City ?? "";
             request.Country = request.Country ?? "";
-            try
-            {
+
                 var jsonRequest = JsonSerializer.Serialize(request);
                 /* JsonSerializer Cung cấp chức năng chuyển đổi các đối tượng hoặc kiểu giá trị thành định dạng JSON, 
                 và chuyển đổi ngược JSON lại thành các đối tượng hoặc kiểu giá trị */
@@ -55,32 +53,13 @@ namespace QLBH.Web.Controllers
                 }
                 else
                 {
-                    // 1. Đọc nội dung lỗi từ API (chuỗi JSON)
                     string errorResult = await response.Content.ReadAsStringAsync();
-
-                    // 2. Sử dụng thư viện System.Text.Json để đọc cấu trúc JSON
-                    using var doc = System.Text.Json.JsonDocument.Parse(errorResult);
-                    var root = doc.RootElement;
-
-                    if (root.TryGetProperty("error", out var errorElement))
-                    {
-                        ViewBag.ThongBaoLoi = errorElement.GetProperty("userMessage").GetString();
-                    }
-
-                    else
-                    {
-                        // Phòng hờ nếu API trả về cấu trúc khác
-                        ViewBag.ThongBaoLoi = "Lỗi không xác định: " + errorResult;
-                    }
-
+                    using var doc = JsonDocument.Parse(errorResult);
+                    TempData["Error"] = doc.RootElement.GetProperty("error").GetProperty("userMessage").GetString();
                     return View(request);
+
                 }
-            }
-            catch(Exception ex)
-            {
-                ViewBag.ThongBaoLoi = "Không thể kết nối đến API: " + ex.Message;
-                return View(request);
-            }
+
         }
         [HttpGet]
         public ActionResult Login()
@@ -94,12 +73,10 @@ namespace QLBH.Web.Controllers
         {
             if (string.IsNullOrEmpty(request.Username) || string.IsNullOrEmpty(request.Password))
             {
-                ViewBag.ThongBaoLoi = "Vui lòng nhập đầy đủ tài khoản và mật khẩu.";
+                TempData["Error"] = "Vui lòng nhập đầy đủ tài khoản và mật khẩu.";
                 return View(request);
             }
 
-            try
-            {
                 var jsonRequest = JsonSerializer.Serialize(request);
                 var content = new StringContent(jsonRequest, Encoding.UTF8, "application/json");
 
@@ -168,36 +145,11 @@ namespace QLBH.Web.Controllers
                 else
                 {
                     string errorResult = await response.Content.ReadAsStringAsync();
-
-                    try
-                    {
-                        // 2. Thử phân tích JSON, bọc trong try-catch để chống sập
-                        using var doc = System.Text.Json.JsonDocument.Parse(errorResult);
-                        var root = doc.RootElement;
-
-                        if (root.TryGetProperty("error", out var errorElement))
-                        {
-                            ViewBag.ThongBaoLoi = errorElement.GetProperty("userMessage").GetString();
-                        }
-                        else
-                        {
-                            ViewBag.ThongBaoLoi = "Lỗi không xác định: " + errorResult;
-                        }
-                    }
-                    catch (System.Text.Json.JsonException) // BẮT LỖI Ở ĐÂY NẾU CHỮ 'S' XUẤT HIỆN
-                    {
-                        // Nếu API sập và trả về chữ "Server Error..." thay vì JSON
-                        ViewBag.ThongBaoLoi = "Lỗi từ máy chủ API: " + errorResult;
-                    }
+                    using var doc = JsonDocument.Parse(errorResult);
+                    TempData["Error"] = doc.RootElement.GetProperty("error").GetProperty("userMessage").GetString();
 
                     return View(request);
                 }
-            }
-            catch (Exception ex)
-            {
-                ViewBag.ThongBaoLoi = "Không thể kết nối đến API: " + ex.Message;
-                return View(request);
-            }
         }
 
         [HttpGet]
