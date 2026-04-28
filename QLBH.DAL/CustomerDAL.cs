@@ -66,7 +66,7 @@ namespace QLBH.DAL
             }
             catch(Exception ex)
             {
-
+                throw new Exception(ex.Message);
             }
             finally
             {
@@ -106,7 +106,7 @@ namespace QLBH.DAL
             }
             catch(Exception ex)
             {
-
+                throw new Exception(ex.Message);
             }
             finally
             {
@@ -134,7 +134,7 @@ namespace QLBH.DAL
             }
             catch(Exception ex)
             {
-
+                throw new Exception(ex.Message);
             }
             finally
             {
@@ -171,7 +171,7 @@ namespace QLBH.DAL
             }
             catch(Exception ex)
             {
-
+                throw new Exception(ex.Message);
             }
             finally
             {
