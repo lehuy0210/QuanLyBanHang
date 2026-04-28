@@ -16,6 +16,8 @@ namespace QLBH.Web.Controllers
             _httpClientFactory = httpClientFactory;
         }
 
+        [HttpGet]
+        [HttpPost]
         public async Task<IActionResult> Index(int? CategoryID, int? SupplierID)
         {
             var client = _httpClientFactory.CreateClient();
