@@ -18,6 +18,11 @@ namespace QLBH.BLL
             return dalSanPham.getSanPham();
         }
 
+        public DataTable getSanPhamBiXoa()
+        {
+            return dalSanPham.getSanPhamBiXoa();
+        }
+
         public DataTable getSanPhamTimKiem(string tukhoa)
         {
             return dalSanPham.getSanPhamTimKiem(tukhoa);
@@ -70,6 +75,11 @@ namespace QLBH.BLL
         public bool xoaSanPham(int idSP)
         {
             return dalSanPham.xoaSanPham(idSP);
+        }
+
+        public bool capNhatSanPhamXoa(int idSP)
+        {
+            return dalSanPham.capNhatSanPhamXoa(idSP);
         }
     }
 }
