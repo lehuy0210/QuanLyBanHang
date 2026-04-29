@@ -22,6 +22,17 @@ namespace QLBH.DAL
             return dtSanPham;
         }
 
+        public DataTable getSanPhamBiXoa()
+        {
+            string query = "SELECT * FROM DanhSachSanPhamBiXoa";
+
+            SqlCommand cmd = new SqlCommand(query, _conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dtSanPhamBiXoa = new DataTable();
+            da.Fill(dtSanPhamBiXoa);
+            return dtSanPhamBiXoa;
+        }
+
         public DataTable getSanPhamTimKiem(string tukhoa)
         {
             string tenProc = "TimKiemSanPham";
@@ -172,6 +183,37 @@ namespace QLBH.DAL
 
             return false;
             
+        }
+
+        public bool capNhatSanPhamXoa(int idSP)
+        {
+            try
+            {
+                _conn.Open();
+
+                string tenProc = "CapNhatSanPhamXoa";
+                SqlCommand cmd = new SqlCommand(tenProc, _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("@ProductID", SqlDbType.Int).Value = idSP;
+
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    return true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                _conn.Close();
+            }
+
+            return false;
+
         }
     }
 }
