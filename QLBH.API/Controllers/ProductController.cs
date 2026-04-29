@@ -119,6 +119,29 @@ namespace QLBH.API.Controllers
                 });
             }
         }
+
+        [HttpGet("ListXoa")]
+        public IActionResult ListSanPhamBiXoa()
+        {
+            try
+            {
+                return Ok(bllSanPham.getSanPhamBiXoa());
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    error = new
+                    {
+                        userMessage = ex.Message,
+                        internalMessage = ex.InnerException?.Message,
+                        code = 50
+                    }
+                });
+            }
+        }
+
+
         [HttpGet("{id:int}")]
 
         public IActionResult GetById(int id)
@@ -129,7 +152,16 @@ namespace QLBH.API.Controllers
 
                 if (sp != null)
                 {
-                    return Ok(sp);
+                    return Ok(new ProductDTO
+                    {
+                        Id = id,
+                        Name = sp.Name,
+                        UnitsInStock = sp.UnitsInStock,
+                        Price = sp.Price,
+                        Quantity = sp.Quantity,
+                        CateId = sp.CateId,
+                        SupId = sp.SupId
+                    });
                 }
                 else
                 {
@@ -158,8 +190,10 @@ namespace QLBH.API.Controllers
             }
         }
         [HttpPut("{id:int}")]
-        public IActionResult Edit([FromBody] ProductDTO sp)
+        public IActionResult Edit(int id, [FromBody] ProductDTO sp)
         {
+            sp.Id = id;
+
             try
             {
                 if (bllSanPham.suaSanPham(sp))
@@ -210,6 +244,43 @@ namespace QLBH.API.Controllers
                         {
                             userMessage = "Sản phẩm không tồn tại",
                             internalMessage = "Không tìm thấy sản phẩm trong database để xóa",
+                            code = 34
+                        }
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    error = new
+                    {
+                        userMessage = ex.Message,
+                        internalMessage = ex.InnerException?.Message,
+                        code = 50
+                    }
+                });
+            }
+        }
+
+
+        [HttpPut("BanLai/{id:int}")]
+        public IActionResult BanLai(int id)
+        {
+            try
+            {
+                if (bllSanPham.capNhatSanPhamXoa(id))
+                {
+                    return Ok(true);
+                }
+                else
+                {
+                    return NotFound(new
+                    {
+                        error = new
+                        {
+                            userMessage = "Sản phẩm không tồn tại",
+                            internalMessage = "Không tìm thấy sản phẩm trong database để bán lại",
                             code = 34
                         }
                     });
