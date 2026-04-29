@@ -254,9 +254,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "QLBH.API.Controllers.OrderController",
+    "ContainingType": "QLBH.API.Controllers.OrderDetailController",
     "Method": "GetOrderDetailByCustomer",
-    "RelativePath": "api/Order/Customer/{idKH}",
+    "RelativePath": "api/OrderDetail/{idKH}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -320,13 +320,13 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "sp",
-        "Type": "QLBH.DTO.ProductDTO",
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": true
       },
       {
-        "Name": "id",
-        "Type": "",
+        "Name": "sp",
+        "Type": "QLBH.DTO.ProductDTO",
         "IsRequired": true
       }
     ],
@@ -350,8 +350,34 @@
   },
   {
     "ContainingType": "QLBH.API.Controllers.ProductController",
+    "Method": "BanLai",
+    "RelativePath": "api/Product/BanLai/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QLBH.API.Controllers.ProductController",
     "Method": "GetCategories",
     "RelativePath": "api/Product/categories",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QLBH.API.Controllers.ProductController",
+    "Method": "ListSanPhamBiXoa",
+    "RelativePath": "api/Product/ListXoa",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

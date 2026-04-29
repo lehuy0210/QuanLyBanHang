@@ -456,10 +456,10 @@
         }
       }
     },
-    "/api/Order/Customer/{idKH}": {
+    "/api/OrderDetail/{idKH}": {
       "get": {
         "tags": [
-          "Order"
+          "OrderDetail"
         ],
         "parameters": [
           {
@@ -548,6 +548,18 @@
         }
       }
     },
+    "/api/Product/ListXoa": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Product/{id}": {
       "get": {
         "tags": [
@@ -580,7 +592,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32"
             }
           }
         ],
@@ -615,6 +628,29 @@
         }
       },
       "delete": {
+        "tags": [
+          "Product"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Product/BanLai/{id}": {
+      "put": {
         "tags": [
           "Product"
         ],

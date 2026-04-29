@@ -1728,6 +1728,9 @@
         }
       },
       "QLBH.DTO/1.0.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.4"
+        },
         "runtime": {
           "QLBH.DTO.dll": {
             "assemblyVersion": "1.0.0.0",
