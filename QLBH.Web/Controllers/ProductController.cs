@@ -178,5 +178,25 @@ namespace QLBH.Web.Controllers
             }
             return RedirectToAction("List");
         }
+
+        public async Task<IActionResult> ListXoa()
+        {
+            var client = _httpClientFactory.CreateClient();
+
+            string apiProduct = "http://localhost:5003/api/Product/ListXoa";
+
+            var response = await client.GetAsync(apiProduct);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var jsonString = await response.Content.ReadAsStringAsync();
+
+                DataTable dt = JsonConvert.DeserializeObject<DataTable>(jsonString);
+
+                return View(dt);
+            }
+
+            return View(new DataTable());
+        }
     }
 }
