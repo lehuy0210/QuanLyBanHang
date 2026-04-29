@@ -51,7 +51,7 @@ namespace QLBH.DAL.Migrations
             // --- 2. TẠO CÁC VIEW (TÁCH RIÊNG TỪNG LỆNH) ---
             migrationBuilder.Sql("CREATE VIEW [dbo].[DanhSachDonHang] AS SELECT o.OrderID, c.ContactName, SUM(od.Quantity) AS Quantity, SUM(od.UnitPrice * od.Quantity) AS TotalPrice,o.OrderDate FROM dbo.Orders AS o INNER JOIN dbo.[Order Details] AS od ON o.OrderID = od.OrderID INNER JOIN dbo.Customers AS c ON o.CustomerID = c.CustomerID GROUP BY o.OrderID, c.ContactName,o.OrderDate;");
             migrationBuilder.Sql("CREATE VIEW [dbo].[DanhSachNhanVien] AS SELECT EmployeeID,LastName,FirstName,Address,City,Country,HomePhone,Username,Password FROM Employees;");
-            migrationBuilder.Sql("CREATE VIEW [dbo].[DanhSachSanPham] AS SELECT pr.ProductID, pr.ProductName, pr.UnitPrice, pr.QuantityPerUnit,pr.CategoryID, pr.SupplierID, cata.CategoryName, sup.CompanyName, pr.UnitsInStock FROM Products pr LEFT JOIN Suppliers sup ON pr.SupplierID = sup.SupplierID LEFT JOIN Categories cata ON pr.CategoryID = cata.CategoryID;");
+            migrationBuilder.Sql("CREATE VIEW [dbo].[DanhSachSanPham] AS SELECT pr.ProductID, pr.ProductName, pr.UnitPrice, pr.QuantityPerUnit,pr.CategoryID, pr.SupplierID, cata.CategoryName, sup.CompanyName, pr.UnitsInStock FROM Products pr LEFT JOIN Suppliers sup ON pr.SupplierID = sup.SupplierID LEFT JOIN Categories cata ON pr.CategoryID = cata.CategoryID WHERE (pr.Discontinued = 0);");
             migrationBuilder.Sql("CREATE VIEW [dbo].[DanhSachKhachHang] AS SELECT CustomerID, ContactName, Address, City, Country, Phone,Username,Password FROM Customers;");
             migrationBuilder.Sql("CREATE VIEW [dbo].[ChiTietDonHang] AS SELECT od.OrderID,c.ContactName,od.UnitPrice,od.Quantity,(od.UnitPrice * od.Quantity) AS TotalPrice FROM [Order Details] od INNER JOIN Orders o ON od.OrderID = o.OrderID INNER JOIN Customers c ON o.CustomerID = c.CustomerID;");
             migrationBuilder.Sql("CREATE VIEW [dbo].[Order Subtotals] AS SELECT OrderID, Sum(CONVERT(money,(UnitPrice*Quantity*(1-Discount)/100))*100) AS Subtotal FROM [Order Details] GROUP BY OrderID;");
@@ -138,11 +138,14 @@ GO
                     WHERE CustomerId = @CustomerID
                 END
                 ");
-            migrationBuilder.Sql(@"CREATE PROCEDURE [dbo].[LaySanPhamTheoId] (@ProductID INT) AS BEGIN SELECT ProductID, ProductName, UnitPrice, QuantityPerUnit, CategoryID, SupplierID FROM Products WHERE ProductID = @ProductID END;");
+            migrationBuilder.Sql(@"CREATE PROCEDURE [dbo].[LaySanPhamTheoId] (@ProductID INT) AS BEGIN SELECT ProductID, ProductName, UnitPrice, QuantityPerUnit, CategoryID, SupplierID,UnitsInStock FROM Products WHERE ProductID = @ProductID END;");
             migrationBuilder.Sql(@"CREATE PROC [dbo].[TimKiemSanPham] (@ProductName nvarchar(40)) AS BEGIN SELECT * FROM DanhSachSanPham WHERE ProductName LIKE '%' + @ProductName + '%' END;");
             migrationBuilder.Sql(@"CREATE PROC [dbo].[ThemSanPham] (@ProductName nvarchar(40), @UnitPrice money, @QuantityPerUnit nvarchar(20), @CategoryID int, @SupplierID int, @UnitsInStock smallint) AS BEGIN INSERT INTO Products(ProductName, UnitPrice, QuantityPerUnit, CategoryID, SupplierID,UnitsInStock) VALUES(@ProductName, @UnitPrice, @QuantityPerUnit, @CategoryID, @SupplierID,@UnitsInStock) END;");
             migrationBuilder.Sql(@"CREATE PROC [dbo].[SuaSanPham] (@ProductID int, @ProductName nvarchar(40), @UnitPrice money, @QuantityPerUnit nvarchar(20), @CategoryID int, @SupplierID int,@UnitsInStock smallint) AS BEGIN UPDATE Products SET ProductName = @ProductName, UnitPrice = @UnitPrice, QuantityPerUnit = @QuantityPerUnit, CategoryID = @CategoryID, SupplierID = @SupplierID, UnitsInStock = @UnitsInStock WHERE ProductID = @ProductID END;");
-            migrationBuilder.Sql(@"CREATE PROC [dbo].[XoaSanPham] (@ProductID int) AS BEGIN DELETE FROM Products WHERE ProductID = @ProductID END;");
+            migrationBuilder.Sql(@"CREATE PROC [dbo].[XoaSanPham] (@ProductID int) AS BEGIN 	UPDATE Products
+	SET Discontinued = 1
+	WHERE ProductID = @ProductID
+END;");
 
             migrationBuilder.Sql(@"
                 CREATE PROC [dbo].[HoaDonKhachHang]
@@ -205,6 +208,17 @@ GROUP BY o.OrderID,p.ProductName,p.UnitPrice,c.Address
                 END;
             ");
 
+            migrationBuilder.Sql(@"CREATE PROC CapNhatSanPhamXoa
+(
+    @ProductID int
+)
+AS
+BEGIN
+    UPDATE Products 
+    SET Discontinued = 0
+    WHERE ProductID = @ProductID
+END;");
+
             // --- 4. RÀNG BUỘC KHÓA NGOẠI (FOREIGN KEYS) ---
             migrationBuilder.Sql(@"
                 ALTER TABLE [dbo].[Products] WITH NOCHECK ADD CONSTRAINT [FK_Products_Categories] FOREIGN KEY([CategoryID]) REFERENCES [dbo].[Categories] ([CategoryID]);
@@ -240,6 +254,7 @@ GROUP BY o.OrderID,p.ProductName,p.UnitPrice,c.Address
             migrationBuilder.Sql("DROP PROCEDURE IF EXISTS [dbo].[LayDonHangTheoId];");
             migrationBuilder.Sql("DROP PROCEDURE IF EXISTS [dbo].[HoaDonKhachHang];");
             migrationBuilder.Sql("DROP PROCEDURE IF EXISTS [dbo].[CustOrderHist];");
+            migrationBuilder.Sql("DROP PROCEDURE IF EXISTS [dbo].[CapNhatSanPhamXoa];");
 
             // Drop Views
             migrationBuilder.Sql("DROP VIEW IF EXISTS [dbo].[Invoices];");
