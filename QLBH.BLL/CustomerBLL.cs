@@ -48,7 +48,7 @@ namespace QLBH.BLL
 
             for (int i = 0; i < kh.Phone.Length; i++)
             {
-                if (kh.Phone[i] < '0' && kh.Phone[i] > '9')
+                if (kh.Phone[i] < '0' || kh.Phone[i] > '9')
                 {
                     throw new Exception("Số điện thoại sai cú pháp");
                 }
