@@ -20,12 +20,12 @@ namespace QLBH.BLL
 
         public bool themNhanVien(EmployeeDTO nv)
         {
-            if(nv.LastName == null)
+            if(nv.LastName == "")
             {
                 throw new Exception("Họ không được để trống");
             }
 
-            if (nv.FirstName == null)
+            if (nv.FirstName == "")
             {
                 throw new Exception("Tên không được để trống");
             }
@@ -37,13 +37,13 @@ namespace QLBH.BLL
 
             for (int i = 0; i < nv.Phone.Length; i++)
             {
-                if (nv.Phone[i] < '0' && nv.Phone[i] > '9')
+                if (nv.Phone[i] < '0' || nv.Phone[i] > '9')
                 {
                     throw new Exception("Số điện thoại sai cú pháp");
                 }
             }
 
-            if (nv.Address == null)
+            if (nv.Address == "")
             {
                 throw new Exception("Địa chỉ không được để trống");
             }
