@@ -19,6 +19,11 @@ namespace QLBH.BLL
             return dalKhachHang.getKhachHang();
         }
 
+        public DataTable getKhachHangBiXoa()
+        {
+            return dalKhachHang.getKhachHangBiXoa();
+        }
+
         public bool themKhachHang(CustomerDTO kh)
         {
             if (kh.Name == "")
@@ -71,6 +76,11 @@ namespace QLBH.BLL
         public bool xoaKhachHang(string idKH)
         {
             return dalKhachHang.xoaKhachHang(idKH);
+        }
+
+        public bool capNhatKhachHangBiXoa(string idKH)
+        {
+            return dalKhachHang.capNhatKhachHangBiXoa(idKH);
         }
 
         public bool suaKhachHang(CustomerDTO kh)
