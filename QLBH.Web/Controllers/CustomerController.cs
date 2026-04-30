@@ -156,7 +156,7 @@ namespace QLBH.Web.Controllers
         [HttpGet("Customer/OrderDetail")]
         public async Task<IActionResult> OrderDetail()
         {
-            string currentUserId = User.FindFirst("UserId")?.Value;
+            string currentUserId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
 
             List<OrderDTO> model = new List<OrderDTO>();
 
@@ -287,6 +287,27 @@ namespace QLBH.Web.Controllers
             }
 
             return View(kh);
+        }
+
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> ListXoa()
+        {
+            var client = _httpClientFactory.CreateClient();
+
+            string apiCustomer = "http://localhost:5003/api/Customer/ListXoa";
+
+            var response = await client.GetAsync(apiCustomer);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var jsonString = await response.Content.ReadAsStringAsync();
+
+                DataTable dt = JsonConvert.DeserializeObject<DataTable>(jsonString);
+
+                return View(dt);
+            }
+
+            return View(new DataTable());
         }
     }
 }
