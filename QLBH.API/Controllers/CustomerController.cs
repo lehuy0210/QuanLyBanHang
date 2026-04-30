@@ -17,6 +17,12 @@ namespace QLBH.API.Controllers
             return Ok(bllKhachHang.getKhachHang());
         }
 
+        [HttpGet("ListXoa")]
+        public IActionResult ListKhachHangBiXoa()
+        {
+            return Ok(bllKhachHang.getKhachHangBiXoa());
+        }
+
         [HttpPost]
         public IActionResult Create([FromBody] CustomerDTO kh)
         {
@@ -155,6 +161,41 @@ namespace QLBH.API.Controllers
                     });
                 }
 
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    error = new
+                    {
+                        userMessage = ex.Message,
+                        internalMessage = ex.InnerException?.Message,
+                        code = 50
+                    }
+                });
+            }
+        }
+        [HttpPut("KhoiPhuc/{id}")]
+        public IActionResult KhoiPhuc(string id)
+        {
+            try
+            {
+                if (bllKhachHang.capNhatKhachHangBiXoa(id))
+                {
+                    return Ok(true);
+                }
+                else
+                {
+                    return NotFound(new
+                    {
+                        error = new
+                        {
+                            userMessage = "Không tìm thấy khách hàng này",
+                            internalMessage = "Không tìm thấy khách hàng trong database",
+                            code = 34
+                        }
+                    });
+                }
             }
             catch (Exception ex)
             {
