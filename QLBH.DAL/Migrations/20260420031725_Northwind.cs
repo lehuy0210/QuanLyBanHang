@@ -27,7 +27,7 @@ namespace QLBH.DAL.Migrations
                 CREATE TABLE [dbo].[CustomerCustomerDemo]([CustomerID] [nchar](5) NOT NULL, [CustomerTypeID] [nchar](10) NOT NULL, CONSTRAINT [PK_CustomerCustomerDemo] PRIMARY KEY ([CustomerID], [CustomerTypeID]));
             ");
 
-            var sqlFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "InertNorthwind.sql");
+            var sqlFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "InsertNorthwind.sql");
 
             if (!File.Exists(sqlFile))
             {
