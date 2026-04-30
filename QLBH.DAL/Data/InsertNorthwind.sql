@@ -8507,4 +8507,7 @@ go
 ALTER TABLE "Suppliers" CHECK CONSTRAINT ALL
 go
 
-UPDATE Employees SET Username = N'admin', Password = N'admin' WHERE EmployeeID = 1 
+UPDATE Employees SET Username = N'admin', Password = N'admin' WHERE EmployeeID = 1
+GO
+ALTER TABLE Customers
+ADD Discontinued bit NOT NULL DEFAULT 0;
