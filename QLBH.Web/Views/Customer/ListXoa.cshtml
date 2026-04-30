@@ -1,0 +1,83 @@
+﻿@using System.Data
+@model DataTable
+
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Danh sách khách hàng đã xóa";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Danh sách khách hàng đã xóa</h2>
+</div>
+
+<table class="table table-striped table-hover align-middle">
+    <thead class="table-dark">
+        <tr>
+            <th>Mã KH</th>
+            <th>Tên đăng nhập</th>
+            <th>Tên liên hệ</th>
+            <th>Địa chỉ</th>
+            <th>Thành phố</th>
+            <th>Quốc gia</th>
+            <th>Điện thoại</th>
+            <th class="text-center">Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Rows.Count > 0)
+        {
+            foreach (DataRow row in Model.Rows)
+            {
+                <tr>
+                    <td>@row["CustomerID"]</td>
+                    <td class="fw-bold text-primary">@row["Username"]</td>
+                    <td>@row["ContactName"]</td>
+                    <td>@row["Address"]</td>
+                    <td>@row["City"]</td>
+                    <td>@row["Country"]</td>
+                    <td>@row["Phone"]</td>
+                    <td class="text-center">
+                        <button class="btn btn-success btn-sm" onclick="goiApiKhoiPhuc('@row["CustomerID"]')">
+                            Khôi phục
+                        </button>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="8" class="text-center">Không có dữ liệu khách hàng bị xóa.</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    function goiApiKhoiPhuc(id) {
+        if (confirm('Bạn có chắc chắn muốn khôi phục khách hàng này không?')) {
+
+            const apiUrl = 'http://localhost:5003/api/Customer/KhoiPhuc/' + id;
+
+            fetch(apiUrl, {
+                method: 'PUT',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Đã khôi phục khách hàng thành công!');
+                    window.location.reload(); 
+                } else {
+                    alert('Lỗi: Không thể khôi phục khách hàng.');
+                }
+            })
+            .catch(error => {
+                console.error('Lỗi khi gọi API:', error);
+                alert('Lỗi kết nối đến server.');
+            });
+        }
+    }
+</script>
