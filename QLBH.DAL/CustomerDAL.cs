@@ -20,6 +20,16 @@ namespace QLBH.DAL
                 da.Fill(dtKhachHang);
                 return dtKhachHang;
             }
+        public DataTable getKhachHangBiXoa()
+        {
+            string query = "SELECT * FROM DanhSachKhachHangBiXoa";
+            SqlCommand cmd = new SqlCommand(query, _conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dtKhachHangBiXoa = new DataTable();
+            da.Fill(dtKhachHangBiXoa);
+            return dtKhachHangBiXoa;
+        }
+
 
         public bool themKhachHang(CustomerDTO kh)
         {
@@ -180,6 +190,33 @@ namespace QLBH.DAL
             return false;
         }
 
+        public bool capNhatKhachHangBiXoa(string idKH)
+        {
+            try
+            {
+                _conn.Open();
+
+                string tenProc = "capNhatKhachHangBiXoa";
+                SqlCommand cmd = new SqlCommand(tenProc, _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("@CustomerID", SqlDbType.Char, 5).Value = idKH;
+
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                _conn.Close();
+            }
+            return false;
+        }
 
 
     }
