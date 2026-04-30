@@ -218,6 +218,13 @@ BEGIN
     SET Discontinued = 0
     WHERE ProductID = @ProductID
 END;");
+            migrationBuilder.Sql(@"CREATE VIEW DanhSachSanPhamBiXoa
+AS
+SELECT    pr.ProductID, pr.ProductName, pr.UnitPrice, pr.QuantityPerUnit, pr.CategoryID, pr.SupplierID, cata.CategoryName, sup.CompanyName, pr.UnitsInStock
+FROM         dbo.Products AS pr LEFT OUTER JOIN
+                      dbo.Suppliers AS sup ON pr.SupplierID = sup.SupplierID LEFT OUTER JOIN
+                      dbo.Categories AS cata ON pr.CategoryID = cata.CategoryID
+WHERE     (pr.Discontinued = 1);");
 
             // --- 4. RÀNG BUỘC KHÓA NGOẠI (FOREIGN KEYS) ---
             migrationBuilder.Sql(@"
@@ -264,6 +271,7 @@ END;");
             migrationBuilder.Sql("DROP VIEW IF EXISTS [dbo].[DanhSachSanPham];");
             migrationBuilder.Sql("DROP VIEW IF EXISTS [dbo].[DanhSachNhanVien];");
             migrationBuilder.Sql("DROP VIEW IF EXISTS [dbo].[DanhSachDonHang];");
+            migrationBuilder.Sql("DROP VIEW IF EXISTS [dbo].[DanhSachSanPhamBiXoa];");
 
 
             // Tầng 1: Các bảng giao thoa/nhiều khóa ngoại nhất
