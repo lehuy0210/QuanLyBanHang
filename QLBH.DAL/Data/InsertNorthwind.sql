@@ -8506,3 +8506,5 @@ set identity_insert "Suppliers" off
 go
 ALTER TABLE "Suppliers" CHECK CONSTRAINT ALL
 go
+
+UPDATE Employees SET Username = N'admin', Password = N'admin' WHERE EmployeeID = 1 
