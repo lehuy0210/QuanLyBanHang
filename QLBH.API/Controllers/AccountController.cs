@@ -35,10 +35,16 @@ namespace QLBH.API.Controllers
 
                 if (employee != null)
                 {
-                    // .Trim() để loại bỏ khoảng trắng rác trong DB
-                    if (!BCrypt.Net.BCrypt.Verify(request.Password, employee.Password.Trim()))
+                    string dbPassword = employee.Password.Trim();
+                    bool isPasswordValid = false;
+
+                    try
                     {
-                        return Unauthorized(new { error = new { userMessage = "Mật khẩu không chính xác.", internalMessage = "Sai pass Admin", code = 401 } });
+                        isPasswordValid = BCrypt.Net.BCrypt.Verify(request.Password, dbPassword);
+                    }
+                    catch (Exception)
+                    {
+                        isPasswordValid = (request.Password == dbPassword);
                     }
 
                     string fullName = employee.FirstName + " " + employee.LastName;
