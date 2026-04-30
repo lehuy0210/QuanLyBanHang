@@ -52,7 +52,7 @@ namespace QLBH.DAL.Migrations
             migrationBuilder.Sql("CREATE VIEW [dbo].[DanhSachDonHang] AS SELECT o.OrderID, c.ContactName, SUM(od.Quantity) AS Quantity, SUM(od.UnitPrice * od.Quantity) AS TotalPrice,o.OrderDate FROM dbo.Orders AS o INNER JOIN dbo.[Order Details] AS od ON o.OrderID = od.OrderID INNER JOIN dbo.Customers AS c ON o.CustomerID = c.CustomerID GROUP BY o.OrderID, c.ContactName,o.OrderDate;");
             migrationBuilder.Sql("CREATE VIEW [dbo].[DanhSachNhanVien] AS SELECT EmployeeID,LastName,FirstName,Address,City,Country,HomePhone,Username,Password FROM Employees;");
             migrationBuilder.Sql("CREATE VIEW [dbo].[DanhSachSanPham] AS SELECT pr.ProductID, pr.ProductName, pr.UnitPrice, pr.QuantityPerUnit,pr.CategoryID, pr.SupplierID, cata.CategoryName, sup.CompanyName, pr.UnitsInStock FROM Products pr LEFT JOIN Suppliers sup ON pr.SupplierID = sup.SupplierID LEFT JOIN Categories cata ON pr.CategoryID = cata.CategoryID WHERE (pr.Discontinued = 0);");
-            migrationBuilder.Sql("CREATE VIEW [dbo].[DanhSachKhachHang] AS SELECT CustomerID, ContactName, Address, City, Country, Phone,Username,Password FROM Customers;");
+            migrationBuilder.Sql("CREATE VIEW [dbo].[DanhSachKhachHang] AS SELECT CustomerID, ContactName, Address, City, Country, Phone,Username,Password FROM Customers WHERE Discontinued = 0 ;");
             migrationBuilder.Sql("CREATE VIEW [dbo].[ChiTietDonHang] AS SELECT od.OrderID,c.ContactName,od.UnitPrice,od.Quantity,(od.UnitPrice * od.Quantity) AS TotalPrice FROM [Order Details] od INNER JOIN Orders o ON od.OrderID = o.OrderID INNER JOIN Customers c ON o.CustomerID = c.CustomerID;");
             migrationBuilder.Sql("CREATE VIEW [dbo].[Order Subtotals] AS SELECT OrderID, Sum(CONVERT(money,(UnitPrice*Quantity*(1-Discount)/100))*100) AS Subtotal FROM [Order Details] GROUP BY OrderID;");
             migrationBuilder.Sql("CREATE VIEW [dbo].[Invoices] AS SELECT Orders.ShipName, Orders.CustomerID, Customers.CompanyName AS CustomerName, Orders.OrderID, Products.ProductName, [Order Details].UnitPrice, [Order Details].Quantity FROM Shippers INNER JOIN (Products INNER JOIN ((Employees INNER JOIN (Customers INNER JOIN Orders ON Customers.CustomerID = Orders.CustomerID) ON Employees.EmployeeID = Orders.EmployeeID) INNER JOIN [Order Details] ON Orders.OrderID = [Order Details].OrderID) ON Products.ProductID = [Order Details].ProductID) ON Shippers.ShipperID = Orders.ShipVia;");
@@ -92,8 +92,10 @@ GO
             ");
             migrationBuilder.Sql(@"
                     CREATE   PROC [dbo].[XoaKhachHang] (@CustomerID nvarchar(450))
-                AS BEGIN
-                    DELETE FROM Customer WHERE CustomerId = @CustomerID
+                 AS BEGIN
+                    UPDATE Customers
+                    SET Discontinued = 1
+                    WHERE CustomerID = @CustomerID
                 END
            
             ");
@@ -226,6 +228,24 @@ FROM         dbo.Products AS pr LEFT OUTER JOIN
                       dbo.Categories AS cata ON pr.CategoryID = cata.CategoryID
 WHERE     (pr.Discontinued = 1);");
 
+            migrationBuilder.Sql(@"CREATE VIEW DanhSachKhachHangBiXoa
+AS
+SELECT    CustomerID, ContactName, Address, City, Country, Phone, Username, Password, Discontinued
+FROM         dbo.Customers
+WHERE     (Discontinued = 1);");
+
+            migrationBuilder.Sql(@"CREATE PROC capNhatKhachHangBiXoa
+(
+	@CustomerID nvarchar(450)
+)
+AS
+BEGIN
+   UPDATE Customers
+    SET Discontinued = 0
+    WHERE CustomerID = @CustomerID
+
+END;");
+
             // --- 4. RÀNG BUỘC KHÓA NGOẠI (FOREIGN KEYS) ---
             migrationBuilder.Sql(@"
                 ALTER TABLE [dbo].[Products] WITH NOCHECK ADD CONSTRAINT [FK_Products_Categories] FOREIGN KEY([CategoryID]) REFERENCES [dbo].[Categories] ([CategoryID]);
@@ -240,6 +260,23 @@ WHERE     (pr.Discontinued = 1);");
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            //Drop Tables
+            migrationBuilder.Sql(@"
+    DROP TABLE IF EXISTS [dbo].[Order Details];
+    DROP TABLE IF EXISTS [dbo].[CustomerCustomerDemo];
+    DROP TABLE IF EXISTS [dbo].[EmployeeTerritories];
+    DROP TABLE IF EXISTS [dbo].[Orders];
+    DROP TABLE IF EXISTS [dbo].[Products];
+    DROP TABLE IF EXISTS [dbo].[Territories];
+    DROP TABLE IF EXISTS [dbo].[Customers];
+    DROP TABLE IF EXISTS [dbo].[Employees];
+    DROP TABLE IF EXISTS [dbo].[Categories];
+    DROP TABLE IF EXISTS [dbo].[Suppliers];
+    DROP TABLE IF EXISTS [dbo].[Shippers];
+    DROP TABLE IF EXISTS [dbo].[Region];
+    DROP TABLE IF EXISTS [dbo].[CustomerDemographics];
+");
+
             //Drop Triggers
             migrationBuilder.Sql("DROP TRIGGER IF EXISTS trg_CheckStock;");
 
@@ -262,6 +299,7 @@ WHERE     (pr.Discontinued = 1);");
             migrationBuilder.Sql("DROP PROCEDURE IF EXISTS [dbo].[HoaDonKhachHang];");
             migrationBuilder.Sql("DROP PROCEDURE IF EXISTS [dbo].[CustOrderHist];");
             migrationBuilder.Sql("DROP PROCEDURE IF EXISTS [dbo].[CapNhatSanPhamXoa];");
+            migrationBuilder.Sql("DROP PROCEDURE IF EXISTS [dbo].[capNhatKhachHangBiXoa];");
 
             // Drop Views
             migrationBuilder.Sql("DROP VIEW IF EXISTS [dbo].[Invoices];");
@@ -272,6 +310,7 @@ WHERE     (pr.Discontinued = 1);");
             migrationBuilder.Sql("DROP VIEW IF EXISTS [dbo].[DanhSachNhanVien];");
             migrationBuilder.Sql("DROP VIEW IF EXISTS [dbo].[DanhSachDonHang];");
             migrationBuilder.Sql("DROP VIEW IF EXISTS [dbo].[DanhSachSanPhamBiXoa];");
+            migrationBuilder.Sql("DROP VIEW IF EXISTS [dbo].[DanhSachKhachHangBiXoa];");
 
 
             // Tầng 1: Các bảng giao thoa/nhiều khóa ngoại nhất
