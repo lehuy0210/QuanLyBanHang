@@ -111,6 +111,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "QLBH.API.Controllers.CustomerController",
+    "Method": "KhoiPhuc",
+    "RelativePath": "api/Customer/KhoiPhuc/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QLBH.API.Controllers.CustomerController",
+    "Method": "ListKhachHangBiXoa",
+    "RelativePath": "api/Customer/ListXoa",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "QLBH.API.Controllers.EmployeeController",
     "Method": "List",
     "RelativePath": "api/Employee",
