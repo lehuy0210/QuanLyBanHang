@@ -308,6 +308,7 @@
                 $.ajax({
                     url: '/Order/AddToCart',
                     type: 'POST',
+                    data: form.serialize(),
                     success: function (res) {
                         alert(res.message);
 
