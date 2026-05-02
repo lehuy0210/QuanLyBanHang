@@ -43,7 +43,7 @@ namespace QLBH.API.Controllers
 
                 foreach (var c in cart)
                 {
-               
+
                     orderDetails.Add(new OrderDetail
                     {
                         OrderId = newOrder.OrderId,
@@ -62,6 +62,41 @@ namespace QLBH.API.Controllers
                 transaction.Commit();
                 return Ok(new { Message = "Đã lưu vào DB thành công", OrderId = newOrder.OrderId });
             }
+
+            catch (DbUpdateException dbEx) 
+            {
+                transaction.Rollback(); 
+
+                // Kiểm tra xem lỗi có phải do SQL Server ném ra không
+                if (dbEx.InnerException is Microsoft.Data.SqlClient.SqlException sqlEx)
+                {
+                    // 50003 là mã mình đặt trong lệnh THROW của Trigger
+                    if (sqlEx.Number == 50003)
+                    {
+                        return BadRequest(new
+                        {
+                            error = new
+                            {
+                                userMessage = sqlEx.Message,
+                                internalMessage = "Trigger SQL Server chặn giao dịch do tồn kho không đủ",
+                                code = 50003
+                            }
+                        });
+                    }
+
+                }
+
+                return StatusCode(500, new
+                {
+                    error = new
+                    {
+                        userMessage = "Hệ thống gặp sự cố về cơ sở dữ liệu",
+                        internalMessage = dbEx.InnerException?.Message ?? dbEx.Message,
+                        code = 50
+                    }
+                });
+            }
+
             catch (Exception ex)
             {
                 transaction.Rollback();
