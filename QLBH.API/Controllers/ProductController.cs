@@ -78,7 +78,7 @@ namespace QLBH.API.Controllers
                         error = new
                         {
                             userMessage = "Không thể tạo mới dữ liệu sản phẩm",
-                            internalMessage = "Failed to insert product into the database",
+                            internalMessage = "Không thể thêm sản phẩm vào database",
                             code = 40
                         }
                     });
@@ -87,7 +87,7 @@ namespace QLBH.API.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new // Đã đổi thành 500 (hoặc bạn có thể để 400 tùy logic)
+                return StatusCode(500, new 
                 {
                     error = new
                     {
@@ -206,7 +206,7 @@ namespace QLBH.API.Controllers
                     {
                         error = new
                         {
-                            userMessage = "Không thể cập nhật thôngত্তি sản phẩm",
+                            userMessage = "Không thể cập nhật thông tin sản phẩm",
                             internalMessage = "Không cập nhật được sản phẩm trong database",
                             code = 40
                         }
