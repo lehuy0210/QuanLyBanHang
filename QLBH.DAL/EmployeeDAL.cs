@@ -11,7 +11,7 @@ namespace QLBH.DAL
 {
     public class EmployeeDAL : DbConnect
     {
-        public DataTable getKhachHang()
+        public DataTable getNhanVien()
         {
             string query = "SELECT * FROM DanhSachNhanVien";
             SqlCommand cmd = new SqlCommand(query, _conn);

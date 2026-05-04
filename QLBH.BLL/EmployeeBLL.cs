@@ -15,7 +15,7 @@ namespace QLBH.BLL
 
         public DataTable getNhanVien()
         {
-            return dalNV.getKhachHang();
+            return dalNV.getNhanVien();
         }
 
         public bool themNhanVien(EmployeeDTO nv)
