@@ -143,5 +143,24 @@ namespace QLBH.Web.Controllers
 
             return View(nv);
         }
+
+        public async Task<IActionResult> ListXoa()
+        {
+            var client = _httpClientFactory.CreateClient();
+            string apiEmployee = "http://localhost:5003/api/Employees/ListXoa";
+
+            var response = await client.GetAsync(apiEmployee);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var jsonString = await response.Content.ReadAsStringAsync();
+                DataTable dt = JsonConvert.DeserializeObject<DataTable>(jsonString);
+                return View(dt);
+            }
+
+            return View(new DataTable());
+        }
     }
+
+
 }

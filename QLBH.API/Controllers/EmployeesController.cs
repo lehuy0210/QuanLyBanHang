@@ -17,6 +17,12 @@ namespace QLBH.API.Controllers
             return Ok(bllNhanVien.getNhanVien());
         }
 
+        [HttpGet("ListXoa")]
+        public IActionResult ListKhachHangBiXoa()
+        {
+            return Ok(bllNhanVien.getNhanVienBiXoa());
+        }
+
         [HttpPost]
         public IActionResult Create([FromBody] EmployeeDTO nv)
         {
@@ -145,6 +151,42 @@ namespace QLBH.API.Controllers
                             userMessage = "Không thể cập nhật thông tin nhân viên",
                             internalMessage = "Không thể cập nhật nhân viên trong database",
                             code = 40
+                        }
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    error = new
+                    {
+                        userMessage = ex.Message,
+                        internalMessage = ex.InnerException?.Message,
+                        code = 50
+                    }
+                });
+            }
+        }
+
+        [HttpPut("KhoiPhuc/{id}")]
+        public IActionResult KhoiPhuc(int id)
+        {
+            try
+            {
+                if (bllNhanVien.CapNhatNhanVienBiXoa(id))
+                {
+                    return Ok(true);
+                }
+                else
+                {
+                    return NotFound(new
+                    {
+                        error = new
+                        {
+                            userMessage = "Không tìm thấy nhân viên này",
+                            internalMessage = "Không tìm thấy nhân viên trong database",
+                            code = 34
                         }
                     });
                 }

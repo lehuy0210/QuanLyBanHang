@@ -8511,3 +8511,6 @@ UPDATE Employees SET Username = N'admin', Password = N'admin' WHERE EmployeeID =
 GO
 ALTER TABLE Customers
 ADD Discontinued bit NOT NULL DEFAULT 0;
+
+ALTER TABLE Employees
+ADD Discontinued bit DEFAULT 0;

@@ -21,6 +21,16 @@ namespace QLBH.DAL
             return dtNhanVien;
         }
 
+        public DataTable getNhanVienBiXoa()
+        {
+            string query = "SELECT * FROM DanhSachNhanVienBiXoa";
+            SqlCommand cmd = new SqlCommand(query, _conn);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dtNhanVienBiXoa = new DataTable();
+            da.Fill(dtNhanVienBiXoa);
+            return dtNhanVienBiXoa;
+        }
+
         public bool themNhanVien(EmployeeDTO nv)
         {
             try
@@ -165,5 +175,35 @@ namespace QLBH.DAL
             }
             return false;
         }
+
+        public bool CapNhatNhanVienBiXoa(int idNV)
+        {
+            try
+            {
+                _conn.Open();
+
+                string tenProc = "CapNhatNhanVienBiXoa";
+                SqlCommand cmd = new SqlCommand(tenProc, _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("@EmployeeID", SqlDbType.Int).Value = idNV;
+
+
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                _conn.Close();
+            }
+            return false;
+        }
+
     }
 }
