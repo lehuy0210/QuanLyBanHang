@@ -9,11 +9,11 @@ namespace QLBH.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductController : ControllerBase
+    public class ProductsController : ControllerBase
     {
         private readonly ProductBLL bllSanPham = new ProductBLL();
         private readonly QLBH_DBContext _context;
-        public ProductController(QLBH_DBContext context)
+        public ProductsController(QLBH_DBContext context)
         {
             _context = context;
         }

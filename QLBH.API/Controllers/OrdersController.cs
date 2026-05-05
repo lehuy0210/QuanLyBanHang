@@ -10,12 +10,12 @@ namespace QLBH.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class OrderController : ControllerBase
+    public class OrdersController : ControllerBase
     {
         OrderBLL bllDonHang = new OrderBLL();
 
         private readonly QLBH_DBContext _context;
-        public OrderController(QLBH_DBContext context) { _context = context; }
+        public OrdersController(QLBH_DBContext context) { _context = context; }
 
         [HttpPost]
         public IActionResult CreateOrder(string customerId, [FromBody] List<OrderDTO> cart)

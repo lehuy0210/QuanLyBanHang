@@ -1,36 +1,30 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using QLBH.BLL;
 using QLBH.DTO;
-using QLBH.DAL;
+using System;
 
 namespace QLBH.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CustomerController : Controller
+    public class EmployeesController : Controller
     {
-        private readonly CustomerBLL bllKhachHang = new CustomerBLL();
+        private readonly EmployeeBLL bllNhanVien = new EmployeeBLL();
 
         [HttpGet]
         public IActionResult List()
         {
-            return Ok(bllKhachHang.getKhachHang());
-        }
-
-        [HttpGet("ListXoa")]
-        public IActionResult ListKhachHangBiXoa()
-        {
-            return Ok(bllKhachHang.getKhachHangBiXoa());
+            return Ok(bllNhanVien.getNhanVien());
         }
 
         [HttpPost]
-        public IActionResult Create([FromBody] CustomerDTO kh)
+        public IActionResult Create([FromBody] EmployeeDTO nv)
         {
             try
             {
-                if (bllKhachHang.themKhachHang(kh))
+                if (bllNhanVien.themNhanVien(nv))
                 {
-                    return Ok(new { success = true, message = "Thêm khách hàng thành công!" });
+                    return Ok(new { success = true, message = "Thêm nhân viên thành công!" });
                 }
                 else
                 {
@@ -38,38 +32,37 @@ namespace QLBH.API.Controllers
                     {
                         error = new
                         {
-                            userMessage = "Không thể tạo mới dữ liệu khách hàng",
-                            internalMessage = "Thất bại khi thêm khách hàng vào database",
+                            userMessage = "Không thể tạo mới dữ liệu nhân viên",
+                            internalMessage = "Thất bại khi thêm nhân viên vào database",
                             code = 40
                         }
                     });
                 }
-
             }
             catch (Exception ex)
             {
-                return StatusCode(400, new
+                return StatusCode(500, new
                 {
                     error = new
                     {
                         userMessage = ex.Message,
                         internalMessage = ex.InnerException?.Message,
-                        code = 40
+                        code = 50
                     }
                 });
             }
         }
 
-        [HttpGet("{id}")]
-        public IActionResult GetById(string id)
+        [HttpGet("{id}", Name = "GetEmployeeById")]
+        public IActionResult GetById(int id)
         {
             try
             {
-                var kh = bllKhachHang.layKHTheoID(id);
+                var nv = bllNhanVien.layNVTheoID(id);
 
-                if (kh != null)
+                if (nv != null)
                 {
-                    return Ok(kh);
+                    return Ok(nv);
                 }
                 else
                 {
@@ -77,8 +70,8 @@ namespace QLBH.API.Controllers
                     {
                         error = new
                         {
-                            userMessage = "Không tìm thấy khách hàng này",
-                            internalMessage = "Không tìm thấy khách hàng trong database",
+                            userMessage = "Không tìm thấy nhân viên này",
+                            internalMessage = "Không tìm thấy nhân viên trong database",
                             code = 34
                         }
                     });
@@ -99,11 +92,11 @@ namespace QLBH.API.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(string id)
+        public IActionResult Delete([FromRoute] int id)
         {
             try
             {
-                if (bllKhachHang.xoaKhachHang(id))
+                if (bllNhanVien.xoaNhanVien(id))
                 {
                     return Ok(true);
                 }
@@ -113,8 +106,8 @@ namespace QLBH.API.Controllers
                     {
                         error = new
                         {
-                            userMessage = "Không tìm thấy khách hàng này",
-                            internalMessage = "Không tìm thấy khách hàng trong database",
+                            userMessage = "Không tìm thấy nhân viên này",
+                            internalMessage = "Không tìm thấy nhân viên trong database để xóa",
                             code = 34
                         }
                     });
@@ -135,18 +128,13 @@ namespace QLBH.API.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Edit(string id, [FromBody] CustomerDTO kh)
+        public IActionResult Edit(int id, [FromBody] EmployeeDTO nv)
         {
-            if (id != kh.Id)
-            {
-                return BadRequest(new { message = "ID trên URL không khớp với dữ liệu gửi lên!" });
-            }
-
             try
             {
-                if (bllKhachHang.suaKhachHang(kh))
+                if (bllNhanVien.suaNhanVien(nv))
                 {
-                    return Ok(new { success = true, message = "Cập nhật khách hàng thành công!" });
+                    return Ok(new { success = true, message = "Cập nhật nhân viên thành công!" });
                 }
                 else
                 {
@@ -154,45 +142,9 @@ namespace QLBH.API.Controllers
                     {
                         error = new
                         {
-                            userMessage = "Không thể cập nhật thông tin khách hàng",
-                            internalMessage = "Không thể cập nhật khách hàng trong database",
+                            userMessage = "Không thể cập nhật thông tin nhân viên",
+                            internalMessage = "Không thể cập nhật nhân viên trong database",
                             code = 40
-                        }
-                    });
-                }
-
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new
-                {
-                    error = new
-                    {
-                        userMessage = ex.Message,
-                        internalMessage = ex.InnerException?.Message,
-                        code = 50
-                    }
-                });
-            }
-        }
-        [HttpPut("KhoiPhuc/{id}")]
-        public IActionResult KhoiPhuc(string id)
-        {
-            try
-            {
-                if (bllKhachHang.capNhatKhachHangBiXoa(id))
-                {
-                    return Ok(true);
-                }
-                else
-                {
-                    return NotFound(new
-                    {
-                        error = new
-                        {
-                            userMessage = "Không tìm thấy khách hàng này",
-                            internalMessage = "Không tìm thấy khách hàng trong database",
-                            code = 34
                         }
                     });
                 }
