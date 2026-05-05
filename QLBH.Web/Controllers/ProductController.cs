@@ -23,14 +23,14 @@ namespace QLBH.Web.Controllers
 
             var client = _httpClientFactory.CreateClient();
 
-            var resCat = await client.GetAsync("http://localhost:5003/api/Product/categories");
+            var resCat = await client.GetAsync("http://localhost:5003/api/Products/categories");
             if (resCat.IsSuccessStatusCode)
             {
                 var jsonCat = await resCat.Content.ReadAsStringAsync();
                 model.Categories = JsonConvert.DeserializeObject<List<CategoryDTO>>(jsonCat);
             }
 
-            var resSup = await client.GetAsync("http://localhost:5003/api/Product/suppliers");
+            var resSup = await client.GetAsync("http://localhost:5003/api/Products/suppliers");
             if (resSup.IsSuccessStatusCode)
             {
                 var jsonSup = await resSup.Content.ReadAsStringAsync();
@@ -53,7 +53,7 @@ namespace QLBH.Web.Controllers
         {
             var client = _httpClientFactory.CreateClient();
 
-            string apiThemSanPham = "http://localhost:5003/api/Product";
+            string apiThemSanPham = "http://localhost:5003/api/Products";
 
             var response = await client.PostAsJsonAsync(apiThemSanPham, sp);
 
@@ -81,7 +81,7 @@ namespace QLBH.Web.Controllers
         {
             var client = _httpClientFactory.CreateClient();
 
-            string apiProduct = "http://localhost:5003/api/Product";
+            string apiProduct = "http://localhost:5003/api/Products";
 
             var response = await client.GetAsync(apiProduct);
 
@@ -103,7 +103,7 @@ namespace QLBH.Web.Controllers
             var client = _httpClientFactory.CreateClient();
 
             // Sửa URL: API của bạn là [HttpGet("{id}")] (Truyền thẳng ID vào URL)
-            string apiLaySanPhamTheoId = $"http://localhost:5003/api/Product/{id}";
+            string apiLaySanPhamTheoId = $"http://localhost:5003/api/Products/{id}";
             var response = await client.GetAsync(apiLaySanPhamTheoId);
 
             var model = new ProductDTO();
@@ -128,7 +128,7 @@ namespace QLBH.Web.Controllers
         {
             var client = _httpClientFactory.CreateClient();
 
-            string apiSuaSanPham = $"http://localhost:5003/api/Product/{sp.Id}";
+            string apiSuaSanPham = $"http://localhost:5003/api/Products/{sp.Id}";
 
             var response = await client.PutAsJsonAsync(apiSuaSanPham, sp);
 
@@ -157,7 +157,7 @@ namespace QLBH.Web.Controllers
         {
             var client = _httpClientFactory.CreateClient();
 
-            string apiXoaSanPham = $"http://localhost:5003/api/Product/{id}";
+            string apiXoaSanPham = $"http://localhost:5003/api/Products/{id}";
 
             var response = await client.DeleteAsync(apiXoaSanPham);
 
@@ -183,7 +183,7 @@ namespace QLBH.Web.Controllers
         {
             var client = _httpClientFactory.CreateClient();
 
-            string apiProduct = "http://localhost:5003/api/Product/ListXoa";
+            string apiProduct = "http://localhost:5003/api/Products/ListXoa";
 
             var response = await client.GetAsync(apiProduct);
 

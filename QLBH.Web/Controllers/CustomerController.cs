@@ -22,7 +22,7 @@ namespace QLBH.Web.Controllers
         {
             var client = _httpClientFactory.CreateClient();
 
-            string apiCustomer = "http://localhost:5003/api/Customer";
+            string apiCustomer = "http://localhost:5003/api/Customers";
 
             var response = await client.GetAsync(apiCustomer);
 
@@ -51,7 +51,7 @@ namespace QLBH.Web.Controllers
         {
             var client = _httpClientFactory.CreateClient();
 
-            string apiThemKH = "http://localhost:5003/api/Customer";
+            string apiThemKH = "http://localhost:5003/api/Customers";
 
             var response = await client.PostAsJsonAsync(apiThemKH, kh);
 
@@ -78,7 +78,7 @@ namespace QLBH.Web.Controllers
         {
             var client = _httpClientFactory.CreateClient();
 
-            string apiXoaKhachHang = $"http://localhost:5003/api/Customer/{id}";
+            string apiXoaKhachHang = $"http://localhost:5003/api/Customers/{id}";
 
             var response = await client.DeleteAsync(apiXoaKhachHang);
 
@@ -105,7 +105,7 @@ namespace QLBH.Web.Controllers
         {
             var client = _httpClientFactory.CreateClient();
 
-            string apiLayKHTheoId = $"http://localhost:5003/api/Customer/{id}";
+            string apiLayKHTheoId = $"http://localhost:5003/api/Customers/{id}";
             var response = await client.GetAsync(apiLayKHTheoId);
 
             var model = new CustomerDTO();
@@ -134,7 +134,7 @@ namespace QLBH.Web.Controllers
         {
             var client = _httpClientFactory.CreateClient();
 
-            string apiSuaKhachHang = $"http://localhost:5003/api/Customer/{id}";
+            string apiSuaKhachHang = $"http://localhost:5003/api/Customers/{id}";
 
             var response = await client.PutAsJsonAsync(apiSuaKhachHang, kh);
 
@@ -191,7 +191,7 @@ namespace QLBH.Web.Controllers
 
             var client = _httpClientFactory.CreateClient();
 
-            string apiLayKhachHang = $"http://localhost:5003/api/Customer/{currentUserId}";
+            string apiLayKhachHang = $"http://localhost:5003/api/Customers/{currentUserId}";
             var response = await client.GetAsync(apiLayKhachHang);
 
             if (response.IsSuccessStatusCode)
@@ -226,7 +226,7 @@ namespace QLBH.Web.Controllers
 
             var client = _httpClientFactory.CreateClient();
 
-            string apiLayKHTheoId = $"http://localhost:5003/api/Customer/{id}";
+            string apiLayKHTheoId = $"http://localhost:5003/api/Customers/{id}";
             var response = await client.GetAsync(apiLayKHTheoId);
 
             var model = new CustomerDTO();
@@ -260,7 +260,7 @@ namespace QLBH.Web.Controllers
 
             var client = _httpClientFactory.CreateClient();
 
-            string apiGet = $"http://localhost:5003/api/Customer/{id}";
+            string apiGet = $"http://localhost:5003/api/Customers/{id}";
             var resOld = await client.GetAsync(apiGet);
             if (resOld.IsSuccessStatusCode)
             {
@@ -271,7 +271,7 @@ namespace QLBH.Web.Controllers
                 kh.Id = id; 
             }
 
-            string apiSuaKhachHang = $"http://localhost:5003/api/Customer/{id}";
+            string apiSuaKhachHang = $"http://localhost:5003/api/Customers/{id}";
 
             var response = await client.PutAsJsonAsync(apiSuaKhachHang, kh);
 
@@ -294,7 +294,7 @@ namespace QLBH.Web.Controllers
         {
             var client = _httpClientFactory.CreateClient();
 
-            string apiCustomer = "http://localhost:5003/api/Customer/ListXoa";
+            string apiCustomer = "http://localhost:5003/api/Customers/ListXoa";
 
             var response = await client.GetAsync(apiCustomer);
 

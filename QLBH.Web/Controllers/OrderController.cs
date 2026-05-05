@@ -54,7 +54,7 @@ namespace QLBH.Web.Controllers
                         try
                         {
                             using var client = new HttpClient();
-                            var response = await client.GetAsync($"http://localhost:5003/api/Product/GetByID?id={productId}");
+                            var response = await client.GetAsync($"http://localhost:5003/api/Products/GetByID?id={productId}");
                             if (response.IsSuccessStatusCode)
                             {
                                 var productData = await response.Content.ReadFromJsonAsync<ProductDTO>();
@@ -104,7 +104,7 @@ namespace QLBH.Web.Controllers
 
             // Dùng HttpClient để gửi dữ liệu sang API
             using var client = new HttpClient();
-            var response = await client.PostAsJsonAsync($"http://localhost:5003/api/Order?customerId={customerId}", cart);
+            var response = await client.PostAsJsonAsync($"http://localhost:5003/api/Orders?customerId={customerId}", cart);
 
             if (response.IsSuccessStatusCode)
             {
@@ -194,7 +194,7 @@ namespace QLBH.Web.Controllers
                 using var client = new HttpClient();
 
                 // LƯU Ý: Sửa lại port 5003 thành port thực tế API của bạn đang chạy
-                var response = await client.GetAsync("http://localhost:5003/api/Order");
+                var response = await client.GetAsync("http://localhost:5003/api/Orders");
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -239,7 +239,7 @@ namespace QLBH.Web.Controllers
 
             using (HttpClient client = new HttpClient())
             {
-                HttpResponseMessage response = await client.GetAsync($"http://localhost:5003/api/Order/{id}");
+                HttpResponseMessage response = await client.GetAsync($"http://localhost:5003/api/Orders/{id}");
 
                 if (response.IsSuccessStatusCode)
                 {

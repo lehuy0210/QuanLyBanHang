@@ -21,7 +21,7 @@ namespace QLBH.Web.Controllers
         public async Task<IActionResult> List()
         {
             var client = _httpClientFactory.CreateClient();
-            string apiEmployee = "http://localhost:5003/api/Employee";
+            string apiEmployee = "http://localhost:5003/api/Employees";
 
             var response = await client.GetAsync(apiEmployee);
 
@@ -46,7 +46,7 @@ namespace QLBH.Web.Controllers
         public async Task<IActionResult> Create(EmployeeDTO nv)
         {
             var client = _httpClientFactory.CreateClient();
-            string apiThemNV = "http://localhost:5003/api/Employee";
+            string apiThemNV = "http://localhost:5003/api/Employees";
 
             var response = await client.PostAsJsonAsync(apiThemNV, nv);
 
@@ -72,7 +72,7 @@ namespace QLBH.Web.Controllers
         public async Task<IActionResult> Delete(int id)
         {
             var client = _httpClientFactory.CreateClient();
-            string apiXoaNhanVien = $"http://localhost:5003/api/Employee/{id}";
+            string apiXoaNhanVien = $"http://localhost:5003/api/Employees/{id}";
 
             var response = await client.DeleteAsync(apiXoaNhanVien);
 
@@ -98,7 +98,7 @@ namespace QLBH.Web.Controllers
         public async Task<IActionResult> Edit(int id)
         {
             var client = _httpClientFactory.CreateClient();
-            string apiLayNVTheoId = $"http://localhost:5003/api/Employee/{id}";
+            string apiLayNVTheoId = $"http://localhost:5003/api/Employees/{id}";
 
             var response = await client.GetAsync(apiLayNVTheoId);
             var model = new EmployeeDTO();
@@ -121,7 +121,7 @@ namespace QLBH.Web.Controllers
         public async Task<IActionResult> Edit(int id, EmployeeDTO nv)
         {
             var client = _httpClientFactory.CreateClient();
-            string apiSuaNhanVien = $"http://localhost:5003/api/Employee/{id}";
+            string apiSuaNhanVien = $"http://localhost:5003/api/Employees/{id}";
 
             var response = await client.PutAsJsonAsync(apiSuaNhanVien, nv);
 

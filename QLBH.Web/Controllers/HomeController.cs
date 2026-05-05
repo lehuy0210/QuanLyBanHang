@@ -22,16 +22,16 @@ namespace QLBH.Web.Controllers
         {
             var client = _httpClientFactory.CreateClient();
 
-            string apiProductList = "http://localhost:5003/api/Product";
+            string apiProductList = "http://localhost:5003/api/Products";
 
-            var resCat = await client.GetAsync("http://localhost:5003/api/Product/categories");
+            var resCat = await client.GetAsync("http://localhost:5003/api/Products/categories");
             if (resCat.IsSuccessStatusCode)
             {
                 var jsonCat = await resCat.Content.ReadAsStringAsync();
                 ViewBag.Categories = JsonConvert.DeserializeObject<List<CategoryDTO>>(jsonCat);
             }
 
-            var resSup = await client.GetAsync("http://localhost:5003/api/Product/suppliers");
+            var resSup = await client.GetAsync("http://localhost:5003/api/Products/suppliers");
             if (resSup.IsSuccessStatusCode)
             {
                 var jsonSup = await resSup.Content.ReadAsStringAsync();
