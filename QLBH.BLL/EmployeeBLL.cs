@@ -18,6 +18,11 @@ namespace QLBH.BLL
             return dalNV.getNhanVien();
         }
 
+        public DataTable getNhanVienBiXoa()
+        {
+            return dalNV.getNhanVienBiXoa();
+        }
+
         public bool themNhanVien(EmployeeDTO nv)
         {
             if(nv.LastName == "")
@@ -94,6 +99,11 @@ namespace QLBH.BLL
 
 
             return dalNV.suaNhanVien(nv);
+        }
+
+        public bool CapNhatNhanVienBiXoa(int idNV)
+        {
+            return dalNV.CapNhatNhanVienBiXoa(idNV);
         }
     }
 }
