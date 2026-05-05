@@ -57,7 +57,7 @@
     function goiApiKhoiPhuc(id) {
         if (confirm('Bạn có chắc chắn muốn khôi phục khách hàng này không?')) {
 
-            const apiUrl = 'http://localhost:5003/api/Customer/KhoiPhuc/' + id;
+            const apiUrl = 'http://localhost:5003/api/Customers/KhoiPhuc/' + id;
 
             fetch(apiUrl, {
                 method: 'PUT',

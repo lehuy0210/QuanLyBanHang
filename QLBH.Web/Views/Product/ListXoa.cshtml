@@ -53,7 +53,7 @@
     function goiApiBanLai(id) {
         if (confirm('Bạn có chắc chắn muốn bán lại sản phẩm này không?')) {
 
-            const apiUrl = 'http://localhost:5003/api/Product/BanLai/' + id;
+            const apiUrl = 'http://localhost:5003/api/Products/BanLai/' + id;
 
             fetch(apiUrl, {
                 method: 'PUT',
