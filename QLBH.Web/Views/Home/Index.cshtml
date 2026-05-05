@@ -37,7 +37,7 @@
                                 {
                                     foreach (var cat in ViewBag.Categories)
                                     {
-                                        var isSelected = (selectedCatId == cat.Id.ToString()) ? "selected" : "";
+                                        bool isSelected = (selectedCatId == cat.Id.ToString());
                                         <option value="@cat.Id" class="@isSelected">@cat.Name</option>
                                     }
                                 }
@@ -52,7 +52,7 @@
                                 {
                                     foreach (var sup in ViewBag.Suppliers)
                                     {
-                                        var isSelected = (selectedSupId == sup.Id.ToString()) ? "selected" : "";
+                                        bool isSelected = (selectedSupId == sup.Id.ToString());
                                         <option value="@sup.Id" class="@isSelected">@sup.Name</option>
                                     }
                                 }
