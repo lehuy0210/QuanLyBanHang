@@ -108,7 +108,7 @@ namespace QLBH.API.Controllers
                 // LOGIC TẠO ID TỰ ĐỘNG (KH001, KH002...)
                 string idMoi = "KH001";
                 var result = await _context.Customers
-                    .Where(c => c.CustomerId.StartsWith("KH"))
+                    .Where(c => c.CustomerId.Contains("KH"))
                     .OrderByDescending(c => c.CustomerId)
                     .Select(c => c.CustomerId)
                     .FirstOrDefaultAsync();
